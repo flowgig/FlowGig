@@ -1,0 +1,51 @@
+##################################################################################################################
+#                                                                                                                #
+#  Replace ~/Code with the path to where the flowgig project folder resides on your system                       #
+#                                                                                                                #
+#  Add the following to your systems hosts file: 10.0.0.10  flowgig.app                                          #
+#                                                                                                                #
+#  Remove this instructions block (everything above ---)                                                         #
+#                                                                                                                #
+#  Save file as Homestead.yaml (it should be git-ignored) and keep this file (Homestead.yaml.example) unchanged  #
+#                                                                                                                #
+#  Run vagrant up in project root :-)                                                                            #
+#                                                                                                                #
+##################################################################################################################
+
+
+---
+ip: "10.0.0.10"
+memory: 2048
+cpus: 1
+hostname: flowgig
+name: flowgig
+provider: virtualbox
+
+authorize: ~/.ssh/id_rsa.pub
+
+keys:
+    - ~/.ssh/id_rsa
+
+folders:
+    - map: "~/Code/flowgig"
+      to: "/home/vagrant/flowgig"
+
+sites:
+    - map: flowgig.app
+      to: "/home/vagrant/flowgig/public"
+
+databases:
+    - flowgig
+
+# blackfire:
+#     - id: foo
+#       token: bar
+#       client-id: foo
+#       client-token: bar
+
+# ports:
+#     - send: 50000
+#       to: 5000
+#     - send: 7777
+#       to: 777
+#       protocol: udp
