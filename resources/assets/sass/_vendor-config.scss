@@ -1,0 +1,19 @@
+@font-face {
+  font-family: 'Lato';
+  src: url('/assets/fonts/Lato-Regular.ttf');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url('/assets/fonts/Lato-Bold.ttf');
+  font-weight: bold;
+}
+
+$heading-font: "Lato",sans-serif;
+$normal-font: "Lato",sans-serif;
+
+$body-background: #f9f9f9;
+$primary-color: #BE2791;
+$primary-color-light: #c72c9b;
+$primary-color-dark: #b3278d;
