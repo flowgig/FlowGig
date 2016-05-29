@@ -19,21 +19,20 @@
     "test",
     "tests"
   ],
-  "dependencies": {
+  "devDependencies": {
     "jquery": "^2.2.2",
     "masonry": "^4.0.0",
     "imagesloaded": "^4.1.0",
     "components-font-awesome": "^4.5.0"
   },
-  "version": "0.0.2",
-  "_release": "0.0.2",
+  "version": "0.0.3",
+  "_release": "0.0.3",
   "_resolution": {
     "type": "version",
-    "tag": "v0.0.2",
-    "commit": "38bfb6b7be0ec55f0960561f32e289800e715487"
+    "tag": "v0.0.3",
+    "commit": "9c1e6c682d3969149b4679d88dc388273c073991"
   },
   "_source": "https://github.com/benjamindehli/Simple-GUI-Template.git",
-  "_target": "^0.0.2",
-  "_originalSource": "simple-gui-template",
-  "_direct": true
+  "_target": "^0.0.3",
+  "_originalSource": "simple-gui-template"
 }
