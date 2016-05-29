@@ -1,4 +1,5 @@
 var elixir = require('laravel-elixir');
+var config = require('./gulp-config.json');
 
 /*
  |--------------------------------------------------------------------------
@@ -12,5 +13,9 @@ var elixir = require('laravel-elixir');
  */
 
 elixir(function(mix) {
-    mix.sass(['app.scss', 'vendor.scss']);
+    mix.sass(config.paths.css);
+});
+
+elixir(function(mix) {
+    mix.scripts(config.paths.js);
 });
