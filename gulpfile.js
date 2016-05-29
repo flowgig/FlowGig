@@ -19,3 +19,7 @@ elixir(function(mix) {
 elixir(function(mix) {
     mix.scripts(config.paths.js);
 });
+
+elixir(function(mix) {
+    mix.copy(config.paths.fonts, 'public/fonts');
+});

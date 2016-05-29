@@ -4,8 +4,7 @@
       "./bower_components/jquery/dist/jquery.min.js",
       "./bower_components/masonry/dist/masonry.pkgd.min.js",
       "./bower_components/imagesloaded/imagesloaded.pkgd.js",
-      "./bower_components/simple-gui-template/assets/js/main.js",
-      "src/js/*.js"
+      "./bower_components/simple-gui-template/assets/js/main.js"
     ],
     "css": [
       "./bower_components/components-font-awesome/css/font-awesome.min.css",
@@ -13,7 +12,8 @@
       "app.scss"
     ],
     "fonts": [
-      "./bower_components/components-font-awesome/fonts/*.{otf,eot,svg,ttf,woff,woff2}"
+      "./bower_components/simple-gui-template/assets/fonts/*.{otf,eot,svg,ttf,woff,woff2}",
+      "./resources/assets/fonts/*.{otf,eot,svg,ttf,woff,woff2}"
     ],
     "images": [
       "src/images/**/*.{png,jpg,jpeg,svg,gif}"
