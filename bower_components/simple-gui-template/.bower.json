@@ -1,0 +1,39 @@
+{
+  "name": "simple-gui-template",
+  "description": "Simple website GUI template",
+  "main": [
+    "Gulpfile.js",
+    "package.json",
+    "gulp-config.json.example",
+    "src"
+  ],
+  "authors": [
+    "Benjamin Dehli <superelg@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/benjamindehli/Simple-GUI-Template",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.2",
+    "masonry": "^4.0.0",
+    "imagesloaded": "^4.1.0",
+    "components-font-awesome": "^4.5.0"
+  },
+  "version": "0.0.2",
+  "_release": "0.0.2",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.0.2",
+    "commit": "38bfb6b7be0ec55f0960561f32e289800e715487"
+  },
+  "_source": "https://github.com/benjamindehli/Simple-GUI-Template.git",
+  "_target": "^0.0.2",
+  "_originalSource": "simple-gui-template",
+  "_direct": true
+}
