@@ -10,12 +10,12 @@
 
 @font-face {
   font-family: 'Lato';
-  src: url("/assets/fonts/Lato-Regular.ttf");
+  src: url("/fonts/Lato-Regular.ttf");
   font-weight: normal; }
 
 @font-face {
   font-family: 'Lato';
-  src: url("/assets/fonts/Lato-Bold.ttf");
+  src: url("/fonts/Lato-Bold.ttf");
   font-weight: bold; }
 
 * {
@@ -28,7 +28,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background-color: #f9f9f9;
+  background-color: #3f3f3f;
   font-family: 'Lato', Helvetica, Arial, sans-serif;
   font-size: 12pt;
   -webkit-font-smoothing: antialiased;
@@ -236,7 +236,7 @@ button:active, button:focus, input[type="button"]:active, input[type="button"]:f
   min-width: 88px;
   border-radius: 3px;
   font-size: 14px;
-  color: #BE2727;
+  color: #C32A22;
   line-height: 32px;
   display: inline-block;
   margin: 0 8px;
@@ -247,7 +247,7 @@ button:active, button:focus, input[type="button"]:active, input[type="button"]:f
   .button-flat:not([disabled]):hover {
     background-color: rgba(158, 158, 158, 0.2); }
   .button-flat:not([disabled]):active {
-    background: rgba(190, 39, 137, 0.15); }
+    background-color: rgba(195, 42, 34, 0.15); }
   .button-flat[disabled] {
     color: rgba(0, 0, 0, 0.26);
     background-color: transparent; }
@@ -257,11 +257,17 @@ button:active, button:focus, input[type="button"]:active, input[type="button"]:f
   transition: box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), background-color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); }
 
 .button-raised:not([disabled]):active {
-  background: rgba(190, 39, 137, 0.15);
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4); }
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+  background-color: rgba(195, 42, 34, 0.15); }
 
 .button-raised[disabled] {
   color: rgba(0, 0, 0, 0.26); }
+
+.button-primary {
+  background-color: #C32A22;
+  color: #FFFFFF; }
+  .button-primary:not([disabled]):active {
+    background-color: rgba(195, 42, 34, 0.85); }
 
 .input-group input[type="text"], .input-group input[type="password"] {
   width: 100%;
@@ -285,7 +291,7 @@ button:active, button:focus, input[type="button"]:active, input[type="button"]:f
     height: 28px;
     display: inline-block; }
   .input-group input[type="text"]:focus, .input-group input[type="password"]:focus {
-    border-bottom: 2px solid #BE2727;
+    border-bottom: 2px solid #C32A22;
     outline: none; }
   .input-group input[type="text"]:focus, .input-group input[type="text"].is-not-empty, .input-group input[type="password"]:focus, .input-group input[type="password"].is-not-empty {
     margin-bottom: 5px; }
@@ -295,7 +301,7 @@ button:active, button:focus, input[type="button"]:active, input[type="button"]:f
     .input-group input[type="text"].is-not-empty + label:after, .input-group input[type="password"].is-not-empty + label:after {
       content: ":"; }
   .input-group input[type="text"]:focus + label, .input-group input[type="password"]:focus + label {
-    color: #BE2727;
+    color: #C32A22;
     bottom: 55px;
     font-size: 16px; }
     .input-group input[type="text"]:focus + label:after, .input-group input[type="password"]:focus + label:after {
@@ -931,11 +937,11 @@ pre.code-example {
           background-color: rgba(0, 0, 0, 0.1);
           cursor: pointer; }
         .left-menu > div ul li a.active {
-          border-left: 2px solid #BE2727; }
+          border-left: 2px solid #C32A22; }
     .left-menu > div input[type=radio] {
       display: none; }
       .left-menu > div input[type=radio]:checked + label {
-        border-left: 2px solid #BE2727; }
+        border-left: 2px solid #C32A22; }
 
 .left-menu ul {
   padding: 0; }
@@ -1001,7 +1007,7 @@ input[type="radio"]:focus,
 input[type="radio"]:focus + label,
 .input-group:active input[type="radio"],
 .input-group:active input[type="radio"] + label {
-  color: #BE2727; }
+  color: #C32A22; }
 
 input[type="checkbox"]:before {
   content: "\f096"; }
