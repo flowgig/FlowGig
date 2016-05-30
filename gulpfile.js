@@ -14,12 +14,7 @@ var config = require('./gulp-config.json');
 
 elixir(function(mix) {
     mix.sass(config.paths.css);
-});
-
-elixir(function(mix) {
     mix.scripts(config.paths.js);
-});
-
-elixir(function(mix) {
     mix.copy(config.paths.fonts, 'public/fonts');
+    mix.copy(config.paths.images, 'public/images');
 });

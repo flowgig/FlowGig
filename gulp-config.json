@@ -12,7 +12,7 @@
       "./resources/assets/fonts/*.{otf,eot,svg,ttf,woff,woff2}"
     ],
     "images": [
-      "src/images/**/*.{png,jpg,jpeg,svg,gif}"
+      "./resources/assets/images/**/*.{png,jpg,jpeg,svg,gif}"
     ],
     "php": [
       "./bower_components/simple-gui-template/assets/php/**/*.php"
