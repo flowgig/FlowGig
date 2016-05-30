@@ -43,8 +43,14 @@
         }
 
         .login-box {
-            min-width: 350px;
+            width: 355px;
+            max-width: 100%;
+        }
+
+        .login-box > .content{
             margin-top: 10px;
+            width: 355px;
+            max-width: 100%;
         }
 
         button[disabled]:hover {
@@ -56,8 +62,8 @@
 <div class="container">
     <div class="content">
         <div class="title">FlowGig</div>
-        <div class="box z-2">
-            <div class="content login-box">
+        <div class="box z-2 login-box">
+            <div class="content">
                 <div class="input-group">
                     <input id="username" type="text"/><label for="username">Username</label>
                 </div>
