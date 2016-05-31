@@ -24,7 +24,7 @@
             text-align: center;
             display: table-cell;
             vertical-align: middle;
-            background-color: rgba(0, 0, 0, .3);
+            background-color: rgba(0, 0, 0, .5);
         }
 
         .content {
@@ -72,7 +72,7 @@
                 </div>
                 <div class="input-group float-right">
                     <button class="button button-flat" disabled="disabled">Register</button>
-                    <button class="button button-primary button-raised">Log in</button>
+                    <button class="button button-primary">Log in</button>
                     <div class="clearfix"></div>
                 </div>
             </div>
@@ -80,6 +80,5 @@
     </div>
 </div>
 <script src="/js/all.js" type="application/javascript"></script>
-
 </body>
 </html>
