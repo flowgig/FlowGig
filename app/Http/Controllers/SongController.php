@@ -26,7 +26,7 @@ class SongController extends Controller
      */
     public function create()
     {
-        //
+        return view('song.create');
     }
 
     /**
@@ -48,7 +48,7 @@ class SongController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('song.show', ['song' => Song::findOrFail($id)]);
     }
 
     /**
@@ -59,7 +59,7 @@ class SongController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('song.edit', ['song' => Song::findOrFail($id)]);
     }
 
     /**
