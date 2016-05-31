@@ -43,33 +43,33 @@ class SongController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param Song $song
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Song $song)
     {
-        return view('song.show', ['song' => Song::findOrFail($id)]);
+        return view('song.show', ['song' => $song]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param Song $song
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Song $song)
     {
-        return view('song.edit', ['song' => Song::findOrFail($id)]);
+        return view('song.edit', ['song' => $song]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param Song $song
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Song $song)
     {
         //
     }
@@ -77,10 +77,10 @@ class SongController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param Song $song
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Song $song)
     {
         //
     }
