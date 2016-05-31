@@ -16,7 +16,7 @@ class SongController extends Controller
      */
     public function index()
     {
-        return view('songs.list', ['songs' => Song::get()]);
+        return view('song.index', ['songs' => Song::get()]);
     }
 
     /**
