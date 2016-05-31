@@ -16,5 +16,11 @@ Route::get('/', function () {
 });
 
 Route::get('/songs', function () {
-    return App\Song::get();
+
 });
+
+Route::get('/songs',
+    [
+        'as' => 'songs.list',
+        'uses' => 'SongController@index'
+    ]);
