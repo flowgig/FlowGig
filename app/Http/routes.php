@@ -15,12 +15,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/songs', function () {
-
-});
-
-Route::get('/songs',
-    [
-        'as' => 'songs.list',
-        'uses' => 'SongController@index'
-    ]);
+Route::resource('song', 'SongController');
