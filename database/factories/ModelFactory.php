@@ -23,7 +23,7 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 $factory->define(App\Song::class, function (Faker\Generator $faker) {
     return [
         'title' => rtrim($faker->realText(20, 3), ".,:;'-"),
-        'musicBy' => $faker->name,
-        'lyricsBy' => $faker->name
+        'music_by' => $faker->name,
+        'lyrics_by' => $faker->name
     ];
 });
