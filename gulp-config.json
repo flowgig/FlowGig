@@ -1,7 +1,10 @@
 {
   "paths": {
     "js": [
-      "./bower_components/simple-gui-template/assets/js/main.js"
+      "./bower_components/simple-gui-template/assets/js/main.js",
+      "./node_modules/vue/dist/vue.min.js",
+      "./node_modules/vue-sortable/vue-sortable.js"
+
     ],
     "css": [
       "vendor.scss",
