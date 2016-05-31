@@ -1,1 +1,3 @@
 show the song <i>{{ $song->title }}</i> ...
+<br /><br />
+<a href="{{ route('song.index') }}">list</a>
