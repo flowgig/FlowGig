@@ -16,7 +16,7 @@ class SetlistController extends Controller
      */
     public function index()
     {
-        return Setlist::get();
+        return view('setlist.index', ['setlists' => Setlist::get()]);
     }
 
     /**
@@ -26,7 +26,7 @@ class SetlistController extends Controller
      */
     public function create()
     {
-        return 'create setlist';
+        return view('setlist.create');
     }
 
     /**
@@ -48,7 +48,7 @@ class SetlistController extends Controller
      */
     public function show(Setlist $setlist)
     {
-        return 'show the setlist: ' . $setlist->title;
+        return view('setlist.show', ['setlist' => $setlist]);
     }
 
     /**
@@ -59,7 +59,7 @@ class SetlistController extends Controller
      */
     public function edit(Setlist $setlist)
     {
-        return 'edit the setlist: ' . $setlist->title;
+        return view('setlist.edit', ['setlist' => $setlist]);
     }
 
     /**
