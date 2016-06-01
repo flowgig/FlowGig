@@ -16,3 +16,5 @@ Route::get('/', function () {
 });
 
 Route::resource('song', 'SongController');
+
+Route::resource('setlist', 'SetlistController');
