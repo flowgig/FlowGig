@@ -35,6 +35,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
   color: #212121; }
 
+a, a:visited {
+  color: #C32A22;
+  text-decoration: none; }
+
 p {
   margin: .5em 0; }
 
@@ -797,6 +801,15 @@ button:active, button:focus, input[type="button"]:active, input[type="button"]:f
 .grid-sizer {
   margin: 0;
   min-height: 0; }
+
+ul.list {
+  list-style: none;
+  padding: 0; }
+  ul.list li {
+    padding: 10px 5px 2px;
+    border-bottom: 1px solid #EEE; }
+  ul.list.hover-list li:hover {
+    background-color: rgba(195, 42, 34, 0.05); }
 
 audio {
   background: #000;
