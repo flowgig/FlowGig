@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Setlist;
+use App\Song;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -59,7 +60,8 @@ class SetlistController extends Controller
      */
     public function edit(Setlist $setlist)
     {
-        return view('setlist.edit', ['setlist' => $setlist]);
+        $repertoire = Song::get(); // TODO: Scope to band
+        return view('setlist.edit', ['setlist' => $setlist, 'repertoire' => $repertoire]);
     }
 
     /**
