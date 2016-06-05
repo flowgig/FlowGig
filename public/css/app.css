@@ -2251,11 +2251,23 @@ button:active, button:focus, input[type="button"]:active, input[type="button"]:f
 .float-left {
   float: left; }
 
+.text-left {
+  text-align: left; }
+
+.text-center {
+  text-align: center; }
+
+.text-right {
+  text-align: right; }
+
 .clearfix {
   clear: both; }
 
 .inline {
   display: inline-block; }
+
+.block {
+  display: block; }
 
 .box {
   border-radius: 2px;
@@ -2343,9 +2355,13 @@ button:active, button:focus, input[type="button"]:active, input[type="button"]:f
 
 .button-primary {
   background-color: #C32A22;
-  color: #FFFFFF;
+  color: #FFFFFF !important;
   transition: background .2s .1s; }
   .button-primary:not([disabled]):active {
+    background-color: rgba(195, 42, 34, 0.85); }
+  .button-primary.button-flat:hover {
+    background-color: rgba(195, 42, 34, 0.95); }
+  .button-primary.button-flat:not([disabled]):active {
     background-color: rgba(195, 42, 34, 0.85); }
 
 .input-group input[type="text"], .input-group input[type="password"] {
