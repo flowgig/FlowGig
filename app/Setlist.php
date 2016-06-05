@@ -14,4 +14,12 @@ class Setlist extends Model
     protected $fillable = [
         'title', 'description'
     ];
+
+    /**
+     * Get the setlist songs for the setlist.
+     */
+    public function setlistSongs()
+    {
+        return $this->hasMany('App\SetlistSong');
+    }
 }

@@ -6,6 +6,7 @@
             <div class="content">
                 <p>edit the setlist <i>{{ $setlist->title }}</i> ...</p>
                 @include('setlist._repertoire', $repertoire)
+                @include('setlist._setlistsongs', ['setlistSongs' => $setlist->setlistSongs])
                 <div class="block text-right">
                     <a class="button button-flat button-primary" href="{{ route('setlist.index') }}">Back to list</a>
                 </div>
