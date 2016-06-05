@@ -12,7 +12,7 @@ class SetlistsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('setlists')->truncate();
+        DB::table('setlists')->delete();
 
         Setlist::create(['title' => 'Christmas Gig']);
 

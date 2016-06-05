@@ -12,7 +12,7 @@ class SongsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('songs')->truncate();
+        DB::table('songs')->delete();
 
         factory(App\Song::class, 50)->create();
     }
