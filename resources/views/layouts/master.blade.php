@@ -7,7 +7,9 @@
 <body>
 <nav class="navbar navbar-dark z-2">
     <a class="sidenav-toggle hide-big"><i class="sidenav-toggle-logo fa fa-bars"></i></a>
-    <a class="logo">FlowGig</a>
+    <a class="logo">
+        <img src="/images/svg/flowgig-logo-white.svg" alt="FlowGig logo" />
+    </a>
     <span class="menu-divider hide-xsmall"></span>
     <span class="hide-big hide-xsmall"></span>
     <div class="main-menu hide-medium hide-small hide-xsmall float-right">
@@ -23,7 +25,7 @@
     <div>
         <div class="sidenav-logo">
             <a class="sidenav-toggle">
-                <img src=""/>
+                <img src="/images/svg/flowgig-logo-black.svg" alt="FlowGig logo" />
                 <i class="fa fa-angle-left float-right"></i>
             </a>
         </div>

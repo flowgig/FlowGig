@@ -43,13 +43,13 @@
         }
 
         .login-box {
-            width: 355px;
             max-width: 100%;
+            border-radius: 7px;
         }
 
-        .login-box > .content{
+        .login-box > .content {
             margin-top: 10px;
-            width: 355px;
+            width: 100%;
             max-width: 100%;
         }
 
@@ -61,7 +61,9 @@
 <body>
 <div class="container">
     <div class="content">
-        <div class="title">FlowGig</div>
+        <div class="title">
+            <img src="/images/svg/flowgig-logo-white.svg" alt="FlowGig logo"/>
+        </div>
         <div class="box z-2 login-box">
             <div class="content">
                 <div class="input-group">
