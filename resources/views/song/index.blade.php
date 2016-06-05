@@ -6,8 +6,15 @@
             <div class="content">
                 <ul class="list">
                     @foreach($songs as $song)
-                        <li><a href="{{ route('song.show', $song) }}">show</a>
-                            <a href="{{ route('song.edit', $song) }}">edit</a> {{ $song->title }} </li>
+                        <li>
+                            <a class="button button-icon button-flat tooltip" title="Show {{$song->title}}" href="{{ route('song.show', $song) }}">
+                                <span class="fa fa-eye"></span>
+                            </a>
+                            <a class="button button-icon button-flat tooltip" title="Edit {{$song->title}}" href="{{ route('song.edit', $song) }}">
+                                <span class="fa fa-pencil"></span>
+                            </a>
+                            {{ $song->title }}
+                        </li>
                     @endforeach
                 </ul>
             </div>

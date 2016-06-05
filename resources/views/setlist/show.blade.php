@@ -5,7 +5,9 @@
         <div class="box z-1">
             <div class="content">
                 <p>show the setlist <i>{{ $setlist->title }}</i> ...</p>
-                <a href="{{ route('setlist.index') }}">list</a>
+                <div class="block text-right">
+                    <a class="button button-flat button-primary" href="{{ route('setlist.index') }}">Back to list</a>
+                </div>
             </div>
         </div>
     </div>
