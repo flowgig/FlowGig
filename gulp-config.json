@@ -3,7 +3,9 @@
     "js": [
       "./bower_components/simple-gui-template/assets/js/main.js",
       "./node_modules/vue/dist/vue.min.js",
-      "./node_modules/vue-sortable/demo/dist/build.js"
+      "./node_modules/sortablejs/Sortable.min.js",
+      "./node_modules/vue-sortable/vue-sortable.js",
+      "./resources/assets/js/app.js"
     ],
     "css": [
       "vendor.scss",
