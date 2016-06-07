@@ -57,6 +57,18 @@
 <meta name="msapplication-TileImage" content="/images/favicon/mstile-144x144.png">
 <meta name="msapplication-config" content="/images/favicon/browserconfig.xml">
 <meta name="theme-color" content="#ffffff"></head>
+
+<script src="/js/all.js" type="application/javascript"></script>
+<style>
+    .handle{
+        font-family: FontAwesome;
+        font-style: normal;
+    }
+    .handle:before {
+
+        content: "\f047";
+    }
+</style>
 <body>
 <nav class="navbar navbar-dark z-2">
     <a class="sidenav-toggle hide-big"><i class="sidenav-toggle-logo fa fa-bars"></i></a>
@@ -93,6 +105,5 @@
         @yield('content')
     </div>
 </div>
-<script src="/js/all.js" type="application/javascript"></script>
 </body>
 </html>
