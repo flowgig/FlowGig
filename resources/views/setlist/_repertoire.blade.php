@@ -1,6 +1,14 @@
-<h3>Repertoire:</h3>
-<ul class="list">
-    @foreach($repertoire as $song)
-        <li> {{ $song->title }} </li>
-    @endforeach
-</ul>
+<div class="modal-header">Repertoire:</div>
+<div class="modal-content">
+    <ul class="list">
+        <li v-on:click="addSong(song)" v-for="song in repertoire">
+            @{{ song.title }}
+            <small>
+                (
+                @{{ song.music_by }} /
+                @{{ song.lyrics_by }}
+                )
+            </small>
+        </li>
+    </ul>
+</div>
