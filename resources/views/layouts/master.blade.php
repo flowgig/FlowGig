@@ -65,17 +65,10 @@
         background-color: rgba(195, 42, 34, 0.15);
         cursor: move;
     }
-    .list.list-clickable li:hover{
-        cursor: pointer;
-    }
 
     .list.sortable-list:hover,
     .list.sortable-list:active{
         cursor: move;
-    }
-
-    .input-group input+label:hover{
-        cursor: text;
     }
 
 </style>

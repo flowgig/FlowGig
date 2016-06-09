@@ -2416,7 +2416,8 @@ button:active, button:focus, input[type="button"]:active, input[type="button"]:f
     /* Safari */
     transition: all .2s;
     height: 28px;
-    display: block; }
+    display: block;
+    cursor: text; }
   .input-group input[type="text"]:focus, .input-group input[type="password"]:focus {
     border-bottom: 2px solid #C32A22;
     outline: none; }
@@ -2430,7 +2431,8 @@ button:active, button:focus, input[type="button"]:active, input[type="button"]:f
   .input-group input[type="text"]:focus + label, .input-group input[type="password"]:focus + label {
     color: #C32A22;
     bottom: 55px;
-    font-size: 16px; }
+    font-size: 16px;
+    cursor: default; }
     .input-group input[type="text"]:focus + label:after, .input-group input[type="password"]:focus + label:after {
       content: ":"; }
 
@@ -2932,6 +2934,8 @@ ul.list {
     border-bottom: 1px solid #EEE; }
   ul.list.hover-list li:hover {
     background-color: rgba(195, 42, 34, 0.05); }
+  ul.list.list-clickable li:hover {
+    cursor: pointer; }
 
 audio {
   background: #000;
