@@ -2183,19 +2183,19 @@ button:active, button:focus, input[type="button"]:active, input[type="button"]:f
   z-index: 20;
   -webkit-transition: all .2s;
   transition: all .2s; }
-  .action-button::after {
-    content: "\f129";
-    font-family: FontAwesome;
+  .action-button.active {
+    bottom: 0;
+    box-shadow: none; }
+    .action-button.active .icon {
+      font-family: FontAwesome; }
+      .action-button.active .icon::before {
+        content: "\f00d"; }
+  .action-button .icon {
     text-align: center;
     width: 100%;
     display: inline-block;
     font-size: 28pt;
     line-height: 56px; }
-  .action-button.active {
-    bottom: 0;
-    box-shadow: none; }
-    .action-button.active::after {
-      content: "\f00d"; }
 
 .action-menu {
   position: fixed;
@@ -2212,12 +2212,14 @@ button:active, button:focus, input[type="button"]:active, input[type="button"]:f
   -webkit-transition: all .2s;
   transition: all .2s;
   z-index: 1; }
+  .action-menu .toggle-action-button {
+    display: none; }
   .action-menu .toggle-action-button,
   .action-menu .toggle-action-button.active {
     color: transparent;
     background-color: transparent;
     padding: 0;
-    margin-right: -3px; }
+    margin-right: -4px; }
     .action-menu .toggle-action-button .icon,
     .action-menu .toggle-action-button.active .icon {
       font-size: 28pt;
@@ -2226,13 +2228,19 @@ button:active, button:focus, input[type="button"]:active, input[type="button"]:f
   .action-menu.active {
     width: 100%;
     right: 0; }
-    .action-menu.active .toggle-action-button .icon::after {
-      color: #FFF;
-      opacity: .8;
-      -webkit-transition: all .2s;
-      transition: all .2s; }
-    .action-menu.active .toggle-action-button:hover, .action-menu.active .toggle-action-button.active {
-      opacity: 1; }
+    .action-menu.active .toggle-action-button {
+      display: inline-block; }
+      .action-menu.active .toggle-action-button.active {
+        background-color: #FFFFFF; }
+        .action-menu.active .toggle-action-button.active .icon {
+          background-color: rgba(190, 39, 145, 0.85); }
+      .action-menu.active .toggle-action-button .icon::after, .action-menu.active .toggle-action-button .icon::before {
+        color: #FFF;
+        opacity: .8;
+        -webkit-transition: all .2s;
+        transition: all .2s; }
+      .action-menu.active .toggle-action-button:hover .icon::after, .action-menu.active .toggle-action-button:hover .icon::before, .action-menu.active .toggle-action-button.active .icon::after, .action-menu.active .toggle-action-button.active .icon::before {
+        opacity: 1; }
 
 @media (min-width: 768px) {
   .action-button {
@@ -2262,6 +2270,31 @@ button:active, button:focus, input[type="button"]:active, input[type="button"]:f
 
 .action-menu.active .toggle-action-button.active.google {
   background-color: #db4437; }
+
+.actionbar-modal {
+  position: fixed;
+  width: 100%;
+  height: 400px;
+  max-height: 100%;
+  bottom: 60px;
+  left: 0;
+  z-index: 1;
+  display: none;
+  padding-bottom: 30px;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.26); }
+  .actionbar-modal .modal-header {
+    background-color: #BE2791;
+    color: #FFF;
+    font-size: 14pt;
+    font-weight: bold;
+    line-height: 18pt;
+    padding: 4px; }
+  .actionbar-modal .modal-content {
+    background: #FFF;
+    max-height: 100%;
+    width: 100%;
+    overflow: auto;
+    padding: 6px; }
 
 .float-right {
   float: right; }
@@ -2915,7 +2948,8 @@ button:active, button:focus, input[type="button"]:active, input[type="button"]:f
 
 ul.list {
   list-style: none;
-  padding: 0; }
+  padding: 0;
+  margin: 0; }
   ul.list li {
     padding: 10px 5px 2px;
     border-bottom: 1px solid #EEE; }

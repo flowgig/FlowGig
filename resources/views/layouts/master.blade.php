@@ -68,6 +68,32 @@
 
         content: "\f047";
     }
+    .sortable-chosen{
+        background-color: rgba(195, 42, 34, 0.15);
+        cursor: move;
+    }
+    .list li{
+        transition: background .2s .1s;
+        border-left: 4px solid transparent;
+    }
+    .list li:hover{
+       /* border-left: 4px solid #C32A22;*/
+    }
+
+    .list.sortable-list:hover,
+    .list.sortable-list:active{
+        cursor: move;
+    }
+
+    .action-button .icon{
+        text-align: center;
+        width: 100%;
+        display: inline-block;
+        font-size: 28pt;
+        line-height: 56px;
+    }
+
+
 </style>
 <body>
 <nav class="navbar navbar-dark z-2">
