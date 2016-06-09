@@ -3,6 +3,7 @@
 @section('content')
     <div id="setlist" xmlns:v-on="http://www.w3.org/1999/xhtml">
         <div class="content">
+
             <div class="box z-1">
                 <div class="content">
                     <p>edit the setlist <i>{{ $setlist->title }}</i> ...</p>
@@ -17,18 +18,18 @@
             @include('setlist._repertoire', $repertoire)
         </div>
         <div id="repertoire" class="actionbar-modal add-song-modal">
-            <div class="modal-header">Repertoire:</div>
+            <div class="modal-header">Add new song:</div>
             <div class="modal-content">
                 <div class="input-group">
-                    <input id="title" type="text"/><label for="title">Title</label>
+                    <input id="title" v-model="newSong.title" type="text"/><label for="title">Title</label>
                 </div>
                 <div class="input-group">
-                    <input id="lyrics_by" type="text"/><label for="lyrics_by">Lyrics by</label>
+                    <input id="lyrics_by" v-model="newSong.lyrics_by" type="text"/><label for="lyrics_by">Lyrics by</label>
                 </div>
                 <div class="input-group">
-                    <input id="music_by" type="text"/><label for="music_by">Music by</label>
+                    <input id="music_by" v-model="newSong.music_by" type="text"/><label for="music_by">Music by</label>
                 </div>
-                <button v-on:click="addSong(song)">add</button>
+                <button class="button button-flat button-primary" v-on:click="addSong(newSong)">Add song</button>
 
             </div>
 
@@ -52,7 +53,8 @@
             el: '#setlist',
             data: {
                 setlistSongs: {!!  $setlist->setlistSongs !!},
-                repertoire: {!!  $repertoire !!}
+                repertoire: {!!  $repertoire !!},
+                newSong: {}
             },
             methods: {
                 addSong: function (song) {
