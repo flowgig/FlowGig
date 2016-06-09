@@ -45,6 +45,12 @@
         .login-box {
             max-width: 100%;
             border-radius: 7px;
+            width: 360px;
+        }
+        @media (max-width: 360px){
+            .login-box{
+                width: 100%;
+            }
         }
 
         .login-box > .content {
