@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Setlist;
 use App\Song;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 
 use App\Http\Requests;
 
@@ -74,6 +75,32 @@ class SetlistController extends Controller
     public function update(Request $request, Setlist $setlist)
     {
         //
+    }
+
+    /**
+     * Export the setlist to file.
+     *
+     * @param Setlist $setlist
+     * @return \Illuminate\Http\Response
+     */
+    public function exportPreview(Setlist $setlist)
+    {
+        return view('setlist.exportlayout', ['setlist' => $setlist]);
+    }
+
+    /**
+     * Export the setlist to file.
+     *
+     * @param Setlist $setlist
+     * @return \Illuminate\Http\Response
+     */
+    public function export(Setlist $setlist)
+    {
+        $pdf = App::make('dompdf.wrapper');
+
+        $pdf->loadView('setlist.exportlayout', ['setlist' => $setlist]);
+
+        return $pdf->stream($setlist->title);
     }
 
     /**

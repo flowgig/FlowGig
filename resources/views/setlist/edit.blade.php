@@ -14,6 +14,10 @@
                 <span class="icon fa fa-plus">
                 </span>
         </button>
+        <button class="toggle-action-button toggle-elements tooltip" data-type="radio" title="Export setlist" value="export-setlist-modal">
+                <span class="icon fa fa-download">
+                </span>
+        </button>
     </div>
     <div id="repertoire" class="actionbar-modal repertoire-modal">
         @include('setlist._repertoire', $repertoire)
@@ -31,6 +35,15 @@
                 <input id="music_by" v-model="newSong.music_by" type="text"/><label for="music_by">Music by</label>
             </div>
             <button class="button button-flat button-primary" v-on:click="addSong(newSong)">Add song</button>
+        </div>
+    </div>
+    <div id="repertoire" class="actionbar-modal export-setlist-modal">
+        <div class="modal-header">Export setlist:</div>
+        <div class="modal-content">
+            <div class="input-group">
+                <a href="{{ route('setlist.export-preview', $setlist) }}" target="_blank" class="button" /><label for="preview">Preview</label>
+                <a href="{{ route('setlist.export', $setlist) }}" target="_blank" class="button" /><label for="export">Export to PDF</label>
+           </div>
         </div>
     </div>
     <div class="main-content">

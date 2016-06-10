@@ -15,6 +15,20 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Songs
+
 Route::resource('song', 'SongController');
+
+// Setlists
+
+Route::get('setlist/{setlist}/export-preview', [
+        'as' => 'setlist.export-preview',
+        'uses' => 'SetlistController@exportPreview'
+    ]);
+
+Route::get('setlist/{setlist}/export', [
+        'as' => 'setlist.export',
+        'uses' => 'SetlistController@export'
+    ]);
 
 Route::resource('setlist', 'SetlistController');
