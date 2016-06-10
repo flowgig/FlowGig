@@ -71,6 +71,26 @@
         cursor: move;
     }
 
+
+    @media (min-width: 1160px) {
+        .actionbar-modal{
+            width: 0;
+            -webkit-transition: all .2s;
+            transition: all .2s .4s;
+            left: -40%;
+        }
+        body.modal-active .actionbar-modal{
+            width: 40%;
+            left: 60px;
+            -webkit-transition: all .2s;
+            transition: all .2s .4s;
+        }
+        body.modal-active .main-content{
+            margin-left: 40%;
+            padding-left: 60px;
+        }
+    }
+
 </style>
 <body>
 <nav class="navbar navbar-dark z-2">
@@ -103,10 +123,8 @@
         </ul>
     </div>
 </div>
-<div class="main-content">
-    <div class="container">
+
         @yield('content')
-    </div>
-</div>
+
 </body>
 </html>
