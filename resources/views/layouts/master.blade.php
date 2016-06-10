@@ -28,64 +28,66 @@
     <meta name="twitter:image:src" content="">
     -->
 
-<meta name="apple-mobile-web-app-title" content="FlowGig">
-<meta name="application-name" content="FlowGig">
-<meta name="apple-mobile-web-app-title" content="FlowGig">
-<meta name="application-name" content="FlowGig">
-<meta name="apple-mobile-web-app-title" content="FlowGig">
-<meta name="application-name" content="FlowGig">
-<link rel="apple-touch-icon" sizes="57x57" href="/images/favicon/apple-touch-icon-57x57.png">
-<link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-touch-icon-60x60.png">
-<link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-touch-icon-72x72.png">
-<link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-touch-icon-76x76.png">
-<link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-touch-icon-114x114.png">
-<link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-touch-icon-120x120.png">
-<link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-touch-icon-144x144.png">
-<link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-touch-icon-152x152.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon-180x180.png">
-<link rel="icon" type="image/png" href="/images/favicon/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="/images/favicon/favicon-194x194.png" sizes="194x194">
-<link rel="icon" type="image/png" href="/images/favicon/favicon-96x96.png" sizes="96x96">
-<link rel="icon" type="image/png" href="/images/favicon/android-chrome-192x192.png" sizes="192x192">
-<link rel="icon" type="image/png" href="/images/favicon/favicon-16x16.png" sizes="16x16">
-<link rel="manifest" href="/images/favicon/manifest.json">
-<link rel="mask-icon" href="/images/favicon/safari-pinned-tab.svg" color="#c32a22">
-<link rel="shortcut icon" href="/images/favicon/favicon.ico">
-<meta name="apple-mobile-web-app-title" content="FlowGig">
-<meta name="application-name" content="FlowGig">
-<meta name="msapplication-TileColor" content="#c32a22">
-<meta name="msapplication-TileImage" content="/images/favicon/mstile-144x144.png">
-<meta name="msapplication-config" content="/images/favicon/browserconfig.xml">
-<meta name="theme-color" content="#ffffff"></head>
+    <meta name="apple-mobile-web-app-title" content="FlowGig">
+    <meta name="application-name" content="FlowGig">
+    <meta name="apple-mobile-web-app-title" content="FlowGig">
+    <meta name="application-name" content="FlowGig">
+    <meta name="apple-mobile-web-app-title" content="FlowGig">
+    <meta name="application-name" content="FlowGig">
+    <link rel="apple-touch-icon" sizes="57x57" href="/images/favicon/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="/images/favicon/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/images/favicon/favicon-194x194.png" sizes="194x194">
+    <link rel="icon" type="image/png" href="/images/favicon/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="/images/favicon/android-chrome-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="/images/favicon/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="/images/favicon/manifest.json">
+    <link rel="mask-icon" href="/images/favicon/safari-pinned-tab.svg" color="#c32a22">
+    <link rel="shortcut icon" href="/images/favicon/favicon.ico">
+    <meta name="apple-mobile-web-app-title" content="FlowGig">
+    <meta name="application-name" content="FlowGig">
+    <meta name="msapplication-TileColor" content="#c32a22">
+    <meta name="msapplication-TileImage" content="/images/favicon/mstile-144x144.png">
+    <meta name="msapplication-config" content="/images/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+</head>
 
 <script src="/js/all.js" type="application/javascript"></script>
 <style>
 
-    .sortable-chosen{
+    .sortable-chosen {
         background-color: rgba(195, 42, 34, 0.15);
         cursor: move;
     }
 
     .list.sortable-list:hover,
-    .list.sortable-list:active{
+    .list.sortable-list:active {
         cursor: move;
     }
 
-
     @media (min-width: 1160px) {
-        .actionbar-modal{
+        .actionbar-modal {
             width: 0;
             -webkit-transition: all .2s;
             transition: all .2s .4s;
             left: -40%;
         }
-        body.modal-active .actionbar-modal{
+
+        body.modal-active .actionbar-modal {
             width: 40%;
             left: 60px;
             -webkit-transition: all .2s;
             transition: all .2s .4s;
         }
-        body.modal-active .main-content{
+
+        body.modal-active .main-content {
             margin-left: 40%;
             padding-left: 60px;
         }
@@ -124,7 +126,8 @@
     </div>
 </div>
 
-        @yield('content')
+@yield('content')
+
 
 </body>
 </html>

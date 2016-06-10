@@ -5,7 +5,7 @@
     <div class="action-button">
         <i class="icon fa fa-plus"></i>
     </div>
-    <div class="action-menu">
+    <div class="action-menu" id="action-menu">
         <button class="toggle-action-button toggle-elements tooltip" data-type="radio" title="Add song from repertoire" value="repertoire-modal">
             <span class="icon fa fa-list">
             </span>
