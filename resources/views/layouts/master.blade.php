@@ -93,6 +93,21 @@
         .list.sortable-list:active {
             cursor: move;
         }
+        .left-menu > div ul li a{
+            padding: 10px 20px;
+        }
+        .left-menu > div .sidenav-logo img{
+            margin-left: 25px;
+            margin-top: 5px;
+        }
+
+        .navbar-page-title{
+            color: #FFFFFF;
+            font-size: 36px;
+            line-height: 64px;
+            vertical-align: bottom;
+        }
+
 
     </style>
 </head>
@@ -120,7 +135,12 @@
         <img src="/images/svg/flowgig-logo-white.svg" alt="FlowGig logo">
     </a>
     <span class="menu-divider hide-xsmall"></span>
-    <span class="hide-big hide-xsmall"> @yield('title')</span>
+    <span class="hide-big hide-xsmall navbar-page-title"> @yield('navbar-title')</span>
+    <div class="main-menu-user float-right hide-xsmall">
+       <!-- <ul>
+            <li><a href="#">My account</a></li>
+        </ul> -->
+    </div>
     <div class="main-menu hide-medium hide-small hide-xsmall float-right">
         <div class="menu-link">
             <ul class="">
@@ -140,8 +160,8 @@
             </a>
         </div>
         <ul class="">
-            <li><a href="/song"><i class="fa fa-music"></i> Songs</a></li>
-            <li><a href="/setlist"><i class="fa fa-list-ol"></i> Setlists</a></li>
+            <li><a href="/song"><i class="icon fa fa-music"></i> Songs</a></li>
+            <li><a href="/setlist"><i class="icon fa fa-list-ol"></i> Setlists</a></li>
         </ul>
     </div>
 </div>

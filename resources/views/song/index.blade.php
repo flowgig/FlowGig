@@ -1,5 +1,6 @@
 @extends('layouts.master')
 @section('title', 'Songs')
+@section('navbar-title', 'Songs')
 @section('content')
     <div class="main-content">
         <div class="container">

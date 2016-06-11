@@ -1,5 +1,6 @@
 @extends('layouts.master')
 @section('title', $song->title)
+@section('navbar-title', $song->title)
 @section('content')
     <div class="main-content">
         <div class="container">

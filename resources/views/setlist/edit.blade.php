@@ -1,5 +1,6 @@
 @extends('layouts.master')
 @section('title', 'Setlist - ' . $setlist->title)
+@section('navbar-title', $setlist->title)
 @section('content')
 
     <div class="action-button" xmlns:v-on="http://www.w3.org/1999/xhtml">

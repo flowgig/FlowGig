@@ -1,5 +1,6 @@
 @extends('layouts.master')
 @section('title', 'Setlists')
+@section('navbar-title', 'Setlists')
 @section('content')
     <div class="main-content">
         <div class="container">

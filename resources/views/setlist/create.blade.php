@@ -1,5 +1,6 @@
 @extends('layouts.master')
-@section('title', 'Create new song')
+@section('title', 'Create new setlist')
+@section('navbar-title', 'Create setlist')
 @section('content')
     <div class="main-content">
         <div class="container">
