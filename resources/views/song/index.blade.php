@@ -9,14 +9,21 @@
                         <h1>Songs</h1>
                         <ul class="list">
                             @foreach($songs as $song)
-                                <li>
+                                <li itemscope itemtype="http://schema.org/MusicGroup">
                                     <a class="button button-icon button-flat tooltip" title="Show {{$song->title}}" href="{{ route('song.show', $song) }}">
                                         <span class="fa fa-eye"></span>
                                     </a>
                                     <a class="button button-icon button-flat tooltip" title="Edit {{$song->title}}" href="{{ route('song.edit', $song) }}">
                                         <span class="fa fa-pencil"></span>
                                     </a>
-                                    {{ $song->title }}
+                                    <span itemprop="tracks" itemscope itemtype="http://schema.org/MusicRecording">
+                                        <span itemprop="name">{{ $song->title }}</span>
+                                        </span>
+                                    <small>(
+                                        <span itemprop="name">{{ $song->music_by }}</span> /
+                                        {{ $song->lyrics_by }}
+                                        )
+                                    </small>
                                 </li>
                             @endforeach
                         </ul>
