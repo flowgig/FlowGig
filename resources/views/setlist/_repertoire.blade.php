@@ -1,7 +1,7 @@
-<div class="modal-header">Repertoire:</div>
+<div class="modal-header" xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml">Repertoire:</div>
 <div class="modal-content">
     <ul class="list list-clickable">
-        <li v-on:click="addSong(song)" v-for="song in repertoire">
+        <li v-on:click="addSong(song)" v-for="song in repertoire" class="tooltip" title="Add @{{ song.title }} to setlist">
             @{{ song.title }}
             <small>
                 (

@@ -2170,7 +2170,7 @@ button:active, button:focus, input[type="button"]:active, input[type="button"]:f
   right: 16px;
   background-color: #C32A22;
   color: #FFF;
-  z-index: 20;
+  z-index: 3;
   transition: all .2s; }
   .action-button.active {
     bottom: 0;
@@ -3224,6 +3224,32 @@ input[type="radio"]:before {
 input[type="radio"]:checked:before {
   content: "\f192"; }
 
+.tooltip:hover::after {
+  content: attr(title);
+  position: fixed;
+  bottom: 5px;
+  right: 5px;
+  background-color: #232527;
+  color: #FFF;
+  font-size: 12pt;
+  line-height: 14pt;
+  text-transform: initial;
+  text-decoration: none;
+  padding: 5px 10px;
+  z-index: 4; }
+
+.action-menu-active .tooltip:hover::after {
+  bottom: 65px;
+  right: 5px;
+  left: initial; }
+
+@media (min-width: 1160px) {
+  .tooltip:hover:after,
+  .action-menu-active .tooltip:hover:after {
+    bottom: 5px;
+    right: 5px;
+    left: initial; } }
+
 .border-row {
   background-color: #FFF;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.37);
@@ -3269,16 +3295,6 @@ input[type="radio"]:checked:before {
 .api-data ul {
   list-style: none;
   padding-left: 12px; }
-
-a.tooltip:hover::after {
-  content: attr(title);
-  position: fixed;
-  bottom: 5px;
-  right: 5px;
-  background-color: #333;
-  color: #FFF;
-  text-decoration: none;
-  padding: 5px 10px; }
 
 .clearfix {
   clear: both; }

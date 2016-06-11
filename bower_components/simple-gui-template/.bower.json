@@ -25,14 +25,14 @@
     "masonry": "^4.0.0",
     "imagesloaded": "^4.1.0"
   },
-  "version": "0.1.20",
-  "_release": "0.1.20",
+  "version": "0.1.22",
+  "_release": "0.1.22",
   "_resolution": {
     "type": "version",
-    "tag": "v0.1.20",
-    "commit": "cdce3ae69cbcf7cbef98f2f260fe526deeced19f"
+    "tag": "v0.1.22",
+    "commit": "889761684e2aee2d9150f5461f1a016fe0f20e23"
   },
   "_source": "https://github.com/benjamindehli/Simple-GUI-Template.git",
-  "_target": "^0.1.20",
+  "_target": "^0.1.22",
   "_originalSource": "simple-gui-template"
 }

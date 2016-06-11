@@ -1,6 +1,4 @@
 <h3>Songs:</h3>
-<a class="button button-flat button-primary button-icon tooltip" id="show-repertoire" title="Add song">
-</a>
 <div id="setlistsongs">
     <!--  <ul class="list">
         @foreach($setlistSongs as $setlistSong)

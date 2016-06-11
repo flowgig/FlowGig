@@ -2,7 +2,7 @@
 @section('title', 'Setlist - ' . $setlist->title)
 @section('content')
 
-    <div class="action-button">
+    <div class="action-button" xmlns:v-on="http://www.w3.org/1999/xhtml">
         <i class="icon fa fa-plus"></i>
     </div>
     <div class="action-menu" id="action-menu">
@@ -34,16 +34,20 @@
             <div class="input-group">
                 <input id="music_by" v-model="newSong.music_by" type="text"/><label for="music_by">Music by</label>
             </div>
-            <button class="button button-flat button-primary" v-on:click="addSong(newSong)">Add song</button>
+            <a class="button button-flat button-primary tooltip" v-on:click="addSong(newSong)" title="Add @{{ newSong.title }} to setlist">Add song</a>
         </div>
     </div>
     <div id="repertoire" class="actionbar-modal export-setlist-modal">
         <div class="modal-header">Export setlist:</div>
         <div class="modal-content">
             <div class="input-group">
-                <a href="{{ route('setlist.export-preview', $setlist) }}" target="_blank" class="button" /><label for="preview">Preview</label>
-                <a href="{{ route('setlist.export', $setlist) }}" target="_blank" class="button" /><label for="export">Export to PDF</label>
-           </div>
+                <a href="{{ route('setlist.export-preview', $setlist) }}" target="_blank" class="button button-flat tooltip" title="Preview {{ $setlist->title }}">
+                    <label for="preview">Preview</label>
+                </a>
+                <a href="{{ route('setlist.export', $setlist) }}" target="_blank" class="button button-flat tooltip" title="Export {{ $setlist->title }} to PDF">
+                    <label for="export">Export to PDF</label>
+                </a>
+            </div>
         </div>
     </div>
     <div class="main-content">
