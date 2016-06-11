@@ -93,19 +93,27 @@
         .list.sortable-list:active {
             cursor: move;
         }
-        .left-menu > div ul li a{
+
+        .left-menu > div ul li a {
             padding: 10px 20px;
         }
-        .left-menu > div .sidenav-logo img{
+
+        .left-menu > div .sidenav-logo img {
             margin-left: 25px;
             margin-top: 5px;
         }
 
-        .navbar-page-title{
+        .navbar-page-title {
             color: #FFFFFF;
-            font-size: 36px;
-            line-height: 64px;
+            font-size: 28px;
+            line-height: 48px;
             vertical-align: bottom;
+        }
+
+        @media only screen and (min-width: 750px) {
+            .navbar-page-title {
+                line-height: 64px;
+            }
         }
 
 
@@ -137,9 +145,9 @@
     <span class="menu-divider hide-xsmall"></span>
     <span class="hide-big hide-xsmall navbar-page-title"> @yield('navbar-title')</span>
     <div class="main-menu-user float-right hide-xsmall">
-       <!-- <ul>
-            <li><a href="#">My account</a></li>
-        </ul> -->
+        <!-- <ul>
+             <li><a href="#">My account</a></li>
+         </ul> -->
     </div>
     <div class="main-menu hide-medium hide-small hide-xsmall float-right">
         <div class="menu-link">
