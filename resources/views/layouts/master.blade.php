@@ -10,6 +10,8 @@
     <meta name="keywords" content="">
     -->
     <meta name="robots" content="follow">
+    <!-- Google Site Verification -->
+    <meta name="google-site-verification" content="upfbbdBwiPSVWNW7UurPq7Rjhi_NhYU9PdBPYivSOE8"/>
     <!-- OpenGraph -->
     <!-- TODO Add OpenGraph description -->
     <meta property="og:type" content="website">
@@ -57,51 +59,69 @@
     <meta name="msapplication-TileImage" content="/images/favicon/mstile-144x144.png">
     <meta name="msapplication-config" content="/images/favicon/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
+
+
+    <script src="/js/all.js" type="application/javascript"></script>
+    <style>
+
+        .sortable-chosen {
+            background-color: rgba(195, 42, 34, 0.15);
+            cursor: move;
+        }
+
+        .list.sortable-list:hover,
+        .list.sortable-list:active {
+            cursor: move;
+        }
+
+        @media (min-width: 1160px) {
+            .actionbar-modal {
+                width: 0;
+                -webkit-transition: all .2s;
+                transition: all .2s .4s;
+                left: -40%;
+            }
+
+            body.modal-active .actionbar-modal {
+                width: 40%;
+                left: 60px;
+                -webkit-transition: all .2s;
+                transition: all .2s .4s;
+            }
+
+            body.modal-active .main-content {
+                margin-left: 40%;
+                padding-left: 60px;
+            }
+        }
+
+    </style>
 </head>
-
-<script src="/js/all.js" type="application/javascript"></script>
-<style>
-
-    .sortable-chosen {
-        background-color: rgba(195, 42, 34, 0.15);
-        cursor: move;
-    }
-
-    .list.sortable-list:hover,
-    .list.sortable-list:active {
-        cursor: move;
-    }
-
-    @media (min-width: 1160px) {
-        .actionbar-modal {
-            width: 0;
-            -webkit-transition: all .2s;
-            transition: all .2s .4s;
-            left: -40%;
-        }
-
-        body.modal-active .actionbar-modal {
-            width: 40%;
-            left: 60px;
-            -webkit-transition: all .2s;
-            transition: all .2s .4s;
-        }
-
-        body.modal-active .main-content {
-            margin-left: 40%;
-            padding-left: 60px;
-        }
-    }
-
-</style>
 <body>
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-79197814-1', 'auto');
+    ga('send', 'pageview');
+
+</script>
 <nav class="navbar navbar-dark z-2">
     <a class="sidenav-toggle hide-big"><i class="sidenav-toggle-logo fa fa-bars"></i></a>
     <a class="logo">
         <img src="/images/svg/flowgig-logo-white.svg" alt="FlowGig logo">
     </a>
     <span class="menu-divider hide-xsmall"></span>
-    <span class="hide-big hide-xsmall"></span>
+    <span class="hide-big hide-xsmall"> @yield('title')</span>
     <div class="main-menu hide-medium hide-small hide-xsmall float-right">
         <div class="menu-link">
             <ul class="">
