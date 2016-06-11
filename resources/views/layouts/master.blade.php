@@ -70,55 +70,28 @@
             background-color: #FFF;
             opacity: 1;
 
-           /* box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.37);*/
+            /* box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.37);*/
             box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.3);
             box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 1);
             transform: scale(1.04);
         }
 
-        .sortable-ghost{
+        .sortable-ghost {
             opacity: 0;
         }
 
-        .list.sortable-list li{
+        .list.sortable-list li {
             transition: all .2s;
             box-shadow: none;
         }
-        .list-clickable li{
+
+        .list-clickable li {
             transition: background-color .2s;
         }
-
-
-
 
         .list.sortable-list:hover,
         .list.sortable-list:active {
             cursor: move;
-        }
-
-        .list li small{
-            display: inline-block;
-        }
-
-        @media (min-width: 1160px) {
-            .actionbar-modal {
-                width: 0;
-                -webkit-transition: all .2s;
-                transition: all .2s .4s;
-                left: -40%;
-            }
-
-            body.modal-active .actionbar-modal {
-                width: 40%;
-                left: 60px;
-                -webkit-transition: all .2s;
-                transition: all .2s .4s;
-            }
-
-            body.modal-active .main-content {
-                margin-left: 40%;
-                padding-left: 60px;
-            }
         }
 
     </style>
@@ -143,7 +116,7 @@
 </script>
 <nav class="navbar navbar-dark z-2">
     <a class="sidenav-toggle hide-big"><i class="sidenav-toggle-logo fa fa-bars"></i></a>
-    <a class="logo">
+    <a class="logo" href="/">
         <img src="/images/svg/flowgig-logo-white.svg" alt="FlowGig logo">
     </a>
     <span class="menu-divider hide-xsmall"></span>
@@ -163,11 +136,12 @@
             <a class="sidenav-toggle">
                 <img src="/images/svg/flowgig-logo-black.svg" alt="FlowGig logo">
                 <i class="fa fa-angle-left float-right"></i>
+                <span class="clearfix"></span>
             </a>
         </div>
         <ul class="">
-            <li><a href="/song">Songs</a></li>
-            <li><a href="/setlist">Setlists</a></li>
+            <li><a href="/song"><i class="fa fa-music"></i> Songs</a></li>
+            <li><a href="/setlist"><i class="fa fa-list-ol"></i> Setlists</a></li>
         </ul>
     </div>
 </div>

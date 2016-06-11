@@ -2318,9 +2318,18 @@ button:active, button:focus, input[type="button"]:active, input[type="button"]:f
   .actionbar-modal {
     height: 100%;
     top: 64px;
-    left: 60px;
     box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.26);
-    z-index: 2; } }
+    z-index: 2;
+    width: 0;
+    transition: all .2s .4s;
+    left: -40%; }
+  body.modal-active .actionbar-modal {
+    width: 40%;
+    left: 60px;
+    transition: all .2s .4s; }
+  body.modal-active .main-content {
+    margin-left: 40%;
+    padding-left: 60px; } }
 
 .float-right {
   float: right; }
@@ -2459,6 +2468,7 @@ button:active, button:focus, input[type="button"]:active, input[type="button"]:f
   margin-top: 20px;
   margin-bottom: 5px;
   padding-left: 8px;
+  padding-bottom: 6px;
   border: none;
   border-bottom: 2px solid #eee;
   /* Safari */
@@ -2988,6 +2998,8 @@ ul.list {
   ul.list li {
     padding: 10px 5px 2px;
     border-bottom: 1px solid #EEE; }
+    ul.list li small {
+      display: inline-block; }
   ul.list.hover-list li:hover {
     background-color: #fbeae9; }
   ul.list.list-clickable li:hover {
