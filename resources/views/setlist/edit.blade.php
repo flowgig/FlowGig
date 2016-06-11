@@ -54,9 +54,9 @@
         <div class="container">
             <div id="setlist" xmlns:v-on="http://www.w3.org/1999/xhtml">
                 <div class="content">
-
                     <div class="box z-1">
                         <div class="content">
+                            <h1>{{ $setlist->title }}</h1>
                             <p>edit the setlist <i>{{ $setlist->title }}</i> ...</p>
                             @include('setlist._setlistsongs', ['setlistSongs' => $setlist->setlistSongs])
                             <div class="block text-right">

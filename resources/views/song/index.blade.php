@@ -6,6 +6,7 @@
             <div class="content">
                 <div class="box z-1">
                     <div class="content">
+                        <h1>Songs</h1>
                         <ul class="list">
                             @foreach($songs as $song)
                                 <li>

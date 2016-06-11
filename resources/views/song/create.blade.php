@@ -6,6 +6,7 @@
             <div class="content">
                 <div class="box z-1">
                     <div class="content">
+                        <h1>Create new song</h1>
                         <p>create new song...</p>
                     </div>
                 </div>
