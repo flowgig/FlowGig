@@ -9,13 +9,16 @@ ul.list {
   &.hover-list{
     li{
       &:hover{
-        @include hover-list;
+        @include hover-list($primary-color);
       }
     }
   }
   &.list-clickable{
     li:hover{
       cursor: pointer;
+    }
+    .list-item-clicked{
+      @include active-transparent-color($success-color);
     }
   }
 }

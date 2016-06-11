@@ -67,11 +67,37 @@
         .sortable-chosen {
             background-color: rgba(195, 42, 34, 0.15);
             cursor: move;
+            background-color: #FFF;
+            opacity: 1;
+
+           /* box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.37);*/
+            box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.3);
+            box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 1);
+            transform: scale(1.04);
         }
+
+        .sortable-ghost{
+            opacity: 0;
+        }
+
+        .list.sortable-list li{
+            transition: all .2s;
+            box-shadow: none;
+        }
+        .list-clickable li{
+            transition: background-color .2s;
+        }
+
+
+
 
         .list.sortable-list:hover,
         .list.sortable-list:active {
             cursor: move;
+        }
+
+        .list li small{
+            display: inline-block;
         }
 
         @media (min-width: 1160px) {

@@ -5,7 +5,7 @@
             <li>{{ $setlistSong->number_in_list . " &#151; " . $setlistSong->song->title }} </li>
         @endforeach
             </ul> -->
-    <ul class="list sortable-list" v-sortable>
+    <ul class="list sortable-list" v-sortable="{animation: 150}">
         <li class="" v-for="setlistSong in setlistSongs">
             @{{ setlistSong.number_in_list }} &#151;
             @{{ setlistSong.song.title }}
