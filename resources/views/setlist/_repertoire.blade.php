@@ -2,6 +2,7 @@
 <div class="modal-content">
     <ul class="list list-clickable">
         <li v-on:click="addSong(song)" v-for="song in repertoire" class="tooltip" title="Add @{{ song.title }} to setlist">
+            @{{ song.id }} :
             @{{ song.title }}
             <small>
                 (
