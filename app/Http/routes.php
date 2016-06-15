@@ -32,3 +32,7 @@ Route::get('setlist/{setlist}/export', [
     ]);
 
 Route::resource('setlist', 'SetlistController');
+
+// SetlistSongs
+
+Route::resource('setlistsong', 'SetlistSongController');
