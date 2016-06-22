@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Setlist;
 use App\Song;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\App;
+use PDF;
 
 use App\Http\Requests;
 
@@ -96,9 +96,7 @@ class SetlistController extends Controller
      */
     public function export(Setlist $setlist)
     {
-        $pdf = App::make('dompdf.wrapper');
-
-        $pdf->loadView('setlist.exportlayout', ['setlist' => $setlist]);
+        $pdf = PDF::loadView('setlist.exportlayout', ['setlist' => $setlist]);
 
         return $pdf->stream($setlist->title);
     }
