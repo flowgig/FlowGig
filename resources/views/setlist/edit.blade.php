@@ -134,14 +134,6 @@
                 }
             },
             methods: {
-                addSong: function (song) {
-                    var setlistSongs = this.setlistSongs;
-                    var setlistSong = {};
-                    setlistSong.song = song;
-                    setlistSong.number_in_list = setlistSongs.length + 1;
-                    setlistSongs.push(setlistSong);
-                    this.setlistSongs = setlistSongs;
-                },
                 updateNumber: function (setlistSong) {
                     $("#setlistsongs li").each(function (i, elm) {
                         $elm = $(elm); // cache the jquery object
