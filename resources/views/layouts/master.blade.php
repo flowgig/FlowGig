@@ -116,6 +116,10 @@
             }
         }
 
+        footer{
+            background-color: #afb1b3;
+        }
+
 
     </style>
 </head>
@@ -176,6 +180,17 @@
 
 @yield('content')
 
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="text-center">
+                <img src="/images/svg/flowgig-logo-black.svg" style="width: 150px; opacity: .4;" />
+                <p>FlowGig licensed under <a href="https://github.com/flowgig/flowgig/blob/master/LICENSE">GNU General Public License</a></p>
+                <p><a href="#">About</a> - <a href="#">Developers</a> - <a href="#">Send feedback</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
 
 </body>
 </html>
