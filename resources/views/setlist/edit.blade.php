@@ -70,10 +70,8 @@
         </div>
         <div class="container" style="background: white">
             <h2>Test create new SetlistSong</h2>
-            <form action="{{  route('setlistsong.store') }}" method="POST">
+            <form action="{{  route('setlistsong.store', [$setlist, 5]) }}" method="POST">
                 {{ csrf_field() }}
-                <input type="hidden" name="setlist_id" value="{{ $setlist->id }}" /><br />
-                <input type="number" name="song_id" /><label for="song_id">Song id</label><br />
                 <input type="number" name="number_in_list" /><label for="number_in_list">Number in list</label><br />
                 <input type="number" name="setnumber" placeholder="1/2/3" /><label for="setnumber">Setnumber</label><br />
                 <input type="text" name="key" placeholder="A/Gm/F" /><label for="key">Key</label><br />
