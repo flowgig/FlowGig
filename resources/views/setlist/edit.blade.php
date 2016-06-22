@@ -66,6 +66,11 @@
                 <div class="content">
                     <div class="box z-1">
                         <div class="content">
+                            <div class="breadcrumbs">
+                                <a href="/">FlowGig</a> &gt;
+                                <a href="{{ route('setlist.index') }}">Setlists</a> &gt;
+                                {{$setlist->title}}
+                            </div>
                             <h1>{{ $setlist->title }}</h1>
                             <p>edit the setlist <i>{{ $setlist->title }}</i> ...</p>
                             @include('setlist._setlistsongs', ['setlistSongs' => $setlist->setlistSongs])
@@ -81,20 +86,21 @@
             <h2>Test create new SetlistSong</h2>
             <form action="{{  route('setlistsong.store', [$setlist, 5]) }}" method="POST">
                 {{ csrf_field() }}
-                <input type="number" name="number_in_list" /><label for="number_in_list">Number in list</label><br />
-                <input type="number" name="setnumber" placeholder="1/2/3" /><label for="setnumber">Setnumber</label><br />
-                <input type="text" name="key" placeholder="A/Gm/F" /><label for="key">Key</label><br />
-                <input type="number" name="energy" placeholder="0-100" /><label for="energy">Energy</label><br />
-                <input type="number" name="duration" placeholder="180" /><label for="duration">Duration</label><br />
-                <input type="text" name="comment" /><label for="comment">Comment</label><br />
-                <input type="submit" value="Create" />
+                <input type="number" name="number_in_list"/><label for="number_in_list">Number in list</label><br/>
+                <input type="number" name="setnumber" placeholder="1/2/3"/><label for="setnumber">Setnumber</label><br/>
+                <input type="text" name="key" placeholder="A/Gm/F"/><label for="key">Key</label><br/>
+                <input type="number" name="energy" placeholder="0-100"/><label for="energy">Energy</label><br/>
+                <input type="number" name="duration" placeholder="180"/><label for="duration">Duration</label><br/>
+                <input type="text" name="comment"/><label for="comment">Comment</label><br/>
+                <input type="submit" value="Create"/>
             </form>
         </div>
     </div>
 
     <template id="song">
         <div v-on:click="addToSetlist()" class="tooltip" title="Add @{{ song.title }} to setlist">
-            <i>@{{ song.id }}: </i> @{{ song.title }} <small>(@{{ song.music_by }}/@{{ song.lyrics_by }})</small>
+            <i>@{{ song.id }}: </i> @{{ song.title }}
+            <small>(@{{ song.music_by }}/@{{ song.lyrics_by }})</small>
         </div>
     </template>
 
@@ -132,17 +138,23 @@
                     var setlistSongs = this.setlistSongs;
                     var setlistSong = {};
                     setlistSong.song = song;
+                    setlistSong.number_in_list = setlistSongs.length + 1;
                     setlistSongs.push(setlistSong);
                     this.setlistSongs = setlistSongs;
+                },
+                updateNumber: function (setlistSong) {
+                    $("#setlistsongs li").each(function (i, elm) {
+                        $elm = $(elm); // cache the jquery object
+                        $elm.attr("data-number-in-list", $elm.index("#setlistsongs li") + 1);
+                    });
                 }
             }
         });
-        $(".list-clickable li").click(function(){
-            $(this).addClass("list-item-clicked").delay(1000).queue(function(){
+        $(".list-clickable li").click(function () {
+            $(this).addClass("list-item-clicked").delay(1000).queue(function () {
                 $(this).removeClass("list-item-clicked").dequeue();
             });
         });
-
     </script>
 
 @endsection
