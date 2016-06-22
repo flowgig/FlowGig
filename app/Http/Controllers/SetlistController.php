@@ -61,6 +61,8 @@ class SetlistController extends Controller
      */
     public function edit(Setlist $setlist)
     {
+        $setlist->setlistSongs->load('song');
+
         $repertoire = Song::get(); // TODO: Scope to band
         return view('setlist.edit', ['setlist' => $setlist, 'repertoire' => $repertoire]);
     }

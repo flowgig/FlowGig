@@ -73,7 +73,14 @@
                             </div>
                             <h1>{{ $setlist->title }}</h1>
                             <p>edit the setlist <i>{{ $setlist->title }}</i> ...</p>
-                            @include('setlist._setlistsongs', ['setlistSongs' => $setlist->setlistSongs])
+                            <h3>Songs:</h3>
+                            <div>
+                                <ul id="setlistsongs" class="list sortable-list" v-sortable="{animation: 150}">
+                                    <li data-number-in-list="@{{setlistSong.number_in_list}}" v-bind:data-number-in-list="setlistSong.number_in_list"  v-on:drop="updateNumber(setlistSong)" v-for="setlistSong in setlistSongs">
+                                        <setlistsong v-bind:setlist-song="setlistSong"></setlistsong>
+                                    </li>
+                                </ul>
+                            </div>
                             <div class="block text-right">
                                 <a class="button button-flat button-primary" href="{{ route('setlist.index') }}">Back to list</a>
                             </div>
@@ -122,14 +129,25 @@
         </div>
     </template>
 
+    <template id="setlistsong">
+        <div>
+            @{{ setlistSong.number_in_list }} &#151; @{{ setlistSong.song.title }}
+            <small>(@{{ setlistSong.song.music_by }}/@{{ setlistSong.song.lyrics_by }})</small>
+        </div>
+    </template>
+
     <script>
         new Vue({
             el: 'body',
             data: {
                 setlist: {!! $setlist !!},
-                setlistSongs: {!!  $setlist->setlistSongs !!},
-                repertoire: {!!  $repertoire !!},
+                repertoire: {!! $repertoire !!},
                 newSong: {}
+            },
+            computed: {
+                setlistSongs: function(){
+                    return this.setlist.setlist_songs
+                }
             },
             components: {
                 'song': {
@@ -147,6 +165,15 @@
                             this.$parent.setlistSongs.push(setlistSong);
 
                             // TODO: Store setlistSong
+                        }
+                    }
+                },
+                'setlistsong': {
+                    template: '#setlistsong',
+                    props: ['setlistSong'],
+                    methods: {
+                        save: function () {
+                            alert('Save ' + this.setlistSong.title);
                         }
                     }
                 }
