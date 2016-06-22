@@ -21,7 +21,16 @@
         </button>
     </div>
     <div id="repertoire" class="actionbar-modal repertoire-modal">
-        @include('setlist._repertoire', $repertoire)
+        <div class="modal-header" xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml">
+            Repertoire:
+        </div>
+        <div class="modal-content">
+            <ul class="list list-clickable">
+                <li v-for="song in repertoire">
+                    <song v-bind:song="song"></song>
+                </li>
+            </ul>
+        </div>
     </div>
     <div id="repertoire" class="actionbar-modal add-song-modal">
         <div class="modal-header">Add new song:</div>
@@ -83,13 +92,40 @@
         </div>
     </div>
 
+    <template id="song">
+        <div v-on:click="addToSetlist()" class="tooltip" title="Add @{{ song.title }} to setlist">
+            <i>@{{ song.id }}: </i> @{{ song.title }} <small>(@{{ song.music_by }}/@{{ song.lyrics_by }})</small>
+        </div>
+    </template>
+
     <script>
         new Vue({
             el: 'body',
             data: {
+                setlist: {!! $setlist !!},
                 setlistSongs: {!!  $setlist->setlistSongs !!},
                 repertoire: {!!  $repertoire !!},
                 newSong: {}
+            },
+            components: {
+                'song': {
+                    template: '#song',
+                    props: ['song'],
+                    methods: {
+                        addToSetlist: function () {
+
+                            var setlistSong = {
+                                setlist: this.$parent.setlist,
+                                song: this.song,
+                                number_in_list: this.$parent.setlistSongs.length + 1
+                            };
+
+                            this.$parent.setlistSongs.push(setlistSong);
+
+                            // TODO: Store setlistSong
+                        }
+                    }
+                }
             },
             methods: {
                 addSong: function (song) {
