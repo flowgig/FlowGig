@@ -82,18 +82,36 @@
                 </div>
             </div>
         </div>
-        <div class="container" style="background: white">
-            <h2>Test create new SetlistSong</h2>
-            <form action="{{  route('setlistsong.store', [$setlist, 5]) }}" method="POST">
-                {{ csrf_field() }}
-                <input type="number" name="number_in_list"/><label for="number_in_list">Number in list</label><br/>
-                <input type="number" name="setnumber" placeholder="1/2/3"/><label for="setnumber">Setnumber</label><br/>
-                <input type="text" name="key" placeholder="A/Gm/F"/><label for="key">Key</label><br/>
-                <input type="number" name="energy" placeholder="0-100"/><label for="energy">Energy</label><br/>
-                <input type="number" name="duration" placeholder="180"/><label for="duration">Duration</label><br/>
-                <input type="text" name="comment"/><label for="comment">Comment</label><br/>
-                <input type="submit" value="Create"/>
-            </form>
+        <div class="container">
+            <div class="content">
+                <div class="box">
+                    <div class="content">
+                        <h2>Test create new SetlistSong</h2>
+                        <form action="{{  route('setlistsong.store', [$setlist, 5]) }}" method="POST">
+                            {{ csrf_field() }}
+                            <div class="input-group">
+                                <input type="number" id="number_in_list" name="number_in_list"/><label for="number_in_list">Number in list</label>
+                            </div>
+                            <div class="input-group">
+                                <input type="number" id="setnumber" name="setnumber" placeholder="1/2/3"/><label for="setnumber">Setnumber</label>
+                            </div>
+                            <div class="input-group">
+                                <input type="text" id="key" name="key" placeholder="A/Gm/F"/><label for="key">Key</label>
+                            </div>
+                            <div class="input-group">
+                                <input type="number" id="energy" name="energy" placeholder="0-100"/><label for="energy">Energy</label>
+                            </div>
+                            <div class="input-group">
+                                <input type="number" id="duration" name="duration" placeholder="180"/><label for="duration">Duration</label>
+                            </div>
+                            <div class="input-group">
+                                <input type="text" id="comment" name="comment"/><label for="comment">Comment</label>
+                            </div>
+                            <input type="submit" class="button button-flat" value="Create"/>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
