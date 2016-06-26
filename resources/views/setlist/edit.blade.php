@@ -137,10 +137,10 @@
             <small>(@{{ setlistSong.song.music_by }}/@{{ setlistSong.song.lyrics_by }})</small>
         </span>
         <span class="list-item-buttons">
-            <a class="button button-icon tooltip" title="Edit @{{setlistSong.song.title}}">
+            <a class="button button-icon button-flat tooltip" title="Edit @{{setlistSong.song.title}}">
                 <span class="fa fa-pencil"></span>
             </a>
-             <a class="button button-icon tooltip" title="Remove @{{setlistSong.song.title}}">
+             <a class="button button-icon button-flat tooltip" title="Remove @{{setlistSong.song.title}}">
                  <span class="fa fa-trash"></span>
              </a>
         </span>
@@ -211,11 +211,7 @@
                 }
             }
         });
-        $(".list-clickable li").click(function () {
-            $(this).addClass("list-item-clicked").delay(1000).queue(function () {
-                $(this).removeClass("list-item-clicked").dequeue();
-            });
-        });
+
     </script>
 
 @endsection

@@ -85,7 +85,6 @@
                 line-height: 64px;
             }
         }
-
         footer{
             background-color: #afb1b3;
         }
