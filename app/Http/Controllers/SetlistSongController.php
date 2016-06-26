@@ -21,6 +21,10 @@ class SetlistSongController extends Controller
      */
     public function store(Request $request, Setlist $setlist, Song $song)
     {
+        $this->validate($request, [
+            'number_in_list' => 'required',
+        ]);
+
         $setlistSong = new SetlistSong();
 
         $setlistSong->setlist()->associate($setlist);
@@ -30,9 +34,6 @@ class SetlistSongController extends Controller
         $setlistSong->fill($request->all());
 
         $setlistSong->save();
-
-        //TODO: Make method call asynchronous
-        return redirect()->route('setlist.edit', $setlist);
     }
 
     /**

@@ -182,9 +182,11 @@
                                 number_in_list: this.$parent.setlistSongs.length + 1
                             };
 
-                            this.$parent.setlistSongs.push(setlistSong);
+                            var pushToList = function() {
+                                return this.$parent.setlistSongs.push(setlistSong);
+                            }.bind(this);
 
-                            // TODO: Store setlistSong
+                            this.$parent.saveSetlistSong(setlistSong, pushToList);
                         }
                     }
                 },
@@ -208,6 +210,11 @@
                 reOrderSetlistSongs: function (oldIndex, newIndex) {
                     console.log('"' + this.setlistSongs[oldIndex].song.title + '" was #' + (oldIndex + 1) + ', became #' + (newIndex + 1));
                     // TODO: Update position-attribute on (and store) implicated setlistSongs
+                },
+                saveSetlistSong: function (setlistSong, pushToList) {
+                    var url = '/setlistsong/' + setlistSong.setlist.id + '/' + setlistSong.song.id;
+                    var payLoad = {_token: '{{ csrf_token() }}', number_in_list: setlistSong.number_in_list};
+                    this.$http.post(url, payLoad).then(pushToList());
                 }
             }
         });
