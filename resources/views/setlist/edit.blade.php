@@ -3,7 +3,7 @@
 @section('navbar-title', $setlist->title)
 @section('content')
 
-    <div class="action-button" xmlns:v-on="http://www.w3.org/1999/xhtml">
+    <div class="action-button">
         <i class="icon fa fa-plus"></i>
     </div>
     <div class="action-menu" id="action-menu">
@@ -21,7 +21,7 @@
         </button>
     </div>
     <div id="repertoire" class="actionbar-modal repertoire-modal">
-        <div class="modal-header" xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml">
+        <div class="modal-header">
             Repertoire:
         </div>
         <div class="modal-content">
@@ -62,7 +62,7 @@
     </div>
     <div class="main-content">
         <div class="container">
-            <div id="setlist" xmlns:v-on="http://www.w3.org/1999/xhtml">
+            <div id="setlist">
                 <div class="content">
                     <div class="box z-1">
                         <div class="content">
@@ -130,16 +130,27 @@
     </template>
 
     <template id="setlistsong">
-        <div>
+        <span class="sortable-handle fa fa-sort"></span>
+        <span class="list-item-divider"></span>
+        <span class="list-item-content">
             @{{ setlistSong.number_in_list }} &#151; @{{ setlistSong.song.title }}
             <small>(@{{ setlistSong.song.music_by }}/@{{ setlistSong.song.lyrics_by }})</small>
-        </div>
+        </span>
+        <span class="list-item-buttons">
+            <a class="button button-icon tooltip" title="Edit @{{setlistSong.song.title}}">
+                <span class="fa fa-pencil"></span>
+            </a>
+             <a class="button button-icon tooltip" title="Remove @{{setlistSong.song.title}}">
+                 <span class="fa fa-trash"></span>
+             </a>
+        </span>
     </template>
 
     <script>
 
         var vueSortableOptions = {
             animation: 150,
+            handle: '.sortable-handle',
             onSort: function (evt) {
                 vm.reOrderSetlistSongs(evt.oldIndex, evt.newIndex);
             }
@@ -154,7 +165,7 @@
                 vueSortableOptions: vueSortableOptions
             },
             computed: {
-                setlistSongs: function(){
+                setlistSongs: function () {
                     return this.setlist.setlist_songs
                 }
             },
@@ -195,7 +206,7 @@
                     });
                 },
                 reOrderSetlistSongs: function (oldIndex, newIndex) {
-                    console.log('"' + this.setlistSongs[oldIndex].song.title + '" was #' + (oldIndex + 1)+ ', became #' + (newIndex + 1));
+                    console.log('"' + this.setlistSongs[oldIndex].song.title + '" was #' + (oldIndex + 1) + ', became #' + (newIndex + 1));
                     // TODO: Update position-attribute on (and store) implicated setlistSongs
                 }
             }
