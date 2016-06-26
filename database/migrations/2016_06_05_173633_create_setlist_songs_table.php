@@ -23,7 +23,7 @@ class CreateSetlistSongsTable extends Migration
             $table->text('comment')->nullable();
             $table->timestamps();
 
-            $table->primary(['setlist_id', 'song_id', 'number_in_list']);
+            $table->primary(['setlist_id', 'number_in_list']);
             $table->foreign('setlist_id')->references('id')->on('setlists');
             $table->foreign('song_id')->references('id')->on('songs');
         });
