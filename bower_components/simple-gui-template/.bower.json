@@ -20,19 +20,19 @@
     "tests"
   ],
   "devDependencies": {
-    "components-font-awesome": "^4.5.0",
     "jquery": "^3.0.0",
     "masonry": "^4.0.0",
-    "imagesloaded": "^4.1.0"
+    "imagesloaded": "^4.1.0",
+    "font-awesome": "Font-Awesome#^4.6.3"
   },
-  "version": "0.1.29",
-  "_release": "0.1.29",
+  "version": "0.1.32",
+  "_release": "0.1.32",
   "_resolution": {
     "type": "version",
-    "tag": "v0.1.29",
-    "commit": "b588c689352ca474a36123af3858ed813a5bcd46"
+    "tag": "v0.1.32",
+    "commit": "0ef19d227a382b1019fb17925ed1938014ed3055"
   },
   "_source": "https://github.com/benjamindehli/Simple-GUI-Template.git",
-  "_target": "^0.1.29",
+  "_target": "^0.1.32",
   "_originalSource": "simple-gui-template"
 }
