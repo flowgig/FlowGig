@@ -75,8 +75,8 @@
                             <p>edit the setlist <i>{{ $setlist->title }}</i> ...</p>
                             <h3>Songs:</h3>
                             <div>
-                                <ul id="setlistsongs" class="list sortable-list" v-sortable="{animation: 150}">
-                                    <li data-number-in-list="@{{setlistSong.number_in_list}}" v-bind:data-number-in-list="setlistSong.number_in_list"  v-on:drop="updateNumber(setlistSong)" v-for="setlistSong in setlistSongs">
+                                <ul id="setlistsongs" class="list sortable-list" v-sortable="vueSortableOptions">
+                                    <li v-for="setlistSong in setlistSongs">
                                         <setlistsong v-bind:setlist-song="setlistSong"></setlistsong>
                                     </li>
                                 </ul>
@@ -137,12 +137,21 @@
     </template>
 
     <script>
-        new Vue({
+
+        var vueSortableOptions = {
+            animation: 150,
+            onSort: function (evt) {
+                vm.reOrderSetlistSongs(evt.oldIndex, evt.newIndex);
+            }
+        };
+
+        var vm = new Vue({
             el: 'body',
             data: {
                 setlist: {!! $setlist !!},
                 repertoire: {!! $repertoire !!},
-                newSong: {}
+                newSong: {},
+                vueSortableOptions: vueSortableOptions
             },
             computed: {
                 setlistSongs: function(){
@@ -184,6 +193,10 @@
                         $elm = $(elm); // cache the jquery object
                         $elm.attr("data-number-in-list", $elm.index("#setlistsongs li") + 1);
                     });
+                },
+                reOrderSetlistSongs: function (oldIndex, newIndex) {
+                    console.log('"' + this.setlistSongs[oldIndex].song.title + '" was #' + (oldIndex + 1)+ ', became #' + (newIndex + 1));
+                    // TODO: Update position-attribute on (and store) implicated setlistSongs
                 }
             }
         });
