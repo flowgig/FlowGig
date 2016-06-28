@@ -25,7 +25,7 @@
             Repertoire:
         </div>
         <div class="modal-content">
-            <ul class="list list-clickable">
+            <ul class="list">
                 <li v-for="song in repertoire">
                     <song v-bind:song="song"></song>
                 </li>
@@ -123,10 +123,15 @@
     </div>
 
     <template id="song">
-        <div v-on:click="addToSetlist()" class="tooltip" title="Add @{{ song.title }} to setlist">
-            <i>@{{ song.id }}: </i> @{{ song.title }}
-            <small>(@{{ song.music_by }}/@{{ song.lyrics_by }})</small>
-        </div>
+        <span>
+            <span class="list-item-content">
+                @{{ song.title }}
+                <small>(@{{ song.music_by }}/@{{ song.lyrics_by }})</small>
+            </span>
+            <span class="list-item-button">
+                <span v-on:click="addToSetlist()" class="button button-icon button-flat button-success modal-hover-add-button tooltip" title="Add @{{ song.title }} to setlist"></span>
+            </span>
+        </span>
     </template>
 
     <template id="setlistsong">
