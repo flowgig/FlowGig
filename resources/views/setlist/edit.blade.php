@@ -76,7 +76,7 @@
                             <h3>Songs:</h3>
                             <div>
                                 <ul id="setlistsongs" class="list sortable-list" v-sortable="vueSortableOptions">
-                                    <li v-for="setlistSong in setlistSongs">
+                                    <li v-for="setlistSong in setlistSongs" data-index="@{{$index}}" class="setlistsong">
                                         <setlistsong v-bind:setlist-song="setlistSong"></setlistsong>
                                     </li>
                                 </ul>
@@ -152,7 +152,8 @@
             animation: 150,
             handle: '.sortable-handle',
             onSort: function (evt) {
-                vm.reOrderSetlistSongs(evt.oldIndex, evt.newIndex);
+                vm.updateNumberInList(evt);
+                //vm.reOrderSetlistSongs(evt.oldIndex, evt.newIndex);
             }
         };
 
@@ -182,7 +183,7 @@
                                 number_in_list: this.$parent.setlistSongs.length + 1
                             };
 
-                            var pushToList = function() {
+                            var pushToList = function () {
                                 return this.$parent.setlistSongs.push(setlistSong);
                             }.bind(this);
 
@@ -201,11 +202,15 @@
                 }
             },
             methods: {
-                updateNumber: function (setlistSong) {
-                    $("#setlistsongs li").each(function (i, elm) {
-                        $elm = $(elm); // cache the jquery object
-                        $elm.attr("data-number-in-list", $elm.index("#setlistsongs li") + 1);
-                    });
+                updateNumberInList: function (evt) {
+                    var itemListId = evt.srcElement.id;
+                    var itemClassName = evt.item.className;
+                    var items = $("#" + itemListId + " ." + itemClassName);
+                    $(items).each(function (i, elm) {
+                        var value = $("." + itemClassName).index(elm) + 1;
+                        var songIndex = $(elm).data("index");
+                        this.setlistSongs[songIndex].number_in_list = value;
+                    }.bind(this));
                 },
                 reOrderSetlistSongs: function (oldIndex, newIndex) {
                     console.log('"' + this.setlistSongs[oldIndex].song.title + '" was #' + (oldIndex + 1) + ', became #' + (newIndex + 1));
