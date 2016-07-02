@@ -64,6 +64,10 @@
     <script src="/js/all.js" type="application/javascript"></script>
     <style>
 
+        html, body{
+            background-image: none;
+        }
+
         .left-menu > div ul li a {
             padding: 10px 20px;
         }
@@ -88,6 +92,40 @@
 
         footer {
             background-color: #afb1b3;
+            padding: 16px;
+        }
+
+        .main-content{
+            background-color: #FFFFFF;
+        }
+
+        .box {
+            border-radius: 0;
+        }
+
+        @media (min-width: 550px) {
+            .container {
+                padding: 0;
+            }
+        }
+
+        ul.list li {
+            border-bottom: 1px solid rgba(0, 0, 0, .1);
+        }
+
+        .actionbar-modal {
+            padding-top: 60px;
+            bottom: 22px;
+        }
+
+        @media (min-width: 1160px) {
+            .actionbar-modal {
+                padding-top: 0;
+            }
+        }
+
+        .actionbar-modal .modal-content {
+
         }
 
     </style>
@@ -151,13 +189,11 @@
 
 <footer>
     <div class="container">
-        <div class="row">
-            <div class="text-center">
-                <img src="/images/svg/flowgig-logo-black.svg" style="width: 150px; opacity: .4;"/>
-                <p>FlowGig licensed under
-                    <a href="https://github.com/flowgig/flowgig/blob/master/LICENSE">GNU General Public License</a></p>
-                <p><a href="#">About</a> - <a href="#">Developers</a> - <a href="#">Send feedback</a></p>
-            </div>
+        <div class="text-center">
+            <img src="/images/svg/flowgig-logo-black.svg" style="width: 150px; opacity: .4;"/>
+            <p>FlowGig licensed under
+                <a href="https://github.com/flowgig/flowgig/blob/master/LICENSE">GNU General Public License</a></p>
+            <p><a href="#">About</a> - <a href="#">Developers</a> - <a href="#">Send feedback</a></p>
         </div>
     </div>
 </footer>

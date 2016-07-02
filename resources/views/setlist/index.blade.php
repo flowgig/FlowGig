@@ -5,7 +5,7 @@
     <div class="main-content">
         <div class="container">
             <div class="content">
-                <div class="box z-1">
+                <div class="box">
                     <div class="content">
                         <h1>Setlists</h1>
                         <ul class="list">

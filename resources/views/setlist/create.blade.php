@@ -5,7 +5,7 @@
     <div class="main-content">
         <div class="container">
             <div class="content">
-                <div class="box z-1">
+                <div class="box">
                     <div class="content">
                         <h1>Create new setlist</h1>
                         <p>create new setlist...</p>

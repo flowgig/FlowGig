@@ -21,10 +21,10 @@
         </button>
     </div>
     <div id="repertoire" class="actionbar-modal repertoire-modal">
-        <div class="modal-header">
-            Repertoire:
-        </div>
         <div class="modal-content">
+            <div class="modal-header">
+                Repertoire:
+            </div>
             <ul class="list">
                 <li v-for="song in repertoire">
                     <song v-bind:song="song"></song>
@@ -33,8 +33,8 @@
         </div>
     </div>
     <div id="repertoire" class="actionbar-modal add-song-modal">
-        <div class="modal-header">Add new song:</div>
         <div class="modal-content">
+            <div class="modal-header">Add new song:</div>
             <div class="input-group">
                 <input id="title" v-model="newSong.title" type="text"/><label for="title">Title</label>
             </div>
@@ -48,8 +48,8 @@
         </div>
     </div>
     <div id="repertoire" class="actionbar-modal export-setlist-modal">
-        <div class="modal-header">Export setlist:</div>
         <div class="modal-content">
+            <div class="modal-header">Export setlist:</div>
             <div class="input-group">
                 <a href="{{ route('setlist.export-preview', $setlist) }}" target="_blank" class="button button-flat tooltip" title="Preview {{ $setlist->title }}">
                     <label for="preview">Preview</label>
@@ -64,7 +64,7 @@
         <div class="container">
             <div id="setlist">
                 <div class="content">
-                    <div class="box z-1">
+                    <div class="box">
                         <div class="content">
                             <div class="breadcrumbs">
                                 <a href="/">FlowGig</a> &gt;
@@ -173,7 +173,7 @@
                     vm.$emit('reordered', that.value);
                 });
 
-                this.onUpdate = function(value) {
+                this.onUpdate = function (value) {
                     that.value = value;
                 }
             },
@@ -227,7 +227,7 @@
             },
             methods: {
                 reOrderSetlistSongs: function (reorderedList) {
-                    reorderedList.forEach(function(reorderedSetlistSong) {
+                    reorderedList.forEach(function (reorderedSetlistSong) {
                         var setlistSong = this.setlistSongs[this.setlistSongs.indexOf(reorderedSetlistSong)];
                         setlistSong.number_in_list = reorderedList.indexOf(reorderedSetlistSong);
                         // TODO: Store setlistSong
@@ -240,7 +240,7 @@
                 }
             },
             events: {
-                'reordered': function(reorderedList) {
+                'reordered': function (reorderedList) {
                     this.reOrderSetlistSongs(reorderedList);
                 }
             }
