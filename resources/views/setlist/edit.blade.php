@@ -75,8 +75,8 @@
                             <p>edit the setlist <i>{{ $setlist->title }}</i> ...</p>
                             <h3>Songs:</h3>
                             <div>
-                                <ul id="setlistsongs" class="list sortable-list" v-sortable="vueSortableOptions">
-                                    <li v-for="setlistSong in setlistSongs" data-index="@{{$index}}" class="setlistsong">
+                                <ul v-sortable.li="setlistSongs" class="list sortable-list">
+                                    <li v-for="setlistSong in setlistSongs" class="setlistsong">
                                         <setlistsong v-bind:setlist-song="setlistSong"></setlistsong>
                                     </li>
                                 </ul>
@@ -153,22 +153,41 @@
 
     <script>
 
-        var vueSortableOptions = {
-            animation: 150,
-            handle: '.sortable-handle',
-            onSort: function (evt) {
-                vm.updateNumberInList(evt);
-                //vm.reOrderSetlistSongs(evt.oldIndex, evt.newIndex);
+        Vue.directive('sortable', {
+            twoWay: true,
+            deep: true,
+            bind: function () {
+                var that = this;
+
+                var options = {
+                    draggable: Object.keys(this.modifiers)[0],
+                    animation: 150,
+                    handle: '.sortable-handle'
+                };
+
+                this.sortable = Sortable.create(this.el, options);
+                console.log('sortable bound!')
+
+                this.sortable.option("onUpdate", function (e) {
+                    that.value.splice(e.newIndex, 0, that.value.splice(e.oldIndex, 1)[0]);
+                    vm.$emit('reordered', that.value);
+                });
+
+                this.onUpdate = function(value) {
+                    that.value = value;
+                }
+            },
+            update: function (value) {
+                this.onUpdate(value);
             }
-        };
+        });
 
         var vm = new Vue({
             el: 'body',
             data: {
                 setlist: {!! $setlist !!},
                 repertoire: {!! $repertoire !!},
-                newSong: {},
-                vueSortableOptions: vueSortableOptions
+                newSong: {}
             },
             computed: {
                 setlistSongs: function () {
@@ -207,24 +226,22 @@
                 }
             },
             methods: {
-                updateNumberInList: function (evt) {
-                    var itemListId = evt.srcElement.id;
-                    var itemClassName = evt.item.className;
-                    var items = $("#" + itemListId + " ." + itemClassName);
-                    $(items).each(function (i, elm) {
-                        var value = $("." + itemClassName).index(elm) + 1;
-                        var songIndex = $(elm).data("index");
-                        this.setlistSongs[songIndex].number_in_list = value;
+                reOrderSetlistSongs: function (reorderedList) {
+                    reorderedList.forEach(function(reorderedSetlistSong) {
+                        var setlistSong = this.setlistSongs[this.setlistSongs.indexOf(reorderedSetlistSong)];
+                        setlistSong.number_in_list = reorderedList.indexOf(reorderedSetlistSong);
+                        // TODO: Store setlistSong
                     }.bind(this));
-                },
-                reOrderSetlistSongs: function (oldIndex, newIndex) {
-                    console.log('"' + this.setlistSongs[oldIndex].song.title + '" was #' + (oldIndex + 1) + ', became #' + (newIndex + 1));
-                    // TODO: Update position-attribute on (and store) implicated setlistSongs
                 },
                 saveSetlistSong: function (setlistSong, pushToList) {
                     var url = '/setlistsong/' + setlistSong.setlist.id + '/' + setlistSong.song.id;
                     var payLoad = {_token: '{{ csrf_token() }}', number_in_list: setlistSong.number_in_list};
                     this.$http.post(url, payLoad).then(pushToList());
+                }
+            },
+            events: {
+                'reordered': function(reorderedList) {
+                    this.reOrderSetlistSongs(reorderedList);
                 }
             }
         });
