@@ -68,64 +68,12 @@
             background-image: none;
         }
 
-        .left-menu > div ul li a {
-            padding: 10px 20px;
-        }
-
-        .left-menu > div .sidenav-logo img {
-            margin-left: 25px;
-            margin-top: 5px;
-        }
-
-        .navbar-page-title {
-            color: #FFFFFF;
-            font-size: 28px;
-            line-height: 48px;
-            vertical-align: bottom;
-        }
-
-        @media only screen and (min-width: 750px) {
-            .navbar-page-title {
-                line-height: 64px;
-            }
-        }
-
-        footer {
-            background-color: #afb1b3;
-            padding: 16px;
-        }
-
         .main-content{
             background-color: #FFFFFF;
         }
 
         .box {
             border-radius: 0;
-        }
-
-        @media (min-width: 550px) {
-            .container {
-                padding: 0;
-            }
-        }
-
-        ul.list li {
-            border-bottom: 1px solid rgba(0, 0, 0, .1);
-        }
-
-        .actionbar-modal {
-            padding-top: 60px;
-            bottom: 22px;
-        }
-
-        @media (min-width: 1160px) {
-            .actionbar-modal {
-                padding-top: 0;
-            }
-        }
-
-        .actionbar-modal .modal-content {
-
         }
 
     </style>
@@ -186,7 +134,6 @@
 </div>
 
 @yield('content')
-
 <footer>
     <div class="container">
         <div class="text-center">
@@ -197,6 +144,5 @@
         </div>
     </div>
 </footer>
-
 </body>
 </html>

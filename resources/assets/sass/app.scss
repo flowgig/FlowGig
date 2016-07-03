@@ -2,10 +2,12 @@
 
 html, body {
   height: 100%;
-  background: url("/images/jpg/background.jpg");
-  background-attachment: fixed;
-  background-size: cover;
 }
+
+body{
+
+}
+
 .main-content {
   min-height: 100%;
   background-color: rgba(0, 0, 0, .5);

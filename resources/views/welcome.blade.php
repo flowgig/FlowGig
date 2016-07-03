@@ -10,15 +10,15 @@
     <style>
         html, body {
             height: 100%;
-            background: url("/images/jpg/background.jpg");
-            background-size: cover;
         }
 
-        body {
+        body.welcome-screen {
             margin: 0;
             padding: 0;
             width: 100%;
             display: table;
+            background: url("/images/jpg/background.jpg");
+            background-size: cover;
         }
 
         .container {
@@ -65,7 +65,7 @@
         }
     </style>
 </head>
-<body>
+<body class="welcome-screen">
 <script>
     (function (i, s, o, g, r, a, m) {
         i['GoogleAnalyticsObject'] = r;
