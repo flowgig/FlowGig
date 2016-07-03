@@ -118,20 +118,22 @@
                  <span class="fa fa-trash"></span>
              </a>
         </span>
-        <div v-show="edit">
+        <div v-show="edit" class="accordion">
             <div class="input-group">
-                <input type="text" id="key" name="key" placeholder="A/Gm/F"/><label for="key">Key</label>
+                <input type="text" id="key-@{{ setlistSong.number_in_list }}" name="key" placeholder="A/Gm/F"/>
+                <label for="key" -@{{ setlistSong.number_in_list }}>Key</label>
             </div>
             <div class="input-group">
-                <input type="number" id="energy" name="energy" placeholder="0-100"/><label
-                        for="energy">Energy</label>
+                <input type="number" id="energy-@{{ setlistSong.number_in_list }}" name="energy" placeholder="0-100"/>
+                <label for="energy-@{{ setlistSong.number_in_list }}">Energy</label>
             </div>
             <div class="input-group">
-                <input type="number" id="duration" name="duration" placeholder="180"/><label
-                        for="duration">Duration</label>
+                <input type="number" id="duration-@{{ setlistSong.number_in_list }}" name="duration" placeholder="180"/>
+                <label for="duration-@{{ setlistSong.number_in_list }}">Duration</label>
             </div>
             <div class="input-group">
-                <input type="text" id="comment" name="comment"/><label for="comment">Comment</label>
+                <input type="text" id="comment-@{{ setlistSong.number_in_list }}" name="comment"/>
+                <label for="comment-@{{ setlistSong.number_in_list }}">Comment</label>
             </div>
         </div>
     </template>
