@@ -46,9 +46,8 @@ class SetlistSongController extends Controller
      */
     public function update(Request $request, Setlist $setlist, Song $song)
     {
-        SetlistSong::where('setlist_id', $setlist->id)->where('song_id', $song->id)
+        SetlistSong::where('setlist_id', $setlist->id)->where('number_in_list', $request->input('number_in_list'))
             ->update([
-                'number_in_list' => $request->input('number_in_list'),
                 'key' => $request->input('key'),
                 'energy' => $request->input('energy'),
                 'duration' => $request->input('duration'),
