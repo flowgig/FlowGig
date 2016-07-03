@@ -89,6 +89,7 @@
                 </div>
             </div>
         </div>
+    </div>
 
     <template id="song">
         <span>
