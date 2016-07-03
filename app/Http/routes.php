@@ -40,4 +40,9 @@ Route::post('setlistsong/{setlist}/{song}', [
     'uses' => 'SetlistSongController@store'
 ]);
 
-Route::resource('setlistsong', 'SetlistSongController', ['only' => ['update', 'destroy']]);
+Route::put('setlistsong/{setlist}/{song}', [
+    'as' => 'setlistsong.update',
+    'uses' => 'SetlistSongController@update'
+]);
+
+Route::resource('setlistsong', 'SetlistSongController', ['only' => ['destroy']]);

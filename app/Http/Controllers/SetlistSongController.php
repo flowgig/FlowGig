@@ -40,12 +40,20 @@ class SetlistSongController extends Controller
      * Update the specified SetlistSong in storage.
      *
      * @param  \Illuminate\Http\Request $request
-     * @param SetlistSong $setlistSong
+     * @param Setlist $setlist
+     * @param Song $song
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, SetlistSong $setlistSong)
+    public function update(Request $request, Setlist $setlist, Song $song)
     {
-        $setlistSong->update($request->all());
+        SetlistSong::where('setlist_id', $setlist->id)->where('song_id', $song->id)
+            ->update([
+                'number_in_list' => $request->input('number_in_list'),
+                'key' => $request->input('key'),
+                'energy' => $request->input('energy'),
+                'duration' => $request->input('duration'),
+                'comment' => $request->input('comment')
+            ]);
     }
 
     /**
