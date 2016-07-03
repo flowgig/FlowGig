@@ -120,21 +120,22 @@
         </span>
         <div v-show="edit" class="accordion">
             <div class="input-group">
-                <input type="text" id="key-@{{ setlistSong.number_in_list }}" name="key" placeholder="A/Gm/F"/>
+                <input v-model="setlistSong.key" type="text" id="key-@{{ setlistSong.number_in_list }}" placeholder="A/Gm/F" />
                 <label for="key-@{{ setlistSong.number_in_list }}">Key</label>
             </div>
             <div class="input-group">
-                <input type="number" id="energy-@{{ setlistSong.number_in_list }}" name="energy" placeholder="0-100"/>
+                <input v-model="setlistSong.energy" type="number" id="energy-@{{ setlistSong.number_in_list }}" placeholder="0-100" />
                 <label for="energy-@{{ setlistSong.number_in_list }}">Energy</label>
             </div>
             <div class="input-group">
-                <input type="number" id="duration-@{{ setlistSong.number_in_list }}" name="duration" placeholder="180"/>
+                <input v-model="setlistSong.duration" type="number" id="duration-@{{ setlistSong.number_in_list }}" placeholder="180" />
                 <label for="duration-@{{ setlistSong.number_in_list }}">Duration</label>
             </div>
             <div class="input-group">
-                <input type="text" id="comment-@{{ setlistSong.number_in_list }}" name="comment"/>
+                <input v-model="setlistSong.comment" type="text" id="comment-@{{ setlistSong.number_in_list }}" />
                 <label for="comment-@{{ setlistSong.number_in_list }}">Comment</label>
             </div>
+            {{--<pre>@{{ setlistSong | json }}</pre>--}}
         </div>
     </template>
 
