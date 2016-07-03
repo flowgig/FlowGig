@@ -229,7 +229,7 @@
                 reOrderSetlistSongs: function (reorderedList) {
                     reorderedList.forEach(function (reorderedSetlistSong) {
                         var setlistSong = this.setlistSongs[this.setlistSongs.indexOf(reorderedSetlistSong)];
-                        setlistSong.number_in_list = reorderedList.indexOf(reorderedSetlistSong);
+                        setlistSong.number_in_list = reorderedList.indexOf(reorderedSetlistSong) + 1;
                         // TODO: Store setlistSong
                     }.bind(this));
                 },
