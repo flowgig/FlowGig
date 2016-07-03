@@ -121,7 +121,7 @@
         <div v-show="edit" class="accordion">
             <div class="input-group">
                 <input type="text" id="key-@{{ setlistSong.number_in_list }}" name="key" placeholder="A/Gm/F"/>
-                <label for="key" -@{{ setlistSong.number_in_list }}>Key</label>
+                <label for="key-@{{ setlistSong.number_in_list }}">Key</label>
             </div>
             <div class="input-group">
                 <input type="number" id="energy-@{{ setlistSong.number_in_list }}" name="energy" placeholder="0-100"/>
