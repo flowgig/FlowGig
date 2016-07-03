@@ -89,38 +89,6 @@
                 </div>
             </div>
         </div>
-        <div class="container">
-            <div class="content">
-                <div class="box">
-                    <div class="content">
-                        <h2>Test create new SetlistSong</h2>
-                        <form action="{{  route('setlistsong.store', [$setlist, 5]) }}" method="POST">
-                            {{ csrf_field() }}
-                            <div class="input-group">
-                                <input type="number" id="number_in_list" name="number_in_list"/><label for="number_in_list">Number in list</label>
-                            </div>
-                            <div class="input-group">
-                                <input type="number" id="setnumber" name="setnumber" placeholder="1/2/3"/><label for="setnumber">Setnumber</label>
-                            </div>
-                            <div class="input-group">
-                                <input type="text" id="key" name="key" placeholder="A/Gm/F"/><label for="key">Key</label>
-                            </div>
-                            <div class="input-group">
-                                <input type="number" id="energy" name="energy" placeholder="0-100"/><label for="energy">Energy</label>
-                            </div>
-                            <div class="input-group">
-                                <input type="number" id="duration" name="duration" placeholder="180"/><label for="duration">Duration</label>
-                            </div>
-                            <div class="input-group">
-                                <input type="text" id="comment" name="comment"/><label for="comment">Comment</label>
-                            </div>
-                            <input type="submit" class="button button-flat" value="Create"/>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <template id="song">
         <span>
@@ -142,13 +110,29 @@
             <small>(@{{ setlistSong.song.music_by }}/@{{ setlistSong.song.lyrics_by }})</small>
         </span>
         <span class="list-item-buttons">
-            <a class="button button-icon button-flat tooltip" title="Edit @{{setlistSong.song.title}}">
-                <span class="fa fa-pencil"></span>
+            <a v-on:click="edit = !edit" class="button button-icon button-flat tooltip" v-bind:title="edit ? 'Collapse' : 'Expand to edit'">
+                <span class="fa" v-bind:class="edit ? 'fa-compress' : 'fa-expand'"></span>
             </a>
              <a class="button button-icon button-flat tooltip" title="Remove @{{setlistSong.song.title}}">
                  <span class="fa fa-trash"></span>
              </a>
         </span>
+        <div v-show="edit">
+            <div class="input-group">
+                <input type="text" id="key" name="key" placeholder="A/Gm/F"/><label for="key">Key</label>
+            </div>
+            <div class="input-group">
+                <input type="number" id="energy" name="energy" placeholder="0-100"/><label
+                        for="energy">Energy</label>
+            </div>
+            <div class="input-group">
+                <input type="number" id="duration" name="duration" placeholder="180"/><label
+                        for="duration">Duration</label>
+            </div>
+            <div class="input-group">
+                <input type="text" id="comment" name="comment"/><label for="comment">Comment</label>
+            </div>
+        </div>
     </template>
 
     <script>
@@ -218,6 +202,11 @@
                 'setlistsong': {
                     template: '#setlistsong',
                     props: ['setlistSong'],
+                    data: function () {
+                        return {
+                            edit: false
+                        }
+                    },
                     methods: {
                         save: function () {
                             alert('Save ' + this.setlistSong.title);
