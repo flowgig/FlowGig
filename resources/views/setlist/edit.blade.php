@@ -104,11 +104,10 @@
     </template>
 
     <template id="setlistsong">
-        <span class="sortable-handle fa fa-sort"></span>
+        <span class="sortable-handle"></span>
         <span class="list-item-divider"></span>
-        <span class="list-item-content">
-            @{{ setlistSong.number_in_list }} &#151; @{{ setlistSong.song.title }}
-            <small>(@{{ setlistSong.song.music_by }}/@{{ setlistSong.song.lyrics_by }})</small>
+        <span class="list-item-content single-line">
+            @{{ setlistSong.song.title }}
         </span>
         <span class="list-item-buttons">
             <a v-on:click="edit = !edit" class="button button-icon button-flat tooltip" v-bind:title="edit ? 'Collapse' : 'Expand to edit'">
@@ -119,21 +118,31 @@
              </a>
         </span>
         <div v-show="edit" class="accordion">
-            <div class="input-group">
-                <input v-model="setlistSong.key" v-on:blur="save" type="text" id="key-@{{ setlistSong.number_in_list }}" placeholder="A/Gm/F" />
-                <label for="key-@{{ setlistSong.number_in_list }}">Key</label>
+            <div>
+                <p><b>Music by: </b>@{{ setlistSong.song.music_by }}</p>
+                <p><b>Lyrics by: </b>@{{ setlistSong.song.lyrics_by }}</p>
             </div>
-            <div class="input-group">
-                <input v-model="setlistSong.energy" v-on:blur="save" type="number" id="energy-@{{ setlistSong.number_in_list }}" placeholder="0-100" />
-                <label for="energy-@{{ setlistSong.number_in_list }}">Energy</label>
+            <div class="row">
+                <div class="input-group col-sm-4">
+                    <input v-model="setlistSong.key" v-on:blur="save" type="text" id="key-@{{ setlistSong.number_in_list }}" placeholder="A/Gm/F"/>
+                    <label for="key-@{{ setlistSong.number_in_list }}">Key</label>
+                </div>
+                <div class="input-group col-sm-4">
+                    <input v-model="setlistSong.energy" v-on:blur="save" type="number" id="energy-@{{ setlistSong.number_in_list }}" placeholder="0-100"/>
+                    <label for="energy-@{{ setlistSong.number_in_list }}">Energy</label>
+                </div>
+                <div class="input-group col-sm-4">
+                    <input v-model="setlistSong.duration" v-on:blur="save" type="number" id="duration-@{{ setlistSong.number_in_list }}" placeholder="180"/>
+                    <label for="duration-@{{ setlistSong.number_in_list }}">Duration</label>
+                </div>
+                <div class="clearfix"></div>
             </div>
-            <div class="input-group">
-                <input v-model="setlistSong.duration" v-on:blur="save" type="number" id="duration-@{{ setlistSong.number_in_list }}" placeholder="180" />
-                <label for="duration-@{{ setlistSong.number_in_list }}">Duration</label>
-            </div>
-            <div class="input-group">
-                <input v-model="setlistSong.comment" v-on:blur="save" type="text" id="comment-@{{ setlistSong.number_in_list }}" />
-                <label for="comment-@{{ setlistSong.number_in_list }}">Comment</label>
+            <div class="row">
+                <div class="input-group col-md-12">
+                    <input v-model="setlistSong.comment" v-on:blur="save" type="text" id="comment-@{{ setlistSong.number_in_list }}"/>
+                    <label for="comment-@{{ setlistSong.number_in_list }}">Comment</label>
+                </div>
+                <div class="clearfix"></div>
             </div>
             {{--<pre>@{{ setlistSong | json }}</pre>--}}
         </div>
