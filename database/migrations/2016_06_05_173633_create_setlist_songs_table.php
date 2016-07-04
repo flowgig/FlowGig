@@ -13,6 +13,7 @@ class CreateSetlistSongsTable extends Migration
     public function up()
     {
         Schema::create('setlist_songs', function (Blueprint $table) {
+            $table->increments('id');
             $table->integer('setlist_id')->unsigned();
             $table->integer('song_id')->unsigned();
             $table->integer('number_in_list')->unsigned();
@@ -23,7 +24,6 @@ class CreateSetlistSongsTable extends Migration
             $table->text('comment')->nullable();
             $table->timestamps();
 
-            $table->primary(['setlist_id', 'number_in_list']);
             $table->foreign('setlist_id')->references('id')->on('setlists');
             $table->foreign('song_id')->references('id')->on('songs');
         });
