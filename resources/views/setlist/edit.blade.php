@@ -1,8 +1,7 @@
 @extends('layouts.master')
 @section('title', 'Setlist - ' . $setlist->title)
 @section('navbar-title', $setlist->title)
-@section('content')
-
+@section('actionbar')
     <div class="action-button">
         <i class="icon fa fa-plus"></i>
     </div>
@@ -60,36 +59,36 @@
             </div>
         </div>
     </div>
-    <div class="main-content">
-        <div class="container">
-            <div id="setlist">
+@endsection
+
+@section('content')
+    <div id="setlist">
+        <div class="content">
+            <div class="box">
                 <div class="content">
-                    <div class="box">
-                        <div class="content">
-                            <div class="breadcrumbs">
-                                <a href="/">FlowGig</a> &gt;
-                                <a href="{{ route('setlist.index') }}">Setlists</a> &gt;
-                                {{$setlist->title}}
-                            </div>
-                            <h1>{{ $setlist->title }}</h1>
-                            <p>edit the setlist <i>{{ $setlist->title }}</i> ...</p>
-                            <h3>Songs:</h3>
-                            <div>
-                                <ul v-sortable.li="setlistSongs" class="list sortable-list">
-                                    <li v-for="setlistSong in setlistSongs" class="setlistsong">
-                                        <setlistsong v-bind:setlist-song="setlistSong"></setlistsong>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="block text-right">
-                                <a class="button button-flat button-primary" href="{{ route('setlist.index') }}">Back to list</a>
-                            </div>
-                        </div>
+                    <div class="breadcrumbs">
+                        <a href="/">FlowGig</a> &gt;
+                        <a href="{{ route('setlist.index') }}">Setlists</a> &gt;
+                        {{$setlist->title}}
+                    </div>
+                    <h1>{{ $setlist->title }}</h1>
+                    <p>edit the setlist <i>{{ $setlist->title }}</i> ...</p>
+                    <h3>Songs:</h3>
+                    <div>
+                        <ul v-sortable.li="setlistSongs" class="list sortable-list">
+                            <li v-for="setlistSong in setlistSongs" class="setlistsong">
+                                <setlistsong v-bind:setlist-song="setlistSong"></setlistsong>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="block text-right">
+                        <a class="button button-flat button-primary" href="{{ route('setlist.index') }}">Back to list</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
 
     <template id="song">
         <span>
@@ -147,7 +146,9 @@
             {{--<pre>@{{ setlistSong | json }}</pre>--}}
         </div>
     </template>
+@endsection
 
+@section('scripts')
     <script>
 
         Vue.directive('sortable', {

@@ -64,11 +64,11 @@
     <script src="/js/all.js" type="application/javascript"></script>
     <style>
 
-        html, body{
+        html, body {
             background-image: none;
         }
 
-        .main-content{
+        .main-content {
             background-color: #FFFFFF;
         }
 
@@ -132,17 +132,23 @@
         </ul>
     </div>
 </div>
-
-@yield('content')
-<footer>
+@yield('actionbar')
+<div class="main-content">
     <div class="container">
-        <div class="text-center">
-            <img src="/images/svg/flowgig-logo-black.svg" style="width: 150px; opacity: .4;"/>
-            <p>FlowGig licensed under
-                <a href="https://github.com/flowgig/flowgig/blob/master/LICENSE">GNU General Public License</a></p>
-            <p><a href="#">About</a> - <a href="#">Developers</a> - <a href="#">Send feedback</a></p>
-        </div>
+        @yield('content')
+        <footer>
+            <div class="container">
+                <div class="text-center">
+                    <img src="/images/svg/flowgig-logo-black.svg" style="width: 150px; opacity: .4;"/>
+                    <p>FlowGig licensed under
+                        <a href="https://github.com/flowgig/flowgig/blob/master/LICENSE">GNU General Public License</a>
+                    </p>
+                    <p><a href="#">About</a> - <a href="#">Developers</a> - <a href="#">Send feedback</a></p>
+                </div>
+            </div>
+        </footer>
     </div>
-</footer>
+</div>
+@yield('scripts')
 </body>
 </html>
