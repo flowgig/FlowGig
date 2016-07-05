@@ -200,16 +200,17 @@
                         addToSetlist: function () {
 
                             var setlistSong = {
-                                setlist: this.$parent.setlist,
+                                setlist_id: this.$parent.setlist.id,
                                 song: this.song,
-                                number_in_list: this.$parent.setlistSongs.length + 1
+                                number_in_list: this.$parent.setlistSongs.length + 1,
                             };
 
-                            var pushToList = function () {
+                            var setIdAndPushToList = function (databaseId) {
+                                setlistSong.id = databaseId;
                                 return this.$parent.setlistSongs.push(setlistSong);
                             }.bind(this);
 
-                            this.$parent.saveSetlistSong(setlistSong, pushToList);
+                            this.$parent.saveSetlistSong(setlistSong, setIdAndPushToList);
                         }
                     }
                 },
@@ -223,16 +224,17 @@
                     },
                     methods: {
                         save: function () {
-                            var url = '/setlistsong/' + this.setlistSong.setlist_id + '/' + this.setlistSong.song_id;
                             var payLoad = {
                                 _token: '{{ csrf_token() }}',
+                                setlist_id: this.setlistSong.setlist_id,
+                                song_id: this.setlistSong.song.id,
                                 number_in_list: this.setlistSong.number_in_list,
                                 key: this.setlistSong.key,
                                 energy: this.setlistSong.energy,
                                 duration: this.setlistSong.duration,
                                 comment: this.setlistSong.comment
                             };
-                            this.$http.put(url, payLoad);
+                            this.$http.put('/setlistsong/' + this.setlistSong.id, payLoad);
                         }
                     }
                 }
@@ -245,10 +247,15 @@
                         // TODO: Store setlistSong
                     }.bind(this));
                 },
-                saveSetlistSong: function (setlistSong, pushToList) {
-                    var url = '/setlistsong/' + setlistSong.setlist.id + '/' + setlistSong.song.id;
-                    var payLoad = {_token: '{{ csrf_token() }}', number_in_list: setlistSong.number_in_list};
-                    this.$http.post(url, payLoad).then(pushToList());
+                saveSetlistSong: function (setlistSong, afterStore) {
+                    var payLoad = {
+                        _token: '{{ csrf_token() }}',
+                        setlist_id: setlistSong.setlist_id,
+                        song_id: setlistSong.song.id,
+                        number_in_list: setlistSong.number_in_list};
+                    this.$http.post('/setlistsong/', payLoad).then(function(databaseId) {
+                        afterStore(databaseId.json())
+                    });
                 }
             },
             events: {
