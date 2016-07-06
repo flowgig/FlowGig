@@ -31,7 +31,7 @@
             </ul>
         </div>
     </div>
-    <div id="repertoire" class="actionbar-modal add-song-modal">
+    <div id="new-song" class="actionbar-modal add-song-modal">
         <div class="modal-content">
             <div class="modal-header">Add new song:</div>
             <div class="input-group">
@@ -46,7 +46,7 @@
             <a class="button button-flat button-primary tooltip" v-on:click="addSong(newSong)" title="Add @{{ newSong.title }} to setlist">Add song</a>
         </div>
     </div>
-    <div id="repertoire" class="actionbar-modal export-setlist-modal">
+    <div class="actionbar-modal export-setlist-modal">
         <div class="modal-content">
             <div class="modal-header">Export setlist:</div>
             <div class="input-group">
@@ -113,7 +113,7 @@
                 <span class="fa" v-bind:class="edit ? 'fa-compress' : 'fa-expand'"></span>
             </a>
              <a v-on:click="remove" class="button button-icon button-flat tooltip" title="Remove @{{setlistSong.song.title}}">
-                 <span class="fa fa-trash"></span>
+                 <span class="fa fa-eraser"></span>
              </a>
         </span>
         <div v-show="edit" class="accordion">
