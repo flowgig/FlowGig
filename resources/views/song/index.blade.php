@@ -6,6 +6,9 @@
         <div class="box">
             <div class="content">
                 <h1>Songs</h1>
+                <div class="block text-right">
+                    <a class="button button-flat button-primary" href="{{ route('song.create') }}">Create new</a>
+                </div>
                 <ul class="list">
                     @foreach($songs as $song)
                         <li itemscope itemtype="http://schema.org/MusicGroup">
@@ -30,6 +33,9 @@
                         </li>
                     @endforeach
                 </ul>
+            </div>
+            <div class="block text-right">
+                <a class="button button-flat button-primary" href="{{ route('song.create') }}">Create new</a>
             </div>
         </div>
     </div>

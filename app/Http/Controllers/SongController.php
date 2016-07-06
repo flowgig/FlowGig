@@ -37,7 +37,11 @@ class SongController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Song::create($request->all());
+
+        // TODO: Flash song stored
+
+        return redirect()->route('song.index');
     }
 
     /**
