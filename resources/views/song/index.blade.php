@@ -5,6 +5,14 @@
     <div class="content">
         <div class="box">
             <div class="content">
+                <ol itemscope itemtype="http://schema.org/BreadcrumbList" class="breadcrumbs">
+                    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                        <a itemprop="item" href="{{ route('song.index') }}">
+                            <span itemprop="name">Songs</span>
+                        </a>
+                        <meta itemprop="position" content="1"/>
+                    </li>
+                </ol>
                 <h1>Songs</h1>
                 <div class="block text-right">
                     <a class="button button-flat button-primary" href="{{ route('song.create') }}">Create new</a>

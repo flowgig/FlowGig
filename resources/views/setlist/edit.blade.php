@@ -66,11 +66,26 @@
         <div class="content">
             <div class="box">
                 <div class="content">
-                    <div class="breadcrumbs">
-                        <a href="/">FlowGig</a> &gt;
-                        <a href="{{ route('setlist.index') }}">Setlists</a> &gt;
-                        {{$setlist->title}}
-                    </div>
+                    <ol itemscope itemtype="http://schema.org/BreadcrumbList" class="breadcrumbs">
+                        <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                            <a itemprop="item" href="{{ route('setlist.index') }}">
+                                <span itemprop="name">Setlists</span>
+                            </a>
+                            <meta itemprop="position" content="1"/>
+                        </li>
+                        <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                            <a itemprop="item" href="{{ route('setlist.show', $setlist) }}">
+                                <span itemprop="name">{{$setlist->title}}</span>
+                            </a>
+                            <meta itemprop="position" content="2"/>
+                        </li>
+                        <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                            <a itemprop="item" href="{{ route('setlist.edit', $setlist) }}">
+                                <span itemprop="name">Edit setlist</span>
+                            </a>
+                            <meta itemprop="position" content="3"/>
+                        </li>
+                    </ol>
                     <h1>{{ $setlist->title }}</h1>
                     <p>edit the setlist <i>{{ $setlist->title }}</i> ...</p>
                     <h3>Songs:</h3>
@@ -228,7 +243,7 @@
                         save: function () {
                             this.$parent.saveUpdatedSetlistSong(this.setlistSong);
                         },
-                        remove: function() {
+                        remove: function () {
                             var payLoad = {
                                 body: {
                                     _token: this.$parent.csrfToken
@@ -254,8 +269,9 @@
                         _token: this.csrfToken,
                         setlist_id: setlistSong.setlist_id,
                         song_id: setlistSong.song.id,
-                        number_in_list: setlistSong.number_in_list};
-                    this.$http.post('/setlistsong/', payLoad).then(function(databaseId) {
+                        number_in_list: setlistSong.number_in_list
+                    };
+                    this.$http.post('/setlistsong/', payLoad).then(function (databaseId) {
                         afterStore(databaseId.json())
                     });
                 },
