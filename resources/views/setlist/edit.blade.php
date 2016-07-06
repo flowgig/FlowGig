@@ -184,13 +184,14 @@
             el: 'body',
             data: {
                 setlist: {!! $setlist !!},
+                setlistSongs: '',
                 repertoire: {!! $repertoire !!},
                 newSong: {}
             },
-            computed: {
-                setlistSongs: function () {
-                    return this.setlist.setlist_songs
-                }
+            ready: function () {
+                this.setlistSongs = this.setlist.setlist_songs.sort(function (a, b) {
+                    return a.number_in_list - b.number_in_list;
+                });
             },
             components: {
                 'song': {
@@ -210,7 +211,7 @@
                                 return this.$parent.setlistSongs.push(setlistSong);
                             }.bind(this);
 
-                            this.$parent.saveSetlistSong(setlistSong, setIdAndPushToList);
+                            this.$parent.saveNewSetlistSong(setlistSong, setIdAndPushToList);
                         }
                     }
                 },
@@ -224,17 +225,7 @@
                     },
                     methods: {
                         save: function () {
-                            var payLoad = {
-                                _token: '{{ csrf_token() }}',
-                                setlist_id: this.setlistSong.setlist_id,
-                                song_id: this.setlistSong.song.id,
-                                number_in_list: this.setlistSong.number_in_list,
-                                key: this.setlistSong.key,
-                                energy: this.setlistSong.energy,
-                                duration: this.setlistSong.duration,
-                                comment: this.setlistSong.comment
-                            };
-                            this.$http.put('/setlistsong/' + this.setlistSong.id, payLoad);
+                            this.$parent.saveUpdatedSetlistSong(this.setlistSong);
                         }
                     }
                 }
@@ -244,10 +235,10 @@
                     reorderedList.forEach(function (reorderedSetlistSong) {
                         var setlistSong = this.setlistSongs[this.setlistSongs.indexOf(reorderedSetlistSong)];
                         setlistSong.number_in_list = reorderedList.indexOf(reorderedSetlistSong) + 1;
-                        // TODO: Store setlistSong
+                        this.saveUpdatedSetlistSong(setlistSong);
                     }.bind(this));
                 },
-                saveSetlistSong: function (setlistSong, afterStore) {
+                saveNewSetlistSong: function (setlistSong, afterStore) {
                     var payLoad = {
                         _token: '{{ csrf_token() }}',
                         setlist_id: setlistSong.setlist_id,
@@ -256,6 +247,19 @@
                     this.$http.post('/setlistsong/', payLoad).then(function(databaseId) {
                         afterStore(databaseId.json())
                     });
+                },
+                saveUpdatedSetlistSong: function (setlistSong) {
+                    var payLoad = {
+                        _token: '{{ csrf_token() }}',
+                        setlist_id: setlistSong.setlist_id,
+                        song_id: setlistSong.song.id,
+                        number_in_list: setlistSong.number_in_list,
+                        key: setlistSong.key,
+                        energy: setlistSong.energy,
+                        duration: setlistSong.duration,
+                        comment: setlistSong.comment
+                    };
+                    this.$http.put('/setlistsong/' + setlistSong.id, payLoad);
                 }
             },
             events: {
