@@ -29,6 +29,13 @@
                                 <a class="button button-icon button-flat tooltip" title="Edit {{$song->title}}" href="{{ route('song.edit', $song) }}">
                                     <span class="fa fa-pencil"></span>
                                 </a>
+                                <form action="{{ route('song.destroy', $song) }}" method="POST">
+                                    {{ csrf_field() }}
+                                    {{ method_field('DELETE') }}
+                                    <button type="submit" class="button button-icon button-flat tooltip" title="Delete {{$song->title}}">
+                                         <span class="fa fa-trash"></span>
+                                     </button>
+                                 </form>
                             </span>
                         </li>
                     @endforeach

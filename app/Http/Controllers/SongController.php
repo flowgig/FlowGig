@@ -32,7 +32,7 @@ class SongController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -86,6 +86,10 @@ class SongController extends Controller
      */
     public function destroy(Song $song)
     {
-        //
+        $song->delete();
+
+        // TODO: Flash song deleted
+
+        return redirect()->route('song.index');
     }
 }
