@@ -112,7 +112,7 @@
             <a v-on:click="edit = !edit" class="button button-icon button-flat tooltip" v-bind:title="edit ? 'Collapse' : 'Expand to edit'">
                 <span class="fa" v-bind:class="edit ? 'fa-compress' : 'fa-expand'"></span>
             </a>
-             <a class="button button-icon button-flat tooltip" title="Remove @{{setlistSong.song.title}}">
+             <a v-on:click="remove" class="button button-icon button-flat tooltip" title="Remove @{{setlistSong.song.title}}">
                  <span class="fa fa-trash"></span>
              </a>
         </span>
@@ -183,6 +183,7 @@
         var vm = new Vue({
             el: 'body',
             data: {
+                csrfToken: '{{ csrf_token() }}',
                 setlist: {!! $setlist !!},
                 setlistSongs: '',
                 repertoire: {!! $repertoire !!},
@@ -226,6 +227,16 @@
                     methods: {
                         save: function () {
                             this.$parent.saveUpdatedSetlistSong(this.setlistSong);
+                        },
+                        remove: function() {
+                            var payLoad = {
+                                body: {
+                                    _token: this.$parent.csrfToken
+                                }
+                            };
+                            this.$http.delete('/setlistsong/' + this.setlistSong.id, payLoad);
+
+                            this.$parent.setlistSongs.$remove(this.setlistSong);
                         }
                     }
                 }
@@ -240,7 +251,7 @@
                 },
                 saveNewSetlistSong: function (setlistSong, afterStore) {
                     var payLoad = {
-                        _token: '{{ csrf_token() }}',
+                        _token: this.csrfToken,
                         setlist_id: setlistSong.setlist_id,
                         song_id: setlistSong.song.id,
                         number_in_list: setlistSong.number_in_list};
@@ -250,7 +261,7 @@
                 },
                 saveUpdatedSetlistSong: function (setlistSong) {
                     var payLoad = {
-                        _token: '{{ csrf_token() }}',
+                        _token: this.csrfToken,
                         setlist_id: setlistSong.setlist_id,
                         song_id: setlistSong.song.id,
                         number_in_list: setlistSong.number_in_list,
