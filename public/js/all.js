@@ -646,7 +646,19 @@ if(!this.invalid){var e=this.arg;this.arg?this.handleSingle(e,t):this.handleObje
   vSortable.install = function (Vue) {
     Vue.directive('sortable', function (options) {
       options = options || {}
-      this.sortable = new Sortable(this.el, options)
+
+      var sortable = new Sortable(this.el, options)
+
+      if (this.arg && !this.vm.sortable) {
+        this.vm.sortable = {}
+      }
+
+      //  Throw an error if the given ID is not unique
+      if (this.arg && this.vm.sortable[this.arg]) {
+        console.warn('[vue-sortable] cannot set already defined sortable id: \'' + this.arg + '\'')
+      } else if( this.arg ) {
+        this.vm.sortable[this.arg] = sortable
+      }
     })
   }
 
@@ -662,6 +674,7 @@ if(!this.invalid){var e=this.arg;this.arg?this.handleSingle(e,t):this.handleObje
   }
 
 })()
+
 /*!
  * vue-resource v0.9.3
  * https://github.com/vuejs/vue-resource
