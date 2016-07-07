@@ -6,6 +6,7 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
     <link href="/css/app.css" rel="stylesheet" type="text/css">
     <meta name="google-site-verification" content="upfbbdBwiPSVWNW7UurPq7Rjhi_NhYU9PdBPYivSOE8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <style>
         html, body {
@@ -53,43 +54,60 @@
             body.welcome-screen {
                 display: block;
             }
-            .container{
+
+            .container {
                 display: block;
                 height: 100%;
                 padding: 10% 12px;
             }
-            .login-box{
+
+            .login-box {
                 background: none;
                 color: #FFF;
             }
-            .login-box.z-2{
+
+            .login-box.z-2 {
                 box-shadow: none;
             }
-            .login-box > .content{
+
+            .login-box > .content {
                 zoom: 1.3;
                 padding: 0;
             }
+
             .input-group {
                 margin-bottom: 25px;
             }
-            .input-group input{
-                color: #FFF!important;
+
+            .input-group input {
+                color: #FFF !important;
             }
+
             .input-group input[type="text"] + label,
             .input-group input[type="password"] + label,
             .input-group input[type="number"] + label,
             .input-group select + label {
                 color: #CCC;
             }
+
             .button-flat[disabled] {
                 color: rgba(255, 255, 255, 0.26);
                 background-color: rgba(255, 255, 255, 0.1);
             }
         }
 
-        @media (max-width: 360px){
-            .login-box{
+        @media (max-width: 320px) {
+            .login-box {
                 width: 100%;
+            }
+
+            .input-group.float-right {
+                float: none;
+            }
+
+            .button {
+                width: 100%;
+                margin: 10px 0;
             }
         }
 
