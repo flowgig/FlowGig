@@ -25,14 +25,14 @@
     "imagesloaded": "^4.1.0",
     "font-awesome": "Font-Awesome#^4.6.3"
   },
-  "version": "0.1.53",
-  "_release": "0.1.53",
+  "version": "0.1.55",
+  "_release": "0.1.55",
   "_resolution": {
     "type": "version",
-    "tag": "v0.1.53",
-    "commit": "3f65c9d16003757abe4069f0b131236c0e7e7cd4"
+    "tag": "v0.1.55",
+    "commit": "774bd60a42f1511e88dc807c5a74911d65537f65"
   },
   "_source": "https://github.com/benjamindehli/Simple-GUI-Template.git",
-  "_target": "^0.1.53",
+  "_target": "^0.1.54",
   "_originalSource": "simple-gui-template"
 }
