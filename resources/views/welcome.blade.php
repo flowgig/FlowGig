@@ -48,6 +48,45 @@
             border-radius: 7px;
             width: 360px;
         }
+
+        @media (max-width: 549px) {
+            body.welcome-screen {
+                display: block;
+            }
+            .container{
+                display: block;
+                height: 100%;
+                padding: 10% 12px;
+            }
+            .login-box{
+                background: none;
+                color: #FFF;
+            }
+            .login-box.z-2{
+                box-shadow: none;
+            }
+            .login-box > .content{
+                zoom: 1.3;
+                padding: 0;
+            }
+            .input-group {
+                margin-bottom: 25px;
+            }
+            .input-group input{
+                color: #FFF!important;
+            }
+            .input-group input[type="text"] + label,
+            .input-group input[type="password"] + label,
+            .input-group input[type="number"] + label,
+            .input-group select + label {
+                color: #CCC;
+            }
+            .button-flat[disabled] {
+                color: rgba(255, 255, 255, 0.26);
+                background-color: rgba(255, 255, 255, 0.1);
+            }
+        }
+
         @media (max-width: 360px){
             .login-box{
                 width: 100%;
