@@ -142,8 +142,8 @@
                     <label for="key-@{{ setlistSong.number_in_list }}">Key</label>
                 </div>
                 <div class="input-group col-sm-4">
-                    <input v-model="setlistSong.energy" v-on:blur="save" type="number" id="energy-@{{ setlistSong.number_in_list }}" placeholder="0-100"/>
-                    <label for="energy-@{{ setlistSong.number_in_list }}">Energy</label>
+                    <input v-model="setlistSong.bpm" v-on:blur="save" type="number" id="bpm-@{{ setlistSong.number_in_list }}" placeholder="Beats Per Minute"/>
+                    <label for="bpm-@{{ setlistSong.number_in_list }}">BPM</label>
                 </div>
                 <div class="input-group col-sm-4">
                     <input v-model="setlistSong.duration" v-on:blur="save" type="number" id="duration-@{{ setlistSong.number_in_list }}" placeholder="180"/>
@@ -152,7 +152,11 @@
                 <div class="clearfix"></div>
             </div>
             <div class="row">
-                <div class="input-group col-md-12">
+                <div class="input-group col-sm-4">
+                    <input v-model="setlistSong.energy" v-on:blur="save" type="number" id="energy-@{{ setlistSong.number_in_list }}" placeholder="0-100"/>
+                    <label for="energy-@{{ setlistSong.number_in_list }}">Energy</label>
+                </div>
+                <div class="input-group col-md-8">
                     <input v-model="setlistSong.comment" v-on:blur="save" type="text" id="comment-@{{ setlistSong.number_in_list }}"/>
                     <label for="comment-@{{ setlistSong.number_in_list }}">Comment</label>
                 </div>
@@ -282,6 +286,7 @@
                         song_id: setlistSong.song.id,
                         number_in_list: setlistSong.number_in_list,
                         key: setlistSong.key,
+                        bpm: setlistSong.bpm,
                         energy: setlistSong.energy,
                         duration: setlistSong.duration,
                         comment: setlistSong.comment
