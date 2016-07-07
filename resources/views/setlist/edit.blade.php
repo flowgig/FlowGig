@@ -153,8 +153,8 @@
             </div>
             <div class="row">
                 <div class="input-group col-sm-4">
-                    <input v-model="setlistSong.energy" v-on:blur="save" type="number" id="energy-@{{ setlistSong.number_in_list }}" placeholder="0-100"/>
-                    <label for="energy-@{{ setlistSong.number_in_list }}">Energy</label>
+                    <input v-model="setlistSong.intensity" v-on:blur="save" type="number" id="intensity-@{{ setlistSong.number_in_list }}" placeholder="0&ndash;10 (ballad&ndash;bebop)"/>
+                    <label for="intensity-@{{ setlistSong.number_in_list }}">Intensity</label>
                 </div>
                 <div class="input-group col-md-8">
                     <input v-model="setlistSong.comment" v-on:blur="save" type="text" id="comment-@{{ setlistSong.number_in_list }}"/>
@@ -287,7 +287,7 @@
                         number_in_list: setlistSong.number_in_list,
                         key: setlistSong.key,
                         bpm: setlistSong.bpm,
-                        energy: setlistSong.energy,
+                        intensity: setlistSong.intensity,
                         duration: setlistSong.duration,
                         comment: setlistSong.comment
                     };
