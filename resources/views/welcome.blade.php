@@ -61,9 +61,14 @@
                 padding: 10% 12px;
             }
 
+            .content {
+                display: block;
+            }
+
             .login-box {
                 background: none;
                 color: #FFF;
+                width: 100%;
             }
 
             .login-box.z-2 {
