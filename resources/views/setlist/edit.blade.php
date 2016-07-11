@@ -138,7 +138,7 @@
             </div>
             <div class="row">
                 <div class="input-group col-sm-4">
-                    <input v-model="setlistSong.key" v-on:blur="save" type="text" id="key-@{{ setlistSong.number_in_list }}" placeholder="A/Gm/F"/>
+                    <v-select v-bind:value.sync="setlistSong.key" v-bind:options="keyOptions" v-bind:on-change="save" id="key-@{{ setlistSong.number_in_list }}" placeholder="A/Gm/F"></v-select>
                     <label for="key-@{{ setlistSong.number_in_list }}">Key</label>
                 </div>
                 <div class="input-group col-sm-4">
@@ -240,7 +240,8 @@
                     props: ['setlistSong'],
                     data: function () {
                         return {
-                            edit: false
+                            edit: false,
+                            keyOptions: musicalKeys
                         }
                     },
                     methods: {
@@ -257,6 +258,9 @@
 
                             this.$parent.setlistSongs.$remove(this.setlistSong);
                         }
+                    },
+                    components: {
+                        'v-select': window.VueSelect.VueSelect
                     }
                 }
             },
@@ -300,7 +304,15 @@
                 }
             }
         });
-
+        var musicalKeys =
+                [
+                    'C', 'D', 'E', 'F', 'G', 'A', 'H',
+                    'Cm', 'Dm', 'Em', 'Fm', 'Gm', 'Am', 'Hm',
+                    'C#', 'D#', 'E#', 'F#', 'G#', 'A#', 'H#',
+                    'C#m', 'D#m', 'E#m', 'F#m', 'G#m', 'A#m', 'H#m',
+                    'Cb', 'Db', 'Eb', 'Fb', 'Gb', 'Ab', 'Hb',
+                    'Cbm', 'Dbm', 'Ebm', 'Fbm', 'Gbm', 'Abm', 'Hbm'
+                ]; //TODO: Use proper flat- and sharp-symbols (&#9837; or &#x266D; and &#9839; or &#x266F);
     </script>
 
 @endsection
