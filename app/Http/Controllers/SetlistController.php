@@ -119,6 +119,10 @@ class SetlistController extends Controller
      */
     public function destroy(Setlist $setlist)
     {
-        //
+        $setlist->delete();
+
+        // TODO: Flash setlist deleted
+
+        return redirect()->route('setlist.index');
     }
 }

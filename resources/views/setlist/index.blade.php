@@ -31,6 +31,13 @@
                                 <a class="button button-icon button-flat tooltip" title="Edit {{$setlist->title}}" href="{{ route('setlist.edit', $setlist) }}">
                                     <span class="fa fa-pencil"></span>
                                 </a>
+                                <form action="{{ route('setlist.destroy', $setlist) }}" method="POST">
+                                    {{ csrf_field() }}
+                                    {{ method_field('DELETE') }}
+                                    <button type="submit" class="button button-icon button-flat tooltip" title="Delete {{$setlist->title}}">
+                                         <span class="fa fa-trash"></span>
+                                    </button>
+                                 </form>
                             </span>
                         </li>
                     @endforeach
