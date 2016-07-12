@@ -39,7 +39,15 @@ class SetlistController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required|max:80',
+        ]);
+        
+        Setlist::create($request->all());
+
+        // TODO: Flash setlist stored
+
+        return redirect()->route('setlist.index');
     }
 
     /**

@@ -14,6 +14,9 @@
                     </li>
                 </ol>
                 <h1>Setlists</h1>
+                <div class="block text-right">
+                    <a class="button button-flat button-primary" href="{{ route('setlist.create') }}">Create new</a>
+                </div>
                 <ul class="list">
                     @foreach($setlists as $setlist)
                         <li>
@@ -32,6 +35,9 @@
                         </li>
                     @endforeach
                 </ul>
+                <div class="block text-right">
+                    <a class="button button-flat button-primary" href="{{ route('setlist.create') }}">Create new</a>
+                </div>
             </div>
         </div>
     </div>

@@ -20,7 +20,27 @@
                     </li>
                 </ol>
                 <h1>Create new setlist</h1>
-                <p>create new setlist...</p>
+                <form action="{{ route('setlist.store') }}" method="POST">
+                    {{ csrf_field() }}
+                    <div class="row">
+                        <div class="input-group col-sm-4">
+                            <input type="text" name="title" id="title" />
+                            <label for="title">Title</label>
+                        </div>
+                        <div class="input-group col-sm-4">
+                            <input type="text" name="description" id="description" />
+                            <label for="description">Description</label>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="row">
+                        <div class="input-group col-sm-4">
+                            <button type="submit" class="button button-flat button-primary">Create</button>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </form>
+                @include('errors.validation-errors')
             </div>
         </div>
     </div>
