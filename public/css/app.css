@@ -2132,7 +2132,8 @@ button, input[type="button"], input[type="submit"] {
   -moz-appearance: none;
   appearance: none;
   background: none;
-  border: none; }
+  border: none;
+  cursor: pointer; }
 
 button:active, button:focus, input[type="button"]:active, input[type="button"]:focus, input[type="submit"]:active, input[type="submit"]:focus {
   box-shadow: none;
@@ -2152,9 +2153,7 @@ button:active, button:focus, input[type="button"]:active, input[type="button"]:f
         padding: 0; } }
 
 .main-content {
-  transition: all .2s; }
-
-.main-content {
+  transition: all .2s;
   padding-top: 48px;
   height: 100%; }
   .main-content > .container {
@@ -2475,7 +2474,7 @@ body.action-menu-active .main-content {
     color: rgba(0, 0, 0, 0.26);
     background-color: transparent; }
   .button-flat.button-icon {
-    min-width: 38px;
+    min-width: 42px;
     margin: 0; }
     .button-flat.button-icon .fa {
       line-height: 32px; }
@@ -2490,6 +2489,10 @@ body.action-menu-active .main-content {
 
 .button-raised[disabled] {
   color: rgba(0, 0, 0, 0.26); }
+
+.button-default {
+  background-color: #f6f7f8;
+  border: 1px solid #e5e6e7; }
 
 .button-primary {
   background-color: #C32A22;
@@ -2541,7 +2544,11 @@ form {
 
 .input-group {
   margin-bottom: 4px; }
-  .input-group input[type="text"], .input-group input[type="password"], .input-group input[type="number"], .input-group select {
+  .input-group input[type="text"],
+  .input-group input[type="password"],
+  .input-group input[type="number"],
+  .input-group input[type="search"],
+  .input-group select {
     width: 100%;
     height: 30px;
     font-size: 20px;
@@ -2557,7 +2564,11 @@ form {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none; }
-    .input-group input[type="text"] + label, .input-group input[type="password"] + label, .input-group input[type="number"] + label, .input-group select + label {
+    .input-group input[type="text"] + label,
+    .input-group input[type="password"] + label,
+    .input-group input[type="number"] + label,
+    .input-group input[type="search"] + label,
+    .input-group select + label {
       color: #777;
       position: relative;
       bottom: 27.5px;
@@ -2568,41 +2579,101 @@ form {
       height: 0px;
       display: block;
       cursor: text; }
-    .input-group input[type="text"]::-webkit-input-placeholder, .input-group input[type="password"]::-webkit-input-placeholder, .input-group input[type="number"]::-webkit-input-placeholder, .input-group select::-webkit-input-placeholder {
+    .input-group input[type="text"]::-webkit-input-placeholder,
+    .input-group input[type="password"]::-webkit-input-placeholder,
+    .input-group input[type="number"]::-webkit-input-placeholder,
+    .input-group input[type="search"]::-webkit-input-placeholder,
+    .input-group select::-webkit-input-placeholder {
       opacity: 0; }
-    .input-group input[type="text"]::-moz-placeholder, .input-group input[type="password"]::-moz-placeholder, .input-group input[type="number"]::-moz-placeholder, .input-group select::-moz-placeholder {
+    .input-group input[type="text"]::-moz-placeholder,
+    .input-group input[type="password"]::-moz-placeholder,
+    .input-group input[type="number"]::-moz-placeholder,
+    .input-group input[type="search"]::-moz-placeholder,
+    .input-group select::-moz-placeholder {
       opacity: 0; }
-    .input-group input[type="text"]:-moz-placeholder, .input-group input[type="password"]:-moz-placeholder, .input-group input[type="number"]:-moz-placeholder, .input-group select:-moz-placeholder {
+    .input-group input[type="text"]:-moz-placeholder,
+    .input-group input[type="password"]:-moz-placeholder,
+    .input-group input[type="number"]:-moz-placeholder,
+    .input-group input[type="search"]:-moz-placeholder,
+    .input-group select:-moz-placeholder {
       opacity: 0; }
-    .input-group input[type="text"]:-ms-input-placeholder, .input-group input[type="password"]:-ms-input-placeholder, .input-group input[type="number"]:-ms-input-placeholder, .input-group select:-ms-input-placeholder {
+    .input-group input[type="text"]:-ms-input-placeholder,
+    .input-group input[type="password"]:-ms-input-placeholder,
+    .input-group input[type="number"]:-ms-input-placeholder,
+    .input-group input[type="search"]:-ms-input-placeholder,
+    .input-group select:-ms-input-placeholder {
       opacity: 0; }
-    .input-group input[type="text"]:focus, .input-group input[type="password"]:focus, .input-group input[type="number"]:focus, .input-group select:focus {
+    .input-group input[type="text"]:focus,
+    .input-group input[type="password"]:focus,
+    .input-group input[type="number"]:focus,
+    .input-group input[type="search"]:focus,
+    .input-group select:focus {
       border-bottom: 2px solid #C32A22;
       outline: none;
       color: #777; }
-      .input-group input[type="text"]:focus::-webkit-input-placeholder, .input-group input[type="password"]:focus::-webkit-input-placeholder, .input-group input[type="number"]:focus::-webkit-input-placeholder, .input-group select:focus::-webkit-input-placeholder {
+      .input-group input[type="text"]:focus::-webkit-input-placeholder,
+      .input-group input[type="password"]:focus::-webkit-input-placeholder,
+      .input-group input[type="number"]:focus::-webkit-input-placeholder,
+      .input-group input[type="search"]:focus::-webkit-input-placeholder,
+      .input-group select:focus::-webkit-input-placeholder {
         opacity: 1; }
-      .input-group input[type="text"]:focus::-moz-placeholder, .input-group input[type="password"]:focus::-moz-placeholder, .input-group input[type="number"]:focus::-moz-placeholder, .input-group select:focus::-moz-placeholder {
+      .input-group input[type="text"]:focus::-moz-placeholder,
+      .input-group input[type="password"]:focus::-moz-placeholder,
+      .input-group input[type="number"]:focus::-moz-placeholder,
+      .input-group input[type="search"]:focus::-moz-placeholder,
+      .input-group select:focus::-moz-placeholder {
         opacity: 1; }
-      .input-group input[type="text"]:focus:-moz-placeholder, .input-group input[type="password"]:focus:-moz-placeholder, .input-group input[type="number"]:focus:-moz-placeholder, .input-group select:focus:-moz-placeholder {
+      .input-group input[type="text"]:focus:-moz-placeholder,
+      .input-group input[type="password"]:focus:-moz-placeholder,
+      .input-group input[type="number"]:focus:-moz-placeholder,
+      .input-group input[type="search"]:focus:-moz-placeholder,
+      .input-group select:focus:-moz-placeholder {
         opacity: 1; }
-      .input-group input[type="text"]:focus:-ms-input-placeholder, .input-group input[type="password"]:focus:-ms-input-placeholder, .input-group input[type="number"]:focus:-ms-input-placeholder, .input-group select:focus:-ms-input-placeholder {
+      .input-group input[type="text"]:focus:-ms-input-placeholder,
+      .input-group input[type="password"]:focus:-ms-input-placeholder,
+      .input-group input[type="number"]:focus:-ms-input-placeholder,
+      .input-group input[type="search"]:focus:-ms-input-placeholder,
+      .input-group select:focus:-ms-input-placeholder {
         opacity: 1; }
-    .input-group input[type="text"].is-not-empty, .input-group input[type="password"].is-not-empty, .input-group input[type="number"].is-not-empty, .input-group select.is-not-empty {
+    .input-group input[type="text"].is-not-empty,
+    .input-group input[type="password"].is-not-empty,
+    .input-group input[type="number"].is-not-empty,
+    .input-group input[type="search"].is-not-empty,
+    .input-group select.is-not-empty {
       color: #212121; }
-      .input-group input[type="text"].is-not-empty:focus, .input-group input[type="password"].is-not-empty:focus, .input-group input[type="number"].is-not-empty:focus, .input-group select.is-not-empty:focus {
+      .input-group input[type="text"].is-not-empty:focus,
+      .input-group input[type="password"].is-not-empty:focus,
+      .input-group input[type="number"].is-not-empty:focus,
+      .input-group input[type="search"].is-not-empty:focus,
+      .input-group select.is-not-empty:focus {
         color: #212121; }
-    .input-group input[type="text"].is-not-empty + label, .input-group input[type="password"].is-not-empty + label, .input-group input[type="number"].is-not-empty + label, .input-group select.is-not-empty + label {
+    .input-group input[type="text"].is-not-empty + label,
+    .input-group input[type="password"].is-not-empty + label,
+    .input-group input[type="number"].is-not-empty + label,
+    .input-group input[type="search"].is-not-empty + label,
+    .input-group select.is-not-empty + label {
       bottom: 50px;
       font-size: 16px; }
-      .input-group input[type="text"].is-not-empty + label:after, .input-group input[type="password"].is-not-empty + label:after, .input-group input[type="number"].is-not-empty + label:after, .input-group select.is-not-empty + label:after {
+      .input-group input[type="text"].is-not-empty + label:after,
+      .input-group input[type="password"].is-not-empty + label:after,
+      .input-group input[type="number"].is-not-empty + label:after,
+      .input-group input[type="search"].is-not-empty + label:after,
+      .input-group select.is-not-empty + label:after {
         content: ":"; }
-    .input-group input[type="text"]:focus + label, .input-group input[type="password"]:focus + label, .input-group input[type="number"]:focus + label, .input-group select:focus + label {
+    .input-group input[type="text"]:focus + label,
+    .input-group input[type="password"]:focus + label,
+    .input-group input[type="number"]:focus + label,
+    .input-group input[type="search"]:focus + label,
+    .input-group select:focus + label {
       color: #C32A22;
       bottom: 50px;
       font-size: 16px;
       cursor: default; }
-      .input-group input[type="text"]:focus + label:after, .input-group input[type="password"]:focus + label:after, .input-group input[type="number"]:focus + label:after, .input-group select:focus + label:after {
+      .input-group input[type="text"]:focus + label:after,
+      .input-group input[type="password"]:focus + label:after,
+      .input-group input[type="number"]:focus + label:after,
+      .input-group input[type="search"]:focus + label:after,
+      .input-group select:focus + label:after {
         content: ":"; }
 
 .select-wrapper:before {
@@ -3181,6 +3252,12 @@ ul.list {
           background: none; }
           ul.list li.list-item-menu-active .list-item-buttons > a:hover:before, ul.list li.list-item-menu-active .list-item-buttons > a:hover span:before {
             opacity: 1; }
+        ul.list li.list-item-menu-active .list-item-buttons > a.button-default {
+          color: #C32A22; }
+          ul.list li.list-item-menu-active .list-item-buttons > a.button-default:not([disabled]):hover {
+            background-color: #f0f1f2; }
+          ul.list li.list-item-menu-active .list-item-buttons > a.button-default:not([disabled]):active {
+            background-color: #fbeae9; }
       ul.list li.list-item-menu-active .list-item-buttons:after {
         content: "\f00d"; }
   ul.list.hover-list li:hover {
@@ -3560,9 +3637,6 @@ h1, h2, h3, h4 {
 
 .clearfix {
   clear: both; }
-
-html, body {
-  height: 100%; }
 
 .main-content {
   min-height: 100%;
