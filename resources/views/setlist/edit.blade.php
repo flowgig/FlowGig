@@ -43,17 +43,17 @@
             <div class="input-group">
                 <input id="music_by" v-model="newSong.music_by" type="text"/><label for="music_by">Music by</label>
             </div>
-            <a class="button button-flat button-primary tooltip" v-on:click="addSong(newSong)" title="Add @{{ newSong.title }} to setlist">Add song</a>
+            <a class="button button-flat button-primary float-right tooltip" v-on:click="addSong(newSong)" title="Add @{{ newSong.title }} to setlist">Add song</a>
         </div>
     </div>
     <div class="actionbar-modal export-setlist-modal">
         <div class="modal-content">
             <div class="modal-header">Export setlist:</div>
             <div class="input-group">
-                <a href="{{ route('setlist.export-preview', $setlist) }}" target="_blank" class="button button-flat tooltip" title="Preview {{ $setlist->title }}">
+                <a href="{{ route('setlist.export-preview', $setlist) }}" target="_blank" class="button button-flat button-default tooltip" title="Preview {{ $setlist->title }}">
                     <label for="preview">Preview</label>
                 </a>
-                <a href="{{ route('setlist.export', $setlist) }}" target="_blank" class="button button-flat tooltip" title="Export {{ $setlist->title }} to PDF">
+                <a href="{{ route('setlist.export', $setlist) }}" target="_blank" class="button button-flat button-default tooltip" title="Export {{ $setlist->title }} to PDF">
                     <label for="export">Export to PDF</label>
                 </a>
             </div>
@@ -112,7 +112,7 @@
                 <small>(@{{ song.music_by }}/@{{ song.lyrics_by }})</small>
             </span>
             <span class="list-item-button">
-                <span v-on:click="addToSetlist()" class="button button-icon button-flat button-success modal-hover-add-button tooltip" title="Add @{{ song.title }} to setlist"></span>
+                <span v-on:click="addToSetlist()" class="button button-icon button-flat button-default modal-hover-add-button tooltip" title="Add @{{ song.title }} to setlist"></span>
             </span>
         </span>
     </template>
@@ -124,11 +124,11 @@
             @{{ setlistSong.song.title }}
         </span>
         <span class="list-item-buttons">
-            <a v-on:click="edit = !edit" class="button button-icon button-flat tooltip" v-bind:title="edit ? 'Collapse' : 'Expand to edit'">
-                <span class="fa" v-bind:class="edit ? 'fa-caret-square-o-up' : 'fa-caret-square-o-down'"></span>
+            <a v-on:click="edit = !edit" class="button button-icon button-flat button-default tooltip" v-bind:title="edit ? 'Collapse' : 'Expand to edit'">
+                <span class="fa" v-bind:class="edit ? 'fa-angle-up' : 'fa-angle-down'"></span>
             </a>
-             <a v-on:click="remove" class="button button-icon button-flat tooltip" title="Remove @{{setlistSong.song.title}} from the setlist">
-                 <span class="fa fa-minus-square"></span>
+             <a v-on:click="remove" class="button button-icon button-flat button-default tooltip" title="Remove @{{setlistSong.song.title}} from the setlist">
+                 <span class="fa fa-minus"></span>
              </a>
         </span>
         <div v-show="edit" class="accordion">

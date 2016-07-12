@@ -17,7 +17,7 @@
                 <div class="block text-right">
                     <a class="button button-flat button-primary" href="{{ route('setlist.create') }}">Create new</a>
                 </div>
-                <ul class="list">
+                <ul class="list menu-list">
                     @foreach($setlists as $setlist)
                         <li>
                             <span class="list-item-content">
@@ -25,16 +25,16 @@
                                 <small>{{ $setlist->description }}</small>
                             </span>
                             <span class="list-item-buttons">
-                                <a class="button button-icon button-flat tooltip" title="Show {{$setlist->title}}" href="{{ route('setlist.show', $setlist) }}">
+                                <a class="button button-icon button-flat button-default tooltip" title="Show {{$setlist->title}}" href="{{ route('setlist.show', $setlist) }}">
                                     <span class="fa fa-eye"></span>
                                 </a>
-                                <a class="button button-icon button-flat tooltip" title="Edit {{$setlist->title}}" href="{{ route('setlist.edit', $setlist) }}">
+                                <a class="button button-icon button-flat button-default tooltip" title="Edit {{$setlist->title}}" href="{{ route('setlist.edit', $setlist) }}">
                                     <span class="fa fa-pencil"></span>
                                 </a>
                                 <form action="{{ route('setlist.destroy', $setlist) }}" method="POST">
                                     {{ csrf_field() }}
                                     {{ method_field('DELETE') }}
-                                    <button type="submit" class="button button-icon button-flat tooltip" title="Delete {{$setlist->title}}">
+                                    <button type="submit" class="button button-icon button-flat button-default tooltip" title="Delete {{$setlist->title}}">
                                          <span class="fa fa-trash"></span>
                                     </button>
                                  </form>

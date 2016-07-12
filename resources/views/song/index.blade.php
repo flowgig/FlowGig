@@ -17,7 +17,7 @@
                 <div class="block text-right">
                     <a class="button button-flat button-primary" href="{{ route('song.create') }}">Create new</a>
                 </div>
-                <ul class="list">
+                <ul class="list menu-list">
                     @foreach($songs as $song)
                         <li itemscope itemtype="http://schema.org/MusicGroup">
                             <span class="list-item-content">
@@ -31,16 +31,16 @@
                                 </small>
                             </span>
                             <span class="list-item-buttons">
-                                <a class="button button-icon button-flat tooltip" title="Show {{$song->title}}" href="{{ route('song.show', $song) }}">
+                                <a class="button button-icon button-flat button-default tooltip" title="Show {{$song->title}}" href="{{ route('song.show', $song) }}">
                                     <span class="fa fa-eye"></span>
                                 </a>
-                                <a class="button button-icon button-flat tooltip" title="Edit {{$song->title}}" href="{{ route('song.edit', $song) }}">
+                                <a class="button button-icon button-flat button-default tooltip" title="Edit {{$song->title}}" href="{{ route('song.edit', $song) }}">
                                     <span class="fa fa-pencil"></span>
                                 </a>
                                 <form action="{{ route('song.destroy', $song) }}" method="POST">
                                     {{ csrf_field() }}
                                     {{ method_field('DELETE') }}
-                                    <button type="submit" class="button button-icon button-flat tooltip" title="Delete {{$song->title}}">
+                                    <button type="submit" class="button button-icon button-flat button-default tooltip" title="Delete {{$song->title}}">
                                          <span class="fa fa-trash"></span>
                                      </button>
                                  </form>
