@@ -48,9 +48,9 @@
                         </li>
                     @endforeach
                 </ul>
-            </div>
-            <div class="block text-right">
-                <a class="button button-flat button-primary" href="{{ route('song.create') }}">Create new</a>
+                <div class="block text-right">
+                    <a class="button button-flat button-primary" href="{{ route('song.create') }}">Create new</a>
+                </div>
             </div>
         </div>
     </div>
