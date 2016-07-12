@@ -79,7 +79,15 @@ class SongController extends Controller
      */
     public function update(Request $request, Song $song)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required|max:80',
+        ]);
+
+        $song->update($request->all());
+
+        // TODO: Flash song updated
+
+        return redirect()->route('song.index');
     }
 
     /**
