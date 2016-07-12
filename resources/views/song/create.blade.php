@@ -44,6 +44,7 @@
                     </div>
                     <div class="clearfix"></div>
                 </form>
+                @include('errors.validation-errors')
             </div>
         </div>
     </div>

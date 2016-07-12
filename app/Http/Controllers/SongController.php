@@ -37,6 +37,10 @@ class SongController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'title' => 'required|max:80',
+        ]);
+        
         Song::create($request->all());
 
         // TODO: Flash song stored
