@@ -27,13 +27,10 @@
                             <input type="text" name="title" id="title" placeholder="The song title"/>
                             <label for="title">Title</label>
                         </div>
-
-
                         <div class="input-group col-sm-4">
-                            <input type="text" name="music_by" id="music-by" placeholder="The song composer"/>
+                            <input type="text" name="music_by" id="music-by" placeholder="The music composer"/>
                             <label for="music-by">Music by</label>
                         </div>
-
                         <div class="input-group col-sm-4">
                             <input type="text" name="lyrics_by" id="lyrics-by" placeholder="The lyrics author"/>
                             <label for="lyrics-by">Lyrics by</label>
@@ -49,6 +46,5 @@
                 </form>
             </div>
         </div>
-    </div>
     </div>
 @endsection
