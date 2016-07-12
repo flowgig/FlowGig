@@ -87,7 +87,7 @@
                         </li>
                     </ol>
                     <h1>{{ $setlist->title }}</h1>
-                    <p>edit the setlist <i>{{ $setlist->title }}</i> ...</p>
+                    <p>{{ $setlist->description }}</p>
                     <h3>Songs:</h3>
                     <div>
                         <ul v-sortable.li="setlistSongs" class="list sortable-list">
