@@ -138,26 +138,26 @@
             </div>
             <div class="row">
                 <div class="input-group col-sm-4">
-                    <v-select v-bind:value.sync="setlistSong.key" v-bind:options="keyOptions" v-bind:on-change="save" id="key-@{{ setlistSong.number_in_list }}" placeholder="A/Gm/F"></v-select>
+                    <v-select v-bind:value.sync="setlistSong.key" v-bind:options="keyOptions" v-bind:on-change="save" id="key-@{{ setlistSong.number_in_list }}"></v-select>
                     <label for="key-@{{ setlistSong.number_in_list }}">Key</label>
                 </div>
                 <div class="input-group col-sm-4">
-                    <input v-model="setlistSong.bpm" v-on:blur="save" type="number" id="bpm-@{{ setlistSong.number_in_list }}" placeholder="Beats Per Minute"/>
+                    <input v-model="setlistSong.bpm" v-on:blur="save" type="number" min="0" id="bpm-@{{ setlistSong.number_in_list }}" placeholder="Beats Per Minute" />
                     <label for="bpm-@{{ setlistSong.number_in_list }}">BPM</label>
                 </div>
                 <div class="input-group col-sm-4">
-                    <input v-model="setlistSong.duration" v-on:blur="save" type="number" id="duration-@{{ setlistSong.number_in_list }}" placeholder="180"/>
+                    <input v-model="setlistSong.duration" v-on:blur="save" type="number" min="0" id="duration-@{{ setlistSong.number_in_list }}" placeholder="Minutes" />
                     <label for="duration-@{{ setlistSong.number_in_list }}">Duration</label>
                 </div>
                 <div class="clearfix"></div>
             </div>
             <div class="row">
                 <div class="input-group col-sm-4">
-                    <input v-model="setlistSong.intensity" v-on:blur="save" type="number" id="intensity-@{{ setlistSong.number_in_list }}" placeholder="0&ndash;10 (ballad&ndash;bebop)"/>
+                    <input v-model="setlistSong.intensity" v-on:blur="save" type="number" min="1" max="10" id="intensity-@{{ setlistSong.number_in_list }}" placeholder="1&ndash;10 (Ballad&ndash;Bebop)" />
                     <label for="intensity-@{{ setlistSong.number_in_list }}">Intensity</label>
                 </div>
                 <div class="input-group col-md-8">
-                    <input v-model="setlistSong.comment" v-on:blur="save" type="text" id="comment-@{{ setlistSong.number_in_list }}"/>
+                    <input v-model="setlistSong.comment" v-on:blur="save" type="text" id="comment-@{{ setlistSong.number_in_list }}" />
                     <label for="comment-@{{ setlistSong.number_in_list }}">Comment</label>
                 </div>
                 <div class="clearfix"></div>
@@ -290,9 +290,9 @@
                         song_id: setlistSong.song.id,
                         number_in_list: setlistSong.number_in_list,
                         key: setlistSong.key,
-                        bpm: setlistSong.bpm,
-                        intensity: setlistSong.intensity,
-                        duration: setlistSong.duration,
+                        bpm: setlistSong.bpm ? setlistSong.bpm : null,
+                        intensity: setlistSong.intensity ? setlistSong.intensity : null,
+                        duration: setlistSong.duration ? setlistSong.duration : null,
                         comment: setlistSong.comment
                     };
                     this.$http.put('/setlistsong/' + setlistSong.id, payLoad);
