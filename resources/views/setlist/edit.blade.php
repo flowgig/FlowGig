@@ -127,8 +127,8 @@
             <a v-on:click="edit = !edit" class="button button-icon button-flat tooltip" v-bind:title="edit ? 'Collapse' : 'Expand to edit'">
                 <span class="fa" v-bind:class="edit ? 'fa-compress' : 'fa-expand'"></span>
             </a>
-             <a v-on:click="remove" class="button button-icon button-flat tooltip" title="Remove @{{setlistSong.song.title}}">
-                 <span class="fa fa-eraser"></span>
+             <a v-on:click="remove" class="button button-icon button-flat tooltip" title="Remove @{{setlistSong.song.title}} from the setlist">
+                 <span class="fa fa-minus-square"></span>
              </a>
         </span>
         <div v-show="edit" class="accordion">
