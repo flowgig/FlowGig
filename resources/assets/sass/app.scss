@@ -1,7 +1,90 @@
 // @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
-
 .main-content {
   min-height: 100%;
   background-color: rgba(0, 0, 0, .5);
+}
+
+.v-select {
+  .dropdown-toggle {
+    border: none !important;
+  }
+  .open-indicator {
+    bottom: 10px !important;
+  }
+  .selected-tag {
+    position: absolute;
+    z-index: 1;
+    color: #212121 !important;
+    font-size: 20px;
+    margin-top: 20px !important;
+    border: none !important;
+    background: none !important;
+    line-height: 30px !important;
+  }
+  &.open {
+    .open-indicator {
+      bottom: 5px !important;
+    }
+    .selected-tag {
+      color: transparent !important;
+    }
+  }
+  input[type=search],
+  input[type=search]:focus {
+    float: none !important;
+    padding: 0 2px !important;
+    margin-top: 21px !important;
+    border: none !important;
+    border-bottom: 2px solid #eee !important;
+    width: 100% !important;
+  }
+  + label {
+    color: #777;
+    position: relative;
+    bottom: 27.5px;
+    left: 8px;
+    font-size: 20px;
+    transition: all .2s;
+    height: 0px;
+    display: block;
+    cursor: text;
+  }
+  &.open, &.is-not-empty {
+    + label {
+      color: #C32A22;
+      bottom: 50px;
+      font-size: 16px;
+      cursor: default;
+    }
+  }
+  > .dropdown-menu {
+    list-style: none;
+    padding: 0;
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.3);
+    position: absolute;
+    z-index: 1;
+    background-color: #FFF;
+    li {
+      padding: 0;
+      a {
+        display: block;
+        padding: 10px;
+        width: 100%;
+      }
+      &.active {
+        background-color: #C32A22;
+        a {
+          color: #FFF;
+        }
+      }
+      &:hover, &.highlight {
+        background-color: #f0f1f2;
+        a {
+          color: inherit;
+          background: inherit;
+        }
+      }
+    }
+  }
 }

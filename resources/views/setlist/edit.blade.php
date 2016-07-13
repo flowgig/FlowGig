@@ -138,7 +138,7 @@
             </div>
             <div class="row">
                 <div class="input-group col-sm-4">
-                    <v-select v-bind:value.sync="setlistSong.key" v-bind:options="keyOptions" v-bind:on-change="save" id="key-@{{ setlistSong.number_in_list }}"></v-select>
+                    <v-select v-bind:value.sync="setlistSong.key" v-bind:options="keyOptions" v-bind:on-change="save" v-bind:class="setlistSong.key ? 'is-not-empty' : ''" id="key-@{{ setlistSong.number_in_list }}"></v-select>
                     <label for="key-@{{ setlistSong.number_in_list }}">Key</label>
                 </div>
                 <div class="input-group col-sm-4">
