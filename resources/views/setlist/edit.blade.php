@@ -249,6 +249,9 @@
                             this.$parent.saveUpdatedSetlistSong(this.setlistSong);
                         },
                         remove: function () {
+                            if(!confirm('This removes "' + this.setlistSong.song.title + '" from the setlist'))
+                                return;
+
                             var payLoad = {
                                 body: {
                                     _token: this.$parent.csrfToken

@@ -40,9 +40,12 @@
                                 <form action="{{ route('song.destroy', $song) }}" method="POST">
                                     {{ csrf_field() }}
                                     {{ method_field('DELETE') }}
-                                    <button type="submit" class="button button-icon button-flat button-default tooltip" title="Delete {{$song->title}}">
+                                    <button type="submit"
+                                            onclick="return confirm('This deletes the song {{ $song->title }}')"
+                                            class="button button-icon button-flat button-default tooltip"
+                                            title="Delete {{$song->title}}">
                                          <span class="fa fa-trash"></span>
-                                     </button>
+                                    </button>
                                  </form>
                             </span>
                         </li>

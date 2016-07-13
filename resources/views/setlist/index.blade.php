@@ -34,7 +34,10 @@
                                 <form action="{{ route('setlist.destroy', $setlist) }}" method="POST">
                                     {{ csrf_field() }}
                                     {{ method_field('DELETE') }}
-                                    <button type="submit" class="button button-icon button-flat button-default tooltip" title="Delete {{$setlist->title}}">
+                                    <button type="submit"
+                                            onclick="return confirm('This deletes the setlist {{ $setlist->title }}')"
+                                            class="button button-icon button-flat button-default tooltip"
+                                            title="Delete {{$setlist->title}}">
                                          <span class="fa fa-trash"></span>
                                     </button>
                                  </form>
