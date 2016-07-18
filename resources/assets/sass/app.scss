@@ -88,3 +88,32 @@
     }
   }
 }
+
+@media (min-width: 1160px) {
+  ul.list.sortable-list {
+    li {
+      &:hover {
+        background: rgba(0, 50, 100, .02);
+      }
+      .list-item-divider {
+        display: none;
+      }
+      .list-item-buttons {
+        position: relative;
+        z-index: 2;
+      }
+      .sortable-handle {
+        transform: none;
+        display: block;
+        margin: -10px 0 -45px 0;
+        width: 100%;
+        position: relative;
+        z-index: 0;
+        &:before {
+          content: "";
+        }
+      }
+
+    }
+  }
+}
