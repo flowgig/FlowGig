@@ -2265,25 +2265,25 @@ button:active, button:focus, input[type="button"]:active, input[type="button"]:f
 .toggle-action-button.facebook .icon::after {
   content: "\f230"; }
 
-.action-menu.active .toggle-action-button.active.facebook {
+.action-menu .toggle-action-button.active.facebook .icon {
   background-color: #3b5998; }
 
 .toggle-action-button.twitter .icon::after {
   content: "\f099"; }
 
-.action-menu.active .toggle-action-button.active.twitter {
+.action-menu .toggle-action-button.active.twitter .icon {
   background-color: #55acee; }
 
 .toggle-action-button.instagram .icon::after {
   content: "\f16d"; }
 
-.action-menu.active .toggle-action-button.active.instagram {
+.action-menu .toggle-action-button.active.instagram .icon {
   background-color: #125688; }
 
 .toggle-action-button.google .icon::after {
   content: "\f0d5"; }
 
-.action-menu.active .toggle-action-button.active.google {
+.action-menu .toggle-action-button.active.google .icon {
   background-color: #db4437; }
 
 .actionbar-modal {
@@ -2433,6 +2433,14 @@ body.action-menu-active .main-content {
   .box.youtube .box-header {
     background-color: #cc181e; }
     .box.youtube .box-header .icon::after {
+      content: "\f167"; }
+  .box.primary .box-header {
+    background-color: #C32A22; }
+    .box.primary .box-header .icon::after {
+      content: "\f167"; }
+  .box.dark .box-header {
+    background-color: #232527; }
+    .box.dark .box-header .icon::after {
       content: "\f167"; }
 
 .breadcrumbs {
