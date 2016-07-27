@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Bands
+
+Route::resource('band', 'BandController');
+
 // Songs
 
 Route::resource('song', 'SongController');
