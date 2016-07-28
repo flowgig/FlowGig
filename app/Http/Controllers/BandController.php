@@ -17,7 +17,7 @@ class BandController extends Controller
     public function index()
     {
         //TODO: Implement index view
-        //return view('band.index', ['bands' => Band::get()]);
+        return view('band.index', ['bands' => Band::get()]);
     }
 
     /**
@@ -28,7 +28,7 @@ class BandController extends Controller
     public function create()
     {
         //TODO: Implement create view
-        //return view('band.create');
+        return view('band.create');
     }
 
     /**
@@ -59,7 +59,7 @@ class BandController extends Controller
     public function show(Band $band)
     {
         //TODO: Implement show view
-        //return view('band.show', ['band' => $band]);
+        return view('band.show', ['band' => $band]);
     }
 
     /**
@@ -71,7 +71,7 @@ class BandController extends Controller
     public function edit(Band $band)
     {
         //TODO: Implement edit view
-        //return view('band.edit', ['band' => $band]);
+        return view('band.edit', ['band' => $band]);
     }
 
     /**
