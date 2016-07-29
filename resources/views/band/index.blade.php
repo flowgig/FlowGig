@@ -32,7 +32,7 @@
                                     {{ csrf_field() }}
                                     {{ method_field('DELETE') }}
                                     <button type="submit"
-                                            onclick="return confirm('This deletes the setlist {{ $band->name }}')"
+                                            onclick="return confirm('This deletes the band {{ $band->name }}')"
                                             class="button button-icon button-flat button-default tooltip"
                                             title="Delete {{$band->name}}">
                                          <span class="fa fa-trash"></span>
