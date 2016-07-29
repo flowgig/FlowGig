@@ -15,32 +15,36 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard', ['bands' => \App\Band::get()]);
-});
+Route::group(['middleware' => 'auth.basic'], function () {
 
-// Bands
+    Route::get('/dashboard', function () {
+        return view('dashboard', ['bands' => \App\Band::get()]);
+    });
 
-Route::resource('band', 'BandController');
+    // Bands
 
-// Songs
+    Route::resource('band', 'BandController');
 
-Route::resource('song', 'SongController');
+    // Songs
 
-// Setlists
+    Route::resource('song', 'SongController');
 
-Route::get('setlist/{setlist}/export-preview', [
+    // Setlists
+
+    Route::get('setlist/{setlist}/export-preview', [
         'as' => 'setlist.export-preview',
         'uses' => 'SetlistController@exportPreview'
     ]);
 
-Route::get('setlist/{setlist}/export', [
+    Route::get('setlist/{setlist}/export', [
         'as' => 'setlist.export',
         'uses' => 'SetlistController@export'
     ]);
 
-Route::resource('setlist', 'SetlistController');
+    Route::resource('setlist', 'SetlistController');
 
-// SetlistSongs
+    // SetlistSongs
 
-Route::resource('setlistsong', 'SetlistSongController', ['only' => ['store', 'update', 'destroy']]);
+    Route::resource('setlistsong', 'SetlistSongController', ['only' => ['store', 'update', 'destroy']]);
+
+});
