@@ -151,6 +151,11 @@
             <img src="/images/svg/flowgig-logo-white.svg" alt="FlowGig logo"/>
         </div>
         <div class="box z-2 login-box">
+            <div class="input-group float-right">
+                <a class="button button-primary" href="/dashboard">Log in</a>
+                <div class="clearfix"></div>
+            </div>
+            {{--
             <div class="content">
                 <div class="input-group">
                     <input id="username" type="text"/><label for="username">Username</label>
@@ -164,6 +169,7 @@
                     <div class="clearfix"></div>
                 </div>
             </div>
+            --}}
         </div>
     </div>
 </div>
