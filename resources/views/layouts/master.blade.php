@@ -76,6 +76,7 @@
             border-radius: 0;
         }
 
+
     </style>
 </head>
 <body>
@@ -96,45 +97,16 @@
     ga('send', 'pageview');
 
 </script>
-<nav class="navbar navbar-dark z-2">
-    <a class="sidenav-toggle hide-big"><i class="sidenav-toggle-logo fa fa-bars"></i></a>
-    <a class="logo" href="/">
-        <img src="/images/svg/flowgig-logo-white.svg" alt="FlowGig logo">
-    </a>
-    <span class="menu-divider hide-xsmall"></span>
-    <span class="hide-big hide-xsmall navbar-page-title"> @yield('navbar-title')</span>
-    <div class="main-menu-user float-right hide-xsmall">
-        <!-- <ul>
-             <li><a href="#">My account</a></li>
-         </ul> -->
-    </div>
-    <div class="main-menu hide-medium hide-small hide-xsmall float-right">
-        <div class="menu-link">
-            <ul class="">
-                <li><a href="/song">Songs</a></li>
-                <li><a href="/setlist">Setlists</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
-<div class="left-menu no-padding">
-    <div>
-        <div class="sidenav-logo">
-            <a class="sidenav-toggle">
-                <img src="/images/svg/flowgig-logo-black.svg" alt="FlowGig logo">
-                <i class="fa fa-angle-left float-right"></i>
-                <span class="clearfix"></span>
-            </a>
-        </div>
-        <ul class="">
-            <li><a href="/song"><i class="icon fa fa-music"></i> Songs</a></li>
-            <li><a href="/setlist"><i class="icon fa fa-list-ol"></i> Setlists</a></li>
-        </ul>
-    </div>
-</div>
+
+@if (Request::is('band/*'))
+    @include('layouts.navbar-band')
+@else
+    @include('layouts.navbar-user')
+@endif
 @yield('actionbar')
 <div class="main-content">
     <div class="container">
+
         @yield('content')
         <footer>
             <div class="container">
@@ -150,5 +122,10 @@
     </div>
 </div>
 @yield('scripts')
+<script>
+    $(".dropdown-menu").click(function () {
+        $(this).toggleClass("active");
+    });
+</script>
 </body>
 </html>
