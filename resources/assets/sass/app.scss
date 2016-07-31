@@ -117,3 +117,10 @@
     }
   }
 }
+
+ul.list li.setlistsong .list-item-content.single-line {
+  max-width: calc(100% - 145px);
+  overflow: hidden;
+  white-space: nowrap;
+}
+
