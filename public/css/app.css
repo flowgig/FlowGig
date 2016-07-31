@@ -3811,13 +3811,17 @@ h1, h2, h3, h4 {
   font-size: 16px;
   cursor: default; }
 
+.v-select.open > .dropdown-menu {
+  display: block; }
+
 .v-select > .dropdown-menu {
   list-style: none;
   padding: 0;
   box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.3);
   position: absolute;
   z-index: 1;
-  background-color: #FFF; }
+  background-color: #FFF;
+  display: none; }
   .v-select > .dropdown-menu li {
     padding: 0; }
     .v-select > .dropdown-menu li a {

@@ -58,6 +58,11 @@
       cursor: default;
     }
   }
+  &.open {
+    > .dropdown-menu {
+      display: block;
+    }
+  }
   > .dropdown-menu {
     list-style: none;
     padding: 0;
@@ -65,6 +70,7 @@
     position: absolute;
     z-index: 1;
     background-color: #FFF;
+    display: none;
     li {
       padding: 0;
       a {
