@@ -1,4 +1,5 @@
-<html prefix="og: http://ogp.me/ns#">
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns#">
 <head>
     <title>FlowGig - @yield('title')</title>
     <link rel="stylesheet" href="/css/app.css" type="text/css">
@@ -111,7 +112,7 @@
         <footer>
             <div class="container">
                 <div class="text-center">
-                    <img src="/images/svg/flowgig-logo-black.svg" style="width: 150px; opacity: .4;"/>
+                    <img src="/images/svg/flowgig-logo-black.svg" alt="FlowGig logo" style="width: 150px; opacity: .4;"/>
                     <p>FlowGig licensed under
                         <a href="https://github.com/flowgig/flowgig/blob/master/LICENSE">GNU General Public License</a>
                     </p>
@@ -122,10 +123,5 @@
     </div>
 </div>
 @yield('scripts')
-<script>
-    $(".dropdown-menu").click(function () {
-        $(this).toggleClass("active");
-    });
-</script>
 </body>
 </html>
