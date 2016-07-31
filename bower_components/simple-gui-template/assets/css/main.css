@@ -2482,6 +2482,9 @@ body.action-menu-active .main-content {
     .breadcrumbs li:last-child:after {
       content: none; }
 
+.button-row {
+  margin: 8px -8px; }
+
 .button {
   cursor: pointer;
   text-align: center;
@@ -2525,7 +2528,7 @@ body.action-menu-active .main-content {
   color: rgba(0, 0, 0, 0.26); }
 
 .button-default {
-  background-color: #f9fafb;
+  background-color: #f8f9fa;
   border: 1px solid #e5e6e7; }
 
 .button-primary {
@@ -2557,6 +2560,86 @@ li .modal-hover-add-button {
   li .modal-hover-add-button:before {
     font-family: FontAwesome;
     content: "\f067"; }
+
+.dropdown-menu > span {
+  color: #C32A22;
+  font-size: 20px;
+  line-height: 58px;
+  vertical-align: bottom; }
+  .dropdown-menu > span.fa {
+    width: 22px; }
+
+.dropdown-menu .dropdown-content {
+  display: none;
+  background-color: #fbfcfd;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26); }
+  .dropdown-menu .dropdown-content li {
+    display: block;
+    padding: 0; }
+    .dropdown-menu .dropdown-content li a {
+      color: #212121;
+      font-size: 14pt;
+      line-height: 19pt;
+      border-bottom: none;
+      padding: 10px 20px;
+      text-transform: initial; }
+  .dropdown-menu .dropdown-content .dropdown-title {
+    font-size: 14pt;
+    line-height: 14pt;
+    padding: 6px 10px;
+    background-color: #C32A22;
+    color: #FFF;
+    display: block; }
+  .dropdown-menu .dropdown-content .separator {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    display: block; }
+  .dropdown-menu .dropdown-content .dropdown-content-container {
+    padding-left: 20px;
+    padding-right: 20px; }
+  .dropdown-menu .dropdown-content .dropdown-profile-content {
+    padding-top: 10px; }
+    .dropdown-menu .dropdown-content .dropdown-profile-content .dropdown-profile-name {
+      font-size: 18pt;
+      line-height: 20pt;
+      display: block; }
+    .dropdown-menu .dropdown-content .dropdown-profile-content .dropdown-profile-email {
+      font-size: 12pt;
+      line-height: 12pt;
+      display: block; }
+  .dropdown-menu .dropdown-content .button.button-default,
+  .dropdown-menu .dropdown-content .button.button-default:hover {
+    border: 1px solid #e5e6e7;
+    color: #212121; }
+
+.dropdown-menu.active .dropdown-content {
+  display: block;
+  position: absolute;
+  top: 64px;
+  right: 14px; }
+
+/* Navbar */
+.navbar ul li.dropdown-menu .dropdown-content li {
+  display: block;
+  padding: 0; }
+  .navbar ul li.dropdown-menu .dropdown-content li a {
+    color: #212121;
+    font-size: 14pt;
+    line-height: 19pt;
+    border-bottom: none;
+    padding: 10px 20px;
+    text-transform: initial; }
+
+.navbar ul li.dropdown-menu .dropdown-content .dropdown-title {
+  font-size: 14pt;
+  line-height: 14pt;
+  padding: 6px 10px;
+  background-color: #C32A22;
+  color: #FFF;
+  display: block; }
+
+.navbar.navbar-dark .dropdown-menu > span {
+  color: #FFF; }
 
 footer {
   border-top: 1px solid rgba(0, 0, 0, 0.05);
@@ -3404,6 +3487,11 @@ pre.code-example {
     .navbar .logo img {
       height: 40px;
       width: auto; }
+      @media only screen and (min-width: 1160px) {
+        .navbar .logo img {
+          height: 46px; } }
+  .navbar .main-menu {
+    display: inline-block; }
   .navbar a {
     color: #C32A22; }
   .navbar a.sidenav-toggle {
@@ -3436,9 +3524,9 @@ pre.code-example {
     list-style: none;
     padding: 0;
     margin: 0; }
-    .navbar ul li {
+    .navbar ul li:not(.dropdown-menu) {
       display: inline-block; }
-      .navbar ul li a {
+      .navbar ul li:not(.dropdown-menu) a {
         color: #C32A22;
         text-decoration: none;
         text-transform: uppercase;
@@ -3451,7 +3539,7 @@ pre.code-example {
         padding: 0 16px;
         -webkit-transition: border-color .2s;
         transition: border-color .2s; }
-        .navbar ul li a:hover {
+        .navbar ul li:not(.dropdown-menu) a:hover {
           border-bottom: 6px solid #C32A22; }
   .navbar.navbar-dark {
     background-color: #232527; }
@@ -3477,7 +3565,7 @@ pre.code-example {
   /* Safari */
   transition: all .2s; }
   .left-menu > div {
-    background-color: #FFF;
+    background-color: #fbfcfd;
     padding: 0;
     position: fixed;
     height: 100%;

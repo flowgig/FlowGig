@@ -17,7 +17,13 @@
     img {
       height: 40px;
       width: auto;
+      @media only screen and (min-width: 1160px) {
+        height: 46px;
+      }
     }
+  }
+  .main-menu {
+    display: inline-block;
   }
   a {
     color: $primary-color;
@@ -58,7 +64,7 @@
     list-style: none;
     padding: 0;
     margin: 0;
-    li {
+    li:not(.dropdown-menu) {
       display: inline-block;
       a {
         color: $primary-color;
@@ -111,7 +117,7 @@
   -webkit-transition: all .2s; /* Safari */
   transition: all .2s;
   > div {
-    background-color: #FFF;
+    background-color: $bright-white;
     padding: 0;
     position: fixed;
     height: 100%;
