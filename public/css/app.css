@@ -3858,6 +3858,9 @@ h1, h2, h3, h4 {
 
 ul.list li.setlistsong .list-item-content.single-line {
   max-width: calc(100% - 145px);
+  /** Safari 6, Chrome 19-25 **/
+  max-width: -moz-calc(100% - 145px);
+  /** FF 4-15  **/
   overflow: hidden;
   white-space: nowrap; }
 
