@@ -3848,7 +3848,7 @@ h1, h2, h3, h4 {
     display: none; }
   ul.list.sortable-list li .list-item-buttons {
     position: relative;
-    z-index: 2; }
+    z-index: 1; }
   ul.list.sortable-list li .sortable-handle {
     transform: none;
     display: block;
