@@ -7,26 +7,26 @@
             <div class="content">
                 <ol itemscope itemtype="http://schema.org/BreadcrumbList" class="breadcrumbs">
                     <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                        <a itemprop="item" href="{{ route('band.index') }}">
+                        <a itemprop="item" href="{{ route('bands.index') }}">
                             <span itemprop="name">Bands</span>
                         </a>
                         <meta itemprop="position" content="1"/>
                     </li>
                     <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                        <a itemprop="item" href="{{ route('band.show', $band) }}">
+                        <a itemprop="item" href="{{ route('bands.show', $band) }}">
                             <span itemprop="name">{{$band->name}}</span>
                         </a>
                         <meta itemprop="position" content="2"/>
                     </li>
                     <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                        <a itemprop="item" href="{{ route('band.edit', $band) }}">
+                        <a itemprop="item" href="{{ route('bands.edit', $band) }}">
                             <span itemprop="name">Edit band</span>
                         </a>
                         <meta itemprop="position" content="3"/>
                     </li>
                 </ol>
                 <h1>{{ $band->name }}</h1>
-                <form action="{{ route('band.update', $band) }}" method="POST">
+                <form action="{{ route('bands.update', $band) }}" method="POST">
                     {{ csrf_field() }}
                     {{ method_field('PUT') }}
                     <div class="row">
@@ -45,7 +45,7 @@
                 </form>
                 @include('errors.validation-errors')
                 <div class="block text-right">
-                    <a class="button button-flat button-primary" href="{{ route('band.index') }}">Back to list</a>
+                    <a class="button button-flat button-primary" href="{{ route('bands.index') }}">Back to list</a>
                 </div>
             </div>
         </div>

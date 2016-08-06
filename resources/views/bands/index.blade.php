@@ -1,43 +1,40 @@
 @extends('layouts.master')
-@section('title', 'Setlists')
-@section('navbar-title', 'Setlists')
+@section('title', 'Bands')
+@section('navbar-title', 'Bands')
 @section('content')
     <div class="content">
         <div class="box">
             <div class="content">
                 <ol itemscope itemtype="http://schema.org/BreadcrumbList" class="breadcrumbs">
                     <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                        <a itemprop="item" href="{{ route('setlist.index') }}">
-                            <span itemprop="name">Setlists</span>
+                        <a itemprop="item" href="{{ route('bands.index') }}">
+                            <span itemprop="name">Bands</span>
                         </a>
                         <meta itemprop="position" content="1"/>
                     </li>
                 </ol>
-                <h1>Setlists</h1>
-                <div class="block text-right">
-                    <a class="button button-flat button-primary" href="{{ route('setlist.create') }}">Create new</a>
-                </div>
+                <h1>Bands</h1>
+
                 <ul class="list menu-list">
-                    @foreach($setlists as $setlist)
+                    @foreach($bands as $band)
                         <li>
-                            <span class="list-item-content">
-                                {{ $setlist->title }}
-                                <small>{{ $setlist->description }}</small>
+                            <span class="list-item-content single-line">
+                                {{ $band->name }}
                             </span>
                             <span class="list-item-buttons">
-                                <a class="button button-icon button-flat button-default tooltip" title="Show {{$setlist->title}}" href="{{ route('setlist.show', $setlist) }}">
+                                <a class="button button-icon button-flat button-default tooltip" title="Show {{$band->name}}" href="{{ route('bands.show', $band) }}">
                                     <span class="fa fa-eye"></span>
                                 </a>
-                                <a class="button button-icon button-flat button-default tooltip" title="Edit {{$setlist->title}}" href="{{ route('setlist.edit', $setlist) }}">
+                                <a class="button button-icon button-flat button-default tooltip" title="Edit {{$band->name}}" href="{{ route('bands.edit', $band) }}">
                                     <span class="fa fa-pencil"></span>
                                 </a>
-                                <form action="{{ route('setlist.destroy', $setlist) }}" method="POST">
+                                <form action="{{ route('bands.destroy', $band) }}" method="POST">
                                     {{ csrf_field() }}
                                     {{ method_field('DELETE') }}
                                     <button type="submit"
-                                            onclick="return confirm('This deletes the setlist {{ $setlist->title }}')"
+                                            onclick="return confirm('This deletes the band {{ $band->name }}')"
                                             class="button button-icon button-flat button-default tooltip"
-                                            title="Delete {{$setlist->title}}">
+                                            title="Delete {{$band->name}}">
                                          <span class="fa fa-trash"></span>
                                     </button>
                                  </form>
@@ -46,7 +43,7 @@
                     @endforeach
                 </ul>
                 <div class="block text-right">
-                    <a class="button button-flat button-primary" href="{{ route('setlist.create') }}">Create new</a>
+                    <a class="button button-flat button-primary" href="{{ route('bands.create') }}">Create new</a>
                 </div>
             </div>
         </div>

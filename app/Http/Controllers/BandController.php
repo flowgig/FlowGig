@@ -16,7 +16,7 @@ class BandController extends Controller
      */
     public function index()
     {
-        return view('band.index', ['bands' => Band::get()]);
+        return view('bands.index', ['bands' => Band::get()]);
     }
 
     /**
@@ -26,7 +26,7 @@ class BandController extends Controller
      */
     public function create()
     {
-        return view('band.create');
+        return view('bands.create');
     }
 
     /**
@@ -45,7 +45,7 @@ class BandController extends Controller
 
         // TODO: Flash band stored
 
-        return redirect()->route('band.index');
+        return redirect()->route('bands.index');
     }
 
     /**
@@ -56,7 +56,7 @@ class BandController extends Controller
      */
     public function show(Band $band)
     {
-        return view('band.show', ['band' => $band]);
+        return view('bands.show', ['band' => $band]);
     }
 
     /**
@@ -67,7 +67,7 @@ class BandController extends Controller
      */
     public function edit(Band $band)
     {
-        return view('band.edit', ['band' => $band]);
+        return view('bands.edit', ['band' => $band]);
     }
 
     /**
@@ -87,7 +87,7 @@ class BandController extends Controller
 
         // TODO: Flash band updated
 
-        return redirect()->route('band.index');
+        return redirect()->route('bands.index');
     }
 
     /**
@@ -102,6 +102,6 @@ class BandController extends Controller
 
         // TODO: Flash band deleted
 
-        return redirect()->route('band.index');
+        return redirect()->route('bands.index');
     }
 }

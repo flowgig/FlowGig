@@ -50,10 +50,10 @@
         <div class="modal-content">
             <div class="modal-header">Export setlist:</div>
             <div class="input-group">
-                <a href="{{ route('setlist.export-preview', $setlist) }}" target="_blank" class="button button-flat button-default tooltip" title="Preview {{ $setlist->title }}">
+                <a href="{{ route('setlists.export-preview', $setlist) }}" target="_blank" class="button button-flat button-default tooltip" title="Preview {{ $setlist->title }}">
                     <label for="preview">Preview</label>
                 </a>
-                <a href="{{ route('setlist.export', $setlist) }}" target="_blank" class="button button-flat button-default tooltip" title="Export {{ $setlist->title }} to PDF">
+                <a href="{{ route('setlists.export', $setlist) }}" target="_blank" class="button button-flat button-default tooltip" title="Export {{ $setlist->title }} to PDF">
                     <label for="export">Export to PDF</label>
                 </a>
             </div>
@@ -68,19 +68,19 @@
                 <div class="content">
                     <ol itemscope itemtype="http://schema.org/BreadcrumbList" class="breadcrumbs">
                         <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                            <a itemprop="item" href="{{ route('setlist.index') }}">
+                            <a itemprop="item" href="{{ route('setlists.index') }}">
                                 <span itemprop="name">Setlists</span>
                             </a>
                             <meta itemprop="position" content="1"/>
                         </li>
                         <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                            <a itemprop="item" href="{{ route('setlist.show', $setlist) }}">
+                            <a itemprop="item" href="{{ route('setlists.show', $setlist) }}">
                                 <span itemprop="name">{{$setlist->title}}</span>
                             </a>
                             <meta itemprop="position" content="2"/>
                         </li>
                         <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                            <a itemprop="item" href="{{ route('setlist.edit', $setlist) }}">
+                            <a itemprop="item" href="{{ route('setlists.edit', $setlist) }}">
                                 <span itemprop="name">Edit setlist</span>
                             </a>
                             <meta itemprop="position" content="3"/>
@@ -97,7 +97,7 @@
                         </ul>
                     </div>
                     <div class="block text-right">
-                        <a class="button button-flat button-primary" href="{{ route('setlist.index') }}">Back to list</a>
+                        <a class="button button-flat button-primary" href="{{ route('setlists.index') }}">Back to list</a>
                     </div>
                 </div>
             </div>
@@ -257,7 +257,7 @@
                                     _token: this.$parent.csrfToken
                                 }
                             };
-                            this.$http.delete('/setlistsong/' + this.setlistSong.id, payLoad);
+                            this.$http.delete('/setlistsongs/' + this.setlistSong.id, payLoad);
 
                             this.$parent.setlistSongs.$remove(this.setlistSong);
                         }
@@ -282,7 +282,7 @@
                         song_id: setlistSong.song.id,
                         number_in_list: setlistSong.number_in_list
                     };
-                    this.$http.post('/setlistsong/', payLoad).then(function (databaseId) {
+                    this.$http.post('/setlistsongs/', payLoad).then(function (databaseId) {
                         afterStore(databaseId.json())
                     });
                 },
@@ -298,7 +298,7 @@
                         duration: setlistSong.duration ? setlistSong.duration : null,
                         comment: setlistSong.comment
                     };
-                    this.$http.put('/setlistsong/' + setlistSong.id, payLoad);
+                    this.$http.put('/setlistsongs/' + setlistSong.id, payLoad);
                 }
             },
             events: {

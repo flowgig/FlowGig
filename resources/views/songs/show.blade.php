@@ -7,13 +7,13 @@
             <div class="content">
                 <ol itemscope itemtype="http://schema.org/BreadcrumbList" class="breadcrumbs">
                     <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                        <a itemprop="item" href="{{ route('song.index') }}">
+                        <a itemprop="item" href="{{ route('songs.index') }}">
                             <span itemprop="name">Songs</span>
                         </a>
                         <meta itemprop="position" content="1"/>
                     </li>
                     <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                        <a itemprop="item" href="{{ route('song.show', $song) }}">
+                        <a itemprop="item" href="{{ route('songs.show', $song) }}">
                             <span itemprop="name">{{$song->title}}</span>
                         </a>
                         <meta itemprop="position" content="2"/>
@@ -22,7 +22,7 @@
                 <h1>{{ $song->title }}</h1>
                 <p>show the song <i>{{ $song->title }}</i> ...</p>
                 <div class="block text-right">
-                    <a class="button button-flat button-primary" href="{{ route('song.index') }}">Back to list</a>
+                    <a class="button button-flat button-primary" href="{{ route('songs.index') }}">Back to list</a>
                 </div>
             </div>
         </div>

@@ -7,20 +7,20 @@
             <div class="content">
                 <ol itemscope itemtype="http://schema.org/BreadcrumbList" class="breadcrumbs">
                     <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                        <a itemprop="item" href="{{ route('setlist.index') }}">
+                        <a itemprop="item" href="{{ route('setlists.index') }}">
                             <span itemprop="name">Setlists</span>
                         </a>
                         <meta itemprop="position" content="1"/>
                     </li>
                     <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                        <a itemprop="item" href="{{ route('setlist.create') }}">
+                        <a itemprop="item" href="{{ route('setlists.create') }}">
                             <span itemprop="name">Create new setlist</span>
                         </a>
                         <meta itemprop="position" content="2"/>
                     </li>
                 </ol>
                 <h1>Create new setlist</h1>
-                <form action="{{ route('setlist.store') }}" method="POST">
+                <form action="{{ route('setlists.store') }}" method="POST">
                     {{ csrf_field() }}
                     <div class="row">
                         <div class="input-group col-sm-4">

@@ -7,20 +7,20 @@
             <div class="content">
                 <ol itemscope itemtype="http://schema.org/BreadcrumbList" class="breadcrumbs">
                     <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                        <a itemprop="item" href="{{ route('band.index') }}">
+                        <a itemprop="item" href="{{ route('bands.index') }}">
                             <span itemprop="name">Bands</span>
                         </a>
                         <meta itemprop="position" content="1"/>
                     </li>
                     <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                        <a itemprop="item" href="{{ route('band.create') }}">
+                        <a itemprop="item" href="{{ route('bands.create') }}">
                             <span itemprop="name">Create new band</span>
                         </a>
                         <meta itemprop="position" content="2"/>
                     </li>
                 </ol>
                 <h1>Create new band</h1>
-                <form action="{{ route('band.store') }}" method="POST">
+                <form action="{{ route('bands.store') }}" method="POST">
                     {{ csrf_field() }}
                     <div class="row">
                         <div class="input-group col-sm-4">

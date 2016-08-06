@@ -9,8 +9,8 @@
     <div class="main-menu hide-medium hide-small hide-xsmall">
         <div class="menu-link">
             <ul class="">
-                <li><a href="/song"><span class="icon fa fa-music"></span> Songs</a></li>
-                <li><a href="/setlist"><span class="icon fa fa-list-ol"></span> Setlists</a></li>
+                <li><a href="{{ route('songs.index') }}"><span class="icon fa fa-music"></span> Songs</a></li>
+                <li><a href="{{ route('setlists.index') }}"><span class="icon fa fa-list-ol"></span> Setlists</a></li>
                 <li><a href="/dashboard"></a></li>
             </ul>
         </div>
@@ -35,7 +35,7 @@
                     {{-- <span class="dropdown-title">My bands</span>
                      <ul class="list hover-list">
                          @foreach($bands as $band)
-                             <li><a href="{{ route('band.show', $band) }}">{{ $band->name }}</a></li>
+                             <li><a href="{{ route('bands.show', $band) }}">{{ $band->name }}</a></li>
                          @endforeach
                      </ul>--}}
                     <div class="button-row dropdown-content-container">
@@ -58,8 +58,8 @@
         </div>
         <!-- temporary links -->
         <ul class="">
-            <li><a href="/song"><span class="icon fa fa-music"></span> Songs</a></li>
-            <li><a href="/setlist"><span class="icon fa fa-list-ol"></span> Setlists</a></li>
+            <li><a href="{{ route('songs.index') }}"><span class="icon fa fa-music"></span> Songs</a></li>
+            <li><a href="{{ route('setlists.index') }}"><span class="icon fa fa-list-ol"></span> Setlists</a></li>
         </ul>
         <!-- -->
         <ul class="">

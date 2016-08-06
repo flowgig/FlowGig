@@ -99,7 +99,7 @@
 
 </script>
 
-@if (Request::is('band/*'))
+@if (Request::is('bands/*'))
     @include('layouts.navbar-band')
 @else
     @include('layouts.navbar-user')

@@ -30,7 +30,7 @@
 
                                     <div class='content'>
                                         <div class="button button-flat float-right">
-                                            <a href="{{ route('band.show', $band) }}">Show band</a>
+                                            <a href="{{ route('bands.show', $band) }}">Show band</a>
                                         </div>
                                         <div class="clearfix"></div>
                                     </div>

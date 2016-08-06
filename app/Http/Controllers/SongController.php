@@ -16,7 +16,7 @@ class SongController extends Controller
      */
     public function index()
     {
-        return view('song.index', ['songs' => Song::get()]);
+        return view('songs.index', ['songs' => Song::get()]);
     }
 
     /**
@@ -26,7 +26,7 @@ class SongController extends Controller
      */
     public function create()
     {
-        return view('song.create');
+        return view('songs.create');
     }
 
     /**
@@ -45,7 +45,7 @@ class SongController extends Controller
 
         // TODO: Flash song stored
 
-        return redirect()->route('song.index');
+        return redirect()->route('songs.index');
     }
 
     /**
@@ -56,7 +56,7 @@ class SongController extends Controller
      */
     public function show(Song $song)
     {
-        return view('song.show', ['song' => $song]);
+        return view('songs.show', ['song' => $song]);
     }
 
     /**
@@ -67,7 +67,7 @@ class SongController extends Controller
      */
     public function edit(Song $song)
     {
-        return view('song.edit', ['song' => $song]);
+        return view('songs.edit', ['song' => $song]);
     }
 
     /**
@@ -87,7 +87,7 @@ class SongController extends Controller
 
         // TODO: Flash song updated
 
-        return redirect()->route('song.index');
+        return redirect()->route('songs.index');
     }
 
     /**
@@ -102,6 +102,6 @@ class SongController extends Controller
 
         // TODO: Flash song deleted
 
-        return redirect()->route('song.index');
+        return redirect()->route('songs.index');
     }
 }

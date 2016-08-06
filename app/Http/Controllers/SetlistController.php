@@ -18,7 +18,7 @@ class SetlistController extends Controller
      */
     public function index()
     {
-        return view('setlist.index', ['setlists' => Setlist::get()]);
+        return view('setlists.index', ['setlists' => Setlist::get()]);
     }
 
     /**
@@ -28,7 +28,7 @@ class SetlistController extends Controller
      */
     public function create()
     {
-        return view('setlist.create');
+        return view('setlists.create');
     }
 
     /**
@@ -47,7 +47,7 @@ class SetlistController extends Controller
 
         // TODO: Flash setlist stored
 
-        return redirect()->route('setlist.index');
+        return redirect()->route('setlists.index');
     }
 
     /**
@@ -58,7 +58,7 @@ class SetlistController extends Controller
      */
     public function show(Setlist $setlist)
     {
-        return view('setlist.show', ['setlist' => $setlist]);
+        return view('setlists.show', ['setlist' => $setlist]);
     }
 
     /**
@@ -72,7 +72,7 @@ class SetlistController extends Controller
         $setlist->setlistSongs->load('song');
 
         $repertoire = Song::get(); // TODO: Scope to band
-        return view('setlist.edit', ['setlist' => $setlist, 'repertoire' => $repertoire]);
+        return view('setlists.edit', ['setlist' => $setlist, 'repertoire' => $repertoire]);
     }
 
     /**
@@ -95,7 +95,7 @@ class SetlistController extends Controller
      */
     public function exportPreview(Setlist $setlist)
     {
-        return view('setlist.exportlayout', ['setlist' => $setlist]);
+        return view('setlists.exportlayout', ['setlist' => $setlist]);
     }
 
     /**
@@ -106,7 +106,7 @@ class SetlistController extends Controller
      */
     public function export(Setlist $setlist)
     {
-        $pdf = PDF::loadView('setlist.exportlayout', ['setlist' => $setlist]);
+        $pdf = PDF::loadView('setlists.exportlayout', ['setlist' => $setlist]);
 
         return $pdf->stream($setlist->title);
     }
@@ -123,6 +123,6 @@ class SetlistController extends Controller
 
         // TODO: Flash setlist deleted
 
-        return redirect()->route('setlist.index');
+        return redirect()->route('setlists.index');
     }
 }
