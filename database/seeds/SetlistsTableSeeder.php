@@ -14,10 +14,19 @@ class SetlistsTableSeeder extends Seeder
     {
         DB::table('setlists')->delete();
 
-        Setlist::create(['title' => 'Christmas Gig']);
+        Setlist::create([
+            'title' => 'Rehearsal, New Years Gig',
+            'band_id' => 1
+        ]);
 
-        Setlist::create(['title' => 'Studio, Best of album']);
+        Setlist::create([
+            'title' => 'Christmas Gig',
+            'band_id' => 1
+        ]);
 
-        Setlist::create(['title' => 'Rehearsal, New Years Gig']);
+        Setlist::create([
+            'title' => 'Studio, Best of album',
+            'band_id' => 2
+        ]);
     }
 }

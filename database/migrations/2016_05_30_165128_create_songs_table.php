@@ -14,10 +14,13 @@ class CreateSongsTable extends Migration
     {
         Schema::create('songs', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('band_id')->unsigned();
             $table->text('title');
             $table->text('music_by');
             $table->text('lyrics_by');
             $table->timestamps();
+
+            $table->foreign('band_id')->references('id')->on('bands');
         });
     }
 
