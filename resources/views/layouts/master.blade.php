@@ -99,10 +99,10 @@
 
 </script>
 
-@if (!Request::is('dashboard'))
-    @include('layouts.navbar-band')
-@else
+@if (Request::is('dashboard'))
     @include('layouts.navbar-user')
+@else
+    @include('layouts.navbar-band')
 @endif
 @yield('actionbar')
 <div class="main-content">
