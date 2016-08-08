@@ -1,6 +1,6 @@
 <nav class="navbar navbar-dark z-2">
     <a class="sidenav-toggle hide-big"><i class="sidenav-toggle-logo fa fa-bars"></i></a>
-    <a class="logo" href="/">
+    <a class="logo" href="/dashboard">
         <img src="/images/svg/flowgig-logo-white.svg" alt="FlowGig logo">
     </a>
     <span class="menu-divider hide-xsmall"></span>
