@@ -68,7 +68,7 @@
                 <div class="content">
                     <ol itemscope itemtype="http://schema.org/BreadcrumbList" class="breadcrumbs">
                         <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                            <a itemprop="item" href="{{ route('setlists.index') }}">
+                            <a itemprop="item" href="{{ route('setlists.index', $setlist->band) }}">
                                 <span itemprop="name">Setlists</span>
                             </a>
                             <meta itemprop="position" content="1"/>
@@ -87,6 +87,7 @@
                         </li>
                     </ol>
                     <h1>{{ $setlist->title }}</h1>
+                    <p>by <a href="{{ route('bands.show', $setlist->band) }}">{{ $setlist->band->name }}</a></p>
                     <p>{{ $setlist->description }}</p>
                     <h3>Songs:</h3>
                     <div>
@@ -97,7 +98,7 @@
                         </ul>
                     </div>
                     <div class="block text-right">
-                        <a class="button button-flat button-default" href="{{ route('setlists.index') }}">Back to list</a>
+                        <a class="button button-flat button-default" href="{{ route('setlists.index', $setlist->band) }}">Back to list</a>
                     </div>
                 </div>
             </div>
@@ -205,7 +206,7 @@
                 csrfToken: '{{ csrf_token() }}',
                 setlist: {!! $setlist !!},
                 setlistSongs: '',
-                repertoire: {!! $repertoire !!},
+                repertoire: {!! $setlist->band->songs !!},
                 newSong: {}
             },
             ready: function () {

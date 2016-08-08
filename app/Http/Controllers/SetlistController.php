@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Band;
 use App\Setlist;
 use App\Song;
 use Illuminate\Http\Request;
@@ -14,40 +15,48 @@ class SetlistController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param $bandId
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($bandId)
     {
-        return view('setlists.index', ['setlists' => Setlist::get()]);
+        $band = Band::with('setlists')->find($bandId);
+
+        return view('setlists.index', ['band' => $band]);
     }
 
     /**
      * Show the form for creating a new resource.
      *
+     * @param Band $band
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Band $band)
     {
-        return view('setlists.create');
+        return view('setlists.create', ['band' => $band]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
+     * @param Band $band
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Band $band)
     {
         $this->validate($request, [
             'title' => 'required|max:80',
         ]);
         
-        Setlist::create($request->all());
+        $setlist = new Setlist();
+        $setlist->band()->associate($band);
+        $setlist->fill($request->all());
+        $setlist->save();
 
         // TODO: Flash setlist stored
 
-        return redirect()->route('setlists.index');
+        return redirect()->route('setlists.index', ['band' => $band]);
     }
 
     /**
@@ -71,8 +80,7 @@ class SetlistController extends Controller
     {
         $setlist->setlistSongs->load('song');
 
-        $repertoire = Song::get(); // TODO: Scope to band
-        return view('setlists.edit', ['setlist' => $setlist, 'repertoire' => $repertoire]);
+        return view('setlists.edit', ['setlist' => $setlist]);
     }
 
     /**
@@ -123,6 +131,6 @@ class SetlistController extends Controller
 
         // TODO: Flash setlist deleted
 
-        return redirect()->route('setlists.index');
+        return redirect()->route('setlists.index', $setlist->band);
     }
 }

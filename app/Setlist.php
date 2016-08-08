@@ -22,4 +22,12 @@ class Setlist extends Model
     {
         return $this->hasMany('App\SetlistSong');
     }
+
+    /**
+     * Get the band for the setlist.
+     */
+    public function band()
+    {
+        return $this->belongsTo('App\Band');
+    }
 }

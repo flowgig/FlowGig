@@ -29,9 +29,39 @@ Route::group(['middleware' => 'auth.basic'], function () {
 
     // Songs
 
-    Route::resource('songs', 'SongController');
+    Route::get('bands/{band}/songs', [
+        'as' => 'songs.index',
+        'uses' => 'SongController@index'
+    ]);
+
+    Route::get('bands/{band}/songs/create', [
+        'as' => 'songs.create',
+        'uses' => 'SongController@create'
+    ]);
+
+    Route::post('bands/{band}/songs', [
+        'as' => 'songs.store',
+        'uses' => 'SongController@store'
+    ]);
+
+    Route::resource('songs', 'SongController', ['except' => ['index', 'create', 'store']]);
 
     // Setlists
+
+    Route::get('bands/{band}/setlists', [
+        'as' => 'setlists.index',
+        'uses' => 'SetlistController@index'
+    ]);
+
+    Route::get('bands/{band}/setlists/create', [
+        'as' => 'setlists.create',
+        'uses' => 'SetlistController@create'
+    ]);
+
+    Route::post('bands/{band}/setlists', [
+        'as' => 'setlists.store',
+        'uses' => 'SetlistController@store'
+    ]);
 
     Route::get('setlists/{setlist}/export-preview', [
         'as' => 'setlists.export-preview',
@@ -43,7 +73,7 @@ Route::group(['middleware' => 'auth.basic'], function () {
         'uses' => 'SetlistController@export'
     ]);
 
-    Route::resource('setlists', 'SetlistController');
+    Route::resource('setlists', 'SetlistController', ['except' => ['index', 'create', 'store']]);
 
     // SetlistSongs
 

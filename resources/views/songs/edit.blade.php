@@ -7,7 +7,7 @@
             <div class="content">
                 <ol itemscope itemtype="http://schema.org/BreadcrumbList" class="breadcrumbs">
                     <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                        <a itemprop="item" href="{{ route('songs.index') }}">
+                        <a itemprop="item" href="{{ route('songs.index', $song->band_id) }}">
                             <span itemprop="name">Songs</span>
                         </a>
                         <meta itemprop="position" content="1"/>
@@ -26,6 +26,7 @@
                     </li>
                 </ol>
                 <h1>{{ $song->title }}</h1>
+                <p>by <a href="{{ route('bands.show', $song->band) }}">{{ $song->band->name }}</a></p>
                 <form action="{{ route('songs.update', $song) }}" method="POST">
                     {{ csrf_field() }}
                     {{ method_field('PUT') }}
@@ -53,7 +54,7 @@
                 </form>
                 @include('errors.validation-errors')
                 <div class="block text-right">
-                    <a class="button button-flat button-default" href="{{ route('songs.index') }}">Back to list</a>
+                    <a class="button button-flat button-default" href="{{ route('songs.index', $song->band_id) }}">Back to list</a>
                 </div>
             </div>
         </div>

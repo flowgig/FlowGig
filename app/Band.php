@@ -14,4 +14,20 @@ class Band extends Model
     protected $fillable = [
         'name'
     ];
+
+    /**
+     * Get the songs for the band.
+     */
+    public function songs()
+    {
+        return $this->hasMany('App\Song');
+    }
+
+    /**
+     * Get the setlists for the band.
+     */
+    public function setlists()
+    {
+        return $this->hasMany('App\Setlist');
+    }
 }

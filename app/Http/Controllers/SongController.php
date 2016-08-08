@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Band;
 use App\Song;
 use Illuminate\Http\Request;
 
@@ -12,40 +13,48 @@ class SongController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param $bandId
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($bandId)
     {
-        return view('songs.index', ['songs' => Song::get()]);
+        $band = Band::with('songs')->find($bandId);
+
+        return view('songs.index', ['band' => $band]);
     }
 
     /**
      * Show the form for creating a new resource.
      *
+     * @param Band $band
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Band $band)
     {
-        return view('songs.create');
+        return view('songs.create', ['band' => $band]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
+     * @param Band $band
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Band $band)
     {
         $this->validate($request, [
             'title' => 'required|max:80',
         ]);
-        
-        Song::create($request->all());
+
+        $song = new Song();
+        $song->band()->associate($band);
+        $song->fill($request->all());
+        $song->save();
 
         // TODO: Flash song stored
 
-        return redirect()->route('songs.index');
+        return redirect()->route('songs.index', $band);
     }
 
     /**
@@ -87,7 +96,7 @@ class SongController extends Controller
 
         // TODO: Flash song updated
 
-        return redirect()->route('songs.index');
+        return redirect()->route('songs.index', $song->band);
     }
 
     /**
@@ -102,6 +111,6 @@ class SongController extends Controller
 
         // TODO: Flash song deleted
 
-        return redirect()->route('songs.index');
+        return redirect()->route('songs.index', $song->band);
     }
 }

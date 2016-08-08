@@ -14,4 +14,12 @@ class Song extends Model
     protected $fillable = [
         'title', 'music_by', 'lyrics_by'
     ];
+
+    /**
+     * Get the band for the song.
+     */
+    public function band()
+    {
+        return $this->belongsTo('App\Band');
+    }
 }

@@ -7,18 +7,19 @@
             <div class="content">
                 <ol itemscope itemtype="http://schema.org/BreadcrumbList" class="breadcrumbs">
                     <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                        <a itemprop="item" href="{{ route('songs.index') }}">
+                        <a itemprop="item" href="{{ route('songs.index', $band) }}">
                             <span itemprop="name">Songs</span>
                         </a>
                         <meta itemprop="position" content="1"/>
                     </li>
                 </ol>
                 <h1>Songs</h1>
+                <p>by <a href="{{ route('bands.show', $band) }}">{{ $band->name }}</a></p>
                 <div class="block text-right">
-                    <a class="button button-flat button-primary" href="{{ route('songs.create') }}">Create new</a>
+                    <a class="button button-flat button-primary" href="{{ route('songs.create', $band) }}">Create new</a>
                 </div>
                 <ul class="list menu-list">
-                    @foreach($songs as $song)
+                    @foreach($band->songs as $song)
                         <li itemscope itemtype="http://schema.org/MusicGroup">
                             <span class="list-item-content">
                                 <span itemprop="tracks" itemscope itemtype="http://schema.org/MusicRecording">
@@ -52,7 +53,7 @@
                     @endforeach
                 </ul>
                 <div class="block text-right">
-                    <a class="button button-flat button-primary" href="{{ route('songs.create') }}">Create new</a>
+                    <a class="button button-flat button-primary" href="{{ route('songs.create', $band) }}">Create new</a>
                 </div>
             </div>
         </div>
