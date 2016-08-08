@@ -27,17 +27,14 @@
                                             <h3 class="box-title">{{ $band->name }}</h3>
                                         </div>
                                     </div>
-
                                     <div class='content'>
-                                        <div class="button button-flat float-right">
-                                            <a href="{{ route('bands.show', $band) }}">Show band</a>
+                                        <div class="float-right">
+                                            <a class="button button-flat button-default" href="{{ route('bands.show', $band) }}">Show band</a>
                                         </div>
                                         <div class="clearfix"></div>
                                     </div>
-
                                 </div>
                             </div>
-
                         @endforeach
                         <div class="clearfix"></div>
                     </div>
