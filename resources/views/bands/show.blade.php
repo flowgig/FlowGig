@@ -22,7 +22,7 @@
                 <h1>{{ $band->name }}</h1>
                 <p>show the band <i>{{ $band->name }}</i> ...</p>
                 <div class="block text-right">
-                    <a class="button button-flat button-primary" href="{{ route('bands.index') }}">Back to list</a>
+                    <a class="button button-flat button-default" href="{{ route('bands.index') }}">Back to list</a>
                 </div>
             </div>
         </div>

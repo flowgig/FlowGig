@@ -31,15 +31,15 @@
                     {{ method_field('PUT') }}
                     <div class="row">
                         <div class="input-group col-sm-4">
-                            <input type="text" name="title" id="title" value="{{ $song->title }}" placeholder="The song title" />
+                            <input type="text" name="title" id="title" value="{{ $song->title }}" placeholder="The song title"/>
                             <label for="title">Title</label>
                         </div>
                         <div class="input-group col-sm-4">
-                            <input type="text" name="music_by" id="music-by" value="{{ $song->music_by }}" placeholder="The music composer" />
+                            <input type="text" name="music_by" id="music-by" value="{{ $song->music_by }}" placeholder="The music composer"/>
                             <label for="music-by">Music by</label>
                         </div>
                         <div class="input-group col-sm-4">
-                            <input type="text" name="lyrics_by" id="lyrics-by" value="{{ $song->lyrics_by }}" placeholder="The lyrics author" />
+                            <input type="text" name="lyrics_by" id="lyrics-by" value="{{ $song->lyrics_by }}" placeholder="The lyrics author"/>
                             <label for="lyrics-by">Lyrics by</label>
                         </div>
                     </div>
@@ -53,7 +53,7 @@
                 </form>
                 @include('errors.validation-errors')
                 <div class="block text-right">
-                    <a class="button button-flat button-primary" href="{{ route('songs.index') }}">Back to list</a>
+                    <a class="button button-flat button-default" href="{{ route('songs.index') }}">Back to list</a>
                 </div>
             </div>
         </div>

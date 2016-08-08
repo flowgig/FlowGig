@@ -22,7 +22,7 @@
                 <h1>{{ $setlist->title }}</h1>
                 <p>show the setlist <i>{{ $setlist->title }}</i> ...</p>
                 <div class="block text-right">
-                    <a class="button button-flat button-primary" href="{{ route('setlists.index') }}">Back to list</a>
+                    <a class="button button-flat button-default" href="{{ route('setlists.index') }}">Back to list</a>
                 </div>
             </div>
         </div>

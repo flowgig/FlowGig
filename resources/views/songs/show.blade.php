@@ -22,7 +22,7 @@
                 <h1>{{ $song->title }}</h1>
                 <p>show the song <i>{{ $song->title }}</i> ...</p>
                 <div class="block text-right">
-                    <a class="button button-flat button-primary" href="{{ route('songs.index') }}">Back to list</a>
+                    <a class="button button-flat button-default" href="{{ route('songs.index') }}">Back to list</a>
                 </div>
             </div>
         </div>

@@ -97,7 +97,7 @@
                         </ul>
                     </div>
                     <div class="block text-right">
-                        <a class="button button-flat button-primary" href="{{ route('setlists.index') }}">Back to list</a>
+                        <a class="button button-flat button-default" href="{{ route('setlists.index') }}">Back to list</a>
                     </div>
                 </div>
             </div>

@@ -45,7 +45,7 @@
                 </form>
                 @include('errors.validation-errors')
                 <div class="block text-right">
-                    <a class="button button-flat button-primary" href="{{ route('bands.index') }}">Back to list</a>
+                    <a class="button button-flat button-default" href="{{ route('bands.index') }}">Back to list</a>
                 </div>
             </div>
         </div>
