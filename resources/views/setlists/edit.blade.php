@@ -125,7 +125,7 @@
         </span>
         <span class="list-item-buttons">
             <a v-on:click="edit = !edit" class="button button-icon button-flat button-default tooltip" v-bind:title="edit ? 'Collapse' : 'Expand to edit'">
-                <span class="fa" v-bind:class="edit ? 'fa-angle-up' : 'fa-angle-down'"></span>
+                <span class="fa" v-bind:class="edit ? 'fa-chevron-up' : 'fa-chevron-down'"></span>
             </a>
              <a v-on:click="remove" class="button button-icon button-flat button-default tooltip" title="Remove @{{setlistSong.song.title}} from the setlist">
                  <span class="fa fa-minus"></span>
