@@ -25,10 +25,8 @@
                                 <span itemprop="tracks" itemscope itemtype="http://schema.org/MusicRecording">
                                     <span itemprop="name">{{ $song->title }}</span>
                                 </span>
-                                <small>(
-                                    <span itemprop="name">{{ $song->music_by }}</span> /
-                                    {{ $song->lyrics_by }}
-                                    )
+                                <small>
+                                    <span itemprop="name">{{ $song->lyrics_by }}</span> | {{ $song->music_by }}
                                 </small>
                             </span>
                             <span class="list-item-buttons">

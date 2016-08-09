@@ -110,7 +110,7 @@
         <span>
             <span class="list-item-content">
                 @{{ song.title }}
-                <small>(@{{ song.music_by }}/@{{ song.lyrics_by }})</small>
+                <small>@{{ song.lyrics_by }} | @{{ song.music_by }}</small>
             </span>
             <span class="list-item-button">
                 <span v-on:click="addToSetlist()" class="button button-icon button-flat button-default modal-hover-add-button tooltip" title="Add @{{ song.title }} to setlist"></span>
@@ -134,8 +134,8 @@
         </span>
         <div v-show="edit" class="accordion">
             <div>
-                <p><b>Music by: </b>@{{ setlistSong.song.music_by }}</p>
                 <p><b>Lyrics by: </b>@{{ setlistSong.song.lyrics_by }}</p>
+                <p><b>Music by: </b>@{{ setlistSong.song.music_by }}</p>
             </div>
             <div class="row">
                 <div class="input-group col-sm-4">
