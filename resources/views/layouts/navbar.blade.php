@@ -5,6 +5,19 @@
     </a>
     <span class="menu-divider hide-xsmall"></span>
     <span class="hide-big hide-xsmall navbar-page-title"> @yield('navbar-title')</span>
+    @if($currentBand)
+        <div class="main-menu hide-medium hide-small hide-xsmall">
+            <div class="menu-link">
+                <ul class="">
+                    <li><a href="{{ route('songs.index', $currentBand) }}"><span class="icon fa fa-music"></span> Songs</a>
+                    </li>
+                    <li><a href="{{ route('setlists.index', $currentBand) }}"><span class="icon fa fa-list-ol"></span> Setlists</a>
+                    </li>
+                    <li><a href="/dashboard"></a></li>
+                </ul>
+            </div>
+        </div>
+    @endif
     <div class="main-menu-user float-right hide-medium hide-small hide-xsmall">
         <ul>
             <li class="dropdown-menu">
@@ -44,6 +57,13 @@
                 <span class="clearfix"></span>
             </a>
         </div>
+        @if($currentBand)
+            <ul class="">
+                <li><a href="{{ route('songs.index', $currentBand) }}"><span class="icon fa fa-music"></span> Songs</a></li>
+                <li><a href="{{ route('setlists.index', $currentBand) }}"><span class="icon fa fa-list-ol"></span> Setlists</a>
+                </li>
+            </ul>
+        @endif
         <ul class="">
             <li><a href="/dashboard"><span class="icon fa fa-dashboard"></span> Dashboard</a></li>
             <li><a href="#"><span class="icon fa fa-user"></span> My account</a></li>

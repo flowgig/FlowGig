@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.master', ['currentBand' => $setlist->band])
 @section('title', 'Setlist - ' . $setlist->title)
 @section('navbar-title', $setlist->title)
 @section('actionbar')

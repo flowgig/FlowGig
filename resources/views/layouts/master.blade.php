@@ -99,11 +99,8 @@
 
 </script>
 
-@if (Request::is('dashboard'))
-    @include('layouts.navbar-user')
-@else
-    @include('layouts.navbar-band')
-@endif
+@include('layouts.navbar', ['currentBand' => $currentBand ?? null])
+
 @yield('actionbar')
 <div class="main-content">
     <div class="container">

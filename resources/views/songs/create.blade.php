@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.master', ['currentBand' => $band])
 @section('title', 'Create new song')
 @section('navbar-title', 'Create song')
 @section('content')
