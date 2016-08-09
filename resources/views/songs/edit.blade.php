@@ -31,15 +31,21 @@
                     {{ csrf_field() }}
                     {{ method_field('PUT') }}
                     <div class="row">
-                        <div class="input-group col-sm-4">
+                        <div class="input-group col-sm-6">
                             <input type="text" name="title" id="title" value="{{ $song->title }}" placeholder="The song title"/>
                             <label for="title">Title</label>
                         </div>
-                        <div class="input-group col-sm-4">
+                        <div class="input-group col-sm-6">
+                            <input type="text" name="artist" id="artist" value="{{ $song->artist }}" placeholder="The original artist/band"/>
+                            <label for="artist">Artist</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-group col-sm-6">
                             <input type="text" name="lyrics_by" id="lyrics-by" value="{{ $song->lyrics_by }}" placeholder="The lyrics author"/>
                             <label for="lyrics-by">Lyrics by</label>
                         </div>
-                        <div class="input-group col-sm-4">
+                        <div class="input-group col-sm-6">
                             <input type="text" name="music_by" id="music-by" value="{{ $song->music_by }}" placeholder="The music composer"/>
                             <label for="music-by">Music by</label>
                         </div>

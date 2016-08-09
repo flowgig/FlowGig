@@ -24,6 +24,7 @@ $factory->define(App\Song::class, function (Faker\Generator $faker) {
     return [
         'band_id' => $faker->numberBetween(1,2),
         'title' => rtrim($faker->realText(20, 3), ".,:;'-"),
+        'artist' => 'The ' . $faker->jobTitle . 's',
         'music_by' => $faker->name,
         'lyrics_by' => $faker->name
     ];
