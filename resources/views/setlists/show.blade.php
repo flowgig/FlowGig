@@ -7,16 +7,28 @@
             <div class="content">
                 <ol itemscope itemtype="http://schema.org/BreadcrumbList" class="breadcrumbs">
                     <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                        <a itemprop="item" href="{{ route('bands.index') }}">
+                            <span itemprop="name">Bands</span>
+                        </a>
+                        <meta itemprop="position" content="1"/>
+                    </li>
+                    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                        <a itemprop="item" href="{{ route('bands.show', $setlist->band) }}">
+                            <span itemprop="name">{{ $setlist->band->name }}</span>
+                        </a>
+                        <meta itemprop="position" content="2"/>
+                    </li>
+                    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
                         <a itemprop="item" href="{{ route('setlists.index', $setlist->band) }}">
                             <span itemprop="name">Setlists</span>
                         </a>
-                        <meta itemprop="position" content="1"/>
+                        <meta itemprop="position" content="3"/>
                     </li>
                     <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
                         <a itemprop="item" href="{{ route('setlists.show', $setlist) }}">
                             <span itemprop="name">{{$setlist->title}}</span>
                         </a>
-                        <meta itemprop="position" content="2"/>
+                        <meta itemprop="position" content="4"/>
                     </li>
                 </ol>
                 <h1>{{ $setlist->title }}</h1>

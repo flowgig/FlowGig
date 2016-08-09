@@ -7,16 +7,28 @@
             <div class="content">
                 <ol itemscope itemtype="http://schema.org/BreadcrumbList" class="breadcrumbs">
                     <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                        <a itemprop="item" href="{{ route('bands.index') }}">
+                            <span itemprop="name">Bands</span>
+                        </a>
+                        <meta itemprop="position" content="1"/>
+                    </li>
+                    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                        <a itemprop="item" href="{{ route('bands.show', $band) }}">
+                            <span itemprop="name">{{ $band->name }}</span>
+                        </a>
+                        <meta itemprop="position" content="2"/>
+                    </li>
+                    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
                         <a itemprop="item" href="{{ route('setlists.index', $band) }}">
                             <span itemprop="name">Setlists</span>
                         </a>
-                        <meta itemprop="position" content="1"/>
+                        <meta itemprop="position" content="3"/>
                     </li>
                     <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
                         <a itemprop="item" href="{{ route('setlists.create', $band) }}">
                             <span itemprop="name">Create new setlist</span>
                         </a>
-                        <meta itemprop="position" content="2"/>
+                        <meta itemprop="position" content="4"/>
                     </li>
                 </ol>
                 <h1>Create new setlist</h1>
@@ -25,11 +37,11 @@
                     {{ csrf_field() }}
                     <div class="row">
                         <div class="input-group col-sm-4">
-                            <input type="text" name="title" id="title" />
+                            <input type="text" name="title" id="title"/>
                             <label for="title">Title</label>
                         </div>
                         <div class="input-group col-sm-4">
-                            <input type="text" name="description" id="description" />
+                            <input type="text" name="description" id="description"/>
                             <label for="description">Description</label>
                         </div>
                     </div>
