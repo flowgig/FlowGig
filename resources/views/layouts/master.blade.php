@@ -99,7 +99,8 @@
 
 </script>
 
-@include('layouts.navbar', ['currentBand' => $currentBand ?? null])
+@include('layouts.navbar', ['currentBand' => isset($currentBand) ? $currentBand : null])
+{{-- TODO: Use ['currentBand' => $currentBand ?? null] when on PHP 7 --}}
 
 @yield('actionbar')
 <div class="main-content">
