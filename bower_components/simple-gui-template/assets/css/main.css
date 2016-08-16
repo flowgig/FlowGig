@@ -2318,8 +2318,8 @@ button:active, button:focus, input[type="button"]:active, input[type="button"]:f
   .actionbar-modal .modal-header {
     font-size: 18pt;
     font-weight: bold;
-    line-height: 18pt;
-    padding: 8px; }
+    line-height: 24pt;
+    margin-bottom: 4pt; }
   .actionbar-modal .modal-content {
     background: #FFF;
     height: 100%;
@@ -3725,10 +3725,8 @@ input[type="radio"] {
   -webkit-appearance: none;
   -moz-appearance: none;
   outline: none;
-  width: 18px;
-  height: 20px;
-  margin-bottom: 12px;
-  font-size: 20px; }
+  margin: 4pt;
+  font-size: 14pt; }
 
 input[type="checkbox"]:before,
 input[type="radio"]:before {
@@ -3736,7 +3734,7 @@ input[type="radio"]:before {
 
 input[type="checkbox"] + label,
 input[type="radio"] + label {
-  font-size: 20px; }
+  font-size: 16pt; }
 
 input[type="checkbox"]:focus,
 input[type="checkbox"]:focus + label,
