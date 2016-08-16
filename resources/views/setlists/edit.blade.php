@@ -49,10 +49,28 @@
     <div class="actionbar-modal export-setlist-modal">
         <div class="modal-content">
             <div class="modal-header">Export setlist:</div>
-            <div class="input-group">
-                <a href="{{ route('setlists.export-preview', $setlist) }}" target="_blank" class="button button-flat button-default tooltip" title="Preview {{ $setlist->title }}">
-                    <label for="preview">Preview</label>
-                </a>
+            <p>Toggle fields in setlist</p>
+            <form>
+                <div class="input-group">
+                    <input type="checkbox" name="key" id="key"/>
+                    <label for="key">Key</label>
+                </div>
+                <div class="input-group">
+                    <input type="checkbox" name="bpm" id="bpm"/>
+                    <label for="bpm">BPM</label>
+                </div>
+                <input type="checkbox" name="duration" id="duration"/>
+                <label for="duration">Duration</label>
+                <div class="input-group">
+                    <input type="checkbox" name="intensity" id="intensity"/>
+                    <label for="intensity">Intensity</label>
+                </div>
+                <div class="input-group">
+                    <input type="checkbox" name="comment" id="comment"/>
+                    <label for="comment">Comment</label>
+                </div>
+            </form>
+            <div class="input-group float-right">
                 <a href="{{ route('setlists.export', $setlist) }}" target="_blank" class="button button-flat button-default tooltip" title="Export {{ $setlist->title }} to PDF">
                     <label for="export">Export to PDF</label>
                 </a>
@@ -154,22 +172,22 @@
                     <label for="key-@{{ setlistSong.number_in_list }}">Key</label>
                 </div>
                 <div class="input-group col-sm-4">
-                    <input v-model="setlistSong.bpm" v-on:blur="save" type="number" min="0" id="bpm-@{{ setlistSong.number_in_list }}" placeholder="Beats Per Minute" />
+                    <input v-model="setlistSong.bpm" v-on:blur="save" type="number" min="0" id="bpm-@{{ setlistSong.number_in_list }}" placeholder="Beats Per Minute"/>
                     <label for="bpm-@{{ setlistSong.number_in_list }}">BPM</label>
                 </div>
                 <div class="input-group col-sm-4">
-                    <input v-model="setlistSong.duration" v-on:blur="save" type="number" min="0" id="duration-@{{ setlistSong.number_in_list }}" placeholder="Minutes" />
+                    <input v-model="setlistSong.duration" v-on:blur="save" type="number" min="0" id="duration-@{{ setlistSong.number_in_list }}" placeholder="Minutes"/>
                     <label for="duration-@{{ setlistSong.number_in_list }}">Duration</label>
                 </div>
                 <div class="clearfix"></div>
             </div>
             <div class="row">
                 <div class="input-group col-sm-4">
-                    <input v-model="setlistSong.intensity" v-on:blur="save" type="number" min="1" max="10" id="intensity-@{{ setlistSong.number_in_list }}" placeholder="1&ndash;10 (Ballad&ndash;Bebop)" />
+                    <input v-model="setlistSong.intensity" v-on:blur="save" type="number" min="1" max="10" id="intensity-@{{ setlistSong.number_in_list }}" placeholder="1&ndash;10 (Ballad&ndash;Bebop)"/>
                     <label for="intensity-@{{ setlistSong.number_in_list }}">Intensity</label>
                 </div>
                 <div class="input-group col-md-8">
-                    <input v-model="setlistSong.comment" v-on:blur="save" type="text" id="comment-@{{ setlistSong.number_in_list }}" />
+                    <input v-model="setlistSong.comment" v-on:blur="save" type="text" id="comment-@{{ setlistSong.number_in_list }}"/>
                     <label for="comment-@{{ setlistSong.number_in_list }}">Comment</label>
                 </div>
                 <div class="clearfix"></div>
@@ -261,7 +279,7 @@
                             this.$parent.saveUpdatedSetlistSong(this.setlistSong);
                         },
                         remove: function () {
-                            if(!confirm('This removes "' + this.setlistSong.song.title + '" from the setlist'))
+                            if (!confirm('This removes "' + this.setlistSong.song.title + '" from the setlist'))
                                 return;
 
                             var payLoad = {
