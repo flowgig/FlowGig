@@ -101,17 +101,6 @@ class SetlistController extends Controller
      * @param Setlist $setlist
      * @return \Illuminate\Http\Response
      */
-    public function exportPreview(Setlist $setlist)
-    {
-        return view('setlists.exportlayout', ['setlist' => $setlist]);
-    }
-
-    /**
-     * Export the setlist to file.
-     *
-     * @param Setlist $setlist
-     * @return \Illuminate\Http\Response
-     */
     public function export(Setlist $setlist)
     {
         $pdf = PDF::loadView('setlists.exportlayout', ['setlist' => $setlist]);
