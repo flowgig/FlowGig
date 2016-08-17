@@ -100,7 +100,7 @@
                 </div>
                 -->
                 <div class="comment">
-                    @if (isset($setlistSong->intensity ))
+                    @if (isset($setlistSong->comment ))
                         <span><strong>Comment: </strong><i>{{ $setlistSong->comment }}</i></span>
                     @endif
                 </div>
