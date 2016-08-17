@@ -50,7 +50,8 @@
         <div class="modal-content">
             <div class="modal-header">Export setlist:</div>
             <p>Toggle fields in setlist</p>
-            <form>
+            <form action="{{ route('setlists.export', $setlist) }}" method="POST" target="_blank">
+                {{ csrf_field() }}
                 <div class="input-group">
                     <input type="checkbox" name="key" id="key"/>
                     <label for="key">Key</label>
@@ -69,12 +70,12 @@
                     <input type="checkbox" name="comment" id="comment"/>
                     <label for="comment">Comment</label>
                 </div>
+                <div class="input-group float-right">
+                    <button type="submit" class="button button-flat button-default tooltip" title="Export {{ $setlist->title }} to PDF">
+                        <label for="export">Export to PDF</label>
+                    </button>
+                </div>
             </form>
-            <div class="input-group float-right">
-                <a href="{{ route('setlists.export', $setlist) }}" target="_blank" class="button button-flat button-default tooltip" title="Export {{ $setlist->title }} to PDF">
-                    <label for="export">Export to PDF</label>
-                </a>
-            </div>
         </div>
     </div>
 @endsection

@@ -63,7 +63,7 @@ Route::group(['middleware' => 'auth.basic'], function () {
         'uses' => 'SetlistController@store'
     ]);
 
-    Route::get('setlists/{setlist}/export', [
+    Route::post('setlists/{setlist}/export', [
         'as' => 'setlists.export',
         'uses' => 'SetlistController@export'
     ]);

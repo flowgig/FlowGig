@@ -81,14 +81,14 @@
             {{ $setlistSong->song->title }}
             <div class="song-info">
                 <div class="inline">
-                    @if (isset($setlistSong->key ))
+                    @if ($request->input('key') && isset($setlistSong->key))
                         <span class="key"><strong>Key: </strong>{{ $setlistSong->key }}</span>
                     @endif
-                    @if (isset($setlistSong->bpm ))
+                    @if ($request->input('bpm') && isset($setlistSong->bpm))
 
                         <span class="bpm"><strong>BPM: </strong>{{ $setlistSong->bpm }}</span>
                     @endif
-                    @if (isset($setlistSong->intensity ))
+                    @if ($request->input('intensity') && isset($setlistSong->intensity))
                         <span class="intensity"><strong>Intensity: </strong>{{ $setlistSong->intensity }}</span>
                     @endif
                 </div>
@@ -100,7 +100,7 @@
                 </div>
                 -->
                 <div class="comment">
-                    @if (isset($setlistSong->comment ))
+                    @if ($request->input('comment') && isset($setlistSong->comment))
                         <span><strong>Comment: </strong><i>{{ $setlistSong->comment }}</i></span>
                     @endif
                 </div>

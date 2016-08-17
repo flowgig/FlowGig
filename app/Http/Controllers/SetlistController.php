@@ -101,9 +101,9 @@ class SetlistController extends Controller
      * @param Setlist $setlist
      * @return \Illuminate\Http\Response
      */
-    public function export(Setlist $setlist)
+    public function export(Request $request, Setlist $setlist)
     {
-        $pdf = PDF::loadView('setlists.exportlayout', ['setlist' => $setlist]);
+        $pdf = PDF::loadView('setlists.exportlayout', ['request' => $request, 'setlist' => $setlist]);
 
         return $pdf->stream($setlist->title);
     }
