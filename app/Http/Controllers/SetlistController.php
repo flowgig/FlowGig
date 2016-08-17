@@ -78,8 +78,6 @@ class SetlistController extends Controller
      */
     public function edit(Setlist $setlist)
     {
-        $setlist->setlistSongs->load('song');
-
         return view('setlists.edit', ['setlist' => $setlist]);
     }
 
@@ -92,7 +90,29 @@ class SetlistController extends Controller
      */
     public function update(Request $request, Setlist $setlist)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required|max:80',
+        ]);
+
+        $setlist->update($request->all());
+
+        // TODO: Flash setlist updated
+
+        return redirect()->route('setlists.index', $setlist->band);
+    }
+
+    /**
+     * Setup setlist with songs.
+     *
+     * @param Setlist $setlist
+     * @return \Illuminate\Http\Response
+     * @internal param Request $request
+     */
+    public function make(Setlist $setlist)
+    {
+        $setlist->setlistSongs->load('song');
+
+        return view('setlists.make', ['setlist' => $setlist]);
     }
 
     /**

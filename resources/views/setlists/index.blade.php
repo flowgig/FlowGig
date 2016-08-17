@@ -38,6 +38,9 @@
                                 <small>{{ $setlist->description }}</small>
                             </span>
                             <span class="list-item-buttons">
+                                <a class="button button-icon button-flat button-default tooltip" title="Make {{$setlist->title}}" href="{{ route('setlists.make', $setlist) }}">
+                                    <span class="fa fa-list"></span>
+                                </a>
                                 <a class="button button-icon button-flat button-default tooltip" title="Show {{$setlist->title}}" href="{{ route('setlists.show', $setlist) }}">
                                     <span class="fa fa-eye"></span>
                                 </a>
