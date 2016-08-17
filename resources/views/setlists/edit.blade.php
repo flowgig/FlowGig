@@ -33,7 +33,7 @@
                 </ol>
                 <h1>{{ $setlist->title }}</h1>
                 <p>by <a href="{{ route('bands.show', $setlist->band) }}">{{ $setlist->band->name }}</a></p>
-                <form action="{{ route('setlists.update', $setlist->band) }}" method="POST">
+                <form action="{{ route('setlists.update', $setlist) }}" method="POST">
                     {{ csrf_field() }}
                     {{ method_field('PUT') }}
                     <div class="row">
