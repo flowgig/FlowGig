@@ -77,18 +77,22 @@
 <div class="setlist">
     @foreach($setlist->setlistSongs as $setlistSong)
         <div class="setlist-song">
-            <span class="song-number">{{ $setlistSong->number_in_list }}</span>
+            @if ($request->input('number_in_list'))
+                <span class="song-number">{{ $setlistSong->number_in_list }}</span>
+            @endif
             {{ $setlistSong->song->title }}
             <div class="song-info">
                 <div class="inline">
-                    @if ($request->input('key') && isset($setlistSong->key))
+                    @if ($request->input('key') && $setlistSong->key)
                         <span class="key"><strong>Key: </strong>{{ $setlistSong->key }}</span>
                     @endif
-                    @if ($request->input('bpm') && isset($setlistSong->bpm))
-
+                    @if ($request->input('bpm') && $setlistSong->bpm)
                         <span class="bpm"><strong>BPM: </strong>{{ $setlistSong->bpm }}</span>
                     @endif
-                    @if ($request->input('intensity') && isset($setlistSong->intensity))
+                    @if ($request->input('duration') && $setlistSong->duration)
+                        <span class="intensity"><strong>Duration: </strong>{{ $setlistSong->duration }}</span>
+                    @endif
+                    @if ($request->input('intensity') && $setlistSong->intensity)
                         <span class="intensity"><strong>Intensity: </strong>{{ $setlistSong->intensity }}</span>
                     @endif
                 </div>
@@ -100,7 +104,7 @@
                 </div>
                 -->
                 <div class="comment">
-                    @if ($request->input('comment') && isset($setlistSong->comment))
+                    @if ($request->input('comment') && $setlistSong->comment)
                         <span><strong>Comment: </strong><i>{{ $setlistSong->comment }}</i></span>
                     @endif
                 </div>

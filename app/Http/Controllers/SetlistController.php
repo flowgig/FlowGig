@@ -98,6 +98,7 @@ class SetlistController extends Controller
     /**
      * Export the setlist to file.
      *
+     * @param Request $request
      * @param Setlist $setlist
      * @return \Illuminate\Http\Response
      */
