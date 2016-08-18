@@ -15,16 +15,17 @@ class SetlistSongController extends Controller
      * Store a newly created SetlistSong in storage.
      *
      * @param  \Illuminate\Http\Request $request
-     * @return SetlistSong;
+     * @param $bandId
+     * @return SetlistSong
      */
-    public function store(Request $request)
+    public function store(Request $request, $bandId)
     {
         $setlistSong = new SetlistSong();
 
         $setlistSong->fill($request->all());
 
         // Add any defined default field values:
-        $defaultSetlist = Setlist::where('title', 'Default')->with('setlistSongs')->first(); // TODO: Prevent multiple setlists named Default
+        $defaultSetlist = Setlist::whereBandId($bandId)->whereTitle('Default')->with('setlistSongs')->first(); // TODO: Prevent multiple setlists named Default
         if($defaultSetlistSong = $defaultSetlist->setlistSongs->where('song_id', $request->input('song_id'))->first())
             $setlistSong->fill([
                 'key' => $defaultSetlistSong->key,

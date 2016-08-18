@@ -317,7 +317,8 @@
                         song_id: setlistSong.song.id,
                         number_in_list: setlistSong.number_in_list
                     };
-                    this.$http.post('/setlistsongs/', payLoad).then(function (createdSetlistSong) {
+                    var apiUrl = '/bands/' + this.setlist.band_id + '/setlistsongs/';
+                    this.$http.post(apiUrl, payLoad).then(function (createdSetlistSong) {
                         afterStore(createdSetlistSong.json())
                     });
                 },
