@@ -261,12 +261,12 @@
                                 number_in_list: this.$parent.setlistSongs.length + 1,
                             };
 
-                            var setIdAndPushToList = function (databaseId) {
-                                setlistSong.id = databaseId;
-                                return this.$parent.setlistSongs.push(setlistSong);
+                            var createOnServerAndPushToList = function (createdSetlistSong) {
+                                createdSetlistSong.song = this.song;
+                                this.$parent.setlistSongs.push(createdSetlistSong);
                             }.bind(this);
 
-                            this.$parent.saveNewSetlistSong(setlistSong, setIdAndPushToList);
+                            this.$parent.saveNewSetlistSong(setlistSong, createOnServerAndPushToList);
                         }
                     }
                 },
@@ -317,8 +317,8 @@
                         song_id: setlistSong.song.id,
                         number_in_list: setlistSong.number_in_list
                     };
-                    this.$http.post('/setlistsongs/', payLoad).then(function (databaseId) {
-                        afterStore(databaseId.json())
+                    this.$http.post('/setlistsongs/', payLoad).then(function (createdSetlistSong) {
+                        afterStore(createdSetlistSong.json())
                     });
                 },
                 saveUpdatedSetlistSong: function (setlistSong) {
