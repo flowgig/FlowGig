@@ -112,7 +112,7 @@
         </div>
     @endforeach
 </div>
-<span class="footer-text">Generated with <a href="http://www.flowgig.com">www.flowgig.com</a></span>
+{{-- <span class="footer-text">Generated with <a href="http://www.flowgig.com">www.flowgig.com</a></span> --}}
 </body>
 </html>
 
