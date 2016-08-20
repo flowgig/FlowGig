@@ -73,6 +73,7 @@
     </style>
 </head>
 <body>
+<p>{{ $setlist->band->name }}</p>
 <h1>{{ $setlist->title }}</h1>
 <div class="setlist">
     @foreach($setlist->setlistSongs->sortBy('number_in_list') as $setlistSong)
