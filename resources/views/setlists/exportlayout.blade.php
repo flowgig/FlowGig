@@ -75,7 +75,7 @@
 <body>
 <h1>{{ $setlist->title }}</h1>
 <div class="setlist">
-    @foreach($setlist->setlistSongs as $setlistSong)
+    @foreach($setlist->setlistSongs->sortBy('number_in_list') as $setlistSong)
         <div class="setlist-song">
             @if ($request->input('number_in_list'))
                 <span class="song-number">{{ $setlistSong->number_in_list }}</span>
