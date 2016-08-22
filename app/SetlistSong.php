@@ -15,6 +15,13 @@ class SetlistSong extends Model
         'setlist_id', 'song_id', 'number_in_list', 'setnumber', 'key', 'bpm', 'duration', 'intensity', 'comment'
     ];
 
+    /**
+     * All of the relationships to be touched.
+     *
+     * @var array
+     */
+    protected $touches = ['setlist'];
+
      /**
      * Get the setlist for the setlist song.
      */
