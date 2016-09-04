@@ -1,5 +1,7 @@
-var elixir = require('laravel-elixir');
+const elixir = require('laravel-elixir');
 var config = require('./gulp-config.json');
+require('laravel-elixir-vue');
+
 
 /*
  |--------------------------------------------------------------------------
@@ -12,18 +14,27 @@ var config = require('./gulp-config.json');
  |
  */
 
-elixir(function(mix) {
-    mix.sass(config.paths.css);
+elixir(mix => {
+    mix.sass(config.paths.css)
+    .webpack('app.js');
     mix.scripts(config.paths.js);
     mix.copy(config.paths.fonts, 'public/fonts');
     mix.copy(config.paths.images, 'public/images');
 });
 
+/*
+elixir(function (mix) {
+    mix.sass(config.paths.css);
+    mix.scripts(config.paths.js);
+    mix.copy(config.paths.fonts, 'public/fonts');
+    mix.copy(config.paths.images, 'public/images');
+});
+*/
 var gulp = require('gulp');
 
 // Favicons:
 
-var realFavicon = require ('gulp-real-favicon');
+var realFavicon = require('gulp-real-favicon');
 var fs = require('fs');
 
 // File where the favicon markups are stored
@@ -33,7 +44,7 @@ var FAVICON_DATA_FILE = 'faviconData.json';
 // You should run it at least once to create the icons. Then,
 // you should run it whenever RealFaviconGenerator updates its
 // package (see the check-for-favicon-update task below).
-gulp.task('generate-favicon', function(done) {
+gulp.task('generate-favicon', function (done) {
     realFavicon.generateFavicon({
         masterPicture: './resources/assets/images/svg/flowgig-logo-black-vertical.svg',
         dest: './public/images/favicon',
@@ -75,7 +86,7 @@ gulp.task('generate-favicon', function(done) {
             errorOnImageTooSmall: false
         },
         markupFile: FAVICON_DATA_FILE
-    }, function() {
+    }, function () {
         done();
     });
 });
@@ -83,8 +94,8 @@ gulp.task('generate-favicon', function(done) {
 // Inject the favicon markups in your HTML pages. You should run
 // this task whenever you modify a page. You can keep this task
 // as is or refactor your existing HTML pipeline.
-gulp.task('inject-favicon-markups', function() {
-    gulp.src([ './resources/views/layouts/master.blade.php' ])
+gulp.task('inject-favicon-markups', function () {
+    gulp.src(['./resources/views/layouts/master.blade.php'])
         .pipe(realFavicon.injectFaviconMarkups(JSON.parse(fs.readFileSync(FAVICON_DATA_FILE)).favicon.html_code))
         .pipe(gulp.dest('./resources/views/layouts'));
 });
@@ -93,9 +104,9 @@ gulp.task('inject-favicon-markups', function() {
 // released a new Touch icon along with the latest version of iOS).
 // Run this task from time to time. Ideally, make it part of your
 // continuous integration system.
-gulp.task('check-for-favicon-update', function(done) {
+gulp.task('check-for-favicon-update', function (done) {
     var currentVersion = JSON.parse(fs.readFileSync(FAVICON_DATA_FILE)).version;
-    realFavicon.checkForUpdates(currentVersion, function(err) {
+    realFavicon.checkForUpdates(currentVersion, function (err) {
         if (err) {
             throw err;
         }
