@@ -74,7 +74,9 @@
 </head>
 <body>
 <p>{{ $setlist->band->name }}</p>
-<h1>{{ $setlist->title }}</h1>
+<h1>{{ $setlist->title }}<br/>
+    <span style="font-size: .3em; font-weight: normal">Last changed {{ $setlist->updated_at->toDayDateTimeString() }}</span>
+</h1>
 <small>{{ $setlist->description }}</small><br /><br />
 <div class="setlist">
     @foreach($setlist->setlistSongs->sortBy('number_in_list') as $setlistSong)
