@@ -46,6 +46,25 @@ Route::group(['middleware' => 'auth.basic'], function () {
 
     Route::resource('songs', 'SongController', ['except' => ['index', 'create', 'store']]);
 
+    // Gigs
+
+    Route::get('bands/{band}/gigs', [
+        'as' => 'gigs.index',
+        'uses' => 'GigController@index'
+    ]);
+
+    Route::get('bands/{band}/gigs/create', [
+        'as' => 'gigs.create',
+        'uses' => 'GigController@create'
+    ]);
+
+    Route::post('bands/{band}/gigs', [
+        'as' => 'gigs.store',
+        'uses' => 'GigController@store'
+    ]);
+
+    Route::resource('gigs', 'GigController', ['except' => ['index', 'create', 'store']]);
+
     // Setlists
 
     Route::get('bands/{band}/setlists', [

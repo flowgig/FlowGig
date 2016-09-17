@@ -15,4 +15,11 @@ class Gig extends Model
         'name', 'date', 'venue', 'location', 'confirmed'
     ];
 
+    /**
+     * Get the band for the gig.
+     */
+    public function band()
+    {
+        return $this->belongsTo('App\Band');
+    }
 }
