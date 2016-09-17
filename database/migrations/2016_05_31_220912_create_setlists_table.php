@@ -16,7 +16,7 @@ class CreateSetlistsTable extends Migration
             $table->increments('id');
             $table->integer('band_id')->unsigned();
             $table->text('title');
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->timestamps();
 
             $table->foreign('band_id')->references('id')->on('bands');
