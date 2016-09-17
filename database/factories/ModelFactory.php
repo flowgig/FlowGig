@@ -60,12 +60,17 @@ $factory->define(App\Gig::class, function (Faker\Generator $faker) {
         'Stadium'
     ];
 
+    $bandId = $faker->randomElement(\App\Band::pluck('id')->toArray());
+
+    $bandSetlistIds = \App\Setlist::whereBandId($bandId)->pluck('id')->toArray();
+
     return [
+        'band_id' => $bandId,
+        'setlist_id' => $faker->randomElement($bandSetlistIds),
         'name' => $faker->randomElement($gigNames),
         'date' => $faker->dateTime,
         'venue' => $faker->streetName . ' ' . $faker->randomElement($streetNameVenueSuffix),
         'location' => $faker->city,
-        'confirmed' => $faker->boolean,
-        'setlist_id' => $faker->randomElement(\App\Setlist::pluck('id')->toArray())
+        'confirmed' => $faker->boolean
     ];
 });

@@ -15,14 +15,16 @@ class CreateGigsTable extends Migration
     {
         Schema::create('gigs', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('band_id')->unsigned();
+            $table->integer('setlist_id')->unsigned()->nullable();
             $table->text('name');
             $table->dateTime('date');
             $table->text('venue');
             $table->text('location');
             $table->boolean('confirmed');
-            $table->integer('setlist_id')->unsigned();
             $table->timestamps();
 
+            $table->foreign('band_id')->references('id')->on('bands');
             $table->foreign('setlist_id')->references('id')->on('setlists');
         });
     }
