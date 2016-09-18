@@ -18,10 +18,10 @@ class CreateGigsTable extends Migration
             $table->integer('band_id')->unsigned();
             $table->integer('setlist_id')->unsigned()->nullable();
             $table->text('name');
-            $table->dateTime('date');
-            $table->text('venue');
-            $table->text('location');
-            $table->boolean('confirmed');
+            $table->dateTime('date')->nullable();
+            $table->text('venue')->nullable();
+            $table->text('location')->nullable();
+            $table->boolean('confirmed')->default(0);
             $table->timestamps();
 
             $table->foreign('band_id')->references('id')->on('bands');
