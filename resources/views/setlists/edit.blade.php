@@ -25,10 +25,16 @@
                         <meta itemprop="position" content="3"/>
                     </li>
                     <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                        <a itemprop="item" href="{{ route('setlists.create', $setlist->band) }}">
-                            <span itemprop="name">Create new setlist</span>
+                        <a itemprop="item" href="{{ route('setlists.show', $setlist) }}">
+                            <span itemprop="name">{{ $setlist->title }}</span>
                         </a>
                         <meta itemprop="position" content="4"/>
+                    </li>
+                    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                        <a itemprop="item" href="{{ route('setlists.edit', $setlist) }}">
+                            <span itemprop="name">Edit setlist</span>
+                        </a>
+                        <meta itemprop="position" content="5"/>
                     </li>
                 </ol>
                 <h1>{{ $setlist->title }}</h1>
