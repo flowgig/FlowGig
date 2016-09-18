@@ -20,7 +20,7 @@ class GigController extends Controller
     {
         $band = Band::with('gigs')->find($bandId);
 
-        // TODO: Return view
+        return view('gigs.index', ['band' => $band]);
     }
 
     /**
@@ -31,7 +31,7 @@ class GigController extends Controller
      */
     public function create(Band $band)
     {
-        // TODO: Return view
+        return view('gigs.create', ['band' => $band]);
     }
 
     /**
@@ -63,7 +63,7 @@ class GigController extends Controller
      */
     public function show(Gig $gig)
     {
-        // TODO: Return view
+        return view('gigs.show', ['gig' => $gig]);
     }
 
     /**
@@ -74,7 +74,7 @@ class GigController extends Controller
      */
     public function edit(Gig $gig)
     {
-        // TODO: Return view
+        return view('gigs.edit', ['gig' => $gig]);
     }
 
     /**
