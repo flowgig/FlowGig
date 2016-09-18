@@ -52,7 +52,7 @@ class GigController extends Controller
 
         // TODO: Flash setlist stored
 
-        return redirect()->route('gig.index', $gig->band);
+        return redirect()->route('gigs.index', $gig->band);
     }
 
     /**
@@ -92,7 +92,7 @@ class GigController extends Controller
 
         // TODO: Flash gig updated
 
-        return redirect()->route('gig.index', $gig->band);
+        return redirect()->route('gigs.index', $gig->band);
     }
 
     /**
@@ -107,6 +107,6 @@ class GigController extends Controller
 
         // TODO: Flash gig deleted
 
-        return redirect()->route('gig.index', $gig->band);
+        return redirect()->route('gigs.index', $gig->band);
     }
 }
