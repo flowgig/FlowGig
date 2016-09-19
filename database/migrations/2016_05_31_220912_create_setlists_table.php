@@ -15,11 +15,13 @@ class CreateSetlistsTable extends Migration
         Schema::create('setlists', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('band_id')->unsigned();
+            $table->integer('gig_id')->unsigned();
             $table->text('title');
             $table->text('description')->nullable();
             $table->timestamps();
 
             $table->foreign('band_id')->references('id')->on('bands');
+            $table->foreign('gig_id')->references('id')->on('gigs');
         });
     }
 
