@@ -22,4 +22,12 @@ class Gig extends Model
     {
         return $this->belongsTo('App\Band');
     }
+
+    /**
+     * Get the setlist for the gig if any.
+     */
+    public function setlist()
+    {
+        return $this->hasOne('App\Setlist');
+    }
 }

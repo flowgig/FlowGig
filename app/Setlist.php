@@ -30,4 +30,12 @@ class Setlist extends Model
     {
         return $this->belongsTo('App\Band');
     }
+
+    /**
+     * Get the gig for the setlist.
+     */
+    public function gig()
+    {
+        return $this->belongsTo('App\Gig');
+    }
 }
