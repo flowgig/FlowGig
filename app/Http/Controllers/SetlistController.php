@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Band;
+use App\Gig;
 use App\Setlist;
-use App\Song;
 use Illuminate\Http\Request;
 use PDF;
 
@@ -13,50 +12,16 @@ use App\Http\Requests;
 class SetlistController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @param $bandId
-     * @return \Illuminate\Http\Response
-     */
-    public function index($bandId)
-    {
-        $band = Band::with('setlists')->find($bandId);
-
-        return view('setlists.index', ['band' => $band]);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @param Band $band
-     * @return \Illuminate\Http\Response
-     */
-    public function create(Band $band)
-    {
-        return view('setlists.create', ['band' => $band]);
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
-     * @param Band $band
+     * @param Gig $gig
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Band $band)
+    public function store(Gig $gig)
     {
-        $this->validate($request, [
-            'title' => 'required|max:80',
-        ]);
-        
-        $setlist = new Setlist();
-        $setlist->band()->associate($band);
-        $setlist->fill($request->all());
-        $setlist->save();
+        $newSetlist = $gig->setlist()->create([]);
 
-        // TODO: Flash setlist stored
-
-        return redirect()->route('setlists.index', ['band' => $band]);
+        return redirect()->route('setlist.edit', ['setlist' => $newSetlist]);
     }
 
     /**
@@ -78,6 +43,8 @@ class SetlistController extends Controller
      */
     public function edit(Setlist $setlist)
     {
+        $setlist->setlistSongs->load('song');
+
         return view('setlists.edit', ['setlist' => $setlist]);
     }
 
@@ -90,29 +57,9 @@ class SetlistController extends Controller
      */
     public function update(Request $request, Setlist $setlist)
     {
-        $this->validate($request, [
-            'title' => 'required|max:80',
-        ]);
-
         $setlist->update($request->all());
 
-        // TODO: Flash setlist updated
-
-        return redirect()->route('setlists.index', $setlist->band);
-    }
-
-    /**
-     * Setup setlist with songs.
-     *
-     * @param Setlist $setlist
-     * @return \Illuminate\Http\Response
-     * @internal param Request $request
-     */
-    public function make(Setlist $setlist)
-    {
-        $setlist->setlistSongs->load('song');
-
-        return view('setlists.make', ['setlist' => $setlist]);
+        return redirect()->route('gigs.index', $setlist->gig->band);
     }
 
     /**
@@ -141,6 +88,6 @@ class SetlistController extends Controller
 
         // TODO: Flash setlist deleted
 
-        return redirect()->route('setlists.index', $setlist->band);
+        return redirect()->route('gigs.index', $setlist->gig->band);
     }
 }

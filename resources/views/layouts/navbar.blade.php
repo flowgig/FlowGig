@@ -11,8 +11,6 @@
                 <ul class="">
                     <li><a href="{{ route('songs.index', $currentBand) }}"><span class="icon fa fa-music"></span> Songs</a>
                     </li>
-                    <li><a href="{{ route('setlists.index', $currentBand) }}"><span class="icon fa fa-list-ol"></span> Setlists</a>
-                    </li>
                     <li><a href="{{ route('gigs.index', $currentBand) }}"><span class="icon fa fa-calendar"></span> Gigs</a>
                     </li>
                     <li><a href="/dashboard"></a></li>
@@ -62,8 +60,6 @@
         @if($currentBand)
             <ul class="">
                 <li><a href="{{ route('songs.index', $currentBand) }}"><span class="icon fa fa-music"></span> Songs</a></li>
-                <li><a href="{{ route('setlists.index', $currentBand) }}"><span class="icon fa fa-list-ol"></span> Setlists</a>
-                </li>
                 <li><a href="{{ route('gigs.index', $currentBand) }}"><span class="icon fa fa-calendar"></span> Gigs</a>
                 </li>
             </ul>

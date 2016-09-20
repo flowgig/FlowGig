@@ -38,6 +38,20 @@
                                 <small>{{ $gig->date }}</small>
                             </span>
                             <span class="list-item-buttons">
+                                @if($gig->setlist)
+                                    <a class="button button-icon button-flat button-default tooltip" title="Edit setlist" href="{{ route('setlist.edit', $gig->setlist) }}">
+                                        <span class="fa fa-list"></span>
+                                    </a> |
+                                @else
+                                    <form action="{{ route('setlist.store', $gig) }}" method="POST">
+                                        {{ csrf_field() }}
+                                        <button type="submit"
+                                                class="button button-icon button-flat button-default tooltip"
+                                                title="Create setlist">
+                                         <span class="fa fa-plus"></span>
+                                    </button>
+                                 </form> |
+                                @endif
                                 <a class="button button-icon button-flat button-default tooltip" title="Show {{$gig->title}}" href="{{ route('gigs.show', $gig) }}">
                                     <span class="fa fa-eye"></span>
                                 </a>

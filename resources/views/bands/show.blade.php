@@ -22,7 +22,7 @@
                 <h1>{{ $band->name }}</h1>
                 <ul>
                     <li><a href="{{ route('songs.index', $band) }}">Songs</a></li>
-                    <li><a href="{{ route('setlists.index', $band) }}">Setlists</a></li>
+                    <li><a href="{{ route('gigs.index', $band) }}">Gigs</a></li>
                 </ul>
                 <div class="block text-right">
                     <a class="button button-flat button-default" href="{{ route('bands.index') }}">Back to list</a>
