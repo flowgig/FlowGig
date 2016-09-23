@@ -121,10 +121,9 @@
                             <meta itemprop="position" content="5"/>
                         </li>
                     </ol>
+                    <p style="font-size: x-large">Setlist for</p>
                     <h1>{{ $setlist->gig->name }}</h1>
-                    <p>by <a href="{{ route('bands.show', $setlist->gig->band) }}">{{ $setlist->gig->band->name }}</a></p>
-                    <h3>{{ $setlist->gig->date }} at {{ $setlist->gig->venue }}, {{ $setlist->gig->location }}</h3>
-                    <h3>Songs:</h3>
+                    <p style="font-size: large">{{ $setlist->gig->date }} at {{ $setlist->gig->venue }}, {{ $setlist->gig->location }}</p>
                     <div>
                         <ul v-sortable.li="setlistSongs" class="list sortable-list">
                             <li v-for="setlistSong in setlistSongs" class="setlistsong">
