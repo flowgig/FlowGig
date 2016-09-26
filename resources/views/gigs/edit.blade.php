@@ -38,7 +38,6 @@
                     </li>
                 </ol>
                 <h1>{{ $gig->name }}</h1>
-                <p>by <a href="{{ route('bands.show', $gig->band) }}">{{ $gig->band->name }}</a></p>
                 <form action="{{ route('gigs.update', $gig) }}" method="POST">
                     {{ csrf_field() }}
                     {{ method_field('PUT') }}

@@ -26,7 +26,6 @@
                     </li>
                 </ol>
                 <h1>Gigs</h1>
-                <p>by <a href="{{ route('bands.show', $band) }}">{{ $band->name }}</a></p>
                 <div class="block text-right">
                     <a class="button button-flat button-primary" href="{{ route('gigs.create', $band) }}">Create new</a>
                 </div>

@@ -32,7 +32,6 @@
                     </li>
                 </ol>
                 <h1>{{ $song->title }}</h1>
-                <p>by <a href="{{ route('bands.show', $song->band) }}">{{ $song->band->name }}</a></p>
                 <div class="block text-right">
                     <a class="button button-flat button-default" href="{{ route('songs.index', $song->band) }}">Back to list</a>
                 </div>

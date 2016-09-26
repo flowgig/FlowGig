@@ -32,7 +32,6 @@
                     </li>
                 </ol>
                 <h1>Create new gig</h1>
-                <p>for <a href="{{ route('bands.show', $band) }}">{{ $band->name }}</a></p>
                 <form action="{{ route('gigs.store', $band) }}" method="POST">
                     {{ csrf_field() }}
                     <div class="row">
