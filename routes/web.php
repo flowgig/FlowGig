@@ -81,11 +81,6 @@ Route::group(['middleware' => 'auth.basic'], function () {
 
     // SetlistSongs
 
-    Route::post('bands/{band}/setlistsongs', [
-        'as' => 'setlistsongs.store',
-        'uses' => 'SetlistSongController@store'
-    ]);
-
-    Route::resource('setlistsongs', 'SetlistSongController', ['only' => ['update', 'destroy']]);
+    Route::resource('setlistsongs', 'SetlistSongController', ['only' => ['store', 'update', 'destroy']]);
 
 });

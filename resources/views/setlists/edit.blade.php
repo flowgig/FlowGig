@@ -316,8 +316,7 @@
                         song_id: setlistSong.song.id,
                         number_in_list: setlistSong.number_in_list
                     };
-                    var apiUrl = '/bands/' + this.setlist.gig.band_id + '/setlistsongs/';
-                    this.$http.post(apiUrl, payLoad).then(function (createdSetlistSong) {
+                    this.$http.post('/setlistsongs/', payLoad).then(function (createdSetlistSong) {
                         afterStore(createdSetlistSong.json())
                     });
                 },

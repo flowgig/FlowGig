@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Gig;
 use App\Setlist;
 use App\SetlistSong;
 use App\Song;
@@ -18,15 +19,15 @@ class SetlistSongController extends Controller
      * @param $bandId
      * @return SetlistSong
      */
-    public function store(Request $request, $bandId)
+    public function store(Request $request)
     {
         $setlistSong = new SetlistSong();
 
         $setlistSong->fill($request->all());
 
-        // Add any defined default field values:
-        $defaultSetlist = Setlist::whereBandId($bandId)->whereTitle('Default')->with('setlistSongs')->first(); // TODO: Prevent multiple setlists named Default
-        if($defaultSetlistSong = $defaultSetlist->setlistSongs->where('song_id', $request->input('song_id'))->first())
+        $song = Song::find($request->input('song_id'));
+
+        if($defaultSetlistSong = $song->defaultSetlistSong())
             $setlistSong->fill([
                 'key' => $defaultSetlistSong->key,
                 'bpm' => $defaultSetlistSong->bpm,

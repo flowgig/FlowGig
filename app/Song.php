@@ -22,4 +22,9 @@ class Song extends Model
     {
         return $this->belongsTo('App\Band');
     }
+
+    public function defaultSetlistSong()
+    {
+        $this->band->systemGig()->setlist->setlistSongs()->whereSongId($this->id)->first();
+    }
 }

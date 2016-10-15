@@ -38,4 +38,12 @@ class Band extends Model
     {
         return $this->hasMany('App\Setlist');
     }
+
+    /**
+     * Get the system gig for the band.
+     */
+    public function systemGig()
+    {
+        return $this->gigs()->whereName('_system_')->first();
+    }
 }
