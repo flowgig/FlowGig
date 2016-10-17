@@ -3,8 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Band;
-use App\Gig;
-use App\Setlist;
+use App\Services\BandService;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -43,12 +42,7 @@ class BandController extends Controller
             'name' => 'required|max:80',
         ]);
 
-        $band = Band::create($request->all());
-
-        $systemGig = new Gig(['name' => '_system_']);
-        $band->gigs()->save($systemGig);
-
-        $systemGig->setlist()->create([]);
+        BandService::create($request->input('name'));
 
         // TODO: Flash band stored
 
