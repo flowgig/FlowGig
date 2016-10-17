@@ -24,7 +24,7 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 
 $factory->define(App\Song::class, function (Faker\Generator $faker) {
     return [
-        'band_id' => $faker->numberBetween(1,2),
+        'band_id' => 1,
         'title' => rtrim($faker->realText(20, 3), ".,:;'-"),
         'artist' => 'The ' . $faker->jobTitle . 's',
         'music_by' => $faker->name,
@@ -61,7 +61,7 @@ $factory->define(App\Gig::class, function (Faker\Generator $faker) {
     ];
 
     return [
-        'band_id' => $faker->randomElement(\App\Band::pluck('id')->toArray()),
+        'band_id' => 1,
         'name' => $faker->randomElement($gigNames),
         'date' => $faker->dateTime,
         'venue' => $faker->streetName . ' ' . $faker->randomElement($streetNameVenueSuffix),
