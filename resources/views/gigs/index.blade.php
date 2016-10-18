@@ -30,7 +30,7 @@
                     <a class="button button-flat button-primary" href="{{ route('gigs.create', $band) }}">Create new</a>
                 </div>
                 <ul class="list menu-list">
-                    @foreach($band->gigs as $gig)
+                    @foreach($band->gigs->where('name', '<>', '_system_') as $gig)
                         <li>
                             <span class="list-item-content">
                                 {{ $gig->name }}
