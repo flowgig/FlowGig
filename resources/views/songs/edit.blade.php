@@ -62,6 +62,35 @@
                         </div>
                     </div>
                     <div class="clearfix"></div>
+                    <h2>Default setup for setlists</h2>
+                    <div class="row">
+                        <div class="input-group col-sm-4">
+                            {{-- Use selectbox (as in setlist edit) --}}
+                            <input type="text" name="key" value="{{ $song->defaultSetlistSong()->key }}"/>
+                            <label for="key">Key</label>
+                        </div>
+                        <div class="input-group col-sm-4">
+                            <input type="number" name="bpm" min="0" value="{{ $song->defaultSetlistSong()->bpm }}"/>
+                            <label for="bpm">BPM</label>
+                        </div>
+                        <div class="input-group col-sm-4">
+                            <input type="number" name="duration" min="0" value="{{ $song->defaultSetlistSong()->duration }}"/>
+                            <label for="duration">Duration</label>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="row">
+                        <div class="input-group col-sm-4">
+                            <input type="number" name="intensity" min="1" max="10"  value="{{ $song->defaultSetlistSong()->intensity }}"/>
+                            <label for="intensity">Intensity</label>
+                        </div>
+                        <div class="input-group col-md-8">
+                            <input type="text" name="comment" value="{{ $song->defaultSetlistSong()->comment }}"/>
+                            <label for="comment">Comment</label>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
                     <div class="row">
                         <div class="input-group col-sm-4">
                             <button type="submit" class="button button-flat button-primary">Update</button>

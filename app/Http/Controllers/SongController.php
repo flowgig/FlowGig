@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Band;
+use App\SetlistSong;
 use App\Song;
 use Illuminate\Http\Request;
 
@@ -52,6 +53,14 @@ class SongController extends Controller
         $song->fill($request->all());
         $song->save();
 
+        $defaultSetlistSong = new SetlistSong();
+        $defaultSetlistSong->song()->associate($song);
+        $defaultSetlist = $song->band->systemGig()->setlist;
+        $defaultSetlistSong->setlist()->associate($defaultSetlist);
+        $defaultSetlistSong->fill($request->all());
+        $defaultSetlistSong->number_in_list = 0;
+        $defaultSetlistSong->save();
+
         // TODO: Flash song stored
 
         return redirect()->route('songs.index', $band);
@@ -93,6 +102,7 @@ class SongController extends Controller
         ]);
 
         $song->update($request->all());
+        $song->defaultSetlistSong()->update($request->all());
 
         // TODO: Flash song updated
 
