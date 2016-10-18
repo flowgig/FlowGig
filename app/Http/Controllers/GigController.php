@@ -43,7 +43,9 @@ class GigController extends Controller
      */
     public function store(Request $request, Band $band)
     {
-        // TODO: Validate input
+        $this->validate($request, [
+            'name' => 'required|max:60|not_in:_system_'
+        ]);
 
         $gig = new Gig();
         $gig->band()->associate($band);
@@ -86,7 +88,9 @@ class GigController extends Controller
      */
     public function update(Request $request, Gig $gig)
     {
-        // TODO: Validate input
+        $this->validate($request, [
+            'name' => 'required|max:60|not_in:_system_'
+        ]);
 
         $gig->update($request->all());
 
