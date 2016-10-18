@@ -25,6 +25,6 @@ class Song extends Model
 
     public function defaultSetlistSong()
     {
-        $this->band->systemGig()->setlist->setlistSongs()->whereSongId($this->id)->first();
+        return $this->band->systemGig()->setlist->setlistSongs()->whereSongId($this->id)->first();
     }
 }
