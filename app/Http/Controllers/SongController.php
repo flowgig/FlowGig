@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Band;
-use App\SetlistSong;
+use App\Services\SongService;
 use App\Song;
 use Illuminate\Http\Request;
 
@@ -48,18 +48,7 @@ class SongController extends Controller
             'title' => 'required|max:80',
         ]);
 
-        $song = new Song();
-        $song->band()->associate($band);
-        $song->fill($request->all());
-        $song->save();
-
-        $defaultSetlistSong = new SetlistSong();
-        $defaultSetlistSong->song()->associate($song);
-        $defaultSetlist = $song->band->systemGig()->setlist;
-        $defaultSetlistSong->setlist()->associate($defaultSetlist);
-        $defaultSetlistSong->fill($request->all());
-        $defaultSetlistSong->number_in_list = 0;
-        $defaultSetlistSong->save();
+        SongService::create($request->all(), $band);
 
         // TODO: Flash song stored
 
