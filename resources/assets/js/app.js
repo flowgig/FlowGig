@@ -33,7 +33,6 @@ $(document).ready(function () {
         });
     });
     $(document).on("click", ".list-item-buttons", function () {
-        console.log($(window).width());
         if ($(window).width() < 736) {
             $(this).parent("li").toggleClass("list-item-menu-active");
         }
