@@ -15,72 +15,68 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['middleware' => 'auth.basic'], function () {
+Auth::routes();
 
-    Route::get('/dashboard', function () {
-        return view('dashboard', ['bands' => \App\Band::get()]);
-    });
+Route::get('/dashboard', 'DashboardController@index');
 
-    Route::singularResourceParameters();
+Route::singularResourceParameters();
 
-    // Bands
+// Bands
 
-    Route::resource('bands', 'BandController');
+Route::resource('bands', 'BandController');
 
-    // Songs
+// Songs
 
-    Route::get('bands/{band}/songs', [
-        'as' => 'songs.index',
-        'uses' => 'SongController@index'
-    ]);
+Route::get('bands/{band}/songs', [
+    'as' => 'songs.index',
+    'uses' => 'SongController@index'
+]);
 
-    Route::get('bands/{band}/songs/create', [
-        'as' => 'songs.create',
-        'uses' => 'SongController@create'
-    ]);
+Route::get('bands/{band}/songs/create', [
+    'as' => 'songs.create',
+    'uses' => 'SongController@create'
+]);
 
-    Route::post('bands/{band}/songs', [
-        'as' => 'songs.store',
-        'uses' => 'SongController@store'
-    ]);
+Route::post('bands/{band}/songs', [
+    'as' => 'songs.store',
+    'uses' => 'SongController@store'
+]);
 
-    Route::resource('songs', 'SongController', ['except' => ['index', 'create', 'store']]);
+Route::resource('songs', 'SongController', ['except' => ['index', 'create', 'store']]);
 
-    // Gigs
+// Gigs
 
-    Route::get('bands/{band}/gigs', [
-        'as' => 'gigs.index',
-        'uses' => 'GigController@index'
-    ]);
+Route::get('bands/{band}/gigs', [
+    'as' => 'gigs.index',
+    'uses' => 'GigController@index'
+]);
 
-    Route::get('bands/{band}/gigs/create', [
-        'as' => 'gigs.create',
-        'uses' => 'GigController@create'
-    ]);
+Route::get('bands/{band}/gigs/create', [
+    'as' => 'gigs.create',
+    'uses' => 'GigController@create'
+]);
 
-    Route::post('bands/{band}/gigs', [
-        'as' => 'gigs.store',
-        'uses' => 'GigController@store'
-    ]);
+Route::post('bands/{band}/gigs', [
+    'as' => 'gigs.store',
+    'uses' => 'GigController@store'
+]);
 
-    Route::resource('gigs', 'GigController', ['except' => ['index', 'create', 'store']]);
+Route::resource('gigs', 'GigController', ['except' => ['index', 'create', 'store']]);
 
-    // Setlists
+// Setlists
 
-    Route::post('gigs/{gig}/setlist', [
-        'as' => 'setlist.store',
-        'uses' => 'SetlistController@store'
-    ]);
+Route::post('gigs/{gig}/setlist', [
+    'as' => 'setlist.store',
+    'uses' => 'SetlistController@store'
+]);
 
-    Route::post('setlists/{setlist}/export', [
-        'as' => 'setlist.export',
-        'uses' => 'SetlistController@export'
-    ]);
+Route::post('setlists/{setlist}/export', [
+    'as' => 'setlist.export',
+    'uses' => 'SetlistController@export'
+]);
 
-    Route::resource('setlist', 'SetlistController', ['except' => ['index', 'create', 'store']]);
+Route::resource('setlist', 'SetlistController', ['except' => ['index', 'create', 'store']]);
 
-    // SetlistSongs
+// SetlistSongs
 
-    Route::resource('setlistsongs', 'SetlistSongController', ['only' => ['store', 'update', 'destroy']]);
-
-});
+Route::resource('setlistsongs', 'SetlistSongController', ['only' => ['store', 'update', 'destroy']]);

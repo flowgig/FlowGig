@@ -152,7 +152,7 @@
         </div>
         <div class="box z-2 login-box">
             <div class="input-group float-right">
-                <a class="button button-primary" href="/dashboard">Log in</a>
+                <a class="button button-primary" href="/login">Log in</a>
                 <div class="clearfix"></div>
             </div>
             {{--

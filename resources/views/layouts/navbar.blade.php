@@ -40,7 +40,12 @@
                          @endforeach
                      </ul>--}}
                     <div class="button-row dropdown-content-container">
-                        <a class="button button-flat button-default float-right" href="/dashboard">Sign out</a>
+                        <a class="button button-flat button-default float-right" href="{{ url('/logout') }}"
+                           onclick="event.preventDefault();
+                           document.getElementById('logout-form').submit();">Log out</a>
+                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
                         <div class="clearfix"></div>
                     </div>
                 </div>
