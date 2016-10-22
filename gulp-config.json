@@ -6,7 +6,8 @@
       "./node_modules/sortablejs/Sortable.min.js",
       "./node_modules/vue-sortable/vue-sortable.js",
       "./node_modules/vue-select/dist/vue-select.js",
-      "./node_modules/vue-resource/dist/vue-resource.min.js"
+      "./node_modules/vue-resource/dist/vue-resource.min.js",
+      "./resources/assets/js/app.js"
     ],
     "css": [
       "vendor.scss",

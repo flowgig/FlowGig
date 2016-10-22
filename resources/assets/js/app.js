@@ -4,7 +4,7 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('./bootstrap');
+//require('./bootstrap');
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -12,12 +12,12 @@ require('./bootstrap');
  * the application, or feel free to tweak this setup for your needs.
  */
 
-Vue.component('example', require('./components/Example.vue'));
-
+//Vue.component('example', require('./components/Example.vue'));
+/*
 const app = new Vue({
     el: 'body'
 });
-
+*/
 
 
 
@@ -32,7 +32,8 @@ $(document).ready(function () {
             $(this).removeClass("list-item-clicked").dequeue();
         });
     });
-    $(".list-item-buttons").click(function () {
+    $(document).on("click", ".list-item-buttons", function () {
+        console.log($(window).width());
         if ($(window).width() < 736) {
             $(this).parent("li").toggleClass("list-item-menu-active");
         }
