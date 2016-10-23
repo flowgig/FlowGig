@@ -2221,7 +2221,7 @@ button:active, button:focus, input[type="button"]:active, input[type="button"]:f
   .action-button.active {
     bottom: 0;
     box-shadow: none;
-    background-color: #232527; }
+    background-color: #272b2f; }
     .action-button.active .icon {
       font-family: FontAwesome; }
       .action-button.active .icon::before {
@@ -2238,7 +2238,7 @@ button:active, button:focus, input[type="button"]:active, input[type="button"]:f
   width: 100%;
   bottom: 0;
   right: 58px;
-  background-color: #232527;
+  background-color: #272b2f;
   color: #FFF;
   height: 60px;
   bottom: 0px;
@@ -2469,7 +2469,7 @@ body.action-menu-active .main-content {
     .box.primary .box-header .icon::after {
       content: "\f167"; }
   .box.dark .box-header {
-    background-color: #232527; }
+    background-color: #272b2f; }
     .box.dark .box-header .icon::after {
       content: "\f167"; }
 
@@ -2512,7 +2512,7 @@ body.action-menu-active .main-content {
   transition: all .2s .1s;
   border: 1px solid rgba(0, 0, 0, 0.07); }
   .button-flat:not([disabled]):hover {
-    background-color: #f0f1f2; }
+    background-color: #f6f7f8; }
   .button-flat:not([disabled]):active {
     background-color: #fbeae9; }
   .button-flat[disabled] {
@@ -2724,7 +2724,7 @@ li .modal-hover-add-button {
 
 footer {
   border-top: 1px solid rgba(0, 0, 0, 0.05);
-  background-color: #f0f1f2;
+  background-color: #f6f7f8;
   padding: 32px 16px; }
 
 form {
@@ -3389,10 +3389,10 @@ ul.list {
     ul.list li .list-item-content {
       display: inline-block;
       font-size: 14pt;
-      line-height: 17px; }
+      line-height: 14pt; }
       ul.list li .list-item-content small {
         display: block;
-        min-height: 16px;
+        min-height: 19px;
         font-size: 10pt; }
       ul.list li .list-item-content.single-line {
         line-height: 34px;
@@ -3412,7 +3412,7 @@ ul.list {
       ul.list li .list-item-button .button {
         float: right; }
   ul.list.hover-list li:hover {
-    background-color: #f0f1f2; }
+    background-color: #f6f7f8; }
   ul.list.menu-list li .list-item-content {
     max-width: calc(100% - 42px); }
     @media only screen and (min-width: 750px) {
@@ -3429,7 +3429,8 @@ ul.list {
     content: "\f142";
     float: right;
     min-width: 42px;
-    text-align: center; }
+    text-align: center;
+    line-height: 40px; }
     @media only screen and (min-width: 750px) {
       ul.list.menu-list li .list-item-buttons:after {
         content: none;
@@ -3459,11 +3460,12 @@ ul.list {
       ul.list.menu-list li.list-item-menu-active .list-item-buttons.button-default {
         color: #C32A22; }
         ul.list.menu-list li.list-item-menu-active .list-item-buttons.button-default:not([disabled]):hover {
-          background-color: #f0f1f2; }
+          background-color: #f6f7f8; }
         ul.list.menu-list li.list-item-menu-active .list-item-buttons.button-default:not([disabled]):active {
           background-color: #fbeae9; }
       ul.list.menu-list li.list-item-menu-active .list-item-buttons:after {
-        content: "\f00d"; }
+        content: "\f00d";
+        line-height: 38px; }
   ul.list.list-clickable li {
     -webkit-transition: background-color .2s;
     transition: background-color .2s; }
@@ -3475,7 +3477,7 @@ ul.list {
     -webkit-transition: background-color .2s;
     transition: background-color .2s; }
   ul.list .list-hoverable li:hover li:hover {
-    background-color: #f0f1f2; }
+    background-color: #f6f7f8; }
   ul.list .sortable-chosen {
     background-color: rgba(195, 42, 34, 0.15);
     cursor: move;
@@ -3623,7 +3625,7 @@ pre.code-example {
         .navbar ul li:not(.dropdown-menu) a:hover {
           border-bottom: 6px solid #C32A22; }
   .navbar.navbar-dark {
-    background-color: #232527; }
+    background-color: #272b2f; }
     .navbar.navbar-dark a {
       color: #FFFFFF; }
     .navbar.navbar-dark ul li a {
@@ -3679,7 +3681,7 @@ pre.code-example {
         min-width: 200px;
         border-left: 2px solid transparent; }
         .left-menu > div ul li a:hover {
-          background-color: #f0f1f2;
+          background-color: #f6f7f8;
           cursor: pointer; }
         .left-menu > div ul li a.active {
           border-left: 2px solid #C32A22; }
@@ -3776,7 +3778,7 @@ input[type="radio"]:checked:before {
   position: fixed;
   bottom: 5px;
   right: 5px;
-  background-color: #232527;
+  background-color: #272b2f;
   color: #FFF;
   font-size: 12pt;
   line-height: 14pt;
