@@ -11,7 +11,8 @@
     ],
     "css": [
       "vendor.scss",
-      "app.scss"
+      "app.scss",
+      "noauth.scss"
     ],
     "fonts": [
       "./bower_components/simple-gui-template/assets/fonts/*.{otf,eot,svg,ttf,woff,woff2}",

@@ -3979,4 +3979,123 @@ ul.list li.setlistsong .list-item-content.single-line {
   overflow: hidden;
   white-space: nowrap; }
 
+body.welcome-screen {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: block;
+  background: url("/images/jpg/background.jpg");
+  background-size: cover; }
+  body.welcome-screen .container {
+    display: block;
+    height: 100%;
+    padding: 12px;
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow: auto; }
+  body.welcome-screen .content {
+    text-align: left;
+    display: block; }
+  body.welcome-screen .input-group {
+    text-align: left; }
+  body.welcome-screen .title {
+    font-size: 96px;
+    color: #FFF;
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.8); }
+  body.welcome-screen .login-box {
+    background: none;
+    color: #FFF;
+    width: 100%;
+    margin-top: 10px; }
+  body.welcome-screen .login-box.z-2 {
+    box-shadow: none; }
+  body.welcome-screen .login-box .login-box-header {
+    font-size: 1.4em; }
+  body.welcome-screen .login-box .login-box-header p {
+    margin: -12px 0 6px; }
+  body.welcome-screen .login-box > .content {
+    width: 100%; }
+  body.welcome-screen button[disabled]:hover {
+    cursor: not-allowed; }
+  body.welcome-screen .login-box > .content {
+    zoom: 1.2;
+    padding: 0; }
+  body.welcome-screen .input-group input[type="text"] + label,
+  body.welcome-screen .input-group input[type="password"] + label,
+  body.welcome-screen .input-group input[type="number"] + label,
+  body.welcome-screen .input-group input[type="email"] + label,
+  body.welcome-screen .input-group input[type="checkbox"]:not(:focus),
+  body.welcome-screen .input-group input[type="radio"]:not(:focus),
+  body.welcome-screen .input-group select + label {
+    color: #CCC; }
+  body.welcome-screen .input-group input[type="text"].is-not-empty,
+  body.welcome-screen .input-group input[type="text"]:focus.is-not-empty,
+  body.welcome-screen .input-group input[type="password"].is-not-empty,
+  body.welcome-screen .input-group input[type="password"]:focus.is-not-empty,
+  body.welcome-screen .input-group input[type="number"].is-not-empty,
+  body.welcome-screen .input-group input[type="number"]:focus.is-not-empty,
+  body.welcome-screen .input-group input[type="search"].is-not-empty,
+  body.welcome-screen .input-group input[type="search"]:focus.is-not-empty,
+  body.welcome-screen .input-group input[type="email"].is-not-empty,
+  body.welcome-screen .input-group input[type="email"]:focus.is-not-empty,
+  body.welcome-screen .input-group select.is-not-empty,
+  body.welcome-screen .input-group select.is-not-empty:focus {
+    color: #FFF; }
+  body.welcome-screen .button {
+    width: 100%;
+    margin: 10px 0; }
+  body.welcome-screen .button-flat[disabled] {
+    color: rgba(255, 255, 255, 0.26) !important;
+    background-color: rgba(255, 255, 255, 0.1); }
+
+@media screen and (min-width: 550px) {
+  body.welcome-screen {
+    display: table; }
+    body.welcome-screen .container {
+      text-align: center;
+      display: table-cell;
+      vertical-align: middle; }
+    body.welcome-screen .content {
+      display: inline-block; }
+    body.welcome-screen .login-box {
+      max-width: 100%;
+      border-radius: 7px;
+      background: #FFF;
+      color: #212121;
+      max-width: 100%; }
+    body.welcome-screen .login-box.z-2 {
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26); }
+    body.welcome-screen .login-box .login-box-header p {
+      margin: 4px 0 2px; }
+    body.welcome-screen .login-box > .content {
+      zoom: 1;
+      padding: 6px 12px; }
+    body.welcome-screen .input-group {
+      margin-bottom: 25px; }
+    body.welcome-screen .input-group input[type="text"] + label,
+    body.welcome-screen .input-group input[type="password"] + label,
+    body.welcome-screen .input-group input[type="number"] + label,
+    body.welcome-screen .input-group input[type="email"] + label,
+    body.welcome-screen .input-group input[type="checkbox"]:not(:focus),
+    body.welcome-screen .input-group input[type="radio"]:not(:focus),
+    body.welcome-screen .input-group select + label {
+      color: #777; }
+    body.welcome-screen .input-group input[type="text"].is-not-empty,
+    body.welcome-screen .input-group input[type="text"]:focus.is-not-empty,
+    body.welcome-screen .input-group input[type="password"].is-not-empty,
+    body.welcome-screen .input-group input[type="password"]:focus.is-not-empty,
+    body.welcome-screen .input-group input[type="number"].is-not-empty,
+    body.welcome-screen .input-group input[type="number"]:focus.is-not-empty,
+    body.welcome-screen .input-group input[type="search"].is-not-empty,
+    body.welcome-screen .input-group input[type="search"]:focus.is-not-empty,
+    body.welcome-screen .input-group input[type="email"].is-not-empty,
+    body.welcome-screen .input-group input[type="email"]:focus.is-not-empty,
+    body.welcome-screen .input-group select.is-not-empty,
+    body.welcome-screen .input-group select.is-not-empty:focus {
+      color: #212121; }
+    body.welcome-screen .button {
+      width: auto;
+      margin: 0 8px; }
+    body.welcome-screen .button-flat[disabled] {
+      color: rgba(0, 0, 0, 0.26) !important; } }
+
 /*# sourceMappingURL=app.css.map */
