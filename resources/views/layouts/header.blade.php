@@ -25,7 +25,8 @@
     <meta name="twitter:description" content="">
     <meta name="twitter:image:src" content="">
     -->
-<script src="/js/all.js" type="application/javascript"></script><link rel="apple-touch-icon" sizes="57x57" href="/images/favicon/apple-touch-icon-57x57.png">
+<script src="/js/all.js" type="application/javascript"></script>
+<link rel="apple-touch-icon" sizes="57x57" href="/images/favicon/apple-touch-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-touch-icon-60x60.png">
 <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-touch-icon-72x72.png">
 <link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-touch-icon-76x76.png">
@@ -36,7 +37,6 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon-180x180.png">
 <link rel="icon" type="image/png" href="/images/favicon/favicon-32x32.png" sizes="32x32">
 <link rel="icon" type="image/png" href="/images/favicon/favicon-194x194.png" sizes="194x194">
-<link rel="icon" type="image/png" href="/images/favicon/favicon-96x96.png" sizes="96x96">
 <link rel="icon" type="image/png" href="/images/favicon/android-chrome-192x192.png" sizes="192x192">
 <link rel="icon" type="image/png" href="/images/favicon/favicon-16x16.png" sizes="16x16">
 <link rel="manifest" href="/images/favicon/manifest.json">
