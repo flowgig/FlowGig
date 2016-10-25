@@ -95,7 +95,7 @@ gulp.task('generate-favicon', function (done) {
 // this task whenever you modify a page. You can keep this task
 // as is or refactor your existing HTML pipeline.
 gulp.task('inject-favicon-markups', function () {
-    gulp.src(['./resources/views/layouts/master.blade.php'])
+    gulp.src(['./resources/views/layouts/header.blade.php'])
         .pipe(realFavicon.injectFaviconMarkups(JSON.parse(fs.readFileSync(FAVICON_DATA_FILE)).favicon.html_code))
         .pipe(gulp.dest('./resources/views/layouts'));
 });
