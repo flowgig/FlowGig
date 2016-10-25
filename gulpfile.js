@@ -14,7 +14,7 @@ require('laravel-elixir-vue');
  |
  */
 
-elixir(mix => {
+elixir(function (mix) {
     mix.sass(config.paths.css)
     .webpack('app.js');
     mix.scripts(config.paths.js);
@@ -22,14 +22,6 @@ elixir(mix => {
     mix.copy(config.paths.images, 'public/images');
 });
 
-/*
-elixir(function (mix) {
-    mix.sass(config.paths.css);
-    mix.scripts(config.paths.js);
-    mix.copy(config.paths.fonts, 'public/fonts');
-    mix.copy(config.paths.images, 'public/images');
-});
-*/
 var gulp = require('gulp');
 
 // Favicons:
