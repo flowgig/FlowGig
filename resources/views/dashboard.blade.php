@@ -19,7 +19,7 @@
                 <h2>Bands</h2>
                 <div class="content">
                     <div class="row">
-                        @foreach($bands as $band)
+                        @foreach(Auth::user()->bands as $band)
                             <div class='col-xs-12 col-sm-6 col-md-4 col-lg-3'>
                                 <div class="box primary z-1">
                                     <div class="box-header">
