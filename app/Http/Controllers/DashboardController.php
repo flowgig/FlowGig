@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Band;
+use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
@@ -23,8 +23,6 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $bands = Band::get(); // TODO: Scope bands to user
-
-        return view('dashboard', ['bands' => $bands]);
+        return view('dashboard', ['user' => Auth::user()]);
     }
 }
