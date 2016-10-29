@@ -6,15 +6,15 @@
         <i class="icon fa fa-plus"></i>
     </div>
     <div class="action-menu" id="action-menu">
-        <button class="toggle-action-button toggle-elements tooltip" data-type="radio" title="Add song from repertoire" value="repertoire-modal">
+        <button class="toggle-action-button toggle-elements toggle-modal tooltip" data-type="radio" title="Add song from repertoire" value="repertoire-modal">
             <span class="icon fa fa-list">
             </span>
         </button>
-        <button class="toggle-action-button toggle-elements tooltip" data-type="radio" title="Add new song" value="add-song-modal">
+        <button class="toggle-action-button toggle-elements toggle-modal tooltip" data-type="radio" title="Add new song" value="add-song-modal">
                 <span class="icon fa fa-plus">
                 </span>
         </button>
-        <button class="toggle-action-button toggle-elements tooltip" data-type="radio" title="Export setlist" value="export-setlist-modal">
+        <button class="toggle-action-button toggle-elements toggle-modal tooltip" data-type="radio" title="Export setlist" value="export-setlist-modal">
                 <span class="icon fa fa-download">
                 </span>
         </button>
