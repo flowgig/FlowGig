@@ -16,6 +16,14 @@ class Band extends Model
     ];
 
     /**
+     * Get the the band members.
+     */
+    public function members()
+    {
+        return $this->belongsToMany('App\User', 'band_memberships');
+    }
+
+    /**
      * Get the songs for the band.
      */
     public function songs()

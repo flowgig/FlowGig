@@ -26,4 +26,9 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function bands()
+    {
+        return $this->belongsToMany('App\Band', 'band_memberships');
+    }
 }
