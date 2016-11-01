@@ -25,6 +25,15 @@ Route::singularResourceParameters();
 
 Route::resource('bands', 'BandController');
 
+// BandMemberships
+
+Route::get('bands/{band}/band-memberships', [
+    'as' => 'band-memberships.index',
+    'uses' => 'BandMembershipController@index'
+]);
+
+Route::resource('band-memberships', 'BandMembershipController', ['only' => ['store', 'update', 'destroy']]);
+
 // Songs
 
 Route::get('bands/{band}/songs', [
