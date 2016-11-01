@@ -24,6 +24,14 @@ class Band extends Model
     }
 
     /**
+     * Get the the band memberships.
+     */
+    public function memberships()
+    {
+        return $this->hasMany('App\BandMembership');
+    }
+
+    /**
      * Get the songs for the band.
      */
     public function songs()
