@@ -29,6 +29,6 @@ class User extends Authenticatable
 
     public function bands()
     {
-        return $this->belongsToMany('App\Band', 'band_memberships');
+        return $this->belongsToMany('App\Band', 'band_memberships')->whereNull('band_memberships.deleted_at');
     }
 }
