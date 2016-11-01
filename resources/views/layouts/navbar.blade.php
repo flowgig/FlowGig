@@ -13,6 +13,8 @@
                     </li>
                     <li><a href="{{ route('gigs.index', $currentBand) }}"><span class="icon fa fa-calendar"></span> Gigs</a>
                     </li>
+                    <li><a href="{{ route('band-memberships.index', $currentBand) }}"><span class="icon fa fa-group"></span> Members</a>
+                    </li>
                     <li><a href="/dashboard"></a></li>
                 </ul>
             </div>
