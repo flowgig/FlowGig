@@ -7,6 +7,7 @@ use App\Services\BandService;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Auth;
 
 class BandController extends Controller
 {
@@ -17,7 +18,7 @@ class BandController extends Controller
      */
     public function index()
     {
-        return view('bands.index', ['bands' => Band::get()]);
+        return view('bands.index', ['bands' => Auth::user()->bands]);
     }
 
     /**
@@ -57,6 +58,8 @@ class BandController extends Controller
      */
     public function show(Band $band)
     {
+        $this->authorize('view', $band);
+
         return view('bands.show', ['band' => $band]);
     }
 
@@ -68,6 +71,8 @@ class BandController extends Controller
      */
     public function edit(Band $band)
     {
+        $this->authorize('update', $band);
+
         return view('bands.edit', ['band' => $band]);
     }
 
@@ -80,6 +85,8 @@ class BandController extends Controller
      */
     public function update(Request $request, Band $band)
     {
+        $this->authorize('update', $band);
+
         $this->validate($request, [
             'name' => 'required|max:80',
         ]);
@@ -99,6 +106,8 @@ class BandController extends Controller
      */
     public function destroy(Band $band)
     {
+        $this->authorize('delete', $band);
+
         $band->delete();
 
         // TODO: Flash band deleted
