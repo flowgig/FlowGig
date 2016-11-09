@@ -21,12 +21,12 @@
                     <span class="separator"></span>
                     <ul class="list hover-list">
                         <li>
-                            <a href="{{ route('songs.index', $currentBand) }}">
+                            <a href="/dashboard">
                                 <span class="icon fa fa-dashboard"></span> Dashboard
                             </a>
                         </li>
                         <li>
-                            <a href="{{ route('songs.index', $currentBand) }}">
+                            <a href="#">
                                 <span class="icon fa fa-user"></span> My account
                             </a>
                         </li>
