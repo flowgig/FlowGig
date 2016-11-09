@@ -20,5 +20,11 @@ class UsersTableSeeder extends Seeder
             'email' => 'bob@flowgig.com',
             'password' => bcrypt('fender'),
         ]);
+
+        User::create([
+            'name' => 'Tina Sweeper',
+            'email' => 'tina@flowgig.com',
+            'password' => bcrypt('fender'),
+        ]);
     }
 }
