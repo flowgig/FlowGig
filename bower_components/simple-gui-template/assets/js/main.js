@@ -67,10 +67,9 @@ $(document).ready(function () {
     // Toggle dropdown
     $(document).mouseup(function (e) {
         var container = $(".dropdown-menu");
-        if (!container.is(e.target) && container.has(e.target).length === 0) {
-            container.removeClass("active");
-        } else {
-            container.toggleClass("active");
+        container.removeClass("active");
+        if (container.is(e.target) || container.has(e.target).length > 0) {
+            $(e.target).closest(".dropdown-menu").toggleClass("active");
         }
     });
 

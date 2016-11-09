@@ -4,56 +4,86 @@
         <img src="/images/svg/flowgig-logo-white.svg" alt="FlowGig logo">
     </a>
     <span class="menu-divider hide-xsmall"></span>
-    <span class="hide-big hide-xsmall navbar-page-title"> @yield('navbar-title')</span>
-    @if($currentBand)
-        <div class="main-menu hide-medium hide-small hide-xsmall">
-            <div class="menu-link">
-                <ul class="">
-                    <li><a href="{{ route('songs.index', $currentBand) }}"><span class="icon fa fa-music"></span> Songs</a>
-                    </li>
-                    <li><a href="{{ route('gigs.index', $currentBand) }}"><span class="icon fa fa-calendar"></span> Gigs</a>
-                    </li>
-                    <li><a href="{{ route('band-memberships.index', $currentBand) }}"><span class="icon fa fa-group"></span> Members</a>
-                    </li>
-                    <li><a href="/dashboard"></a></li>
-                </ul>
-            </div>
-        </div>
-    @endif
-    <div class="main-menu-user float-right hide-medium hide-small hide-xsmall">
+    <span class="hide-xsmall navbar-page-title">@yield('navbar-title')</span>
+    <div class="main-menu-user float-right hide-small hide-xsmall">
         <ul>
             <li class="dropdown-menu">
                 <span class="fa fa-user"></span>
-                <span class="hide-medium hide-small hide-xsmall"> {{Auth::user()->name}}</span>
+                <span class="hide-medium"> {{Auth::user()->name}}</span> <span
+                        class="hide-medium fa fa-chevron-down"></span>
                 <div class="dropdown-content">
                     <div class="dropdown-profile-content dropdown-content-container">
                         <span class="dropdown-profile-name">{{Auth::user()->name}}</span>
                         <span class="dropdown-profile-email">{{Auth::user()->email}}</span>
-                        <div class="button-row">
-                            <a class="button button-flat button-default" href="/dashboard">Dashboard</a>
-                            <a class="button button-flat button-default" href="/dashboard">My account</a>
-                        </div>
+
+
                     </div>
                     <span class="separator"></span>
-                    {{-- <span class="dropdown-title">My bands</span>
-                     <ul class="list hover-list">
-                         @foreach($bands as $band)
-                             <li><a href="{{ route('bands.show', $band) }}">{{ $band->name }}</a></li>
-                         @endforeach
-                     </ul>--}}
-                    <div class="button-row dropdown-content-container">
-                        <a class="button button-flat button-default float-right" href="{{ url('/logout') }}"
-                           onclick="event.preventDefault();
-                           document.getElementById('logout-form').submit();">Log out</a>
+                    <ul class="list hover-list">
+                        <li>
+                            <a href="{{ route('songs.index', $currentBand) }}">
+                                <span class="icon fa fa-dashboard"></span> Dashboard
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('songs.index', $currentBand) }}">
+                                <span class="icon fa fa-user"></span> My account
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ url('/logout') }}"
+                               onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                <span class="icon fa fa-sign-out"></span> Log out
+                            </a>
+                        </li>
                         <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
                             {{ csrf_field() }}
                         </form>
+                        <div class="clearfix"></div>
+                    </ul>
+                    <div class="button-row dropdown-content-container">
+
                         <div class="clearfix"></div>
                     </div>
                 </div>
             </li>
         </ul>
     </div>
+    @if($currentBand)
+        <div class="hide-small hide-xsmall float-right main-menu-band inline">
+            <ul class="dropdown-container">
+                <li class="dropdown-menu">
+                    <span>{{ $currentBand->name }} <span class="fa fa-chevron-down"></span></span>
+                    <div class="dropdown-content">
+                        <span class="list-title">{{ $currentBand->name }}</span>
+                        <ul class="list hover-list">
+                            <li>
+                                <a href="{{ route('songs.index', $currentBand) }}">
+                                    <span class="icon fa fa-music"></span> Songs
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('gigs.index', $currentBand) }}">
+                                    <span class="icon fa fa-calendar"></span> Gigs
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('band-memberships.index', $currentBand) }}">
+                                    <span class="icon fa fa-group"></span> Members
+                                </a>
+                            </li>
+                        </ul>
+                        <span class="list-title">My bands</span>
+                        <ul class="list hover-list">
+                            @foreach(Auth::user()->bands as $band)
+                                <li><a href="{{ route('bands.show', $band) }}">{{ $band->name }}</a></li>
+                            @endforeach
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    @endif
 </nav>
 <div class="left-menu no-padding">
     <div>
@@ -65,16 +95,26 @@
             </a>
         </div>
         @if($currentBand)
-            <ul class="">
-                <li><a href="{{ route('songs.index', $currentBand) }}"><span class="icon fa fa-music"></span> Songs</a></li>
+            <span class="hide-medium list-title">{{ $currentBand->name }} <a href="{{ route('bands.index') }}"
+                                                                             class="float-right">Change band</a></span>
+            <ul class="hide-medium">
+                <li><a href="{{ route('songs.index', $currentBand) }}"><span class="icon fa fa-music"></span> Songs</a>
+                </li>
                 <li><a href="{{ route('gigs.index', $currentBand) }}"><span class="icon fa fa-calendar"></span> Gigs</a>
                 </li>
             </ul>
         @endif
-        <ul class="">
+        <span class="hide-medium list-title"> {{Auth::user()->name}} <a href="#" class="float-right"><span
+                        class="fa fa-sign-out"></span> Sign out</a></span>
+        <ul class="hide-medium">
             <li><a href="/dashboard"><span class="icon fa fa-dashboard"></span> Dashboard</a></li>
             <li><a href="#"><span class="icon fa fa-user"></span> My account</a></li>
-            <li><a href="#"><span class="icon fa fa-sign-out"></span> Sign out</a></li>
+        </ul>
+        <span class="hide-medium list-title">FlowGig</span>
+        <ul class="">
+            <li><a href="/dashboard"><span class="icon fa fa-info-circle"></span> About</a></li>
+            <li><a href="/dashboard"><span class="icon fa fa-code"></span> Developers</a></li>
+            <li><a href="#"><span class="icon fa fa-comment"></span> Send feedback</a></li>
         </ul>
     </div>
 </div>

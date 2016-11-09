@@ -15,6 +15,14 @@
         .box {
             border-radius: 0;
         }
+
+        .list-title{
+            display: block;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 5px 14px;
+            background-color: #f6f7f8;
+        }
     </style>
 </head>
 <body>
