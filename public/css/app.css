@@ -4185,7 +4185,8 @@ body.welcome-screen {
       display: table-cell;
       vertical-align: middle; }
     body.welcome-screen .content {
-      display: inline-block; }
+      display: inline-block;
+      width: 300px; }
     body.welcome-screen .login-box {
       max-width: 100%;
       border-radius: 7px;
