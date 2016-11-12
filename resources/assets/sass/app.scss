@@ -132,28 +132,39 @@ ul.list li.setlistsong .list-item-content.single-line {
   white-space: nowrap;
 }
 
-.main-menu-user{
-  .dropdown-menu.active .dropdown-content{
-    margin-left: -180px;
-    margin-right: -173px;
-    @media (min-width: 1160px) {
-      margin-left: -50px;
+.dropdown-menu {
+  position: absolute;
+  top: 0;
+}
+
+.main-menu-user {
+  .dropdown-menu {
+    position: absolute;
+    top: 0;
+    right: 0;
+    .dropdown-content {
+      margin-left: -180px;
+      margin-right: -173px;
+      @media (min-width: 1160px) {
+        margin-left: -50px;
+        margin-right: -40px;
+      }
+    }
+  }
+}
+
+.main-menu-band {
+  .dropdown-menu {
+    position: absolute;
+    top: 0;
+    margin-left: -16px;
+    .dropdown-content {
+      margin-left: -40px;
       margin-right: -40px;
     }
   }
 }
 
-.main-menu-band{
-  .dropdown-menu.active .dropdown-content{
-    margin-left: -40px;
-    margin-right: -40px;
-  }
-}
-
-.navbar ul li.dropdown-menu .fa-chevron-down{
-  font-size: 12pt;
-}
-
-.navbar ul li.dropdown-menu .dropdown-content li:last-child{
+.navbar ul li.dropdown-menu .dropdown-content li:last-child {
   border-bottom: none;
 }

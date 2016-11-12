@@ -6,80 +6,100 @@
         <i class="icon fa fa-plus"></i>
     </div>
     <div class="action-menu" id="action-menu">
-        <button class="toggle-action-button toggle-modal tooltip" data-type="radio" title="Add song from repertoire" value="repertoire-modal">
+        <button class="toggle-action-button toggle-modal tooltip" data-type="radio" title="Add song from repertoire"
+                value="repertoire-modal">
             <span class="icon fa fa-list">
             </span>
         </button>
-        <button class="toggle-action-button toggle-modal tooltip" data-type="radio" title="Add new song" value="add-song-modal">
+        <button class="toggle-action-button toggle-modal tooltip" data-type="radio" title="Add new song"
+                value="add-song-modal">
                 <span class="icon fa fa-plus">
                 </span>
         </button>
-        <button class="toggle-action-button toggle-modal tooltip" data-type="radio" title="Export setlist" value="export-setlist-modal">
+        <button class="toggle-action-button toggle-modal tooltip" data-type="radio" title="Export setlist"
+                value="export-setlist-modal">
                 <span class="icon fa fa-download">
                 </span>
         </button>
     </div>
     <div id="repertoire" class="actionbar-modal repertoire-modal">
-        <div class="modal-content">
+        <div class="modal-container">
             <div class="modal-header">
                 Repertoire:
+                <span class="modal-header-close"></span>
             </div>
-            <ul class="list">
-                <li v-for="song in repertoire">
-                    <song v-bind:song="song"></song>
-                </li>
-            </ul>
+            <div class="modal-content">
+
+                <ul class="list">
+                    <li v-for="song in repertoire">
+                        <song v-bind:song="song"></song>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
     <div id="new-song" class="actionbar-modal add-song-modal">
-        <div class="modal-content">
-            <div class="modal-header">Add new song:</div>
-            <div class="input-group">
-                <input id="title" v-model="newSong.title" type="text"/><label for="title">Title</label>
+        <div class="modal-container">
+            <div class="modal-header">
+                Add new song:
+                <span class="modal-header-close"></span>
             </div>
-            <div class="input-group">
-                <input id="lyrics_by" v-model="newSong.lyrics_by" type="text"/><label for="lyrics_by">Lyrics by</label>
+            <div class="modal-content">
+                <div class="input-group">
+                    <input id="title" v-model="newSong.title" type="text"/><label for="title">Title</label>
+                </div>
+                <div class="input-group">
+                    <input id="lyrics_by" v-model="newSong.lyrics_by" type="text"/><label for="lyrics_by">Lyrics
+                        by</label>
+                </div>
+                <div class="input-group">
+                    <input id="music_by" v-model="newSong.music_by" type="text"/><label for="music_by">Music by</label>
+                </div>
+                <a class="button button-flat button-primary float-right tooltip" v-on:click="addSong(newSong)"
+                   title="Add @{{ newSong.title }} to setlist">Add song</a>
             </div>
-            <div class="input-group">
-                <input id="music_by" v-model="newSong.music_by" type="text"/><label for="music_by">Music by</label>
-            </div>
-            <a class="button button-flat button-primary float-right tooltip" v-on:click="addSong(newSong)" title="Add @{{ newSong.title }} to setlist">Add song</a>
         </div>
     </div>
     <div class="actionbar-modal export-setlist-modal">
-        <div class="modal-content">
-            <div class="modal-header">Export setlist:</div>
-            <p>Toggle fields in setlist</p>
-            <form action="{{ route('setlist.export', $setlist) }}" method="POST" target="_blank">
-                {{ csrf_field() }}
-                <div class="input-group">
-                    <input type="checkbox" name="number_in_list" id="number_in_list"/>
-                    <label for="number_in_list">Number in list</label>
-                </div>
-                <div class="input-group">
-                    <input type="checkbox" name="key" id="key"/>
-                    <label for="key">Key</label>
-                </div>
-                <div class="input-group">
-                    <input type="checkbox" name="bpm" id="bpm"/>
-                    <label for="bpm">BPM</label>
-                </div>
-                <input type="checkbox" name="duration" id="duration"/>
-                <label for="duration">Duration</label>
-                <div class="input-group">
-                    <input type="checkbox" name="intensity" id="intensity"/>
-                    <label for="intensity">Intensity</label>
-                </div>
-                <div class="input-group">
-                    <input type="checkbox" name="comment" id="comment"/>
-                    <label for="comment">Comment</label>
-                </div>
-                <div class="input-group float-right">
-                    <button type="submit" class="button button-flat button-default tooltip" title="Export {{ $setlist->title }} to PDF">
-                        <label for="export">Export to PDF</label>
-                    </button>
-                </div>
-            </form>
+        <div class="modal-container">
+            <div class="modal-header">
+                Export setlist:
+                <span class="modal-header-close"></span>
+            </div>
+            <div class="modal-content">
+                <p>Toggle fields in setlist</p>
+                <form action="{{ route('setlist.export', $setlist) }}" method="POST" target="_blank">
+                    {{ csrf_field() }}
+                    <div class="input-group">
+                        <input type="checkbox" name="number_in_list" id="number_in_list"/>
+                        <label for="number_in_list">Number in list</label>
+                    </div>
+                    <div class="input-group">
+                        <input type="checkbox" name="key" id="key"/>
+                        <label for="key">Key</label>
+                    </div>
+                    <div class="input-group">
+                        <input type="checkbox" name="bpm" id="bpm"/>
+                        <label for="bpm">BPM</label>
+                    </div>
+                    <input type="checkbox" name="duration" id="duration"/>
+                    <label for="duration">Duration</label>
+                    <div class="input-group">
+                        <input type="checkbox" name="intensity" id="intensity"/>
+                        <label for="intensity">Intensity</label>
+                    </div>
+                    <div class="input-group">
+                        <input type="checkbox" name="comment" id="comment"/>
+                        <label for="comment">Comment</label>
+                    </div>
+                    <div class="input-group float-right">
+                        <button type="submit" class="button button-flat button-default tooltip"
+                                title="Export {{ $setlist->title }} to PDF">
+                            <label for="export">Export to PDF</label>
+                        </button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 @endsection
@@ -123,7 +143,8 @@
                     </ol>
                     <p style="font-size: x-large">Setlist for</p>
                     <h1>{{ $setlist->gig->name }}</h1>
-                    <p style="font-size: large">{{ $setlist->gig->date }} at {{ $setlist->gig->venue }}, {{ $setlist->gig->location }}</p>
+                    <p style="font-size: large">{{ $setlist->gig->date }} at {{ $setlist->gig->venue }}
+                        , {{ $setlist->gig->location }}</p>
                     <div>
                         <ul v-sortable.li="setlistSongs" class="list sortable-list">
                             <li v-for="setlistSong in setlistSongs" class="setlistsong">
@@ -132,7 +153,8 @@
                         </ul>
                     </div>
                     <div class="block text-right">
-                        <a class="button button-flat button-default" href="{{ route('gigs.index', $setlist->gig->band) }}">Back to list</a>
+                        <a class="button button-flat button-default"
+                           href="{{ route('gigs.index', $setlist->gig->band) }}">Back to list</a>
                     </div>
                 </div>
             </div>
@@ -147,7 +169,9 @@
                 <small>@{{ song.artist }}</small>
             </span>
             <span class="list-item-button">
-                <span v-on:click="addToSetlist()" class="button button-icon button-flat button-default modal-hover-add-button tooltip" title="Add @{{ song.title }} to setlist"></span>
+                <span v-on:click="addToSetlist()"
+                      class="button button-icon button-flat button-default modal-hover-add-button tooltip"
+                      title="Add @{{ song.title }} to setlist"></span>
             </span>
         </span>
     </template>
@@ -159,10 +183,12 @@
             @{{ setlistSong.song.title }}
         </span>
         <span class="list-item-buttons">
-            <a v-on:click="edit = !edit" class="button button-icon button-flat button-default tooltip" v-bind:title="edit ? 'Collapse' : 'Expand to edit'">
+            <a v-on:click="edit = !edit" class="button button-icon button-flat button-default tooltip"
+               v-bind:title="edit ? 'Collapse' : 'Expand to edit'">
                 <span class="fa" v-bind:class="edit ? 'fa-chevron-up' : 'fa-chevron-down'"></span>
             </a>
-             <a v-on:click="remove" class="button button-icon button-flat button-default tooltip" title="Remove @{{setlistSong.song.title}} from the setlist">
+             <a v-on:click="remove" class="button button-icon button-flat button-default tooltip"
+                title="Remove @{{setlistSong.song.title}} from the setlist">
                  <span class="fa fa-minus"></span>
              </a>
         </span>
@@ -172,26 +198,33 @@
             </div>
             <div class="row">
                 <div class="input-group col-sm-4">
-                    <v-select v-bind:value.sync="setlistSong.key" v-bind:options="keyOptions" v-bind:on-change="save" v-bind:class="setlistSong.key ? 'is-not-empty' : ''" id="key-@{{ setlistSong.number_in_list }}"></v-select>
+                    <v-select v-bind:value.sync="setlistSong.key" v-bind:options="keyOptions" v-bind:on-change="save"
+                              v-bind:class="setlistSong.key ? 'is-not-empty' : ''"
+                              id="key-@{{ setlistSong.number_in_list }}"></v-select>
                     <label for="key-@{{ setlistSong.number_in_list }}">Key</label>
                 </div>
                 <div class="input-group col-sm-4">
-                    <input v-model="setlistSong.bpm" v-on:blur="save" type="number" min="0" id="bpm-@{{ setlistSong.number_in_list }}" placeholder="Beats Per Minute"/>
+                    <input v-model="setlistSong.bpm" v-on:blur="save" type="number" min="0"
+                           id="bpm-@{{ setlistSong.number_in_list }}" placeholder="Beats Per Minute"/>
                     <label for="bpm-@{{ setlistSong.number_in_list }}">BPM</label>
                 </div>
                 <div class="input-group col-sm-4">
-                    <input v-model="setlistSong.duration" v-on:blur="save" type="number" min="0" id="duration-@{{ setlistSong.number_in_list }}" placeholder="Minutes"/>
+                    <input v-model="setlistSong.duration" v-on:blur="save" type="number" min="0"
+                           id="duration-@{{ setlistSong.number_in_list }}" placeholder="Minutes"/>
                     <label for="duration-@{{ setlistSong.number_in_list }}">Duration</label>
                 </div>
                 <div class="clearfix"></div>
             </div>
             <div class="row">
                 <div class="input-group col-sm-4">
-                    <input v-model="setlistSong.intensity" v-on:blur="save" type="number" min="1" max="10" id="intensity-@{{ setlistSong.number_in_list }}" placeholder="1&ndash;10 (Ballad&ndash;Bebop)"/>
+                    <input v-model="setlistSong.intensity" v-on:blur="save" type="number" min="1" max="10"
+                           id="intensity-@{{ setlistSong.number_in_list }}"
+                           placeholder="1&ndash;10 (Ballad&ndash;Bebop)"/>
                     <label for="intensity-@{{ setlistSong.number_in_list }}">Intensity</label>
                 </div>
                 <div class="input-group col-md-8">
-                    <input v-model="setlistSong.comment" v-on:blur="save" type="text" id="comment-@{{ setlistSong.number_in_list }}"/>
+                    <input v-model="setlistSong.comment" v-on:blur="save" type="text"
+                           id="comment-@{{ setlistSong.number_in_list }}"/>
                     <label for="comment-@{{ setlistSong.number_in_list }}">Comment</label>
                 </div>
                 <div class="clearfix"></div>
