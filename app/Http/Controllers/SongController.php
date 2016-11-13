@@ -21,6 +21,8 @@ class SongController extends Controller
     {
         $band = Band::with('songs')->find($bandId);
 
+        $this->authorize('view', $band);
+
         return view('songs.index', ['band' => $band]);
     }
 
