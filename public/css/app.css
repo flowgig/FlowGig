@@ -2534,34 +2534,50 @@ body.action-menu-active .main-content {
       line-height: 15px; }
   .box.facebook .box-header {
     background-color: #3b5998; }
+    .box.facebook .box-header a {
+      color: #FFFFFF; }
     .box.facebook .box-header .icon::after {
       content: "\f230"; }
   .box.instagram .box-header {
     background-color: #125688; }
+    .box.instagram .box-header a {
+      color: #FFFFFF; }
     .box.instagram .box-header .icon::after {
       content: "\f16d"; }
   .box.soundcloud .box-header {
     background-color: #F50; }
+    .box.soundcloud .box-header a {
+      color: #FFFFFF; }
     .box.soundcloud .box-header .icon::after {
       content: "\f1be"; }
   .box.twitter .box-header {
     background-color: #55acee; }
+    .box.twitter .box-header a {
+      color: #FFFFFF; }
     .box.twitter .box-header .icon::after {
       content: "\f099"; }
   .box.google .box-header {
     background-color: #db4437; }
+    .box.google .box-header a {
+      color: #FFFFFF; }
     .box.google .box-header .icon::after {
       content: "\f0d5"; }
   .box.youtube .box-header {
     background-color: #cc181e; }
+    .box.youtube .box-header a {
+      color: #FFFFFF; }
     .box.youtube .box-header .icon::after {
       content: "\f167"; }
   .box.primary .box-header {
     background-color: #C32A22; }
+    .box.primary .box-header a {
+      color: #FFFFFF; }
     .box.primary .box-header .icon::after {
       content: "\f167"; }
   .box.dark .box-header {
     background-color: #272b2f; }
+    .box.dark .box-header a {
+      color: #FFFFFF; }
     .box.dark .box-header .icon::after {
       content: "\f167"; }
 
@@ -2812,6 +2828,8 @@ li .modal-hover-add-button {
   .navbar ul li.dropdown-menu .dropdown-content li {
     display: block;
     padding: 0; }
+    .navbar ul li.dropdown-menu .dropdown-content li:last-child {
+      border-bottom: none; }
     .navbar ul li.dropdown-menu .dropdown-content li a {
       color: #212121;
       font-size: 14pt;
@@ -2829,6 +2847,42 @@ li .modal-hover-add-button {
 
 .navbar.navbar-dark .dropdown-menu > span {
   color: #FFF; }
+
+.box-header-dropdown {
+  float: right;
+  list-style: none;
+  padding: 0; }
+  .box-header-dropdown .dropdown-menu {
+    top: 0;
+    right: 16px;
+    padding: 0; }
+    .box-header-dropdown .dropdown-menu.active .dropdown-content {
+      top: 48px;
+      position: absolute; }
+      .box-header-dropdown .dropdown-menu.active .dropdown-content:before {
+        right: 20px;
+        left: initial; }
+      .box-header-dropdown .dropdown-menu.active .dropdown-content ul {
+        padding: 0; }
+        .box-header-dropdown .dropdown-menu.active .dropdown-content ul li:last-child {
+          border-bottom: none; }
+        .box-header-dropdown .dropdown-menu.active .dropdown-content ul li a {
+          color: #212121; }
+        .box-header-dropdown .dropdown-menu.active .dropdown-content ul li button.link-button {
+          font-size: 14pt;
+          line-height: 19pt;
+          padding: 10px 20px;
+          display: block;
+          font-family: inherit;
+          color: #212121; }
+    .box-header-dropdown .dropdown-menu > span.fa-chevron-down {
+      line-height: 48px;
+      width: 48px; }
+      .box-header-dropdown .dropdown-menu > span.fa-chevron-down:before {
+        padding: 0 16px; }
+
+.box.primary .box-header .dropdown-menu > span {
+  color: #FFFFFF; }
 
 footer {
   border-top: 1px solid rgba(0, 0, 0, 0.05);
@@ -3538,6 +3592,12 @@ ul.list {
         float: right; }
   ul.list.hover-list li:hover {
     background-color: #f6f7f8; }
+  ul.list.box-list li a {
+    margin: -10px;
+    padding: 10px;
+    color: #212121; }
+  ul.list.box-list li .list-item-content {
+    display: block; }
   ul.list.menu-list li .list-item-content {
     max-width: calc(100% - 42px); }
     @media only screen and (min-width: 750px) {
@@ -3912,7 +3972,8 @@ input[type="radio"]:checked:before {
   text-transform: initial;
   text-decoration: none;
   padding: 5px 10px;
-  z-index: 4; }
+  z-index: 4;
+  font-weight: normal; }
 
 .action-menu-active .tooltip:hover::after {
   bottom: 65px;
@@ -4105,9 +4166,6 @@ ul.list li.setlistsong .list-item-content.single-line {
   .main-menu-band .dropdown-menu .dropdown-content {
     margin-left: -40px;
     margin-right: -40px; }
-
-.navbar ul li.dropdown-menu .dropdown-content li:last-child {
-  border-bottom: none; }
 
 body.welcome-screen {
   margin: 0;
