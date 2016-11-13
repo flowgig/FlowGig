@@ -20,6 +20,8 @@ class GigController extends Controller
     {
         $band = Band::with('gigs')->find($bandId);
 
+        $this->authorize('view', $band);
+
         return view('gigs.index', ['band' => $band]);
     }
 
@@ -31,6 +33,8 @@ class GigController extends Controller
      */
     public function create(Band $band)
     {
+        $this->authorize('createGigs', $band);
+
         return view('gigs.create', ['band' => $band]);
     }
 
@@ -43,6 +47,8 @@ class GigController extends Controller
      */
     public function store(Request $request, Band $band)
     {
+        $this->authorize('createGigs', $band);
+
         $this->validate($request, [
             'name' => 'required|max:60|not_in:_system_'
         ]);
@@ -65,6 +71,8 @@ class GigController extends Controller
      */
     public function show(Gig $gig)
     {
+        $this->authorize('view', $gig);
+
         return view('gigs.show', ['gig' => $gig]);
     }
 
@@ -76,6 +84,8 @@ class GigController extends Controller
      */
     public function edit(Gig $gig)
     {
+        $this->authorize('update', $gig);
+
         return view('gigs.edit', ['gig' => $gig]);
     }
 
@@ -88,6 +98,8 @@ class GigController extends Controller
      */
     public function update(Request $request, Gig $gig)
     {
+        $this->authorize('update', $gig);
+
         $this->validate($request, [
             'name' => 'required|max:60|not_in:_system_'
         ]);
@@ -107,6 +119,8 @@ class GigController extends Controller
      */
     public function destroy(Gig $gig)
     {
+        $this->authorize('delete', $gig);
+
         $gig->delete();
 
         // TODO: Flash gig deleted

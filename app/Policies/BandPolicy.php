@@ -68,4 +68,16 @@ class BandPolicy
     {
         return $band->hasMember($user);
     }
+
+    /**
+     * Determine whether the user can create gigs for the band.
+     *
+     * @param  User $user
+     * @param  Band $band
+     * @return mixed
+     */
+    public function createGigs(User $user, Band $band)
+    {
+        return $band->hasMember($user);
+    }
 }
