@@ -56,4 +56,16 @@ class BandPolicy
     {
         return $band->hasMember($user);
     }
+
+    /**
+     * Determine whether the user can create songs for the band.
+     *
+     * @param  User $user
+     * @param  Band $band
+     * @return mixed
+     */
+    public function createSongs(User $user, Band $band)
+    {
+        return $band->hasMember($user);
+    }
 }

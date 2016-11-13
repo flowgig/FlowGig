@@ -32,6 +32,8 @@ class SongController extends Controller
      */
     public function create(Band $band)
     {
+        $this->authorize('createSongs', $band);
+
         return view('songs.create', ['band' => $band]);
     }
 
@@ -44,6 +46,8 @@ class SongController extends Controller
      */
     public function store(Request $request, Band $band)
     {
+        $this->authorize('createSongs', $band);
+
         $this->validate($request, [
             'title' => 'required|max:80',
         ]);
@@ -63,6 +67,8 @@ class SongController extends Controller
      */
     public function show(Song $song)
     {
+        $this->authorize('view', $song);
+
         return view('songs.show', ['song' => $song]);
     }
 
@@ -74,6 +80,8 @@ class SongController extends Controller
      */
     public function edit(Song $song)
     {
+        $this->authorize('update', $song);
+
         return view('songs.edit', ['song' => $song]);
     }
 
@@ -86,6 +94,8 @@ class SongController extends Controller
      */
     public function update(Request $request, Song $song)
     {
+        $this->authorize('update', $song);
+
         $this->validate($request, [
             'title' => 'required|max:80',
         ]);
@@ -106,6 +116,8 @@ class SongController extends Controller
      */
     public function destroy(Song $song)
     {
+        $this->authorize('delete', $song);
+
         $song->delete();
 
         // TODO: Flash song deleted
