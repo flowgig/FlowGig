@@ -20,16 +20,67 @@
                 <div class="content">
                     <div class="row">
                         @foreach($user->bands as $band)
-                            <div class='col-xs-12 col-sm-6 col-md-4 col-lg-3'>
+                            <div class='col-xs-12 col-sm-6 col-md-4'>
                                 <div class="box primary z-1">
                                     <div class="box-header">
                                         <div class="content">
-                                            <h3 class="box-title">{{ $band->name }}</h3>
+                                            <h3 class="box-title">
+                                                <a class="tooltip" href="{{ route('bands.show', $band) }}" title="Show {{$band->name}}">{{ $band->name }}</a>
+                                            </h3>
+                                            <ul class="box-header-dropdown">
+                                                <li class="dropdown-menu">
+                                                    <span class="fa fa-chevron-down"></span>
+                                                    <div class="dropdown-content">
+                                                        <ul class="list hover-list">
+                                                            <li>
+                                                                <a href="{{ route('bands.edit', $band) }}" class="tooltip" title="Edit {{$band->name}}">
+                                                                    <span class="fa fa-cog"></span> Edit band
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <form action="{{ route('bands.destroy', $band) }}" method="POST">
+                                                                    {{ csrf_field() }}
+                                                                    {{ method_field('DELETE') }}
+                                                                    <button type="submit"
+                                                                            onclick="return confirm('This deletes the band {{ $band->name }}')"
+                                                                            class="link-button tooltip"
+                                                                            title="Delete {{$band->name}}">
+                                                                        <span class="fa fa-trash"></span> Delete band
+                                                                    </button>
+                                                                </form>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </li>
+                                            </ul>
                                         </div>
                                     </div>
                                     <div class='content'>
+                                        <ul class="list hover-list box-list">
+                                            <li>
+                                                <a href="{{ route('songs.index', $band) }}"
+                                                   class="list-item-content tooltip" title="Show songs">
+                                                    <span class="fa fa-music"></span> Songs:
+                                                    <span class="float-right">{{ count($band->songs)}}</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{{ route('gigs.index', $band) }}"
+                                                   class="list-item-content tooltip" title="Show gigs">
+                                                    <span class="fa fa-calendar"></span> Gigs:
+                                                    <span class="float-right">{{ count($band->gigs)}}</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{{ route('band-memberships.index', $band) }}"
+                                                   class="list-item-content tooltip" title="Show members">
+                                                    <span class="fa fa-group"></span> Members:
+                                                    <span class="float-right">{{ count($band->members)}}</span>
+                                                </a>
+                                            </li>
+                                        </ul>
                                         <div class="float-right">
-                                            <a class="button button-flat button-default" href="{{ route('bands.show', $band) }}">Show band</a>
+                                            <a class="button button-flat button-default tooltip" href="{{ route('bands.show', $band) }}" title="Show {{$band->name}}">Show band</a>
                                         </div>
                                         <div class="clearfix"></div>
                                     </div>
