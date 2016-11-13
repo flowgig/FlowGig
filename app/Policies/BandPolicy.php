@@ -19,7 +19,7 @@ class BandPolicy
      */
     public function view(User $user, Band $band)
     {
-        return $this->userIsBandMember($user, $band);
+        return $band->hasMember($user);
     }
 
     /**
@@ -42,7 +42,7 @@ class BandPolicy
      */
     public function update(User $user, Band $band)
     {
-        return $this->userIsBandMember($user, $band);
+        return $band->hasMember($user);
     }
 
     /**
@@ -54,18 +54,6 @@ class BandPolicy
      */
     public function delete(User $user, Band $band)
     {
-        return $this->userIsBandMember($user, $band);
-    }
-
-    /**
-     * Determine whether the user is a member in the band.
-     *
-     * @param User $user
-     * @param Band $band
-     * @return mixed
-     */
-    private function userIsBandMember(User $user, Band $band)
-    {
-        return $band->memberships()->whereUserId($user->id)->exists();
+        return $band->hasMember($user);
     }
 }

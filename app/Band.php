@@ -62,4 +62,12 @@ class Band extends Model
     {
         return $this->gigs()->whereName('_system_')->first();
     }
+
+    /**
+     * Determine whether the given user is a member in the band.
+     */
+    public function hasMember($user)
+    {
+        return $this->memberships()->whereUserId($user->id)->exists();
+    }
 }
