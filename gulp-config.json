@@ -10,7 +10,6 @@
       "./resources/assets/js/app.js"
     ],
     "css": [
-      "vendor.scss",
       "app.scss",
       "noauth.scss"
     ],

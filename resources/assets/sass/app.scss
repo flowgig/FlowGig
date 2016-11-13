@@ -1,4 +1,5 @@
 // @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "vendor";
 
 .main-content {
   min-height: 100%;
@@ -73,17 +74,17 @@
     display: none;
     &.active {
       a {
-        background-color: #fbfcfd; //$bright-white
-        color: #212121; //$default-text-color
+        background-color: $bright-white;
+        color: $default-text-color;
       }
       li {
         &.active {
           a {
-            background-color: #C32A22; //$primary-color
+            background-color: $primary-color;
           }
           &:hover {
             a {
-              background-color: #f6f7f8; //@include bright-gray($dark-color);
+              @include bright-gray($dark-color);
             }
           }
         }
@@ -98,13 +99,13 @@
         width: 100%;
       }
       &.active {
-        background-color: #C32A22; //$primary-color
+        background-color: $primary-color;
         a {
           color: #FFF;
         }
       }
       &:hover, &.highlight {
-        background-color: #f6f7f8; //@include bright-gray($dark-color);
+        @include bright-gray($dark-color);
         a {
           color: inherit;
           background: inherit;
