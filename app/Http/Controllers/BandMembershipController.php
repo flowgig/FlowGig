@@ -29,6 +29,8 @@ class BandMembershipController extends Controller
     {
         $band = Band::with('members')->find($bandId);
 
+        $this->authorize('view', $band);
+
         return view('band-memberships.index', ['band' => $band]);
     }
 
@@ -41,6 +43,8 @@ class BandMembershipController extends Controller
      */
     public function store(Request $request, Band $band)
     {
+        $this->authorize('addMembers', $band);
+
         $bandMembership = new BandMembership();
         $bandMembership->band()->associate($band);
         $bandMembership->fill($request->all());
@@ -60,6 +64,8 @@ class BandMembershipController extends Controller
      */
     public function update(Request $request, BandMembership $bandMembership)
     {
+        $this->authorize('update', $bandMembership);
+
         $bandMembership->update($request->all());
 
         // TODO: Flash band membership updated
@@ -75,6 +81,8 @@ class BandMembershipController extends Controller
      */
     public function destroy(BandMembership $bandMembership)
     {
+        $this->authorize('delete', $bandMembership);
+
         $bandMembership->delete();
 
         // TODO: Flash band membership deleted
