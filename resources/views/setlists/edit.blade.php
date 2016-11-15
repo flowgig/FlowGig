@@ -68,7 +68,7 @@
             </div>
             <div class="modal-content">
                 <p>Toggle fields in setlist</p>
-                <form action="{{ route('setlist.export', $setlist) }}" method="POST" target="_blank">
+                <form action="{{ route('setlists.export', $setlist) }}" method="POST" target="_blank">
                     {{ csrf_field() }}
                     <div class="input-group">
                         <input type="checkbox" name="number_in_list" id="number_in_list"/>
@@ -135,7 +135,7 @@
                             <meta itemprop="position" content="4"/>
                         </li>
                         <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                            <a itemprop="item" href="{{ route('setlist.edit', $setlist) }}">
+                            <a itemprop="item" href="{{ route('setlists.edit', $setlist) }}">
                                 <span itemprop="name">Edit setlist</span>
                             </a>
                             <meta itemprop="position" content="5"/>

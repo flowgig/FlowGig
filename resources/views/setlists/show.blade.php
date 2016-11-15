@@ -31,7 +31,7 @@
                         <meta itemprop="position" content="4"/>
                     </li>
                     <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                        <a itemprop="item" href="{{ route('setlist.show', $setlist) }}">
+                        <a itemprop="item" href="{{ route('setlists.show', $setlist) }}">
                             <span itemprop="name">Setlist</span>
                         </a>
                         <meta itemprop="position" content="4"/>

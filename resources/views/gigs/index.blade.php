@@ -38,11 +38,11 @@
                             </span>
                             <span class="list-item-buttons">
                                 @if($gig->setlist)
-                                    <a class="button button-icon button-flat button-default tooltip" title="Edit setlist" href="{{ route('setlist.edit', $gig->setlist) }}">
+                                    <a class="button button-icon button-flat button-default tooltip" title="Edit setlist" href="{{ route('setlists.edit', $gig->setlist) }}">
                                         <span class="fa fa-list"></span>
                                     </a> |
                                 @else
-                                    <form action="{{ route('setlist.store', $gig) }}" method="POST">
+                                    <form action="{{ route('setlists.store', $gig) }}" method="POST">
                                         {{ csrf_field() }}
                                         <button type="submit"
                                                 class="button button-icon button-flat button-default tooltip"

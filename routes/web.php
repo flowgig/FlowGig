@@ -75,16 +75,16 @@ Route::resource('gigs', 'GigController', ['except' => ['index', 'create', 'store
 // Setlists
 
 Route::post('gigs/{gig}/setlist', [
-    'as' => 'setlist.store',
+    'as' => 'setlists.store',
     'uses' => 'SetlistController@store'
 ]);
 
 Route::post('setlists/{setlist}/export', [
-    'as' => 'setlist.export',
+    'as' => 'setlists.export',
     'uses' => 'SetlistController@export'
 ]);
 
-Route::resource('setlist', 'SetlistController', ['except' => ['index', 'create', 'store']]);
+Route::resource('setlists', 'SetlistController', ['except' => ['index', 'create', 'store']]);
 
 // SetlistSongs
 

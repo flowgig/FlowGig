@@ -31,7 +31,7 @@ class SetlistController extends Controller
     {
         $newSetlist = $gig->setlist()->create([]);
 
-        return redirect()->route('setlist.edit', ['setlist' => $newSetlist]);
+        return redirect()->route('setlists.edit', ['setlist' => $newSetlist]);
     }
 
     /**
