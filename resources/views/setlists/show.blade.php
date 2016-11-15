@@ -1,6 +1,6 @@
-@extends('layouts.master', ['currentBand' => $setlist->band])
-@section('title', 'Setlist - ' . $setlist->title)
-@section('navbar-title', $setlist->title)
+@extends('layouts.master', ['currentBand' => $setlist->gig->band])
+@section('title', 'Setlist - ' . $setlist->gig->name)
+@section('navbar-title', $setlist->gig->name)
 @section('content')
     <div class="content">
         <div class="box">
@@ -13,27 +13,39 @@
                         <meta itemprop="position" content="1"/>
                     </li>
                     <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                        <a itemprop="item" href="{{ route('bands.show', $setlist->band) }}">
-                            <span itemprop="name">{{ $setlist->band->name }}</span>
+                        <a itemprop="item" href="{{ route('bands.show', $setlist->gig->band) }}">
+                            <span itemprop="name">{{ $setlist->gig->band->name }}</span>
                         </a>
                         <meta itemprop="position" content="2"/>
                     </li>
                     <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                        <a itemprop="item" href="{{ route('setlists.index', $setlist->band) }}">
-                            <span itemprop="name">Setlists</span>
+                        <a itemprop="item" href="{{ route('gigs.index', $setlist->gig->band) }}">
+                            <span itemprop="name">Gigs</span>
                         </a>
                         <meta itemprop="position" content="3"/>
                     </li>
                     <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                        <a itemprop="item" href="{{ route('setlists.show', $setlist) }}">
-                            <span itemprop="name">{{$setlist->title}}</span>
+                        <a itemprop="item" href="{{ route('gigs.show', $setlist->gig) }}">
+                            <span itemprop="name">{{ $setlist->gig->name }}</span>
+                        </a>
+                        <meta itemprop="position" content="4"/>
+                    </li>
+                    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                        <a itemprop="item" href="{{ route('setlist.show', $setlist) }}">
+                            <span itemprop="name">Setlist</span>
                         </a>
                         <meta itemprop="position" content="4"/>
                     </li>
                 </ol>
-                <h1>{{ $setlist->title }}</h1>
+                <p style="font-size: x-large">Setlist for</p>
+                <h1>{{ $setlist->gig->name }}</h1>
+                <p style="font-size: large">{{ $setlist->gig->date }}
+                    at {{ $setlist->gig->venue }}, {{ $setlist->gig->location }}
+                </p>
                 <div class="block text-right">
-                    <a class="button button-flat button-default" href="{{ route('setlists.index', $setlist->band) }}">Back to list</a>
+                    <a class="button button-flat button-default" href="{{ route('gigs.index', $setlist->gig->band) }}">
+                        Back to list
+                    </a>
                 </div>
             </div>
         </div>

@@ -1,6 +1,6 @@
 @extends('layouts.master', ['currentBand' => $setlist->gig->band])
-@section('title', 'Setlist - ' . $setlist->title)
-@section('navbar-title', $setlist->title)
+@section('title', 'Setlist - ' . $setlist->gig->name)
+@section('navbar-title', $setlist->gig->name)
 @section('actionbar')
     <div class="action-button">
         <i class="icon fa fa-plus"></i>
@@ -94,7 +94,7 @@
                     </div>
                     <div class="input-group float-right">
                         <button type="submit" class="button button-flat button-default tooltip"
-                                title="Export {{ $setlist->title }} to PDF">
+                                title="Export {{ $setlist->gig->name }} to PDF">
                             <label for="export">Export to PDF</label>
                         </button>
                     </div>
@@ -143,8 +143,9 @@
                     </ol>
                     <p style="font-size: x-large">Setlist for</p>
                     <h1>{{ $setlist->gig->name }}</h1>
-                    <p style="font-size: large">{{ $setlist->gig->date }} at {{ $setlist->gig->venue }}
-                        , {{ $setlist->gig->location }}</p>
+                    <p style="font-size: large">{{ $setlist->gig->date }}
+                        at {{ $setlist->gig->venue }}, {{ $setlist->gig->location }}
+                    </p>
                     <div>
                         <ul v-sortable.li="setlistSongs" class="list sortable-list">
                             <li v-for="setlistSong in setlistSongs" class="setlistsong">

@@ -71,13 +71,12 @@
             margin-top: 40px;
         }
     </style>
+    <title>FlowGig - Setlist for {{ $setlist->gig->name }}</title>
 </head>
 <body>
-<p>{{ $setlist->band->name }}</p>
-<h1>{{ $setlist->title }}<br/>
-    <span style="font-size: .3em; font-weight: normal">Last changed {{ $setlist->updated_at->toDayDateTimeString() }}</span>
-</h1>
-<small>{{ $setlist->description }}</small><br /><br />
+<p>{{ $setlist->gig->band->name }}</p>
+<h1>{{ $setlist->gig->name }}</h1>
+<p><small>{{ $setlist->gig->date }} at {{ $setlist->gig->venue }}, {{ $setlist->gig->location }}</small></p>
 <div class="setlist">
     @foreach($setlist->setlistSongs->sortBy('number_in_list') as $setlistSong)
         <div class="setlist-song">
@@ -116,6 +115,7 @@
         </div>
     @endforeach
 </div>
+<br /><small style="font-size: .6em">Last changed {{ $setlist->updated_at->toDayDateTimeString() }}</small>
 {{-- <span class="footer-text">Generated with <a href="http://www.flowgig.com">www.flowgig.com</a></span> --}}
 </body>
 </html>
