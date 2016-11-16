@@ -18,6 +18,7 @@ class AuthServiceProvider extends ServiceProvider
         'App\BandMembership' => 'App\Policies\BandMembershipPolicy',
         'App\Song' => 'App\Policies\SongPolicy',
         'App\Gig' => 'App\Policies\GigPolicy',
+        'App\Setlist' => 'App\Policies\SetlistPolicy',
     ];
 
     /**

@@ -29,6 +29,8 @@ class SetlistController extends Controller
      */
     public function store(Gig $gig)
     {
+        $this->authorize('createSetlists', $gig->band);
+
         $newSetlist = $gig->setlist()->create([]);
 
         return redirect()->route('setlists.edit', ['setlist' => $newSetlist]);
@@ -42,6 +44,8 @@ class SetlistController extends Controller
      */
     public function show(Setlist $setlist)
     {
+        $this->authorize('view', $setlist);
+
         return view('setlists.show', ['setlist' => $setlist]);
     }
 
@@ -53,6 +57,8 @@ class SetlistController extends Controller
      */
     public function edit(Setlist $setlist)
     {
+        $this->authorize('update', $setlist);
+
         $setlist->setlistSongs->load('song');
 
         return view('setlists.edit', ['setlist' => $setlist]);
@@ -67,6 +73,8 @@ class SetlistController extends Controller
      */
     public function update(Request $request, Setlist $setlist)
     {
+        $this->authorize('update', $setlist);
+
         $setlist->update($request->all());
 
         return redirect()->route('gigs.index', $setlist->gig->band);
@@ -81,6 +89,8 @@ class SetlistController extends Controller
      */
     public function export(Request $request, Setlist $setlist)
     {
+        $this->authorize('export', $setlist);
+
         $pdf = PDF::loadView('setlists.exportlayout', ['request' => $request, 'setlist' => $setlist]);
 
         return $pdf->stream($setlist->title . '.pdf');
@@ -94,6 +104,8 @@ class SetlistController extends Controller
      */
     public function destroy(Setlist $setlist)
     {
+        $this->authorize('delete', $setlist);
+
         $setlist->delete();
 
         // TODO: Flash setlist deleted
