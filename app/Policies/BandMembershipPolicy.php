@@ -42,7 +42,7 @@ class BandMembershipPolicy
      */
     public function update(User $user, BandMembership $bandMembership)
     {
-        $bandMembership->band->hasMember($user);
+        return $bandMembership->band->hasMember($user);
     }
 
     /**
@@ -54,6 +54,6 @@ class BandMembershipPolicy
      */
     public function delete(User $user, BandMembership $bandMembership)
     {
-        $bandMembership->band->hasMember($user);
+        return $bandMembership->band->hasMember($user);
     }
 }

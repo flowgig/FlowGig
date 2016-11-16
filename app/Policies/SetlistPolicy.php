@@ -19,7 +19,7 @@ class SetlistPolicy
      */
     public function view(User $user, Setlist $setlist)
     {
-        $setlist->gig->band->hasMember($user);
+        return $setlist->gig->band->hasMember($user);
     }
 
     /**
@@ -42,7 +42,7 @@ class SetlistPolicy
      */
     public function update(User $user, Setlist $setlist)
     {
-        $setlist->gig->band->hasMember($user);
+        return $setlist->gig->band->hasMember($user);
     }
 
     /**
@@ -54,7 +54,7 @@ class SetlistPolicy
      */
     public function export(User $user, Setlist $setlist)
     {
-        $setlist->gig->band->hasMember($user);
+        return $setlist->gig->band->hasMember($user);
     }
 
     /**
@@ -66,6 +66,6 @@ class SetlistPolicy
      */
     public function delete(User $user, Setlist $setlist)
     {
-        $setlist->gig->band->hasMember($user);
+        return $setlist->gig->band->hasMember($user);
     }
 }
