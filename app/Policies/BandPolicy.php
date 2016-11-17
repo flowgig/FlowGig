@@ -93,6 +93,17 @@ class BandPolicy
         return $band->hasMember($user);
     }
 
+    /**
+     * Determine whether the user can create setlist-songs for the band.
+     *
+     * @param  User $user
+     * @param  Band $band
+     * @return mixed
+     */
+    public function createSetlistSongs(User $user, Band $band)
+    {
+        return $band->hasMember($user);
+    }
 
     /**
      * Determine whether the user can add members in the band.

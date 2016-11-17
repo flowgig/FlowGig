@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Gig;
 use App\Setlist;
 use App\SetlistSong;
 use App\Song;
@@ -31,6 +30,11 @@ class SetlistSongController extends Controller
      */
     public function store(Request $request)
     {
+        // TODO: Get band as parameter?
+        $setlist = Setlist::find($request->input('setlist_id'));
+        $band = $setlist->gig->band;
+        $this->authorize('createSetlistSongs', $band);
+
         $setlistSong = new SetlistSong();
 
         $setlistSong->fill($request->all());
@@ -60,6 +64,8 @@ class SetlistSongController extends Controller
      */
     public function update(Request $request, SetlistSong $setlistSong)
     {
+        $this->authorize('update', $setlistSong);
+
         $setlistSong->update($request->all());
     }
 
@@ -71,6 +77,8 @@ class SetlistSongController extends Controller
      */
     public function destroy(SetlistSong $setlistSong)
     {
+        $this->authorize('delete', $setlistSong);
+
         $setlistSong->delete();
     }
 }
