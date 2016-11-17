@@ -10,6 +10,8 @@ class SetlistPolicy
 {
     use HandlesAuthorization;
 
+    // Authorization for create Setlist is checked in BandPolicy
+
     /**
      * Determine whether the user can view the setlist.
      *
@@ -20,17 +22,6 @@ class SetlistPolicy
     public function view(User $user, Setlist $setlist)
     {
         return $setlist->gig->band->hasMember($user);
-    }
-
-    /**
-     * Determine whether the user can create setlists.
-     *
-     * @param User $user
-     * @return mixed
-     */
-    public function create(User $user)
-    {
-        //
     }
 
     /**

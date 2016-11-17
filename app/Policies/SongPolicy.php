@@ -10,6 +10,8 @@ class SongPolicy
 {
     use HandlesAuthorization;
 
+    // Authorization for create Song is checked in BandPolicy
+
     /**
      * Determine whether the user can view the song.
      *
@@ -20,17 +22,6 @@ class SongPolicy
     public function view(User $user, Song $song)
     {
         return $song->band->hasMember($user);
-    }
-
-    /**
-     * Determine whether the user can create songs.
-     *
-     * @param  User $user
-     * @return mixed
-     */
-    public function create(User $user)
-    {
-        //
     }
 
     /**

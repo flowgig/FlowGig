@@ -10,6 +10,8 @@ class GigPolicy
 {
     use HandlesAuthorization;
 
+    // Authorization for create Gig is checked in BandPolicy
+
     /**
      * Determine whether the user can view the gig.
      *
@@ -20,17 +22,6 @@ class GigPolicy
     public function view(User $user, Gig $gig)
     {
         return $gig->band->hasMember($user);
-    }
-
-    /**
-     * Determine whether the user can create gigs.
-     *
-     * @param User $user
-     * @return mixed
-     */
-    public function create(User $user)
-    {
-        //
     }
 
     /**

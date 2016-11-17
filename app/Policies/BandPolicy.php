@@ -23,17 +23,6 @@ class BandPolicy
     }
 
     /**
-     * Determine whether the user can create bands.
-     *
-     * @param  User $user
-     * @return mixed
-     */
-    public function create(User $user)
-    {
-        //
-    }
-
-    /**
      * Determine whether the user can update the band.
      *
      * @param  User $user

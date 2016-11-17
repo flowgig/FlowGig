@@ -10,6 +10,8 @@ class BandMembershipPolicy
 {
     use HandlesAuthorization;
 
+    // Authorization for create BandMembership is checked in BandPolicy
+
     /**
      * Determine whether the user can view the band membership.
      *
@@ -20,17 +22,6 @@ class BandMembershipPolicy
     public function view(User $user, BandMembership $bandMembership)
     {
         return $bandMembership->band->hasMember($user);
-    }
-
-    /**
-     * Determine whether the user can create band memberships.
-     *
-     * @param User $user
-     * @return mixed
-     */
-    public function create(User $user)
-    {
-        //
     }
 
     /**

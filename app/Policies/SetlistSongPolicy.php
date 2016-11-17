@@ -10,16 +10,7 @@ class SetlistSongPolicy
 {
     use HandlesAuthorization;
 
-    /**
-     * Determine whether the user can create setlistSongs.
-     *
-     * @param User $user
-     * @return mixed
-     */
-    public function create(User $user)
-    {
-        //
-    }
+    // Authorization for create SetlistSong is checked in BandPolicy
 
     /**
      * Determine whether the user can update the setlistSong.
