@@ -21,7 +21,7 @@ class SetlistSongPolicy
      */
     public function update(User $user, SetlistSong $setlistSong)
     {
-        return $setlistSong->setlist->gig->band->hasUser($user);
+        return $setlistSong->setlist->gig->band->hasMember($user);
     }
 
     /**
@@ -33,6 +33,6 @@ class SetlistSongPolicy
      */
     public function delete(User $user, SetlistSong $setlistSong)
     {
-        return $setlistSong->setlist->gig->band->hasUser($user);
+        return $setlistSong->setlist->gig->band->hasMember($user);
     }
 }

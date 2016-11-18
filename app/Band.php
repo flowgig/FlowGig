@@ -65,6 +65,8 @@ class Band extends Model
 
     /**
      * Determine whether the given user is a member in the band.
+     * @param User $user
+     * @return bool
      */
     public function hasMember($user)
     {
