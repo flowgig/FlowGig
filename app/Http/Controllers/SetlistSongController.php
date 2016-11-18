@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Setlist;
 use App\SetlistSong;
-use App\Song;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -33,19 +32,10 @@ class SetlistSongController extends Controller
         $this->authorize('createSetlistSongs', $setlist->gig->band);
 
         $setlistSong = new SetlistSong();
+
         $setlistSong->setlist()->associate($setlist);
         $setlistSong->fill($request->all());
-
-        $song = Song::find($request->input('song_id'));
-
-        if($defaultSetlistSong = $song->defaultSetlistSong())
-            $setlistSong->fill([
-                'key' => $defaultSetlistSong->key,
-                'bpm' => $defaultSetlistSong->bpm,
-                'duration' => $defaultSetlistSong->duration,
-                'intensity' => $defaultSetlistSong->intensity,
-                'comment' => $defaultSetlistSong->comment
-            ]);
+        $setlistSong->fill($setlistSong->song->setlistDefaults());
 
         $setlistSong->save();
 

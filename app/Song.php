@@ -23,8 +23,26 @@ class Song extends Model
         return $this->belongsTo('App\Band');
     }
 
-    public function defaultSetlistSong()
+    /**
+     * Get the default setlist properties for the song, if any.
+     *
+     * @return array
+     */
+    public function setlistDefaults()
     {
-        return $this->band->systemGig()->setlist->setlistSongs()->whereSongId($this->id)->first();
+        $defaultSetlistSong = $this->band->systemGig()->setlist->setlistSongs()->whereSongId($this->id)->first();
+
+        if($defaultSetlistSong != null)
+        {
+            return [
+                'key' => $defaultSetlistSong->key,
+                'bpm' => $defaultSetlistSong->bpm,
+                'duration' => $defaultSetlistSong->duration,
+                'intensity' => $defaultSetlistSong->intensity,
+                'comment' => $defaultSetlistSong->comment
+            ];
+        }
+
+        return [];
     }
 }
