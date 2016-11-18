@@ -88,4 +88,9 @@ Route::resource('setlists', 'SetlistController', ['except' => ['index', 'create'
 
 // SetlistSongs
 
-Route::resource('setlistsongs', 'SetlistSongController', ['only' => ['store', 'update', 'destroy']]);
+Route::post('setlists/{setlist}/setlistsongs', [
+    'as' => 'setlistsongs.store',
+    'uses' => 'SetlistSongController@store'
+]);
+
+Route::resource('setlistsongs', 'SetlistSongController', ['only' => ['update', 'destroy']]);

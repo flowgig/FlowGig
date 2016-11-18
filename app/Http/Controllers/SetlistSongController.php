@@ -25,18 +25,15 @@ class SetlistSongController extends Controller
      * Store a newly created SetlistSong in storage.
      *
      * @param  \Illuminate\Http\Request $request
-     * @param $bandId
+     * @param Setlist $setlist
      * @return SetlistSong
      */
-    public function store(Request $request)
+    public function store(Request $request, Setlist $setlist)
     {
-        // TODO: Get band as parameter?
-        $setlist = Setlist::find($request->input('setlist_id'));
-        $band = $setlist->gig->band;
-        $this->authorize('createSetlistSongs', $band);
+        $this->authorize('createSetlistSongs', $setlist->gig->band);
 
         $setlistSong = new SetlistSong();
-
+        $setlistSong->setlist()->associate($setlist);
         $setlistSong->fill($request->all());
 
         $song = Song::find($request->input('song_id'));

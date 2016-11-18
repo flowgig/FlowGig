@@ -344,13 +344,13 @@
                     }.bind(this));
                 },
                 saveNewSetlistSong: function (setlistSong, afterStore) {
+                    var url = '/setlists/' + setlistSong.setlist_id + '/setlistsongs/';
                     var payLoad = {
                         _token: this.csrfToken,
-                        setlist_id: setlistSong.setlist_id,
                         song_id: setlistSong.song.id,
                         number_in_list: setlistSong.number_in_list
                     };
-                    this.$http.post('/setlistsongs/', payLoad).then(function (createdSetlistSong) {
+                    this.$http.post(url, payLoad).then(function (createdSetlistSong) {
                         afterStore(createdSetlistSong.json())
                     });
                 },
