@@ -74,7 +74,7 @@ Route::resource('gigs', 'GigController', ['except' => ['index', 'create', 'store
 
 // Setlists
 
-Route::post('gigs/{gig}/setlist', [
+Route::post('gigs/{gig}/setlists', [
     'as' => 'setlists.store',
     'uses' => 'SetlistController@store'
 ]);
