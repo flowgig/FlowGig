@@ -38,29 +38,52 @@
                             </span>
                             <span class="list-item-buttons">
                                 @if($gig->setlist)
-                                    <a class="button button-icon button-flat button-default tooltip" title="Edit setlist" href="{{ route('setlists.edit', $gig->setlist) }}">
+                                    <a class="button button-icon button-flat button-default tooltip"
+                                       title="Edit setlist" href="{{ route('setlists.edit', $gig->setlist) }}">
                                         <span class="fa fa-list"></span>
-                                    </a> |
+                                    </a>
                                 @else
-                                    <form action="{{ route('setlists.store', $gig) }}" method="POST">
-                                        {{ csrf_field() }}
-                                        <select name="sourceGigId">
-                                            <option value="new" selected="selected">Create new setlist</option>
-                                            @foreach($band->gigs->where('name', '<>', '_system_') as $gig)
-                                                <option value="{{ $gig->id }}">Copy from {{ $gig->name }}</option>
-                                            @endforeach
-                                        </select>
-                                        <button type="submit"
-                                                class="button button-icon button-flat button-default tooltip"
-                                                title="Create setlist">
+                                    <button class="toggle-elements button button-icon button-flat button-default tooltip"
+                                            title="Create setlist"
+                                            value="add-setlist-modal-{{$gig->id}}">
                                          <span class="fa fa-plus"></span>
-                                    </button>
-                                 </form> |
+                                        </button>
+                                    <div class="modal add-setlist-modal-{{$gig->id}}">
+                                        <div class="modal-container">
+                                            <div class="modal-header">
+                                                Create setlist:
+                                                <button class="modal-close toggle-elements"
+                                                        value="add-setlist-modal-{{$gig->id}}"></button>
+                                            </div>
+                                            <div class="modal-content">
+                                                <form action="{{ route('setlists.store', $gig) }}" method="POST"
+                                                      class="block">
+                                                    {{ csrf_field() }}
+                                                    <div class="input-group">
+                                                        <select name="sourceGigId">
+                                                            <option value="new"
+                                                                    selected="selected">Create new setlist</option>
+                                                            @foreach($band->gigs->where('name', '<>', '_system_') as $gig)
+                                                                <option value="{{ $gig->id }}">Copy from {{ $gig->name }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                        <label for="title">Template</label>
+                                                    </div>
+                                                    <button type="submit"
+                                                            class="button button-flat button-primary float-right tooltip"
+                                                            title="Create setlist">Create setlist
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
                                 @endif
-                                <a class="button button-icon button-flat button-default tooltip" title="Show {{$gig->title}}" href="{{ route('gigs.show', $gig) }}">
+                                <a class="button button-icon button-flat button-default tooltip"
+                                   title="Show {{$gig->title}}" href="{{ route('gigs.show', $gig) }}">
                                     <span class="fa fa-eye"></span>
                                 </a>
-                                <a class="button button-icon button-flat button-default tooltip" title="Edit {{$gig->title}}" href="{{ route('gigs.edit', $gig) }}">
+                                <a class="button button-icon button-flat button-default tooltip"
+                                   title="Edit {{$gig->title}}" href="{{ route('gigs.edit', $gig) }}">
                                     <span class="fa fa-pencil"></span>
                                 </a>
                                 <form action="{{ route('gigs.destroy', $gig) }}" method="POST">
