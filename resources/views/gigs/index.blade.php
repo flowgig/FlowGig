@@ -44,6 +44,12 @@
                                 @else
                                     <form action="{{ route('setlists.store', $gig) }}" method="POST">
                                         {{ csrf_field() }}
+                                        <select name="sourceGigId">
+                                            <option value="new" selected="selected">Create new setlist</option>
+                                            @foreach($band->gigs->where('name', '<>', '_system_') as $gig)
+                                                <option value="{{ $gig->id }}">Copy from {{ $gig->name }}</option>
+                                            @endforeach
+                                        </select>
                                         <button type="submit"
                                                 class="button button-icon button-flat button-default tooltip"
                                                 title="Create setlist">

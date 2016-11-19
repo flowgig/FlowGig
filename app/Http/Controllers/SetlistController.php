@@ -24,15 +24,31 @@ class SetlistController extends Controller
     /**
      * Store a newly created resource in storage.
      *
+     * @param \Illuminate\Http\Request $request
      * @param Gig $gig
      * @return \Illuminate\Http\Response
      */
-    public function store(Gig $gig)
+    public function store(Request $request, Gig $gig)
     {
         $this->authorize('createSetlists', $gig->band);
 
         $newSetlist = $gig->setlist()->create([]);
 
+        $sourceGigId = $request->input('sourceGigId');
+        if($sourceGigId != "new") // TODO: Improve check
+        {
+            $sourceSetlist = $gig->band->gigs->find($sourceGigId)->setlist;
+
+            $replicatedSetlistSongs = array();
+            foreach ($sourceSetlist->setlistSongs as $sourceSetlistSong)
+            {
+                $replicatedSetlistSong = $sourceSetlistSong->replicate(['setlist_id']);
+                $replicatedSetlistSong->setlist()->associate($newSetlist);
+                $replicatedSetlistSongs[] = $replicatedSetlistSong;
+            }
+
+            $newSetlist->setlistSongs()->saveMany($replicatedSetlistSongs);
+        }
         return redirect()->route('setlists.edit', ['setlist' => $newSetlist]);
     }
 
