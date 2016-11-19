@@ -22,7 +22,7 @@
                 </span>
         </button>
     </div>
-    <div id="repertoire" class="actionbar-modal repertoire-modal">
+    <div id="repertoire" class="modal repertoire-modal">
         <div class="modal-container">
             <div class="modal-header">
                 Repertoire:
@@ -38,7 +38,7 @@
             </div>
         </div>
     </div>
-    <div id="new-song" class="actionbar-modal add-song-modal">
+    <div id="new-song" class="modal add-song-modal">
         <div class="modal-container">
             <div class="modal-header">
                 Add new song:
@@ -60,7 +60,7 @@
             </div>
         </div>
     </div>
-    <div class="actionbar-modal export-setlist-modal">
+    <div class="modal export-setlist-modal">
         <div class="modal-container">
             <div class="modal-header">
                 Export setlist:
