@@ -26,7 +26,8 @@
         <div class="modal-container">
             <div class="modal-header">
                 Repertoire:
-                <span class="modal-header-close"></span>
+                <button class="modal-close toggle-modal"
+                        value="repertoire-modal"></button>
             </div>
             <div class="modal-content">
 
@@ -42,7 +43,8 @@
         <div class="modal-container">
             <div class="modal-header">
                 Add new song:
-                <span class="modal-header-close"></span>
+                <button class="modal-close toggle-modal"
+                        value="add-song-modal"></button>
             </div>
             <div class="modal-content">
                 <div class="input-group">
@@ -64,7 +66,8 @@
         <div class="modal-container">
             <div class="modal-header">
                 Export setlist:
-                <span class="modal-header-close"></span>
+                <button class="modal-close toggle-modal"
+                        value="export-setlist-modal"></button>
             </div>
             <div class="modal-content">
                 <p>Toggle fields in setlist</p>
