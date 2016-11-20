@@ -4183,6 +4183,9 @@ ul.list li.setlistsong .list-item-content.single-line {
     margin-left: -40px;
     margin-right: -40px; }
 
+select[disabled] {
+  color: #777 !important; }
+
 body.welcome-screen {
   margin: 0;
   padding: 0;

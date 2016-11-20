@@ -184,3 +184,7 @@ ul.list li.setlistsong .list-item-content.single-line {
     }
   }
 }
+
+select[disabled]{ // TODO add styling for disabled select elements
+  color: #777!important;
+}
