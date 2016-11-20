@@ -67,7 +67,7 @@
                                                                    data-disable-list="true"
                                                                    data-gig-id="{{ $gig->id }}"
                                                                    checked="checked"/>
-                                                            <label for="setlist-new-{{ $gig->id }}">Create new setlist</label>
+                                                            <label for="setlist-new-{{ $gig->id }}">Blank setlist</label>
                                                         </div>
                                                         <div class="clearfix"></div>
                                                     </div>
