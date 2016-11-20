@@ -63,9 +63,9 @@
                                                         <select name="sourceGigId">
                                                             <option value="new"
                                                                     selected="selected">Create new setlist</option>
-                                                            @foreach($band->gigs->where('name', '<>', '_system_') as $gig)
+                                                            @foreach($band->gigsWithSetlist->where('name', '<>', '_system_') as $gig)
                                                                 <option value="{{ $gig->id }}">Copy from {{ $gig->name }}</option>
-                                                            @endforeach
+                                                               @endforeach
                                                         </select>
                                                         <label for="title">Template</label>
                                                     </div>

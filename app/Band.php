@@ -47,6 +47,13 @@ class Band extends Model
         return $this->hasMany('App\Gig');
     }
 
+    /**
+     * Get the gigs, with setlist, for the band.
+     */
+    public function gigsWithSetlist()
+    {
+        return $this->gigs()->has('setlist');
+    }
 
     /**
      * Get the system gig for the band.
