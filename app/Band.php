@@ -60,7 +60,7 @@ class Band extends Model
      */
     public function systemGig()
     {
-        return $this->gigs()->whereName('_system_')->first();
+        return $this->gigs()->withoutGlobalScope('omitSystemGig')->whereName('_system_')->first();
     }
 
     /**

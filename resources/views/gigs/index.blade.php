@@ -30,7 +30,7 @@
                     <a class="button button-flat button-primary" href="{{ route('gigs.create', $band) }}">Create new</a>
                 </div>
                 <ul class="list menu-list">
-                    @foreach($band->gigs->where('name', '<>', '_system_') as $gig)
+                    @foreach($band->gigs as $gig)
                         <li>
                             <span class="list-item-content">
                                 {{ $gig->name }}
@@ -83,7 +83,7 @@
                                                         <div class="input-group col-lg-9 col-md-10 col-sm-9">
                                                             <select id="setlist-template-{{ $gig->id }}"
                                                                     class="setlist-template" disabled>
-                                                                @foreach($band->gigsWithSetlist->where('name', '<>', '_system_') as $gig)
+                                                                @foreach($band->gigsWithSetlist as $gig)
                                                                     <option value="{{ $gig->id }}">{{ $gig->name }}</option>
                                                                 @endforeach
                                                             </select>
