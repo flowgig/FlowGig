@@ -113,7 +113,7 @@ class SongController extends Controller
         ]);
 
         $song->update($request->all());
-        $song->defaultSetlistSong()->update($request->all());
+        $song->setSetlistDefaults($request->all());
 
         // TODO: Flash song updated
 

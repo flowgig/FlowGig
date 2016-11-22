@@ -28,12 +28,11 @@ class Song extends Model
      *
      * @return array
      */
-    public function setlistDefaults()
+    public function getSetlistDefaults()
     {
-        $defaultSetlistSong = $this->band->systemGig()->setlist->setlistSongs()->whereSongId($this->id)->first();
+        $defaultSetlistSong = $this->getDefaultSetlistSong();
 
-        if($defaultSetlistSong != null)
-        {
+        if ($defaultSetlistSong != null) {
             return [
                 'key' => $defaultSetlistSong->key,
                 'bpm' => $defaultSetlistSong->bpm,
@@ -44,5 +43,33 @@ class Song extends Model
         }
 
         return [];
+    }
+
+    /**
+     * Set the default setlist properties for the song.
+     *
+     * @param $setlistDefaults
+     * @return array
+     */
+    public function setSetlistDefaults($setlistDefaults)
+    {
+        $defaultSetlistSong = $this->getDefaultSetlistSong();
+
+        if ($defaultSetlistSong != null) {
+            $defaultSetlistSong->update(
+                [
+                    'key' => $setlistDefaults['key'],
+                    'bpm' => $setlistDefaults['bpm'],
+                    'duration' => $setlistDefaults['duration'],
+                    'intensity' => $setlistDefaults['intensity'],
+                    'comment' => $setlistDefaults['comment']
+                ]
+            );
+        }
+    }
+
+    private function getDefaultSetlistSong()
+    {
+        return $this->band->systemGig()->setlist->setlistSongs()->whereSongId($this->id)->first();
     }
 }

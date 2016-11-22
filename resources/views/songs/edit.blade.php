@@ -66,26 +66,26 @@
                     <div class="row">
                         <div class="input-group col-sm-4">
                             {{-- Use selectbox (as in setlist edit) --}}
-                            <input type="text" name="key" value="{{ $song->defaultSetlistSong()->key }}"/>
+                            <input type="text" name="key" value="{{ $song->getSetlistDefaults()['key'] }}"/>
                             <label for="key">Key</label>
                         </div>
                         <div class="input-group col-sm-4">
-                            <input type="number" name="bpm" min="0" value="{{ $song->defaultSetlistSong()->bpm }}"/>
+                            <input type="number" name="bpm" min="0" value="{{ $song->getSetlistDefaults()['bpm'] }}"/>
                             <label for="bpm">BPM</label>
                         </div>
                         <div class="input-group col-sm-4">
-                            <input type="number" name="duration" min="0" value="{{ $song->defaultSetlistSong()->duration }}"/>
+                            <input type="number" name="duration" min="0" value="{{ $song->getSetlistDefaults()['duration'] }}"/>
                             <label for="duration">Duration</label>
                         </div>
                         <div class="clearfix"></div>
                     </div>
                     <div class="row">
                         <div class="input-group col-sm-4">
-                            <input type="number" name="intensity" min="1" max="10"  value="{{ $song->defaultSetlistSong()->intensity }}"/>
+                            <input type="number" name="intensity" min="1" max="10"  value="{{ $song->getSetlistDefaults()['intensity'] }}"/>
                             <label for="intensity">Intensity</label>
                         </div>
                         <div class="input-group col-md-8">
-                            <input type="text" name="comment" value="{{ $song->defaultSetlistSong()->comment }}"/>
+                            <input type="text" name="comment" value="{{ $song->getSetlistDefaults()['comment'] }}"/>
                             <label for="comment">Comment</label>
                         </div>
                         <div class="clearfix"></div>
