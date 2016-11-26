@@ -35,7 +35,7 @@ class SetlistSongController extends Controller
 
         $setlistSong->setlist()->associate($setlist);
         $setlistSong->fill($request->all());
-        $setlistSong->fill($setlistSong->song->setlistDefaults());
+        $setlistSong->fill($setlistSong->song->getSetlistDefaults());
 
         $setlistSong->save();
 
