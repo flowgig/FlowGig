@@ -173,6 +173,7 @@
                 <small>@{{ song.artist }}</small>
             </span>
             <span class="list-item-button">
+                <i v-if="isAdded" style="font-size: small; padding: 5px">Added</i>
                 <span v-on:click="addToSetlist()"
                       class="button button-icon button-flat button-default modal-hover-add-button tooltip"
                       title="Add @{{ song.title }} to setlist"></span>
@@ -303,6 +304,16 @@
                             }.bind(this);
 
                             this.$parent.saveNewSetlistSong(setlistSong, createOnServerAndPushToList);
+                        },
+                    },
+                    computed: {
+                        isAdded: function () {
+                            var isAdded = false;
+                            this.$parent.setlistSongs.forEach(function (setlistSong) {
+                                if (setlistSong.song_id === this.song.id)
+                                    isAdded = true;
+                            }.bind(this));
+                            return isAdded;
                         }
                     }
                 },
