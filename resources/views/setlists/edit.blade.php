@@ -393,11 +393,11 @@
                 [
                     'C', 'D', 'E', 'F', 'G', 'A', 'H',
                     'Cm', 'Dm', 'Em', 'Fm', 'Gm', 'Am', 'Hm',
-                    'C#', 'D#', 'E#', 'F#', 'G#', 'A#', 'H#',
-                    'C#m', 'D#m', 'E#m', 'F#m', 'G#m', 'A#m', 'H#m',
-                    'Cb', 'Db', 'Eb', 'Fb', 'Gb', 'Ab', 'Hb',
-                    'Cbm', 'Dbm', 'Ebm', 'Fbm', 'Gbm', 'Abm', 'Hbm'
-                ]; //TODO: Use proper flat- and sharp-symbols (&#9837; or &#x266D; and &#9839; or &#x266F);
+                    'C\u266F', 'D\u266F', 'E\u266F', 'F\u266F', 'G\u266F', 'A\u266F', 'H\u266F',
+                    'C\u266Fm', 'D\u266Fm', 'E\u266Fm', 'F\u266Fm', 'G\u266Fm', 'A\u266Fm', 'H\u266Fm',
+                    'C\u266D', 'D\u266D', 'E\u266D', 'F\u266D', 'G\u266D', 'A\u266D', 'H\u266D',
+                    'C\u266Dm', 'D\u266Dm', 'E\u266Dm', 'F\u266Dm', 'G\u266Dm', 'A\u266Dm', 'H\u266Dm'
+                ];
     </script>
 
 @endsection

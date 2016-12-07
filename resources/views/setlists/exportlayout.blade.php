@@ -6,7 +6,8 @@
             margin: 0;
             padding: 0;
             font-size: 16pt;
-            font-family: 'Lato', Helvetica, Arial, sans-serif;;
+            font-family: DejaVu Sans;
+            /*font-family: 'Lato', Helvetica, Arial, sans-serif;;*/
             background-color: #FFFFFF;
             padding: 1.5cm 2cm;
         }
