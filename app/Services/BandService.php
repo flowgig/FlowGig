@@ -5,6 +5,7 @@ namespace App\Services;
 use App\Band;
 use App\Gig;
 use App\Setlist;
+use Illuminate\Support\Facades\Auth;
 
 class BandService
 {
@@ -17,6 +18,8 @@ class BandService
     public static function create($bandName)
     {
         $band = Band::create(['name' => $bandName]);
+
+        $band->members()->attach(Auth::user());
 
         $hiddenSystemGig = new Gig(['name' => '_system_']);
         $band->gigs()->save($hiddenSystemGig);
