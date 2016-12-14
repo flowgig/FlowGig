@@ -20,6 +20,7 @@ class CreateSongsTable extends Migration
             $table->text('music_by');
             $table->text('lyrics_by');
             $table->timestamps();
+            $table->softDeletes();
 
             $table->foreign('band_id')->references('id')->on('bands');
         });
