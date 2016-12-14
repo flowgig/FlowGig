@@ -75,7 +75,9 @@ class SetlistController extends Controller
     {
         $this->authorize('update', $setlist);
 
-        $setlist->setlistSongs->load('song');
+        $setlist->setlistSongs->load(['song' => function($query){
+            $query->withTrashed();
+        }]);
 
         return view('setlists.edit', ['setlist' => $setlist]);
     }
