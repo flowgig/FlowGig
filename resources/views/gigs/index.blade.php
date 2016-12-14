@@ -83,8 +83,10 @@
                                                         <div class="input-group col-lg-9 col-md-10 col-sm-9">
                                                             <select id="setlist-template-{{ $gig->id }}"
                                                                     class="setlist-template" disabled>
-                                                                @foreach($band->gigsWithSetlist as $gig)
-                                                                    <option value="{{ $gig->id }}">{{ $gig->name }}</option>
+                                                                @foreach($band->gigsWithSetlist as $gigWithSetlist)
+                                                                    <option value="{{ $gigWithSetlist->id }}">
+                                                                        {{ $gigWithSetlist->name }}
+                                                                    </option>
                                                                 @endforeach
                                                             </select>
                                                             <label for="setlist-template-{{ $gig->id }}">Template</label>
