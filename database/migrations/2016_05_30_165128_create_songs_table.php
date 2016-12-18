@@ -22,7 +22,7 @@ class CreateSongsTable extends Migration
             $table->timestamps();
             $table->softDeletes();
 
-            $table->foreign('band_id')->references('id')->on('bands');
+            $table->foreign('band_id')->references('id')->on('bands')->onDelete('cascade');
         });
     }
 
