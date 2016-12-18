@@ -23,7 +23,7 @@ class CreateGigsTable extends Migration
             $table->boolean('confirmed')->default(0);
             $table->timestamps();
 
-            $table->foreign('band_id')->references('id')->on('bands');
+            $table->foreign('band_id')->references('id')->on('bands')->onDelete('cascade');
         });
     }
 
