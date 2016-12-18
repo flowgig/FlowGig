@@ -17,7 +17,7 @@ class CreateSetlistsTable extends Migration
             $table->integer('gig_id')->unsigned();
             $table->timestamps();
 
-            $table->foreign('gig_id')->references('id')->on('gigs');
+            $table->foreign('gig_id')->references('id')->on('gigs')->onDelete('cascade');
         });
     }
 
