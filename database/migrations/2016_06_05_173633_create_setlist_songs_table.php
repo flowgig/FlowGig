@@ -25,7 +25,7 @@ class CreateSetlistSongsTable extends Migration
             $table->text('comment')->nullable();
             $table->timestamps();
 
-            $table->foreign('setlist_id')->references('id')->on('setlists');
+            $table->foreign('setlist_id')->references('id')->on('setlists')->onDelete('cascade');
             $table->foreign('song_id')->references('id')->on('songs');
         });
     }
