@@ -17,6 +17,9 @@
                 <p>Name: {{ $user->name }}</p>
                 {{ $user->email }}
                 <h2>Bands</h2>
+                <div class="block text-right">
+                    <a class="button button-flat button-default" href="{{ route('bands.index') }}">Manage bands</a>
+                </div>
                 <div class="content">
                     <div class="row">
                         @foreach($user->bands as $band)
