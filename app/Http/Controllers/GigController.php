@@ -66,6 +66,10 @@ class GigController extends Controller
         $gig = new Gig();
         $gig->band()->associate($band);
         $gig->fill($request->all());
+
+        if(empty($request->input('date')))
+            $gig->date = null; // TODO: Use middelware (Laravel 5.4)
+
         $gig->save();
 
         // TODO: Flash setlist stored
@@ -114,7 +118,12 @@ class GigController extends Controller
             'name' => 'required|max:60|not_in:_system_'
         ]);
 
-        $gig->update($request->all());
+        $gig->fill($request->all());
+
+        if(empty($request->input('date')))
+            $gig->date = null; // TODO: Use middelware (Laravel 5.4)
+
+        $gig->save();
 
         // TODO: Flash gig updated
 
