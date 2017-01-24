@@ -14,7 +14,9 @@
                     </li>
                 </ol>
                 <h1>Bands</h1>
-
+                <div class="block text-right">
+                    <a class="button button-flat button-primary" href="{{ route('bands.create') }}">New band</a>
+                </div>
                 <ul class="list menu-list">
                     @foreach($bands as $band)
                         <li>
