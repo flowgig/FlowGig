@@ -27,7 +27,7 @@
                 </ol>
                 <h1>Songs</h1>
                 <div class="block text-right">
-                    <a class="button button-flat button-primary" href="{{ route('songs.create', $band) }}">Create new</a>
+                    <a class="button button-flat button-primary" href="{{ route('songs.create', $band) }}">New song</a>
                 </div>
                 <ul class="list menu-list">
                     @foreach($band->songs as $song)
@@ -62,7 +62,7 @@
                     @endforeach
                 </ul>
                 <div class="block text-right">
-                    <a class="button button-flat button-primary" href="{{ route('songs.create', $band) }}">Create new</a>
+                    <a class="button button-flat button-primary" href="{{ route('songs.create', $band) }}">New song</a>
                 </div>
             </div>
         </div>

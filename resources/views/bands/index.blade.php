@@ -43,7 +43,7 @@
                     @endforeach
                 </ul>
                 <div class="block text-right">
-                    <a class="button button-flat button-primary" href="{{ route('bands.create') }}">Create new</a>
+                    <a class="button button-flat button-primary" href="{{ route('bands.create') }}">New band</a>
                 </div>
             </div>
         </div>

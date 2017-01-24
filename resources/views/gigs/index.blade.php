@@ -27,7 +27,7 @@
                 </ol>
                 <h1>Gigs</h1>
                 <div class="block text-right">
-                    <a class="button button-flat button-primary" href="{{ route('gigs.create', $band) }}">Create new</a>
+                    <a class="button button-flat button-primary" href="{{ route('gigs.create', $band) }}">New gig</a>
                 </div>
                 <ul class="list menu-list">
                     @foreach($band->gigs as $gig)
@@ -125,7 +125,7 @@
                     @endforeach
                 </ul>
                 <div class="block text-right">
-                    <a class="button button-flat button-primary" href="{{ route('gigs.create', $band) }}">Create new</a>
+                    <a class="button button-flat button-primary" href="{{ route('gigs.create', $band) }}">New gig</a>
                 </div>
             </div>
         </div>

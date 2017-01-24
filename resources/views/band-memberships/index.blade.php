@@ -27,7 +27,7 @@
                 </ol>
                 <h1>Members</h1>
                 <div class="block text-right">
-                    <a class="button button-flat button-primary">Create new</a>
+                    <a class="button button-flat button-primary">New member</a>
                 </div>
                 <ul class="list menu-list">
                     @foreach($band->memberships as $membership)
@@ -53,7 +53,7 @@
                     @endforeach
                 </ul>
                 <div class="block text-right">
-                    <a class="button button-flat button-primary">Create new</a>
+                    <a class="button button-flat button-primary">New member</a>
                 </div>
             </div>
         </div>
