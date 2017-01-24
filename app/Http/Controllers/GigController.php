@@ -70,6 +70,8 @@ class GigController extends Controller
         if(empty($request->input('date')))
             $gig->date = null; // TODO: Use middelware (Laravel 5.4)
 
+        $gig->confirmed = $request->input('confirmed') != null;
+
         $gig->save();
 
         // TODO: Flash setlist stored
@@ -122,6 +124,8 @@ class GigController extends Controller
 
         if(empty($request->input('date')))
             $gig->date = null; // TODO: Use middelware (Laravel 5.4)
+
+        $gig->confirmed = $request->input('confirmed') != null;
 
         $gig->save();
 

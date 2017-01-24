@@ -59,7 +59,11 @@
                             <label for="date">Date</label>
                         </div>
                         <div class="input-group col-sm-4">
-                            <input type="checkbox" name="confirmed" id="confirmed" value="{{ $gig->confirmed }}"/>
+                            @if($gig->confirmed)
+                                <input type="checkbox" name="confirmed" id="confirmed" checked />
+                            @else
+                                <input type="checkbox" name="confirmed" id="confirmed" />
+                            @endif
                             <label for="confirmed">Confirmed</label>
                         </div>
                     </div>
