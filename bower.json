@@ -17,6 +17,7 @@
     "tests"
   ],
   "dependencies": {
-    "simple-gui-template": "^0.2.7"
+    "simple-gui-template": "^0.2.7",
+    "quark-gui": "quarkGUI#^0.3.2"
   }
 }

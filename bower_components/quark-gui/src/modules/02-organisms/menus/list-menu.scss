@@ -1,0 +1,42 @@
+@import "./src/style/abstracts/all";
+
+:local(.listMenu){
+	list-style: none;
+	padding: 0 0 10px 0;
+	margin: 0;
+	&:local(.hover){
+		:local(.listItem):hover{
+			background-color: bright-gray($dark-color);
+		}
+	}
+	:local(.listItem){
+		padding: 10px;
+		border-bottom: 1px solid rgba(0, 0, 0, .1);
+		@include transition(background-color .2s ease-in-out);
+		&:last-child{
+			border-bottom: none;
+		}
+		:local(.listItemTitle){
+			display: inline-block;
+			font-size: 14pt;
+			line-height: 14pt;
+			color: $default-text-color;
+			small {
+				display: block;
+				min-height: 19px;
+				font-size: 10pt;
+			}
+			&:local(.singleLine) {
+				line-height: 34px;
+				vertical-align: text-bottom;
+			}
+
+		}
+		:local(.listItemButtonRow) {
+			float: right;
+			line-height: 32px;
+			font-size: 26px;
+			vertical-align: text-bottom;
+		}
+	}
+}
