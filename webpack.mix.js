@@ -1,4 +1,4 @@
-let mix = require('laravel-mix');
+const { mix } = require('laravel-mix');
 
 /*
  |--------------------------------------------------------------------------
@@ -10,6 +10,24 @@ let mix = require('laravel-mix');
  | file for your application, as well as bundling up your JS files.
  |
  */
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+
+
+const sassLoader = ExtractTextPlugin.extract({
+    loader: 'css-loader!sass-loader'
+});
+
+mix.webpackConfig({
+    module: {
+        rules: [
+            {
+                test: /\.scss$/,
+                loader: sassLoader,
+                exclude: '/node_modules/'
+            }
+        ]
+    }
+})
 
 mix.js('resources/assets/js/app.js', 'public/js')
     .sass('resources/assets/sass/app.scss', 'public/css');
