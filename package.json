@@ -19,5 +19,8 @@
     "vue-resource": "^0.9.3",
     "vue-select": "^1.3.0",
     "vue-sortable": "^0.1.2"
+  },
+  "dependencies": {
+    "quark-gui": "^0.3.3"
   }
 }
