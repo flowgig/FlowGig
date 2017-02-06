@@ -34,6 +34,6 @@ class CreateGigsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('gigs');
+        Schema::drop('gigs');
     }
 }

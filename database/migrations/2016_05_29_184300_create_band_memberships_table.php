@@ -32,6 +32,6 @@ class CreateBandMembershipsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('band_memberships');
+        Schema::drop('band_memberships');
     }
 }
