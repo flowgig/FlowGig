@@ -12,7 +12,7 @@ class SetlistSong extends Model
      * @var array
      */
     protected $fillable = [
-        'setlist_id', 'song_id', 'number_in_list', 'setnumber', 'key', 'bpm', 'duration', 'intensity', 'comment'
+        'setlist_id', 'song_id', 'number_in_list', 'key', 'bpm', 'duration', 'intensity', 'comment'
     ];
 
     /**

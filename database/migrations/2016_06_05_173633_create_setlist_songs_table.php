@@ -17,7 +17,6 @@ class CreateSetlistSongsTable extends Migration
             $table->integer('setlist_id')->unsigned();
             $table->integer('song_id')->unsigned();
             $table->integer('number_in_list')->unsigned();
-            $table->integer('setnumber')->unsigned()->default(1);
             $table->text('key')->nullable();
             $table->integer('bpm')->unsigned()->nullable();
             $table->integer('duration')->unsigned()->nullable();
