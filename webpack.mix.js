@@ -14,7 +14,7 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 
 const sassLoader = ExtractTextPlugin.extract({
-    loader: 'css-loader!sass-loader'
+    loader: 'css-loader?minimize!sass-loader'
 });
 
 mix.webpackConfig({
@@ -26,11 +26,13 @@ mix.webpackConfig({
                 exclude: '/node_modules/'
             }
         ]
-    }
-})
+    },
+    plugins: [
+        new ExtractTextPlugin('css/app.css')
+    ]
+});
 
 mix.js('resources/assets/js/app.js', 'public/js')
-    .sass('resources/assets/sass/app.scss', 'public/css');
 
 // Full API
 // mix.js(src, output);
