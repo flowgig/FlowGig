@@ -1,10 +1,9 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateGigsTable extends Migration
+class CreateSongsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +12,15 @@ class CreateGigsTable extends Migration
      */
     public function up()
     {
-        Schema::create('gigs', function (Blueprint $table) {
+        Schema::create('songs', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('band_id')->unsigned();
-            $table->text('name');
-            $table->dateTime('date')->nullable();
-            $table->text('venue')->nullable();
-            $table->text('location')->nullable();
-            $table->boolean('confirmed')->default(0);
+            $table->text('title');
+            $table->text('artist')->nullable();
+            $table->text('music_by')->nullable();
+            $table->text('lyrics_by')->nullable();
             $table->timestamps();
+            $table->softDeletes();
 
             $table->foreign('band_id')->references('id')->on('bands')->onDelete('cascade');
         });
@@ -34,6 +33,6 @@ class CreateGigsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('gigs');
+        Schema::dropIfExists('songs');
     }
 }

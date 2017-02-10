@@ -28,6 +28,6 @@ class CreateSetlistsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('setlists');
+        Schema::dropIfExists('setlists');
     }
 }

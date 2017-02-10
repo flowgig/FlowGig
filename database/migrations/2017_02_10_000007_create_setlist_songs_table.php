@@ -36,6 +36,6 @@ class CreateSetlistSongsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('setlist_songs');
+        Schema::dropIfExists('setlist_songs');
     }
 }
