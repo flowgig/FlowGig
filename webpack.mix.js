@@ -1,4 +1,4 @@
-const { mix } = require('laravel-mix');
+let mix = require('laravel-mix');
 
 /*
  |--------------------------------------------------------------------------
@@ -10,11 +10,12 @@ const { mix } = require('laravel-mix');
  | file for your application, as well as bundling up your JS files.
  |
  */
+
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 
 const sassLoader = ExtractTextPlugin.extract({
-    loader: 'css-loader?minimize!sass-loader'
+    loader: 'css-loader!sass-loader'
 });
 
 mix.webpackConfig({
@@ -39,6 +40,7 @@ mix.js('resources/assets/js/app.js', 'public/js')
 // mix.extract(vendorLibs);
 // mix.sass(src, output);
 // mix.less(src, output);
+// mix.browserSync('my-site.dev');
 // mix.combine(files, destination);
 // mix.copy(from, to);
 // mix.minify(file);
@@ -49,3 +51,6 @@ mix.js('resources/assets/js/app.js', 'public/js')
 // mix.autoload({}); <-- Will be passed to Webpack's ProvidePlugin.
 // mix.webpackConfig({}); <-- Override webpack.config.js, without editing the file directly.
 // mix.then(function () {}) <-- Will be triggered each time Webpack finishes building.
+// mix.options({
+//   extractVueStyles: false // default
+// });
