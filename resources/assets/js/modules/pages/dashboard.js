@@ -1,6 +1,5 @@
-var quark = require('quark-gui');
-var card = quark.organisms.cards.card;
+import BandCards from '../templates/band-cards';
 
-var bandCards = require('../templates/band-cards');
+const page = BandCards('dashboard');
 
-module.exports = bandCards;
+export default page;
