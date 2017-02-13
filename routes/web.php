@@ -15,6 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('quark', function () {
+    $bands = Auth::user()->bands;
+    return $bands;
+});
+
 Auth::routes();
 
 Route::get('/dashboard', 'DashboardController@index');
