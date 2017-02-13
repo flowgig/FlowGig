@@ -20,7 +20,7 @@
                 <div class="block text-right">
                     <a class="button button-flat button-default" href="{{ route('bands.index') }}">Manage bands</a>
                 </div>
-                <div class="content">
+                <div id="dashboard" class="content">
                     <div class="row">
                         @foreach($user->bands as $band)
                             <div class='col-xs-12 col-sm-6 col-md-4'>

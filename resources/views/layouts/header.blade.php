@@ -25,7 +25,7 @@
     <meta name="twitter:description" content="">
     <meta name="twitter:image:src" content="">
     -->
-<script src="/js/all.js" type="application/javascript"></script>
+<script src="/js/app.js" type="application/javascript"></script>
 <link rel="apple-touch-icon" sizes="57x57" href="/images/favicon/apple-touch-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-touch-icon-60x60.png">
 <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-touch-icon-72x72.png">
