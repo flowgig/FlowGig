@@ -56,14 +56,6 @@ class Band extends Model
     }
 
     /**
-     * Get the system gig for the band.
-     */
-    public function systemGig()
-    {
-        return $this->gigs()->withoutGlobalScope('omitSystemGig')->whereName('_system_')->first();
-    }
-
-    /**
      * Determine whether the given user is a member in the band.
      * @param User $user
      * @return bool

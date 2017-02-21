@@ -7,7 +7,7 @@ use App\Song;
 class SongService
 {
     /**
-     * Creates a new song with required related models
+     * Creates a new song for the given band
      *
      * @param $fields
      * @param $band
