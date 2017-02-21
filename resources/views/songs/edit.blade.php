@@ -4,7 +4,7 @@
 @section('content')
     <div class="content">
         <div class="box">
-            <div class="content">
+            <p class="content">
                 <ol itemscope itemtype="http://schema.org/BreadcrumbList" class="breadcrumbs">
                     <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
                         <a itemprop="item" href="{{ route('bands.index') }}">
@@ -62,33 +62,32 @@
                         </div>
                     </div>
                     <div class="clearfix"></div>
-                    <h2>Default setup for setlists</h2>
                     <div class="row">
-                        <div class="input-group col-sm-4">
-                            {{-- Use selectbox (as in setlist edit) --}}
-                            <input type="text" name="key" value="{{ $song->getSetlistDefaults()['key'] }}"/>
-                            <label for="key">Key</label>
+                        <div class="input-group col-sm-12">
+                            <p>You may set the following values different every time you add this song to a setlist,
+                                but values entered here will be used as default</p>
                         </div>
-                        <div class="input-group col-sm-4">
-                            <input type="number" name="bpm" min="0" value="{{ $song->getSetlistDefaults()['bpm'] }}"/>
-                            <label for="bpm">BPM</label>
-                        </div>
-                        <div class="input-group col-sm-4">
-                            <input type="number" name="duration" min="0" value="{{ $song->getSetlistDefaults()['duration'] }}"/>
-                            <label for="duration">Duration</label>
-                        </div>
-                        <div class="clearfix"></div>
                     </div>
                     <div class="row">
-                        <div class="input-group col-sm-4">
-                            <input type="number" name="intensity" min="1" max="10"  value="{{ $song->getSetlistDefaults()['intensity'] }}"/>
+                        <div class="input-group col-sm-6">
+                            {{-- Use selectbox (as in setlist edit) --}}
+                            <input type="text" name="key" value="{{ $song->key }}"/>
+                            <label for="key">Key</label>
+                        </div>
+                        <div class="input-group col-sm-6">
+                            <input type="number" name="bpm" min="0" value="{{ $song->bpm }}"/>
+                            <label for="bpm">BPM</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-group col-sm-6">
+                            <input type="number" name="duration" min="0" value="{{ $song->duration }}"/>
+                            <label for="duration">Duration</label>
+                        </div>
+                        <div class="input-group col-sm-6">
+                            <input type="number" name="intensity" min="1" max="10" value="{{ $song->intensity }}"/>
                             <label for="intensity">Intensity</label>
                         </div>
-                        <div class="input-group col-md-8">
-                            <input type="text" name="comment" value="{{ $song->getSetlistDefaults()['comment'] }}"/>
-                            <label for="comment">Comment</label>
-                        </div>
-                        <div class="clearfix"></div>
                     </div>
                     <div class="clearfix"></div>
                     <div class="row">

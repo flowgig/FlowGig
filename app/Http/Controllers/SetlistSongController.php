@@ -35,8 +35,14 @@ class SetlistSongController extends Controller
 
         $setlistSong->setlist()->associate($setlist);
         $setlistSong->fill($request->all());
-        $setlistSong->fill($setlistSong->song->getSetlistDefaults());
-
+        // Song associated by id in request
+        $song = $setlistSong->song;
+        $setlistSong->fill([
+            'key' => $song->key,
+            'bpm' => $song->bpm,
+            'duration' => $song->duration,
+            'intensity' => $song->intensity
+        ]);
         $setlistSong->save();
 
         return $setlistSong;

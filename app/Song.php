@@ -22,7 +22,7 @@ class Song extends Model
      * @var array
      */
     protected $fillable = [
-        'title', 'artist', 'music_by', 'lyrics_by'
+        'title', 'artist', 'music_by', 'lyrics_by', 'key', 'bpm', 'duration', 'intensity'
     ];
 
     /**
@@ -32,54 +32,5 @@ class Song extends Model
     {
         return $this->belongsTo('App\Band');
     }
-
-    /**
-     * Get the default setlist properties for the song, if any.
-     *
-     * @return array
-     */
-    public function getSetlistDefaults()
-    {
-        $defaultSetlistSong = $this->getDefaultSetlistSong();
-
-        if ($defaultSetlistSong != null) {
-            return [
-                'key' => $defaultSetlistSong->key,
-                'bpm' => $defaultSetlistSong->bpm,
-                'duration' => $defaultSetlistSong->duration,
-                'intensity' => $defaultSetlistSong->intensity,
-                'comment' => $defaultSetlistSong->comment
-            ];
-        }
-
-        return [];
-    }
-
-    /**
-     * Set the default setlist properties for the song.
-     *
-     * @param $setlistDefaults
-     * @return array
-     */
-    public function setSetlistDefaults($setlistDefaults)
-    {
-        $defaultSetlistSong = $this->getDefaultSetlistSong();
-
-        if ($defaultSetlistSong != null) {
-            $defaultSetlistSong->update(
-                [
-                    'key' => $setlistDefaults['key'],
-                    'bpm' => $setlistDefaults['bpm'],
-                    'duration' => $setlistDefaults['duration'],
-                    'intensity' => $setlistDefaults['intensity'],
-                    'comment' => $setlistDefaults['comment']
-                ]
-            );
-        }
-    }
-
-    private function getDefaultSetlistSong()
-    {
-        return $this->band->systemGig()->setlist->setlistSongs()->whereSongId($this->id)->first();
-    }
 }
+
