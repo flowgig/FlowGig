@@ -26,6 +26,22 @@ class Song extends Model
     ];
 
     /**
+     * Get the creator of the song
+     */
+    public function creator()
+    {
+        return $this->belongsTo('App\User', 'created_by');
+    }
+
+    /**
+     * Get the updater of the song
+     */
+    public function updater()
+    {
+        return $this->belongsTo('App\User', 'updated_by');
+    }
+
+    /**
      * Get the band for the song.
      */
     public function band()

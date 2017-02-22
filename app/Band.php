@@ -16,6 +16,22 @@ class Band extends Model
     ];
 
     /**
+     * Get the creator of the band
+     */
+    public function creator()
+    {
+        return $this->belongsTo('App\User', 'created_by');
+    }
+
+    /**
+     * Get the updater of the band
+     */
+    public function updater()
+    {
+        return $this->belongsTo('App\User', 'updated_by');
+    }
+
+    /**
      * Get the the band members.
      */
     public function members()

@@ -22,6 +22,23 @@ class SetlistSong extends Model
      */
     protected $touches = ['setlist'];
 
+
+    /**
+     * Get the creator of the setlist song
+     */
+    public function creator()
+    {
+        return $this->belongsTo('App\User', 'created_by');
+    }
+
+    /**
+     * Get the updater of the setlist song
+     */
+    public function updater()
+    {
+        return $this->belongsTo('App\User', 'updated_by');
+    }
+
      /**
      * Get the setlist for the setlist song.
      */

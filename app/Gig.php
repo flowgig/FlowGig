@@ -17,6 +17,22 @@ class Gig extends Model
     ];
 
     /**
+     * Get the creator of the gig
+     */
+    public function creator()
+    {
+        return $this->belongsTo('App\User', 'created_by');
+    }
+
+    /**
+     * Get the updater of the gig
+     */
+    public function updater()
+    {
+        return $this->belongsTo('App\User', 'updated_by');
+    }
+
+    /**
      * Get the band for the gig.
      */
     public function band()
