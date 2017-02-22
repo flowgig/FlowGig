@@ -15,7 +15,8 @@ class SetlistsTableSeeder extends Seeder
         DB::table('setlists')->delete();
 
         Setlist::create([
-            'gig_id' => 1
+            'gig_id' => 1,
+            'created_by' => 1
         ]);
     }
 }

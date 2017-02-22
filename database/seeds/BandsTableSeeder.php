@@ -15,8 +15,8 @@ class BandsTableSeeder extends Seeder
     {
         DB::table('bands')->delete();
 
-        Band::create(['name' => 'The Wurlitzers']);
+        Band::create(['name' => 'The Wurlitzers', 'created_by' => 1]);
 
-        Band::create(['name' => 'Roy\'s Equation']);
+        Band::create(['name' => 'Roy\'s Equation', 'created_by' => 1]);
     }
 }

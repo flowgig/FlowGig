@@ -35,6 +35,7 @@ $factory->define(App\Song::class, function (Faker\Generator $faker) {
         ];
 
     return [
+        'created_by' => 1,
         'band_id' => 1,
         'title' => rtrim($faker->realText(20, 3), ".,:;'-"),
         'artist' => 'The ' . $faker->jobTitle . 's',
@@ -76,6 +77,7 @@ $factory->define(App\Gig::class, function (Faker\Generator $faker) {
     ];
 
     return [
+        'created_by' => 1,
         'band_id' => 1,
         'name' => $faker->randomElement($gigNames),
         'date' => $faker->dateTime,
