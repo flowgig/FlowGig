@@ -44,6 +44,7 @@
                     <div class="clearfix"></div>
                 </form>
                 @include('errors.validation-errors')
+                @include('meta.user-timestamps', ['model' => $band])
                 <div class="block text-right">
                     <a class="button button-flat button-default" href="{{ route('bands.index') }}">Back to list</a>
                 </div>

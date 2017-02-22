@@ -76,6 +76,7 @@
                     <div class="clearfix"></div>
                 </form>
                 @include('errors.validation-errors')
+                @include('meta.user-timestamps', ['model' => $gig])
             </div>
         </div>
     </div>
