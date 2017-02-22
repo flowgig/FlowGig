@@ -8,6 +8,7 @@ use App\Song;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Auth;
 
 class SongController extends Controller
 {
@@ -64,7 +65,7 @@ class SongController extends Controller
             'title' => 'required|max:80',
         ]);
 
-        SongService::create($request->all(), $band);
+        SongService::create($request->all(), $band, Auth::user());
 
         // TODO: Flash song stored
 
@@ -112,7 +113,10 @@ class SongController extends Controller
             'title' => 'required|max:80',
         ]);
 
-        $song->update($request->all());
+        $song->fill($request->all());
+        if ($song->isDirty())
+            $song->updater()->associate(Auth::user());
+        $song->save();
 
         // TODO: Flash song updated
 
@@ -129,6 +133,8 @@ class SongController extends Controller
     {
         $this->authorize('delete', $song);
 
+        $song->updater()->associate(Auth::user());
+        $song->save();
         $song->delete();
 
         // TODO: Flash song deleted

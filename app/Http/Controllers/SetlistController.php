@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Gig;
 use App\Setlist;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use PDF;
 
@@ -32,7 +33,10 @@ class SetlistController extends Controller
     {
         $this->authorize('createSetlists', $gig->band);
 
-        $newSetlist = $gig->setlist()->create([]);
+        $newSetlist = new Setlist();
+        $newSetlist->creator()->associate(Auth::user());
+        $newSetlist->gig()->associate($gig);
+        $newSetlist->save();
 
         $sourceGigId = $request->input('sourceGigId');
         if($sourceGigId != "new") // TODO: Improve check
@@ -93,7 +97,10 @@ class SetlistController extends Controller
     {
         $this->authorize('update', $setlist);
 
-        $setlist->update($request->all());
+        $setlist->fill($request->all());
+        if ($setlist->isDirty())
+            $setlist->updater()->associate(Auth::user());
+        $setlist->save();
 
         return redirect()->route('gigs.index', $setlist->gig->band);
     }

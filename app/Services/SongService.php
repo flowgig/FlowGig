@@ -11,12 +11,13 @@ class SongService
      *
      * @param $fields
      * @param $band
+     * @param $creator
      * @return Song
      */
-    public static function create($fields, $band)
+    public static function create($fields, $band, $creator)
     {
         $song = new Song();
-
+        $song->creator()->associate($creator);
         $song->band()->associate($band);
         $song->fill($fields);
         $song->save();

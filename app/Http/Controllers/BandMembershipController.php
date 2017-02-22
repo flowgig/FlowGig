@@ -6,6 +6,7 @@ use App\Band;
 use App\BandMembership;
 use App\Http\Requests;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class BandMembershipController extends Controller
 {
@@ -46,6 +47,7 @@ class BandMembershipController extends Controller
         $this->authorize('addMembers', $band);
 
         $bandMembership = new BandMembership();
+        $bandMembership->creator()->associate(Auth::user());
         $bandMembership->band()->associate($band);
         $bandMembership->fill($request->all());
         $bandMembership->save();
@@ -66,7 +68,10 @@ class BandMembershipController extends Controller
     {
         $this->authorize('update', $bandMembership);
 
-        $bandMembership->update($request->all());
+        $bandMembership->fill($request->all());
+        if ($bandMembership->isDirty())
+            $bandMembership->updater()->associate(Auth::user());
+        $bandMembership->save();
 
         // TODO: Flash band membership updated
 
@@ -83,6 +88,8 @@ class BandMembershipController extends Controller
     {
         $this->authorize('delete', $bandMembership);
 
+        $bandMembership->updater()->associate(Auth::user());
+        $bandMembership->save();
         $bandMembership->delete();
 
         // TODO: Flash band membership deleted

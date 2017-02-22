@@ -7,6 +7,7 @@ use App\SetlistSong;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Auth;
 
 class SetlistSongController extends Controller
 {
@@ -32,7 +33,7 @@ class SetlistSongController extends Controller
         $this->authorize('createSetlistSongs', $setlist->gig->band);
 
         $setlistSong = new SetlistSong();
-
+        $setlistSong->creator()->associate(Auth::user());
         $setlistSong->setlist()->associate($setlist);
         $setlistSong->fill($request->all());
         // Song associated by id in request
@@ -59,7 +60,10 @@ class SetlistSongController extends Controller
     {
         $this->authorize('update', $setlistSong);
 
-        $setlistSong->update($request->all());
+        $setlistSong->fill($request->all());
+        if ($setlistSong->isDirty())
+            $setlistSong->updater()->associate(Auth::user());
+        $setlistSong->save();
     }
 
     /**
