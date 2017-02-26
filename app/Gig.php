@@ -8,6 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Gig extends Model
 {
     /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array
+     */
+    protected $dates = ['date'];
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array
