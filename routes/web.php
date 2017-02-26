@@ -32,7 +32,7 @@ Route::get('bands/{band}/band-memberships', [
     'uses' => 'BandMembershipController@index'
 ]);
 
-Route::resource('band-memberships', 'BandMembershipController', ['only' => ['store', 'update', 'destroy']]);
+Route::resource('band-memberships', 'BandMembershipController', ['only' => ['store', 'destroy']]);
 
 // Songs
 

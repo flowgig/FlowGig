@@ -57,26 +57,6 @@ class BandMembershipController extends Controller
         return redirect()->route('band-memberships.index', $band);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @param BandMembership $bandMembership
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, BandMembership $bandMembership)
-    {
-        $this->authorize('update', $bandMembership);
-
-        $bandMembership->fill($request->all());
-        if ($bandMembership->isDirty())
-            $bandMembership->updater()->associate(Auth::user());
-        $bandMembership->save();
-
-        // TODO: Flash band membership updated
-
-        return redirect()->route('band-memberships.index', $bandMembership->band);
-    }
 
     /**
      * Remove the specified resource from storage.
