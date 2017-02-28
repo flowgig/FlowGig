@@ -63,11 +63,11 @@ class SetlistSongController extends Controller
         $setlistSong->fill($request->all());
         if ($setlistSong->isDirty()) {
             $setlistSong->updater()->associate(Auth::user());
+            $setlistSong->save(); // Only save if dirty to avoid always touching related models
             $setlist = $setlistSong->setlist;
             $setlist->updater()->associate(Auth::user());
             $setlist->save();
         }
-        $setlistSong->save();
     }
 
     /**
