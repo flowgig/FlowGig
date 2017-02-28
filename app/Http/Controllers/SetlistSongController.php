@@ -61,8 +61,12 @@ class SetlistSongController extends Controller
         $this->authorize('update', $setlistSong);
 
         $setlistSong->fill($request->all());
-        if ($setlistSong->isDirty())
+        if ($setlistSong->isDirty()) {
             $setlistSong->updater()->associate(Auth::user());
+            $setlist = $setlistSong->setlist;
+            $setlist->updater()->associate(Auth::user());
+            $setlist->save();
+        }
         $setlistSong->save();
     }
 
