@@ -32,7 +32,7 @@
                 <ul class="list menu-list">
                     @foreach($band->memberships as $membership)
                         <li itemscope itemtype="http://schema.org/MusicGroup">
-                            <span class="list-item-content">
+                            <span class="list-item-content single-line">
                                 <span itemprop="member" itemscope itemtype="http://schema.org/musicGroupMember">
                                     <span itemprop="name">{{ $membership->user->name }}</span>
                                 </span>
