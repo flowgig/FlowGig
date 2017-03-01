@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Band;
 use App\BandMembership;
 use App\Http\Requests;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -36,6 +37,23 @@ class BandMembershipController extends Controller
     }
 
     /**
+     * Show the form for creating a new band membership.
+     *
+     * @param Band $band
+     * @return \Illuminate\Http\Response
+     */
+    public function create(Band $band)
+    {
+        $this->authorize('addMembers', $band);
+
+        // Provide all users except those already members in the band:
+        $bandMembersIds = $band->memberships->pluck('user_id')->toArray();
+        $users = User::whereNotIn('id', $bandMembersIds)->get();
+
+        return view('band-memberships.create', ['band' => $band, 'users' => $users]);
+    }
+
+    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
@@ -49,14 +67,13 @@ class BandMembershipController extends Controller
         $bandMembership = new BandMembership();
         $bandMembership->creator()->associate(Auth::user());
         $bandMembership->band()->associate($band);
-        $bandMembership->fill($request->all());
+        $bandMembership->user()->associate($request->input('user_id'));
         $bandMembership->save();
 
         // TODO: Flash band membership created
 
         return redirect()->route('band-memberships.index', $band);
     }
-
 
     /**
      * Remove the specified resource from storage.
