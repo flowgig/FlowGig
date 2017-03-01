@@ -36,7 +36,7 @@ class Band extends Model
      */
     public function members()
     {
-        return $this->belongsToMany('App\User', 'band_memberships');
+        return $this->belongsToMany('App\User', 'band_memberships')->wherePivot('deleted_at', null);
     }
 
     /**
