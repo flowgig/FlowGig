@@ -28,5 +28,7 @@ class UsersTableSeeder extends Seeder
             'password' => bcrypt('fender'),
             'remember_token' => str_random(10),
         ]);
+
+        factory(App\User::class, 50)->create();
     }
 }
