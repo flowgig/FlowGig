@@ -103,20 +103,20 @@
                                     </div>
                                 @endif
                                 <a class="button button-icon button-flat button-default tooltip"
-                                   title="Show {{$gig->title}}" href="{{ route('gigs.show', $gig) }}">
+                                   title="Show {{ $gig->name }}" href="{{ route('gigs.show', $gig) }}">
                                     <span class="fa fa-eye"></span>
                                 </a>
                                 <a class="button button-icon button-flat button-default tooltip"
-                                   title="Edit {{$gig->title}}" href="{{ route('gigs.edit', $gig) }}">
+                                   title="Edit {{ $gig->name }}" href="{{ route('gigs.edit', $gig) }}">
                                     <span class="fa fa-pencil"></span>
                                 </a>
                                 <form action="{{ route('gigs.destroy', $gig) }}" method="POST">
                                     {{ csrf_field() }}
                                     {{ method_field('DELETE') }}
                                     <button type="submit"
-                                            onclick="return confirm('This deletes the gig {{ $gig->title }}')"
+                                            onclick="return confirm('This deletes the gig {{ $gig->name }}')"
                                             class="button button-icon button-flat button-default tooltip"
-                                            title="Delete {{$gig->title}}">
+                                            title="Delete {{ $gig->name }}">
                                          <span class="fa fa-trash"></span>
                                     </button>
                                  </form>
