@@ -33,7 +33,7 @@
                 </ol>
                 <h1>{{ $song->title }}</h1>
                 <div class="block text-right">
-                    <a class="button button-flat button-default" href="{{ route('songs.index', $song->band) }}">Back to list</a>
+                    <a class="button button-flat button-default" href="{{ route('songs.index', $song->band) }}">Back to song list</a>
                 </div>
             </div>
         </div>

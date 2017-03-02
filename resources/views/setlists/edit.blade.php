@@ -149,6 +149,11 @@
                     <p style="font-size: large">{{ $setlist->gig->date }}
                         at {{ $setlist->gig->venue }}, {{ $setlist->gig->location }}
                     </p>
+                    <div class="block text-right">
+                        <a class="button button-flat button-default" href="{{ route('gigs.show', $setlist->gig) }}">
+                            Back to gig
+                        </a>
+                    </div>
                     <div>
                         <ul v-sortable.li="setlistSongs" class="list sortable-list">
                             <li v-for="setlistSong in setlistSongs" class="setlistsong">
@@ -157,8 +162,9 @@
                         </ul>
                     </div>
                     <div class="block text-right">
-                        <a class="button button-flat button-default"
-                           href="{{ route('gigs.show', $setlist->gig) }}">Back to gig</a>
+                        <a class="button button-flat button-default" href="{{ route('gigs.show', $setlist->gig) }}">
+                            Back to gig
+                        </a>
                     </div>
                 </div>
             </div>

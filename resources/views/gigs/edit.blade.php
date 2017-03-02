@@ -77,6 +77,11 @@
                 </form>
                 @include('errors.validation-errors')
                 @include('meta.user-timestamps', ['model' => $gig])
+                <div class="block text-right">
+                    <a class="button button-flat button-default" href="{{ route('gigs.index', $gig->band) }}">
+                        Back to gig list
+                    </a>
+                </div>
             </div>
         </div>
     </div>

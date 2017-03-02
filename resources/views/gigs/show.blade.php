@@ -122,7 +122,7 @@
                 </ul>
                 <div class="block text-right">
                     <a class="button button-flat button-default" href="{{ route('gigs.index', $gig->band) }}">
-                        Back to list
+                        Back to gig list
                     </a>
                 </div>
             </div>

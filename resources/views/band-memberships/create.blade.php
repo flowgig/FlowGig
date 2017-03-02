@@ -33,6 +33,12 @@
                 </ol>
                 <h1>Add new band member</h1>
                 <div class="row">
+                    <div class="block text-right">
+                        <a class="button button-flat button-default"
+                           href="{{ route('band-memberships.index', $band) }}">Back to members</a>
+                    </div>
+                </div>
+                <div class="row">
                     <ul class="list menu-list">
                         @foreach($users as $user)
                             <li itemscope itemtype="http://schema.org/MusicGroup">
@@ -56,6 +62,12 @@
                             </li>
                         @endforeach
                     </ul>
+                </div>
+                <div class="row">
+                    <div class="block text-right">
+                        <a class="button button-flat button-default"
+                           href="{{ route('band-memberships.index', $band) }}">Back to members</a>
+                    </div>
                 </div>
             </div>
         </div>

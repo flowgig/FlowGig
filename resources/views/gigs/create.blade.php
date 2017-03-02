@@ -65,6 +65,11 @@
                     <div class="clearfix"></div>
                 </form>
                 @include('errors.validation-errors')
+                <div class="block text-right">
+                    <a class="button button-flat button-default" href="{{ route('gigs.index', $band) }}">
+                        Back to gig list
+                    </a>
+                </div>
             </div>
         </div>
     </div>

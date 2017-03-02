@@ -100,7 +100,7 @@
                 @include('errors.validation-errors')
                 @include('meta.user-timestamps', ['model' => $song])
                 <div class="block text-right">
-                    <a class="button button-flat button-default" href="{{ route('songs.index', $song->band_id) }}">Back to list</a>
+                    <a class="button button-flat button-default" href="{{ route('songs.index', $song->band_id) }}">Back to song list</a>
                 </div>
             </div>
         </div>

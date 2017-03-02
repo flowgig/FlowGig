@@ -27,6 +27,9 @@
                 </ol>
                 <h1>Members</h1>
                 <div class="block text-right">
+                    <a class="button button-flat button-default" href="{{ route('bands.show', $band) }}">
+                        Back to band
+                    </a>
                     <a class="button button-flat button-primary" href="{{ route('band-memberships.create', $band) }}">
                         New member
                     </a>
@@ -55,6 +58,9 @@
                     @endforeach
                 </ul>
                 <div class="block text-right">
+                    <a class="button button-flat button-default" href="{{ route('bands.show', $band) }}">
+                        Back to band
+                    </a>
                     <a class="button button-flat button-primary" href="{{ route('band-memberships.create', $band) }}">
                         New member
                     </a>

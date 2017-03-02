@@ -27,6 +27,7 @@
                 </ol>
                 <h1>Songs</h1>
                 <div class="block text-right">
+                    <a class="button button-flat button-default" href="{{ route('bands.show', $band) }}">Back to band</a>
                     <a class="button button-flat button-primary" href="{{ route('songs.create', $band) }}">New song</a>
                 </div>
                 <ul class="list menu-list">
@@ -62,6 +63,7 @@
                     @endforeach
                 </ul>
                 <div class="block text-right">
+                    <a class="button button-flat button-default" href="{{ route('bands.show', $band) }}">Back to band</a>
                     <a class="button button-flat button-primary" href="{{ route('songs.create', $band) }}">New song</a>
                 </div>
             </div>

@@ -26,7 +26,7 @@
                     <li><a href="{{ route('band-memberships.index', $band) }}">Members</a></li>
                 </ul>
                 <div class="block text-right">
-                    <a class="button button-flat button-default" href="{{ route('bands.index') }}">Back to list</a>
+                    <a class="button button-flat button-default" href="{{ route('bands.index') }}">Manage bands</a>
                 </div>
             </div>
         </div>

@@ -91,6 +91,9 @@
                     <div class="clearfix"></div>
                 </form>
                 @include('errors.validation-errors')
+                <div class="block text-right">
+                    <a class="button button-flat button-default" href="{{ route('songs.index', $band) }}">Back to song list</a>
+                </div>
             </div>
         </div>
     </div>
