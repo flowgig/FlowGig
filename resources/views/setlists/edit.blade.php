@@ -158,7 +158,7 @@
                     </div>
                     <div class="block text-right">
                         <a class="button button-flat button-default"
-                           href="{{ route('gigs.index', $setlist->gig->band) }}">Back to list</a>
+                           href="{{ route('gigs.show', $setlist->gig) }}">Back to gig</a>
                     </div>
                 </div>
             </div>

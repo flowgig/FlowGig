@@ -102,7 +102,7 @@ class SetlistController extends Controller
             $setlist->updater()->associate(Auth::user());
         $setlist->save();
 
-        return redirect()->route('gigs.index', $setlist->gig->band);
+        return redirect()->route('gigs.show', $setlist->gig);
     }
 
     /**
@@ -135,6 +135,6 @@ class SetlistController extends Controller
 
         // TODO: Flash setlist deleted
 
-        return redirect()->route('gigs.index', $setlist->gig->band);
+        return redirect()->route('gigs.show', $setlist->gig);
     }
 }

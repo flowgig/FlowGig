@@ -37,71 +37,6 @@
                                 <small>{{ $gig->date }}</small>
                             </span>
                             <span class="list-item-buttons">
-                                @if($gig->setlist)
-                                    <a class="button button-icon button-flat button-default tooltip"
-                                       title="Edit setlist" href="{{ route('setlists.edit', $gig->setlist) }}">
-                                        <span class="fa fa-list"></span>
-                                    </a>
-                                @else
-                                    <button class="toggle-elements button button-icon button-flat button-default tooltip"
-                                            title="Create setlist"
-                                            value="add-setlist-modal-{{$gig->id}}">
-                                         <span class="fa fa-plus"></span>
-                                    </button>
-                                    <div class="modal add-setlist-modal-{{$gig->id}}">
-                                        <div class="modal-container">
-                                            <div class="modal-header">
-                                                Create setlist:
-                                                <button class="modal-close toggle-elements"
-                                                        value="add-setlist-modal-{{$gig->id}}"></button>
-                                            </div>
-                                            <div class="modal-content">
-                                                <form action="{{ route('setlists.store', $gig) }}" method="POST"
-                                                      class="block">
-                                                    {{ csrf_field() }}
-                                                    <div class="row">
-                                                        <div class="input-group col-sm-12">
-                                                            <input id="setlist-new-{{ $gig->id }}"
-                                                                   name="sourceGigId" type="radio"
-                                                                   value="new"
-                                                                   data-disable-list="true"
-                                                                   data-gig-id="{{ $gig->id }}"
-                                                                   checked="checked"/>
-                                                            <label for="setlist-new-{{ $gig->id }}">Blank setlist</label>
-                                                        </div>
-                                                        <div class="clearfix"></div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="input-group col-lg-3 col-md-2 col-sm-3">
-                                                            <input id="setlist-copy-{{ $gig->id }}"
-                                                                   name="sourceGigId" type="radio"
-                                                                   value=""
-                                                                   data-disable-list="false"
-                                                                   class="setlist-copy"/>
-                                                            <label for="setlist-copy-{{ $gig->id }}">Copy from:</label>
-                                                        </div>
-                                                        <div class="input-group col-lg-9 col-md-10 col-sm-9">
-                                                            <select id="setlist-template-{{ $gig->id }}"
-                                                                    class="setlist-template" disabled>
-                                                                @foreach($band->gigsWithSetlist as $gigWithSetlist)
-                                                                    <option value="{{ $gigWithSetlist->id }}">
-                                                                        {{ $gigWithSetlist->name }}
-                                                                    </option>
-                                                                @endforeach
-                                                            </select>
-                                                            <label for="setlist-template-{{ $gig->id }}">Template</label>
-                                                        </div>
-                                                        <div class="clearfix"></div>
-                                                    </div>
-                                                    <button type="submit"
-                                                            class="button button-flat button-primary float-right tooltip"
-                                                            title="Create setlist">Create setlist
-                                                    </button>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endif
                                 <a class="button button-icon button-flat button-default tooltip"
                                    title="Show {{ $gig->name }}" href="{{ route('gigs.show', $gig) }}">
                                     <span class="fa fa-eye"></span>
@@ -130,15 +65,4 @@
             </div>
         </div>
     </div>
-    <script>
-        $(document).ready(function () {
-            $(".setlist-copy").val($(".setlist-template").val());
-        });
-        $(".setlist-template").change(function () {
-            $(".setlist-copy").val($(this).val());
-        });
-        $("input[name='sourceGigId']").change(function () {
-            $(".setlist-template").prop('disabled', $(this).data('disable-list'));
-        });
-    </script>
 @endsection
