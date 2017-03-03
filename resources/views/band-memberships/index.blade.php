@@ -47,7 +47,7 @@
                                     {{ csrf_field() }}
                                     {{ method_field('DELETE') }}
                                     <button type="submit"
-                                            onclick="return confirm('This removes {{ $membership->user->name }}')"
+                                            onclick="return validateDelete('{{ $membership->user->id }}', '{{ $membership->user->name }}')"
                                             class="button button-icon button-flat button-default tooltip"
                                             title="Remove {{ $membership->user->name }}">
                                          <span class="fa fa-trash"></span>
@@ -68,4 +68,18 @@
             </div>
         </div>
     </div>
+@endsection
+@section('scripts')
+    <script>
+        function validateDelete(userId, userName) {
+            if ({{ $band->memberships->count() }} == 1) {
+                alert('You are the last member and cannot be removed.\n(You\'ll have to delete the band)');
+                return false;
+            }
+            else if (userId == {{ Auth::user()->id }}) {
+                return confirm('This completely removes your access to the band {{ $band->name }}')
+            }
+            return confirm('This removes ' + userName)
+        }
+    </script>
 @endsection

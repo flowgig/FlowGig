@@ -45,6 +45,8 @@ class BandMembershipPolicy
      */
     public function delete(User $user, BandMembership $bandMembership)
     {
-        return $bandMembership->band->hasMember($user);
+        return $bandMembership->band->hasMember($user)
+            &&  $bandMembership->band->memberships->count() > 1;
+            // TODO: Ensure band has other admins
     }
 }
