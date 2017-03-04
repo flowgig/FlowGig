@@ -8,19 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Gig extends Model
 {
     /**
-     * The "booting" method of the model.
+     * The attributes that should be mutated to dates.
      *
-     * @return void
+     * @var array
      */
-    protected static function boot()
-    {
-        parent::boot();
-
-        // Excludes the system gig for the band on every normal gigs query
-        static::addGlobalScope('omitSystemGig', function (Builder $builder) {
-            $builder->where('name', '<>', '_system_');
-        });
-    }
+    protected $dates = ['date'];
 
     /**
      * The attributes that are mass assignable.
@@ -30,6 +22,22 @@ class Gig extends Model
     protected $fillable = [
         'name', 'date', 'venue', 'location', 'confirmed'
     ];
+
+    /**
+     * Get the creator of the gig
+     */
+    public function creator()
+    {
+        return $this->belongsTo('App\User', 'created_by');
+    }
+
+    /**
+     * Get the updater of the gig
+     */
+    public function updater()
+    {
+        return $this->belongsTo('App\User', 'updated_by');
+    }
 
     /**
      * Get the band for the gig.

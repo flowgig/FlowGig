@@ -53,7 +53,7 @@ class BandController extends Controller
             'name' => 'required|max:80',
         ]);
 
-        BandService::create($request->input('name'));
+        BandService::create($request->input('name'), Auth::user());
 
         // TODO: Flash band stored
 
@@ -101,7 +101,10 @@ class BandController extends Controller
             'name' => 'required|max:80',
         ]);
 
-        $band->update($request->all());
+        $band->fill($request->all());
+        if ($band->isDirty())
+            $band->updater()->associate(Auth::user());
+        $band->save();
 
         // TODO: Flash band updated
 

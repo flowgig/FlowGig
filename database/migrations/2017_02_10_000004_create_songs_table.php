@@ -16,9 +16,9 @@ class CreateSongsTable extends Migration
             $table->increments('id');
             $table->integer('band_id')->unsigned();
             $table->text('title');
-            $table->text('artist');
-            $table->text('music_by');
-            $table->text('lyrics_by');
+            $table->text('artist')->nullable();
+            $table->text('music_by')->nullable();
+            $table->text('lyrics_by')->nullable();
             $table->timestamps();
             $table->softDeletes();
 
@@ -33,6 +33,6 @@ class CreateSongsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('songs');
+        Schema::dropIfExists('songs');
     }
 }

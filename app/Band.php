@@ -16,11 +16,27 @@ class Band extends Model
     ];
 
     /**
+     * Get the creator of the band
+     */
+    public function creator()
+    {
+        return $this->belongsTo('App\User', 'created_by');
+    }
+
+    /**
+     * Get the updater of the band
+     */
+    public function updater()
+    {
+        return $this->belongsTo('App\User', 'updated_by');
+    }
+
+    /**
      * Get the the band members.
      */
     public function members()
     {
-        return $this->belongsToMany('App\User', 'band_memberships');
+        return $this->belongsToMany('App\User', 'band_memberships')->wherePivot('deleted_at', null);
     }
 
     /**
@@ -53,14 +69,6 @@ class Band extends Model
     public function gigsWithSetlist()
     {
         return $this->gigs()->has('setlist');
-    }
-
-    /**
-     * Get the system gig for the band.
-     */
-    public function systemGig()
-    {
-        return $this->gigs()->withoutGlobalScope('omitSystemGig')->whereName('_system_')->first();
     }
 
     /**

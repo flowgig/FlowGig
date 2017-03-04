@@ -3,29 +3,24 @@
 namespace App\Services;
 
 use App\Band;
-use App\Gig;
-use App\Setlist;
 use Illuminate\Support\Facades\Auth;
 
 class BandService
 {
     /**
-     * Creates a new band with required related models
+     * Creates a new band and makes the creator a member
      *
      * @param $bandName
+     * @param $creator
      * @return Band
      */
-    public static function create($bandName)
+    public static function create($bandName, $creator)
     {
-        $band = Band::create(['name' => $bandName]);
+        $band = new Band(['name' => $bandName]);
+        $band->creator()->associate($creator);
+        $band->save();
+        $band->members()->attach($creator);
 
-        $band->members()->attach(Auth::user());
-
-        $hiddenSystemGig = new Gig(['name' => '_system_']);
-        $band->gigs()->save($hiddenSystemGig);
-
-        $defaultValuesSetlistSongs = new Setlist();
-        $hiddenSystemGig->setlist()->save($defaultValuesSetlistSongs);
 
         return $band;
     }

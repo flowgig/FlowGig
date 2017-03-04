@@ -7,6 +7,7 @@ use App\SetlistSong;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Auth;
 
 class SetlistSongController extends Controller
 {
@@ -32,11 +33,17 @@ class SetlistSongController extends Controller
         $this->authorize('createSetlistSongs', $setlist->gig->band);
 
         $setlistSong = new SetlistSong();
-
+        $setlistSong->creator()->associate(Auth::user());
         $setlistSong->setlist()->associate($setlist);
         $setlistSong->fill($request->all());
-        $setlistSong->fill($setlistSong->song->getSetlistDefaults());
-
+        // Song associated by id in request
+        $song = $setlistSong->song;
+        $setlistSong->fill([
+            'key' => $song->key,
+            'bpm' => $song->bpm,
+            'duration' => $song->duration,
+            'intensity' => $song->intensity
+        ]);
         $setlistSong->save();
 
         return $setlistSong;
@@ -53,7 +60,14 @@ class SetlistSongController extends Controller
     {
         $this->authorize('update', $setlistSong);
 
-        $setlistSong->update($request->all());
+        $setlistSong->fill($request->all());
+        if ($setlistSong->isDirty()) {
+            $setlistSong->updater()->associate(Auth::user());
+            $setlistSong->save(); // Only save if dirty to avoid always touching related models
+            $setlist = $setlistSong->setlist;
+            $setlist->updater()->associate(Auth::user());
+            $setlist->save();
+        }
     }
 
     /**

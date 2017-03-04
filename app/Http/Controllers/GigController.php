@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Band;
 use App\Gig;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -64,14 +65,10 @@ class GigController extends Controller
         ]);
 
         $gig = new Gig();
+        $gig->creator()->associate(Auth::user());
         $gig->band()->associate($band);
         $gig->fill($request->all());
-
-        if(empty($request->input('date')))
-            $gig->date = null; // TODO: Use middelware (Laravel 5.4)
-
         $gig->confirmed = $request->input('confirmed') != null;
-
         $gig->save();
 
         // TODO: Flash setlist stored
@@ -121,12 +118,9 @@ class GigController extends Controller
         ]);
 
         $gig->fill($request->all());
-
-        if(empty($request->input('date')))
-            $gig->date = null; // TODO: Use middelware (Laravel 5.4)
-
         $gig->confirmed = $request->input('confirmed') != null;
-
+        if ($gig->isDirty())
+            $gig->updater()->associate(Auth::user());
         $gig->save();
 
         // TODO: Flash gig updated

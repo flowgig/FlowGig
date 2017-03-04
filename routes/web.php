@@ -37,7 +37,17 @@ Route::get('bands/{band}/band-memberships', [
     'uses' => 'BandMembershipController@index'
 ]);
 
-Route::resource('band-memberships', 'BandMembershipController', ['only' => ['store', 'update', 'destroy']]);
+Route::get('bands/{band}/band-memberships/create', [
+    'as' => 'band-memberships.create',
+    'uses' => 'BandMembershipController@create'
+]);
+
+Route::post('bands/{band}/band-memberships', [
+    'as' => 'band-memberships.store',
+    'uses' => 'BandMembershipController@store'
+]);
+
+Route::resource('band-memberships', 'BandMembershipController', ['only' => ['destroy']]);
 
 // Songs
 

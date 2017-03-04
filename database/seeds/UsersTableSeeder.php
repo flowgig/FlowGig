@@ -19,12 +19,16 @@ class UsersTableSeeder extends Seeder
             'name' => 'Bob Rocker',
             'email' => 'bob@flowgig.com',
             'password' => bcrypt('fender'),
+            'remember_token' => str_random(10),
         ]);
 
         User::create([
             'name' => 'Tina Sweeper',
             'email' => 'tina@flowgig.com',
             'password' => bcrypt('fender'),
+            'remember_token' => str_random(10),
         ]);
+
+        factory(App\User::class, 50)->create();
     }
 }

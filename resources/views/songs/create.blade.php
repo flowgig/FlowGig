@@ -55,33 +55,32 @@
                         </div>
                     </div>
                     <div class="clearfix"></div>
-                    <h2>Default setup for setlists</h2>
                     <div class="row">
-                        <div class="input-group col-sm-4">
+                        <div class="input-group col-sm-12">
+                            <p>You may set the following values different every time you add this song to a setlist,
+                                but values entered here will be used as default</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-group col-sm-6">
                             {{-- Use selectbox (as in setlist edit) --}}
                             <input type="text" name="key" placeholder="C, Bb, etc."/>
                             <label for="key">Key</label>
                         </div>
-                        <div class="input-group col-sm-4">
+                        <div class="input-group col-sm-6">
                             <input type="number" name="bpm" min="0" placeholder="Beats Per Minute"/>
                             <label for="bpm">BPM</label>
                         </div>
-                        <div class="input-group col-sm-4">
+                    </div>
+                    <div class="row">
+                        <div class="input-group col-sm-6">
                             <input type="number" name="duration" min="0" placeholder="Minutes"/>
                             <label for="duration">Duration</label>
                         </div>
-                        <div class="clearfix"></div>
-                    </div>
-                    <div class="row">
-                        <div class="input-group col-sm-4">
+                        <div class="input-group col-sm-6">
                             <input type="number" name="intensity" min="1" max="10" placeholder="1&ndash;10 (Ballad&ndash;Bebop)"/>
                             <label for="intensity">Intensity</label>
                         </div>
-                        <div class="input-group col-md-8">
-                            <input type="text" name="comment"/>
-                            <label for="comment">Comment</label>
-                        </div>
-                        <div class="clearfix"></div>
                     </div>
                     <div class="clearfix"></div>
                     <div class="row">
@@ -92,6 +91,9 @@
                     <div class="clearfix"></div>
                 </form>
                 @include('errors.validation-errors')
+                <div class="block text-right">
+                    <a class="button button-flat button-default" href="{{ route('songs.index', $band) }}">Back to song list</a>
+                </div>
             </div>
         </div>
     </div>

@@ -12,7 +12,7 @@ class SetlistSong extends Model
      * @var array
      */
     protected $fillable = [
-        'setlist_id', 'song_id', 'number_in_list', 'setnumber', 'key', 'bpm', 'duration', 'intensity', 'comment'
+        'setlist_id', 'song_id', 'number_in_list', 'key', 'bpm', 'duration', 'intensity', 'comment'
     ];
 
     /**
@@ -21,6 +21,23 @@ class SetlistSong extends Model
      * @var array
      */
     protected $touches = ['setlist'];
+
+
+    /**
+     * Get the creator of the setlist song
+     */
+    public function creator()
+    {
+        return $this->belongsTo('App\User', 'created_by');
+    }
+
+    /**
+     * Get the updater of the setlist song
+     */
+    public function updater()
+    {
+        return $this->belongsTo('App\User', 'updated_by');
+    }
 
      /**
      * Get the setlist for the setlist song.

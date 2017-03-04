@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Band;
 use App\BandMembership;
 use App\Http\Requests;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class BandMembershipController extends Controller
 {
@@ -35,6 +37,23 @@ class BandMembershipController extends Controller
     }
 
     /**
+     * Show the form for creating a new band membership.
+     *
+     * @param Band $band
+     * @return \Illuminate\Http\Response
+     */
+    public function create(Band $band)
+    {
+        $this->authorize('addMembers', $band);
+
+        // Provide all users except those already members in the band:
+        $bandMembersIds = $band->memberships->pluck('user_id')->toArray();
+        $users = User::whereNotIn('id', $bandMembersIds)->get();
+
+        return view('band-memberships.create', ['band' => $band, 'users' => $users]);
+    }
+
+    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
@@ -46,31 +65,14 @@ class BandMembershipController extends Controller
         $this->authorize('addMembers', $band);
 
         $bandMembership = new BandMembership();
+        $bandMembership->creator()->associate(Auth::user());
         $bandMembership->band()->associate($band);
-        $bandMembership->fill($request->all());
+        $bandMembership->user()->associate($request->input('user_id'));
         $bandMembership->save();
 
         // TODO: Flash band membership created
 
         return redirect()->route('band-memberships.index', $band);
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @param BandMembership $bandMembership
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, BandMembership $bandMembership)
-    {
-        $this->authorize('update', $bandMembership);
-
-        $bandMembership->update($request->all());
-
-        // TODO: Flash band membership updated
-
-        return redirect()->route('band-memberships.index', $bandMembership->band);
     }
 
     /**
@@ -83,6 +85,8 @@ class BandMembershipController extends Controller
     {
         $this->authorize('delete', $bandMembership);
 
+        $bandMembership->updater()->associate(Auth::user());
+        $bandMembership->save();
         $bandMembership->delete();
 
         // TODO: Flash band membership deleted

@@ -43,8 +43,8 @@
                     at {{ $setlist->gig->venue }}, {{ $setlist->gig->location }}
                 </p>
                 <div class="block text-right">
-                    <a class="button button-flat button-default" href="{{ route('gigs.index', $setlist->gig->band) }}">
-                        Back to list
+                    <a class="button button-flat button-default" href="{{ route('gigs.show', $setlist->gig) }}">
+                        Back to gig
                     </a>
                 </div>
             </div>

@@ -15,15 +15,8 @@ class SetlistsTableSeeder extends Seeder
         DB::table('setlists')->delete();
 
         Setlist::create([
-            'gig_id' => 1 // system gig, band 1
-        ]);
-
-        Setlist::create([
-            'gig_id' => 2 // system gig, band 2
-        ]);
-
-        Setlist::create([
-            'gig_id' => 3 // normal gig, band 1
+            'gig_id' => 1,
+            'created_by' => 1
         ]);
     }
 }

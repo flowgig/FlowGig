@@ -14,7 +14,7 @@ class BandMembershipTableSeeder extends Seeder
     {
         DB::table('band_memberships')->delete();
 
-        \App\BandMembership::create(['user_id' => 1, 'band_id' => 1]);
-        \App\BandMembership::create(['user_id' => 1, 'band_id' => 2]);
+        \App\BandMembership::create(['user_id' => 1, 'band_id' => 1, 'created_by' => 1]);
+        \App\BandMembership::create(['user_id' => 1, 'band_id' => 2, 'created_by' => 1]);
     }
 }
