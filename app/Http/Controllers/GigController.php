@@ -62,6 +62,7 @@ class GigController extends Controller
 
         $this->validate($request, [
             'name' => 'required|max:60',
+            'date' => 'date_format:Y-m-d',
         ]);
 
         $gig = new Gig();
@@ -115,6 +116,7 @@ class GigController extends Controller
 
         $this->validate($request, [
             'name' => 'required|max:60',
+            'date' => 'date_format:Y-m-d',
         ]);
 
         $gig->fill($request->all());
