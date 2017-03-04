@@ -114,7 +114,6 @@ module.exports.module = {
                 postcss: Mix.options.postCss
             }
         },
-
         {
             test: /\.jsx?$/,
             exclude: /(node_modules|bower_components)/,
@@ -188,7 +187,7 @@ if (Mix.preprocessors) {
  */
 
 module.exports.resolve = {
-    extensions: ['*', '.js', '.jsx', '.vue'],
+    extensions: ['*', '.js', '.ts', '.jsx', '.vue'],
 
     alias: {
         'vue$': 'vue/dist/vue.common.js'

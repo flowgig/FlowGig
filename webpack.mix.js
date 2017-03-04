@@ -1,4 +1,5 @@
 let mix = require('laravel-mix');
+let path = require('path');
 
 /*
  |--------------------------------------------------------------------------
@@ -15,24 +16,43 @@ let mix = require('laravel-mix');
 //var ExtractTextPlugin = require('extract-text-webpack-plugin');
 /*
 
-const sassLoader = ExtractTextPlugin.extract({
-    loader: 'css-loader!sass-loader'
-});
-*/
-//mix.webpackConfig({
-  /*  module: {
+ const sassLoader = ExtractTextPlugin.extract({
+ loader: 'css-loader!sass-loader'
+ });
+ */
+mix.webpackConfig({
+    module: {
         rules: [
+            /*        {
+             test: /\.scss$/,
+             loader: sassLoader,
+             exclude: '/node_modules/'
+             },*/
             {
-                test: /\.scss$/,
-                loader: sassLoader,
-                exclude: '/node_modules/'
+                test: /\.ts(x?)$/,
+               // exclude: [/node_modules(?!\/quark-gui)/, /vendor/],
+
+                loader: 'babel-loader!ts-loader'
             }
         ]
-    },*/
- /*   plugins: [
-        new ExtractTextPlugin('css/app.css')
-    ]
-});*/
+    }
+});
+
+//                exclude: /(node_modules|vendor)\/(?!(quark-gui)\/).*/,
+
+
+/*
+module.exports.resolve = {
+    extensions:  ['.webpack.js', '.web.js', '.ts', '.tsx', '.js']
+};*/
+
+//mix.webpackConfig({})
+
+
+/*   plugins: [
+ new ExtractTextPlugin('css/app.css')
+ ]
+ });*/
 
 mix.js('resources/assets/js/app.js', 'public/js')
     .sass('resources/assets/sass/app.scss', 'public/css')

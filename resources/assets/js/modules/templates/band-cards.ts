@@ -1,20 +1,14 @@
-const quark = require('quark-gui');
-var axios = require('axios');
-var grid = quark.molecules.sections.grid;
-var card = quark.organisms.cards.card;
-var listMenu = quark.organisms.menus.listMenu;
-var kort = quark.organisms.cards.card;
+import * as quark from 'quark-gui';
+let axios: any = require('axios');
 
+let Card = quark.Modules.Organisms.Cards.Card;
+let ListMenu = quark.Modules.Organisms.Menus.ListMenu;
+let Grid = quark.Modules.Molecules.Sections.Grid;
 
-var kort2 = kort({
-
-})
-
-var kort1 = kort({
+var kort1 = quark.Modules.Organisms.Cards.Card.getModule({
     theme: "primary",
-    id: "id4",
     title: "kortetstittel",
-    content: listMenu({title: "hey"})
+    content: ListMenu.getModule({id: "liste1", hover: true})
 });
 function createListItems(band){
     var listItems = [
@@ -49,11 +43,10 @@ function createListItems(band){
 }
 
 function createCardElement(band) {
-    var cardElement = card({
-        id: 'band-card-' + band.id,
+    var cardElement = Card.getModule({
         title: band.name,
         theme: 'primary',
-        content: listMenu({
+        content: ListMenu.getModule({
             id: 'band-card-list-' + band.id,
             hover: true,
             listItems: createListItems(band)
@@ -75,23 +68,25 @@ function createGridElement(bands) {
             content: createCardElement(band)
         });
     });
-    var gridElement = grid({
+    var gridElement = Grid.getModule({
         gridItems: gridItems
     })
     return gridElement;
 }
 
 function getCards(containerId) {
-    var containerElement = document.getElementById(containerId) !== null ? document.getElementById(containerId) : false;
+    let containerElementIsDefined: boolean = document.getElementById(containerId) !== null;
+    if (containerElementIsDefined) {
+        let containerElement = document.getElementById(containerId);
+        axios.get('/quark').then(
+            function (response) {
+                var bands = response.data;
+                var gridElement = createGridElement(bands);
 
-    axios.get('/quark').then(
-        function (response) {
-            var bands = response.data;
-            var gridElement = createGridElement(bands);
-
-            containerElement.innerHTML = gridElement;
-        }
-    )
+                containerElement.innerHTML = gridElement;
+            }
+        )
+    }
 }
 
 export default function (containerId) {
