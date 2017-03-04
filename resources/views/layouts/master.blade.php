@@ -8,14 +8,6 @@
             background-image: none;
         }
 
-        .main-content {
-            background-color: #FFFFFF;
-        }
-
-        .box {
-            border-radius: 0;
-        }
-
         .list-title {
             display: block;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
@@ -67,11 +59,5 @@
     </div>
 </div>
 @yield('scripts')
-<script>
-    $(document).on("change", ".input-group input", function () {
-        $(this).removeClass("is-not-empty");
-        if ($(this).val() !== "") $(this).addClass("is-not-empty");
-    });
-</script>
 </body>
 </html>
