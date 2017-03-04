@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es5",
+    "sourceMap": true
+  },
+  "files": [
+    "quark-gui/types/quark-gui.d.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
