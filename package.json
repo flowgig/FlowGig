@@ -16,6 +16,6 @@
     "vue": "^2.1.10"
   },
   "dependencies": {
-    "quark-gui": "^0.3.3"
+    "quark-gui": "^0.4.0"
   }
 }
