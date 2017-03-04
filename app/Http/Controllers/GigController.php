@@ -61,7 +61,7 @@ class GigController extends Controller
         $this->authorize('createGigs', $band);
 
         $this->validate($request, [
-            'name' => 'required|max:60|not_in:_system_'
+            'name' => 'required|max:60',
         ]);
 
         $gig = new Gig();
@@ -114,7 +114,7 @@ class GigController extends Controller
         $this->authorize('update', $gig);
 
         $this->validate($request, [
-            'name' => 'required|max:60|not_in:_system_'
+            'name' => 'required|max:60',
         ]);
 
         $gig->fill($request->all());
