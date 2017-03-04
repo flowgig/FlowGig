@@ -55,7 +55,8 @@
                             <label for="location">Location</label>
                         </div>
                         <div class="input-group col-sm-4">
-                            <input type="text" name="date" id="date" value="{{ $gig->date }}"/>
+                            <input type="text" name="date" id="date"
+                                   value="{{ $gig->date ? $gig->date->format('Y-m-d') : "" }}" />
                             <label for="date">Date</label>
                         </div>
                         <div class="input-group col-sm-4">
@@ -85,4 +86,18 @@
             </div>
         </div>
     </div>
+
+    {{-- TODO: Remove temporary date-picker --}}
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $("#date").datepicker({
+                dateFormat: "yy-mm-dd"
+            });
+        });
+    </script>
+
 @endsection
