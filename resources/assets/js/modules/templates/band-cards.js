@@ -1,13 +1,42 @@
-var quark = require('quark-gui');
+const quark = require('quark-gui');
 var axios = require('axios');
 var grid = quark.molecules.sections.grid;
 var card = quark.organisms.cards.card;
 var listMenu = quark.organisms.menus.listMenu;
+var kort = quark.organisms.cards.card;
 
+
+var kort2 = kort({
+
+})
+
+var kort1 = kort({
+    theme: "primary",
+    id: "id4",
+    title: "kortetstittel",
+    content: listMenu({title: "hey"})
+});
 function createListItems(band){
     var listItems = [
         {
-            title: 'Songs'
+            title: 'Songs',
+            buttonRow: {
+                id: 'list-menu-button-row1',
+                buttons: [
+                    {
+                        id: 'list-menu-buttonrow-button1',
+                        iconClass: 'fa fa-home'
+                    },
+                    {
+                        id: 'list-menu-buttonrow-button2',
+                        iconClass: 'fa fa-cog'
+                    },
+                    {
+                        id: 'list-menu-buttonrow-button3',
+                        iconClass: 'fa fa-list'
+                    }
+                ]
+            }
         },
         {
             title: 'Gigs'
