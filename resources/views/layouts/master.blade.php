@@ -25,7 +25,7 @@
         }
     </style>
 </head>
-<body>
+<body id="app">
 <script>
     (function (i, s, o, g, r, a, m) {
         i['GoogleAnalyticsObject'] = r;

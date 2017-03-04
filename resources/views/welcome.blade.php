@@ -7,6 +7,11 @@
                 <a class="button button-flat button-primary" href="/login">Log in</a>
                 <div class="clearfix"></div>
             </div>
+            <div id="test-app"></div>
+            <script>
+
+
+            </script>
             {{--
             <div class="content">
                 <div class="input-group">
