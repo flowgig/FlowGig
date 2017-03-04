@@ -24,6 +24,16 @@ class Gig extends Model
     ];
 
     /**
+     * Get the formatted date for the gig if any
+     *
+     * @return mixed
+     */
+    public function date()
+    {
+        return $this->date ? $this->date->toDateString() : "";
+    }
+
+    /**
      * Get the creator of the gig
      */
     public function creator()

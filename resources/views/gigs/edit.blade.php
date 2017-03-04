@@ -56,7 +56,7 @@
                         </div>
                         <div class="input-group col-sm-4">
                             <input type="text" name="date" id="date"
-                                   value="{{ $gig->date ? $gig->date->format('Y-m-d') : "" }}" />
+                                   value="{{ $gig->date() }}" />
                             <label for="date">Date</label>
                         </div>
                         <div class="input-group col-sm-4">

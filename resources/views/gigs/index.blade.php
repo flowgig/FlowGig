@@ -35,7 +35,7 @@
                         <li>
                             <span class="list-item-content">
                                 {{ $gig->name }}
-                                <small>{{ $gig->date }}</small>
+                                <small>{{ $gig->date() }}</small>
                             </span>
                             <span class="list-item-buttons">
                                 <a class="button button-icon button-flat button-default tooltip"
