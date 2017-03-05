@@ -76,6 +76,12 @@ $factory->define(App\Gig::class, function (Faker\Generator $faker) {
         'Stadium'
     ];
 
+    $statuses = [
+        'Proposed',
+        'Settled',
+        'Public',
+    ];
+
     return [
         'created_by' => 1,
         'band_id' => 1,
@@ -83,6 +89,6 @@ $factory->define(App\Gig::class, function (Faker\Generator $faker) {
         'date' => $faker->dateTime,
         'venue' => $faker->streetName . ' ' . $faker->randomElement($streetNameVenueSuffix),
         'location' => $faker->city,
-        'confirmed' => $faker->boolean
+        'status' => $faker->randomElement($statuses)
     ];
 });
