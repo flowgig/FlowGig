@@ -44,7 +44,7 @@
                                     <span class="fa fa-globe" title="Status: Public">&nbsp;</span>
                                 @endif
                                 {{ $gig->name }}
-                                <small>{{ $gig->date() }}</small>
+                                <small>{{ $gig->date() }} - {{ $gig->venue }} - {{ $gig->location }}</small>
                             </span>
                             <span class="list-item-buttons">
                                 <a class="button button-icon button-flat button-default tooltip"
