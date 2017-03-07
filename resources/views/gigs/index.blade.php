@@ -34,6 +34,15 @@
                     @foreach($band->gigs->sortByDesc('date') as $gig)
                         <li>
                             <span class="list-item-content">
+                                @if($gig->status == 'Proposed')
+                                    <span class="fa fa-question-circle-o" title="Status: Proposed">&nbsp;</span>
+                                @endif
+                                @if($gig->status == 'Settled')
+                                    <span class="fa fa-check-circle-o " title="Status: Settled">&nbsp;</span>
+                                @endif
+                                @if($gig->status == 'Public')
+                                    <span class="fa fa-globe" title="Status: Public">&nbsp;</span>
+                                @endif
                                 {{ $gig->name }}
                                 <small>{{ $gig->date() }}</small>
                             </span>
