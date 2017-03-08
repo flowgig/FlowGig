@@ -63,6 +63,7 @@ class SongController extends Controller
 
         $this->validate($request, [
             'title' => 'required|max:80',
+            'key' => 'max:3'
         ]);
 
         SongService::create($request->all(), $band, Auth::user());
@@ -111,6 +112,7 @@ class SongController extends Controller
 
         $this->validate($request, [
             'title' => 'required|max:80',
+            'key' => 'max:3'
         ]);
 
         $song->fill($request->all());
