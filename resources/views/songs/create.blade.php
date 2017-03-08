@@ -63,8 +63,7 @@
                     </div>
                     <div class="row">
                         <div class="input-group col-sm-6">
-                            {{-- Use selectbox (as in setlist edit) --}}
-                            <input type="text" name="key" placeholder="C, Bb, etc."/>
+                            @include('songs.key-select')
                             <label for="key">Key</label>
                         </div>
                         <div class="input-group col-sm-6">
