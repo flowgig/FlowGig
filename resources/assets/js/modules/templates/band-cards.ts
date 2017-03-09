@@ -1,15 +1,9 @@
-import * as quark from 'quark-gui';
+import * as quark from "quark-gui";
 let axios: any = require('axios');
+let Card = quark.Organisms.Cards.Card;
+let ListMenu = quark.Organisms.Menus.ListMenu;
+let Grid = quark.Molecules.Sections.Grid;
 
-let Card = quark.Modules.Organisms.Cards.Card;
-let ListMenu = quark.Modules.Organisms.Menus.ListMenu;
-let Grid = quark.Modules.Molecules.Sections.Grid;
-
-var kort1 = quark.Modules.Organisms.Cards.Card.getModule({
-    theme: "primary",
-    title: "kortetstittel",
-    content: ListMenu.getModule({id: "liste1", hover: true})
-});
 function createListItems(band){
     var listItems = [
         {
@@ -56,14 +50,14 @@ function createCardElement(band) {
 }
 
 function createGridElement(bands) {
-    var gridItems = [];
+    let gridItems: quark.Molecules.Sections.Grid.IGridItem[] = [];
     bands.forEach(function(band){
         gridItems.push({
             sizes: {
-                xs: 12,
-                sm: 6,
-                md: 4,
-                lg: 4
+                phone: 12,
+                tablet: 6,
+                tabletLandscape: 4,
+                screen: 4
             },
             content: createCardElement(band)
         });
@@ -92,4 +86,3 @@ function getCards(containerId) {
 export default function (containerId) {
     return getCards(containerId);
 }
-

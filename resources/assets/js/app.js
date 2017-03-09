@@ -19,14 +19,14 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     var headerContainer = document.getElementById('header')
-    headerContainer.innerHTML = header;
+    headerContainer.innerHTML = header.default;
     console.log(header);
 
 
     var dashboardContainer = document.getElementById('dashboard') !== null ? document.getElementById('dashboard') : false;
     if (dashboardContainer) {
         var dashboard = require('./modules/pages/dashboard');
-        dashboardContainer.innerHTML = dashboard;
+        dashboardContainer.innerHTML = dashboard.default;
     }
 
 }, false);

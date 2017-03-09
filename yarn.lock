@@ -754,7 +754,7 @@ babel-plugin-transform-strict-mode@^6.22.0:
     babel-runtime "^6.22.0"
     babel-types "^6.22.0"
 
-babel-preset-es2015@^6.18.0:
+babel-preset-es2015@^6.18.0, babel-preset-es2015@^6.22.0:
   version "6.22.0"
   resolved "https://registry.yarnpkg.com/babel-preset-es2015/-/babel-preset-es2015-6.22.0.tgz#af5a98ecb35eb8af764ad8a5a05eb36dc4386835"
   dependencies:
@@ -869,6 +869,10 @@ babel-types@^6.19.0, babel-types@^6.22.0, babel-types@^6.23.0:
     esutils "^2.0.2"
     lodash "^4.2.0"
     to-fast-properties "^1.0.1"
+
+babel@^6.23.0:
+  version "6.23.0"
+  resolved "https://registry.yarnpkg.com/babel/-/babel-6.23.0.tgz#d0d1e7d803e974765beea3232d4e153c0efb90f4"
 
 babylon@^6.11.0, babylon@^6.15.0:
   version "6.16.1"
@@ -3348,6 +3352,13 @@ less-loader@^2.2.3, less-loader@~2.2.0:
   dependencies:
     loader-utils "^0.2.5"
 
+less-loader@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/less-loader/-/less-loader-3.0.0.tgz#199f7f4a79ff8a195ab47649d71c6d7109da32b9"
+  dependencies:
+    clone-deep "^0.2.4"
+    loader-utils "^1.0.2"
+
 less@^2.7.1:
   version "2.7.2"
   resolved "https://registry.yarnpkg.com/less/-/less-2.7.2.tgz#368d6cc73e1fb03981183280918743c5dcf9b3df"
@@ -4165,7 +4176,13 @@ on-headers@~1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/on-headers/-/on-headers-1.0.1.tgz#928f5d0f470d49342651ea6794b0857c100693f7"
 
-once@^1.3.0, once@~1.3.0, once@~1.3.3:
+once@^1.3.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/once/-/once-1.4.0.tgz#583b1aa775961d4b113ac17d9c50baef9dd76bd1"
+  dependencies:
+    wrappy "1"
+
+once@~1.3.0, once@~1.3.3:
   version "1.3.3"
   resolved "https://registry.yarnpkg.com/once/-/once-1.3.3.tgz#b2e261557ce4c314ec8304f3fa82663e4297ca20"
   dependencies:
@@ -4730,13 +4747,13 @@ qs@~6.3.0:
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.3.2.tgz#e75bd5f6e268122a2a0e0bda630b2550c166502c"
 
 quark-gui@^0.4.0:
-  version "0.4.7"
-  resolved "https://registry.yarnpkg.com/quark-gui/-/quark-gui-0.4.7.tgz#229cda112df8de72b54295933470a1cc14371b65"
+  version "0.4.8"
+  resolved "https://registry.yarnpkg.com/quark-gui/-/quark-gui-0.4.8.tgz#b86b6fe6fde06a459ec81d306a5dcf6f26a2b560"
   dependencies:
     dragula "^3.7.2"
     font-awesome "^4.7.0"
     font-awesome-webpack "^0.0.4"
-    less-loader "^2.2.3"
+    less-loader "^3.0.0"
 
 query-string@^4.1.0:
   version "4.3.2"

@@ -70,4 +70,4 @@ let header = quark.Organisms.Global.Header.getModule({
     }
 });
 
-export = header;
+export default header;

@@ -1,5 +1,4 @@
-import Dashboard from '../pages/dashboard';
 
-const body = `<div id="dashboard"></div> ${Dashboard}`;
+const body = '<div id="dashboard"></div>';
 
 export default body;
