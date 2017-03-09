@@ -40,9 +40,10 @@
 {{-- TODO: Use ['currentBand' => $currentBand ?? null] when on PHP 7 --}}
 
 @yield('actionbar')
+<header id="header"></header>
 <div class="main-content">
     <div class="container">
-
+        <div id="page"></div>
         @yield('content')
         <footer>
             <div class="container">

@@ -6,17 +6,22 @@
 
 // require('./bootstrap');
 
-var quark = require('quark-gui');
+import * as header from './modules/global/global';
 
 
 document.addEventListener('DOMContentLoaded', function () {
 
-    /* var mainContainer = document.getElementById('app') !== null ? document.getElementById('app') : false;
+    var mainContainer = document.getElementById('page') !== null ? document.getElementById('page') : false;
     if (mainContainer) {
         var body = require('./modules/global/body');
         console.log(body);
         mainContainer.innerHTML = body.default;
-    }*/
+    }
+
+    var headerContainer = document.getElementById('header')
+    headerContainer.innerHTML = header;
+    console.log(header);
+
 
     var dashboardContainer = document.getElementById('dashboard') !== null ? document.getElementById('dashboard') : false;
     if (dashboardContainer) {
