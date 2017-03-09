@@ -15,8 +15,5 @@
     "bower_components",
     "test",
     "tests"
-  ],
-  "dependencies": {
-    "simple-gui-template": "^0.2.7"
-  }
+  ]
 }
