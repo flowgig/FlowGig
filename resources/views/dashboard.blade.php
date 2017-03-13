@@ -15,7 +15,38 @@
                 </ol>
                 <h1>My FlowGig</h1>
                 <p>Name: {{ $user->name }}</p>
-                {{ $user->email }}
+                <p>{{ $user->email }}</p>
+                <br>
+                <h2>Upcoming gigs</h2>
+                <div class="row">
+                    <ul class="list menu-list">
+                        @foreach($user->upcomingGigs()->sortBy('date') as $gig)
+                            <li>
+                            <span class="list-item-content">
+                                @if($gig->status == 'Proposed')
+                                    <span class="fa fa-question-circle-o" title="Status: Proposed">&nbsp;</span>
+                                @endif
+                                @if($gig->status == 'Settled')
+                                    <span class="fa fa-check-circle-o " title="Status: Settled">&nbsp;</span>
+                                @endif
+                                @if($gig->status == 'Public')
+                                    <span class="fa fa-globe" title="Status: Public">&nbsp;</span>
+                                @endif
+                                {{ $gig->name }}
+                                <small class="inline"> with {{ $gig->band->name }}</small>
+                                <small>{{ $gig->date() }} - {{ $gig->venue }} - {{ $gig->location }}</small>
+                            </span>
+                                <span class="list-item-buttons">
+                                <a class="button button-icon button-flat button-default tooltip"
+                                   title="Show {{ $gig->name }}" href="{{ route('gigs.show', $gig) }}">
+                                    <span class="fa fa-eye"></span>
+                                </a>
+                            </span>
+                            </li>
+                        @endforeach
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
                 <h2>Bands</h2>
                 <div class="block text-right">
                     <a class="button button-flat button-default" href="{{ route('bands.index') }}">Manage bands</a>
