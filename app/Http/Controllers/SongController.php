@@ -122,7 +122,7 @@ class SongController extends Controller
 
         // TODO: Flash song updated
 
-        return redirect()->route('songs.index', $song->band);
+        return redirect()->route('songs.show', $song);
     }
 
     /**
