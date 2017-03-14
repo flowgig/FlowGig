@@ -34,14 +34,16 @@
                 <h1>{{ $gig->name }}</h1>
                 <ul class="list menu-list">
                     <li>
-                        <span class="list-item-content single-line">Setlist</span>
+                        <span class="list-item-content single-line">
+                        @if($gig->setlist)
+                            <a class="tooltip" title="Show setlist for {{ $gig->name }}"
+                               href="{{ route('setlists.show', $gig->setlist) }}">Setlist
+                            </a>
+                        @else Setlist
+                        @endif
+                        </span>
                         <span class="list-item-buttons">
-                                @if($gig->setlist)
-                                <a class="button button-icon button-flat button-default tooltip"
-                                   title="Show setlist for {{ $gig->name }}"
-                                   href="{{ route('setlists.show', $gig->setlist) }}">
-                                    <span class="fa fa-eye"></span>
-                                </a>
+                        @if($gig->setlist)
                                 <a class="button button-icon button-flat button-default tooltip"
                                    title="Edit setlist for {{ $gig->name }}"
                                    href="{{ route('setlists.edit', $gig->setlist) }}">

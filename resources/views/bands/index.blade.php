@@ -21,12 +21,11 @@
                     @foreach($bands as $band)
                         <li>
                             <span class="list-item-content single-line">
-                                {{ $band->name }}
+                                <a class="tooltip" title="Show {{ $band->name }}"
+                                   href="{{ route('bands.show', $band) }}">{{ $band->name }}
+                                </a>
                             </span>
                             <span class="list-item-buttons">
-                                <a class="button button-icon button-flat button-default tooltip" title="Show {{$band->name}}" href="{{ route('bands.show', $band) }}">
-                                    <span class="fa fa-eye"></span>
-                                </a>
                                 <a class="button button-icon button-flat button-default tooltip" title="Edit {{$band->name}}" href="{{ route('bands.edit', $band) }}">
                                     <span class="fa fa-pencil"></span>
                                 </a>

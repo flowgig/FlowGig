@@ -32,15 +32,13 @@
                                 @if($gig->status == 'Public')
                                     <span class="fa fa-globe" title="Status: Public">&nbsp;</span>
                                 @endif
-                                {{ $gig->name }}
-                                <small class="inline"> with {{ $gig->band->name }}</small>
-                                <small>{{ $gig->date() }} - {{ $gig->venue }} - {{ $gig->location }}</small>
-                            </span>
-                                <span class="list-item-buttons">
-                                <a class="button button-icon button-flat button-default tooltip"
-                                   title="Show {{ $gig->name }}" href="{{ route('gigs.show', $gig) }}">
-                                    <span class="fa fa-eye"></span>
+                                <a class="tooltip" title="Show {{ $gig->name }}" href="{{ route('gigs.show', $gig) }}">
+                                    {{ $gig->name }}
                                 </a>
+                                <small class="inline"> with <a class="tooltip" title="Show {{ $gig->band->name }}"
+                                       href="{{ route('bands.show', $gig->band) }}">{{ $gig->band->name }}</a>
+                                </small>
+                                <small>{{ $gig->date() }} - {{ $gig->venue }} - {{ $gig->location }}</small>
                             </span>
                             </li>
                         @endforeach
