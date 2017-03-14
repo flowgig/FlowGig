@@ -46,6 +46,26 @@
                     <a class="button button-flat button-default" href="{{ route('gigs.show', $setlist->gig) }}">
                         Back to gig
                     </a>
+                    <a class="button button-icon button-flat button-default tooltip" title="Edit setlist for {{ $setlist->gig->name }}"
+                       href="{{ route('setlists.edit', $setlist) }}"><span class="fa fa-pencil"></span>
+                    </a>
+                </div>
+                <div>
+                <ul class="list">
+                    @foreach($setlist->setlistSongs->sortBy('number_in_list') as $setlistSong)
+                    <li class="setlistsong">
+                        <span class="list-item-content single-line">{{ $setlistSong->song->title }}</span>
+                    </li>
+                    @endforeach
+                </ul>
+                </div>
+                <div class="block text-right">
+                    <a class="button button-flat button-default" href="{{ route('gigs.show', $setlist->gig) }}">
+                        Back to gig
+                    </a>
+                    <a class="button button-icon button-flat button-default tooltip" title="Edit setlist for {{ $setlist->gig->name }}"
+                       href="{{ route('setlists.edit', $setlist) }}"><span class="fa fa-pencil"></span>
+                    </a>
                 </div>
             </div>
         </div>
