@@ -127,7 +127,7 @@ class GigController extends Controller
 
         // TODO: Flash gig updated
 
-        return redirect()->route('gigs.index', $gig->band);
+        return redirect()->route('gigs.show', $gig);
     }
 
     /**
