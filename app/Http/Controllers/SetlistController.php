@@ -53,7 +53,10 @@ class SetlistController extends Controller
 
             $newSetlist->setlistSongs()->saveMany($replicatedSetlistSongs);
         }
-        return redirect()->route('setlists.edit', ['setlist' => $newSetlist]);
+
+        // TODO: Flash setlist created
+
+        return redirect()->route('gigs.show', $gig);
     }
 
     /**
