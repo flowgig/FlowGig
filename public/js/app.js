@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "./";
+/******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(__webpack_require__.s = 160);
@@ -1340,7 +1340,7 @@ module.exports = function bind(fn, thisArg) {
 
 "use strict";
 /*!
- * quarkGUI v0.4.8 (https://github.com/benjamindehli/quarkGUI)
+ * quarkGUI v0.4.9 (https://github.com/benjamindehli/quarkGUI)
  * Copyright(c) 2016-2017 Benjamin Dehli (https://github.com/benjamindehli)
  * Licenced under GNU General Public License
  */
@@ -3102,7 +3102,7 @@ var header = __WEBPACK_IMPORTED_MODULE_0_quark_gui__["Organisms"].Global.Header.
         }
     }
 });
-/* harmony default export */ __webpack_exports__["default"] = header;
+/* harmony default export */ __webpack_exports__["default"] = (header);
 
 /***/ }),
 /* 49 */
@@ -3180,9 +3180,9 @@ function getCards(containerId) {
         });
     }
 }
-/* harmony default export */ __webpack_exports__["a"] = function (containerId) {
+/* harmony default export */ __webpack_exports__["a"] = (function (containerId) {
     return getCards(containerId);
-};
+});
 
 /***/ }),
 /* 50 */
@@ -3193,7 +3193,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 var body = '<div id="dashboard"></div>';
 
-/* harmony default export */ __webpack_exports__["default"] = body;
+/* harmony default export */ __webpack_exports__["default"] = (body);
 
 /***/ }),
 /* 51 */
@@ -3206,7 +3206,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 var page = __WEBPACK_IMPORTED_MODULE_0__templates_band_cards__["a" /* default */]('dashboard');
 
-/* harmony default export */ __webpack_exports__["default"] = page;
+/* harmony default export */ __webpack_exports__["default"] = (page);
 
 /***/ }),
 /* 52 */
@@ -4486,37 +4486,37 @@ module.exports = dragula;
 /* 86 */
 /***/ (function(module, exports) {
 
-module.exports = "/fonts/fontawesome-webfont.eot?674f50d287a8c48dc19ba404d20fe713";
+module.exports = "/fonts/vendor/font-awesome/fontawesome-webfont.eot?674f50d287a8c48dc19ba404d20fe713";
 
 /***/ }),
 /* 87 */
 /***/ (function(module, exports) {
 
-module.exports = "/fonts/fontawesome-webfont.eot?674f50d287a8c48dc19ba404d20fe713";
+module.exports = "/fonts/vendor/font-awesome/fontawesome-webfont.eot?674f50d287a8c48dc19ba404d20fe713";
 
 /***/ }),
 /* 88 */
 /***/ (function(module, exports) {
 
-module.exports = "/fonts/fontawesome-webfont.svg?912ec66d7572ff821749319396470bde";
+module.exports = "/fonts/vendor/font-awesome/fontawesome-webfont.svg?912ec66d7572ff821749319396470bde";
 
 /***/ }),
 /* 89 */
 /***/ (function(module, exports) {
 
-module.exports = "/fonts/fontawesome-webfont.ttf?b06871f281fee6b241d60582ae9369b9";
+module.exports = "/fonts/vendor/font-awesome/fontawesome-webfont.ttf?b06871f281fee6b241d60582ae9369b9";
 
 /***/ }),
 /* 90 */
 /***/ (function(module, exports) {
 
-module.exports = "/fonts/fontawesome-webfont.woff2?af7ae505a9eed503f8b8e6982036873e";
+module.exports = "/fonts/vendor/font-awesome/fontawesome-webfont.woff2?af7ae505a9eed503f8b8e6982036873e";
 
 /***/ }),
 /* 91 */
 /***/ (function(module, exports) {
 
-module.exports = "/fonts/fontawesome-webfont.woff?fee66e712a8a08eef5805a46892932ad";
+module.exports = "/fonts/vendor/font-awesome/fontawesome-webfont.woff?fee66e712a8a08eef5805a46892932ad";
 
 /***/ }),
 /* 92 */
