@@ -121,7 +121,7 @@ class SetlistController extends Controller
 
         $pdf = PDF::loadView('setlists.exportlayout', ['request' => $request, 'setlist' => $setlist]);
 
-        return $pdf->stream($this->makeSetlistPdfFileName($setlist));
+        return $pdf->download($this->makeSetlistPdfFileName($setlist));
     }
 
     /**
