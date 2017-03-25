@@ -61,14 +61,15 @@ class GigController extends Controller
         $this->authorize('createGigs', $band);
 
         $this->validate($request, [
-            'name' => 'required|max:60|not_in:_system_'
+            'name' => 'required|max:60',
+            'date' => 'nullable|date_format:Y-m-d',
+            'status' => 'nullable|in:Proposed,Settled,Public'
         ]);
 
         $gig = new Gig();
         $gig->creator()->associate(Auth::user());
         $gig->band()->associate($band);
         $gig->fill($request->all());
-        $gig->confirmed = $request->input('confirmed') != null;
         $gig->save();
 
         // TODO: Flash setlist stored
@@ -114,18 +115,19 @@ class GigController extends Controller
         $this->authorize('update', $gig);
 
         $this->validate($request, [
-            'name' => 'required|max:60|not_in:_system_'
+            'name' => 'required|max:60',
+            'date' => 'nullable|date_format:Y-m-d',
+            'status' => 'nullable|in:Proposed,Settled,Public'
         ]);
 
         $gig->fill($request->all());
-        $gig->confirmed = $request->input('confirmed') != null;
         if ($gig->isDirty())
             $gig->updater()->associate(Auth::user());
         $gig->save();
 
         // TODO: Flash gig updated
 
-        return redirect()->route('gigs.index', $gig->band);
+        return redirect()->route('gigs.show', $gig);
     }
 
     /**

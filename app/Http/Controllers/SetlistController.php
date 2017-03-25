@@ -53,7 +53,10 @@ class SetlistController extends Controller
 
             $newSetlist->setlistSongs()->saveMany($replicatedSetlistSongs);
         }
-        return redirect()->route('setlists.edit', ['setlist' => $newSetlist]);
+
+        // TODO: Flash setlist created
+
+        return redirect()->route('gigs.show', $gig);
     }
 
     /**
@@ -118,7 +121,7 @@ class SetlistController extends Controller
 
         $pdf = PDF::loadView('setlists.exportlayout', ['request' => $request, 'setlist' => $setlist]);
 
-        return $pdf->stream($setlist->title . '.pdf');
+        return $pdf->download($this->makeSetlistPdfFileName($setlist));
     }
 
     /**
@@ -136,5 +139,17 @@ class SetlistController extends Controller
         // TODO: Flash setlist deleted
 
         return redirect()->route('gigs.show', $setlist->gig);
+    }
+
+    /**
+     * @param Setlist $setlist
+     * @return string
+     */
+    private function makeSetlistPdfFileName(Setlist $setlist): string
+    {
+        $gigName =  strtolower(str_replace(' ', '_', $setlist->gig->name));
+        $bandName = strtolower(str_replace(' ', '_', $setlist->gig->band->name));
+
+        return 'setlist_' . $gigName . '_' . $bandName . '_' . $setlist->gig->date->toDateString() . '.pdf';
     }
 }

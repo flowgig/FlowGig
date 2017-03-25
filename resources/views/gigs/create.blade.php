@@ -52,8 +52,13 @@
                             <label for="date">Date</label>
                         </div>
                         <div class="input-group col-sm-4">
-                            <input type="checkbox" name="confirmed" id="confirmed"/>
-                            <label for="confirmed">Confirmed</label>
+                            <select name="status" id="status">
+                                <option></option>
+                                <option>Proposed</option>
+                                <option>Settled</option>
+                                <option>Public</option>
+                            </select>
+                            <label for="status">Status</label>
                         </div>
                     </div>
                     <div class="clearfix"></div>

@@ -35,16 +35,15 @@
                         <li itemscope itemtype="http://schema.org/MusicGroup">
                             <span class="list-item-content">
                                 <span itemprop="tracks" itemscope itemtype="http://schema.org/MusicRecording">
-                                    <span itemprop="name">{{ $song->title }}</span>
+                                    <span itemprop="name">
+                                        <a class="tooltip" title="Show {{ $song->title }}" href="{{ route('songs.show', $song) }}">{{ $song->title }}</a>
+                                    </span>
                                 </span>
                                 <small>
                                     <span itemprop="name">{{ $song->artist }}</span>
                                 </small>
                             </span>
                             <span class="list-item-buttons">
-                                <a class="button button-icon button-flat button-default tooltip" title="Show {{$song->title}}" href="{{ route('songs.show', $song) }}">
-                                    <span class="fa fa-eye"></span>
-                                </a>
                                 <a class="button button-icon button-flat button-default tooltip" title="Edit {{$song->title}}" href="{{ route('songs.edit', $song) }}">
                                     <span class="fa fa-pencil"></span>
                                 </a>

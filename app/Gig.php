@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Gig extends Model
 {
@@ -20,8 +21,29 @@ class Gig extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'date', 'venue', 'location', 'confirmed'
+        'name', 'date', 'venue', 'location', 'status'
     ];
+
+    /**
+     * Scope a query to only include upcoming gigs.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeUpcoming($query)
+    {
+        return $query->where('date', '>', Carbon::now());
+    }
+
+    /**
+     * Get the formatted date for the gig if any
+     *
+     * @return mixed
+     */
+    public function date()
+    {
+        return $this->date ? $this->date->toDateString() : "";
+    }
 
     /**
      * Get the creator of the gig

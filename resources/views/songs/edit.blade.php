@@ -70,8 +70,7 @@
                     </div>
                     <div class="row">
                         <div class="input-group col-sm-6">
-                            {{-- Use selectbox (as in setlist edit) --}}
-                            <input type="text" name="key" value="{{ $song->key }}"/>
+                            @include('songs.key-select', ['key' => $song->key])
                             <label for="key">Key</label>
                         </div>
                         <div class="input-group col-sm-6">

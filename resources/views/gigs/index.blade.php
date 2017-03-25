@@ -34,14 +34,21 @@
                     @foreach($band->gigs->sortByDesc('date') as $gig)
                         <li>
                             <span class="list-item-content">
-                                {{ $gig->name }}
-                                <small>{{ $gig->date }}</small>
+                                @if($gig->status == 'Proposed')
+                                    <span class="fa fa-question-circle-o" title="Status: Proposed">&nbsp;</span>
+                                @endif
+                                @if($gig->status == 'Settled')
+                                    <span class="fa fa-check-circle-o " title="Status: Settled">&nbsp;</span>
+                                @endif
+                                @if($gig->status == 'Public')
+                                    <span class="fa fa-globe" title="Status: Public">&nbsp;</span>
+                                @endif
+                                <a class="tooltip" title="Show {{ $gig->name }}" href="{{ route('gigs.show', $gig) }}">
+                                    {{ $gig->name }}
+                                </a>
+                                <small>{{ $gig->date() }} - {{ $gig->venue }} - {{ $gig->location }}</small>
                             </span>
                             <span class="list-item-buttons">
-                                <a class="button button-icon button-flat button-default tooltip"
-                                   title="Show {{ $gig->name }}" href="{{ route('gigs.show', $gig) }}">
-                                    <span class="fa fa-eye"></span>
-                                </a>
                                 <a class="button button-icon button-flat button-default tooltip"
                                    title="Edit {{ $gig->name }}" href="{{ route('gigs.edit', $gig) }}">
                                     <span class="fa fa-pencil"></span>

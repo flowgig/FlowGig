@@ -56,16 +56,17 @@
                         </div>
                         <div class="input-group col-sm-4">
                             <input type="text" name="date" id="date"
-                                   value="{{ $gig->date ? $gig->date->format('Y-m-d') : "" }}" />
+                                   value="{{ $gig->date() }}" />
                             <label for="date">Date</label>
                         </div>
                         <div class="input-group col-sm-4">
-                            @if($gig->confirmed)
-                                <input type="checkbox" name="confirmed" id="confirmed" checked />
-                            @else
-                                <input type="checkbox" name="confirmed" id="confirmed" />
-                            @endif
-                            <label for="confirmed">Confirmed</label>
+                            <select name="status" id="status">
+                                <option></option>
+                                <option @if($gig->status == 'Proposed') selected @endif>Proposed</option>
+                                <option @if($gig->status == 'Settled') selected @endif>Settled</option>
+                                <option @if($gig->status == 'Public') selected @endif>Public</option>
+                            </select>
+                            <label for="status">Status</label>
                         </div>
                     </div>
                     <div class="clearfix"></div>
