@@ -1,5 +1,1 @@
-.test {
-  color: #324432;
-}
-
-/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9iZW5qYW1pbmRlaGxpL1NpdGVzL2Zsb3dnaWcvcmVzb3VyY2VzL2Fzc2V0cy9zYXNzL2FwcC5zY3NzIl0sInNvdXJjZXNDb250ZW50IjpbIlxuLnRlc3R7XG4gIGNvbG9yOiAjMzI0NDMyO1xufSJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFDQSxBQUFBLEtBQUssQ0FBQTtFQUNILEtBQUssRUFBRSxPQUFPO0NBQ2YifQ== */
+@font-face{font-family:Lato;src:url("/fonts/Lato-Regular.woff") format("woff");src:url("/fonts/Lato-Regular.woff") format("woff"),url("/fonts/Lato-Regular.ttf") format("truetype");font-weight:400}@font-face{font-family:Lato;src:url("/fonts/Lato-Bold.woff") format("woff");src:url("/fonts/Lato-Bold.woff") format("woff"),url("/fonts/Lato-Bold.ttf") format("truetype");font-weight:700}body,h1{font-family:Lato,sans-serif}.test{color:#324432}

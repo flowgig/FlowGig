@@ -1,4 +1,25 @@
+@font-face {
+  font-family: 'Lato';
+  src: url('/fonts/Lato-Regular.woff') format('woff');
+  src: url('/fonts/Lato-Regular.woff') format('woff'), url('/fonts/Lato-Regular.ttf') format('truetype');
+  font-weight: normal;
+}
 
-.test{
+@font-face {
+  font-family: 'Lato';
+  src: url('/fonts/Lato-Bold.woff') format('woff');
+  src: url('/fonts/Lato-Bold.woff') format('woff'), url('/fonts/Lato-Bold.ttf') format('truetype');
+  font-weight: bold;
+}
+@import "../../../style-config";
+body {
+  font-family: $normal-font;
+}
+
+h1 {
+  font-family: $heading-font;
+}
+
+.test {
   color: #324432;
 }
