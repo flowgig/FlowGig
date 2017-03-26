@@ -43,6 +43,17 @@
                             <li><b>Date: </b> {{ $gig->date() }}</li>
                             <li><b>Venue: </b> {{ $gig->venue }}</li>
                             <li><b>Location: </b> {{ $gig->location }}</li>
+                            <li><b>Status: </b> {{ $gig->status }} &nbsp;
+                                @if($gig->status == 'Proposed')
+                                    <span class="fa fa-question-circle-o" title="Status: Proposed"></span>
+                                @endif
+                                @if($gig->status == 'Settled')
+                                    <span class="fa fa-check-circle-o " title="Status: Settled"></span>
+                                @endif
+                                @if($gig->status == 'Public')
+                                    <span class="fa fa-globe" title="Status: Public"></span>
+                                @endif
+                            </li>
                         </ul>
                         @include('meta.user-timestamps', ['model' => $gig])
                         <br /><br />
