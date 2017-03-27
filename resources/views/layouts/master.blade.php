@@ -17,7 +17,7 @@
         }
     </style>
 </head>
-<body id="app">
+<body>
 <script>
     (function (i, s, o, g, r, a, m) {
         i['GoogleAnalyticsObject'] = r;
@@ -40,25 +40,30 @@
 {{-- TODO: Use ['currentBand' => $currentBand ?? null] when on PHP 7 --}}
 
 @yield('actionbar')
-<header id="header"></header>
-<div class="main-content">
-    <div class="container">
-        <div id="page"></div>
-        @yield('content')
-        <footer>
-            <div class="container">
-                <div class="text-center">
-                    <img src="/images/svg/flowgig-logo-black.svg" alt="FlowGig logo"
-                         style="width: 150px; opacity: .4;"/>
-                    <p>FlowGig licensed under
-                        <a href="https://github.com/flowgig/flowgig/blob/master/LICENSE">GNU General Public License</a>
-                    </p>
-                    <p><a href="#">About</a> - <a href="#">Developers</a> - <a href="#">Send feedback</a></p>
+<div id="app">
+    <main-navigation></main-navigation>
+    <div class="main-content">
+        <div class="container">
+            <div id="page"></div>
+            @yield('content')
+            <footer>
+                <div class="container">
+                    <div class="text-center">
+                        <img src="/images/svg/flowgig-logo-black.svg" alt="FlowGig logo"
+                             style="width: 150px; opacity: .4;"/>
+                        <p>FlowGig licensed under
+                            <a href="https://github.com/flowgig/flowgig/blob/master/LICENSE">GNU General Public
+                                License</a>
+                        </p>
+                        <p><a href="#">About</a> - <a href="#">Developers</a> - <a href="#">Send feedback</a></p>
+                    </div>
                 </div>
-            </div>
-        </footer>
+            </footer>
+        </div>
     </div>
 </div>
 @yield('scripts')
+<script src="/js/app.js" type="application/javascript"></script>
+
 </body>
 </html>

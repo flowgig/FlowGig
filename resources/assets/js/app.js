@@ -6,41 +6,45 @@
 
 // require('./bootstrap');
 
-import * as header from './modules/global/global';
+import Vue from 'vue';
+
+/*
+
+ document.addEventListener('DOMContentLoaded', function () {
+
+ var mainContainer = document.getElementById('page') !== null ? document.getElementById('page') : false;
+ if (mainContainer) {
+ var body = require('./modules/global/body');
+ console.log(body);
+ mainContainer.innerHTML = body.default;
+ }
+
+ var headerContainer = document.getElementById('header')
+ headerContainer.innerHTML = header.default;
+ console.log(header);
 
 
-document.addEventListener('DOMContentLoaded', function () {
+ var dashboardContainer = document.getElementById('dashboard') !== null ? document.getElementById('dashboard') : false;
+ if (dashboardContainer) {
+ var dashboard = require('./modules/pages/dashboard');
+ dashboardContainer.innerHTML = dashboard.default;
+ }
 
-    var mainContainer = document.getElementById('page') !== null ? document.getElementById('page') : false;
-    if (mainContainer) {
-        var body = require('./modules/global/body');
-        console.log(body);
-        mainContainer.innerHTML = body.default;
-    }
+ }, false);
 
-    var headerContainer = document.getElementById('header')
-    headerContainer.innerHTML = header.default;
-    console.log(header);
-
-
-    var dashboardContainer = document.getElementById('dashboard') !== null ? document.getElementById('dashboard') : false;
-    if (dashboardContainer) {
-        var dashboard = require('./modules/pages/dashboard');
-        dashboardContainer.innerHTML = dashboard.default;
-    }
-
-}, false);
+ */
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-/*
- Vue.component('example', require('./components/Example.vue'));
 
- const app = new Vue({
- el: '#app'
- });
+Vue.component('MainNavigation', require('./components/MainNavigation.vue'));
 
- */
+const app = new Vue({
+    el: '#app'
+});
+
+
+
