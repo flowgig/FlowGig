@@ -23,6 +23,10 @@ mix.webpackConfig({
     }
 });
 
+mix.options({
+    uglify: false
+})
+
 mix.js('resources/assets/js/app.js', 'public/js')
     .copy('node_modules/quark-gui/src/fonts', 'public/fonts')
     .sass('resources/assets/sass/app.scss', 'public/css')
