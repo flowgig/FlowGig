@@ -11,15 +11,13 @@
   src: url('/fonts/Lato-Bold.woff') format('woff'), url('/fonts/Lato-Bold.ttf') format('truetype');
   font-weight: bold;
 }
-@import "../../../style-config";
+@import "../../../node_modules/quark-gui/src/style/globalStyle";
 body {
   font-family: $normal-font;
 }
-
+div#app{
+  height: 100%;
+}
 h1 {
   font-family: $heading-font;
-}
-
-.test {
-  color: #324432;
 }
