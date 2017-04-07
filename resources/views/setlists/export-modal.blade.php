@@ -32,10 +32,19 @@
                     <label for="comment">Comment</label>
                 </div>
                 <div class="input-group float-right">
-                    <button type="submit" class="button button-flat button-default tooltip"
-                            title="Export {{ $setlist->gig->name }} to PDF">
-                        <label for="export">Export to PDF</label>
-                    </button>
+                    <fieldset>
+                        <legend>Create PDF</legend>
+                        <button type="submit" name="create-pdf" value="stream"
+                                title="View {{ $setlist->gig->name }} as PDF"
+                                class="button button-flat button-default tooltip">
+                            <label for="export">View in new tab</label>
+                        </button>
+                        <button type="submit" name="create-pdf" value="download"
+                                title="Download {{ $setlist->gig->name }} as PDF"
+                                class="button button-flat button-default tooltip">
+                            <label for="export">Download</label>
+                        </button>
+                    </fieldset>
                 </div>
             </form>
         </div>
