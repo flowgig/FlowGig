@@ -14,6 +14,9 @@
                     </li>
                 </ol>
                 <h1>My FlowGig</h1>
+                <div id="vuetest">
+
+                </div>
                 <p>Name: {{ $user->name }}</p>
                 <p>{{ $user->email }}</p>
                 <br>
