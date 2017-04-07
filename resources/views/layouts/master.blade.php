@@ -35,15 +35,15 @@
     ga('send', 'pageview');
 
 </script>
-
+{{--
 @include('layouts.navbar', ['currentBand' => isset($currentBand) ? $currentBand : null])
 {{-- TODO: Use ['currentBand' => $currentBand ?? null] when on PHP 7 --}}
 
-@yield('actionbar')
+{{-- @yield('actionbar') --}}
 <div id="app">
     <main-navigation></main-navigation>
-    <div class="main-content">
-        <div class="container">
+    <main id="mainContent">
+        <div class="main-content">
             <div id="page"></div>
             @yield('content')
             <footer>
@@ -60,7 +60,7 @@
                 </div>
             </footer>
         </div>
-    </div>
+    </main>
 </div>
 @yield('scripts')
 <script src="/js/app.js" type="application/javascript"></script>

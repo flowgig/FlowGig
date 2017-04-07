@@ -1,5 +1,5 @@
 <template>
-    <header v-html="htmlContent"></header>
+    <div v-html="htmlContent"></div>
 </template>
 
 <script>
@@ -21,6 +21,7 @@
                         url: "/"
                     },
                     primaryNavigation: {
+                        id: "primary-navigation",
                         listItems: [
                             {
                                 name: "Link",
