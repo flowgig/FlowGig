@@ -28,7 +28,7 @@
                         <label for="number_in_list">Number in list</label>
                     </div>
                     <div class="input-group">
-                        <input type="checkbox" name="key" id="key"/>
+                        <input type="checkbox" name="key" id="key" checked/>
                         <label for="key">Key</label>
                     </div>
                     <div class="input-group">
@@ -42,7 +42,7 @@
                         <label for="intensity">Intensity</label>
                     </div>
                     <div class="input-group">
-                        <input type="checkbox" name="comment" id="comment"/>
+                        <input type="checkbox" name="comment" id="comment" checked/>
                         <label for="comment">Comment</label>
                     </div>
                     <div class="input-group float-right">
