@@ -63,6 +63,8 @@
     </main>
 </div>
 @yield('scripts')
+<script src="/js/manifest.js" type="application/javascript"></script>
+<script src="/js/vendor.js" type="application/javascript"></script>
 <script src="/js/app.js" type="application/javascript"></script>
 
 </body>

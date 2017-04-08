@@ -1,5 +1,4 @@
 let mix = require('laravel-mix');
-let path = require('path');
 
 /*
  |--------------------------------------------------------------------------
@@ -12,22 +11,8 @@ let path = require('path');
  |
  */
 
-mix.webpackConfig({
-    module: {
-        rules: [
-            {
-                test: /\.ts(x?)$/,
-                loader: 'babel-loader!ts-loader'
-            }
-        ]
-    }
-});
-
-mix.options({
-    uglify: false
-})
-
 mix.js('resources/assets/js/app.js', 'public/js')
+    .extract(['quark-gui', 'vue', 'axios'])
     .sass('resources/assets/sass/app.scss', 'public/css')
 
 // Full API
