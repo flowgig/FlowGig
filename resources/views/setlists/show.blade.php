@@ -1,6 +1,19 @@
 @extends('layouts.master', ['currentBand' => $setlist->gig->band])
 @section('title', 'Setlist - ' . $setlist->gig->name)
 @section('navbar-title', $setlist->gig->name)
+@section('actionbar')
+    <div class="action-button">
+        <i class="icon fa fa-plus"></i>
+    </div>
+    <div class="action-menu" id="action-menu">
+        <button class="toggle-action-button toggle-modal tooltip" data-type="radio" title="Export setlist"
+                value="export-setlist-modal">
+                <span class="icon fa fa-download">
+                </span>
+        </button>
+    </div>
+    @include('setlists.export-modal')
+@endsection
 @section('content')
     <div class="content">
         <div class="box">

@@ -32,7 +32,7 @@ class Gig extends Model
      */
     public function scopeUpcoming($query)
     {
-        return $query->where('date', '>', Carbon::now());
+        return $query->where('date', '>', Carbon::now()->subDay(1));
     }
 
     /**

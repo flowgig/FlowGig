@@ -94,7 +94,7 @@ Route::post('gigs/{gig}/setlists', [
     'uses' => 'SetlistController@store'
 ]);
 
-Route::post('setlists/{setlist}/export', [
+Route::get('setlists/{setlist}/export', [
     'as' => 'setlists.export',
     'uses' => 'SetlistController@export'
 ]);
