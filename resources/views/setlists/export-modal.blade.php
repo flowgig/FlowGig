@@ -7,8 +7,7 @@
         </div>
         <div class="modal-content">
             <p>Toggle fields in setlist</p>
-            <form action="{{ route('setlists.export', $setlist) }}" method="POST" target="_blank">
-                {{ csrf_field() }}
+            <form action="{{ route('setlists.export', $setlist) }}" method="GET" target="_blank">
                 <div class="input-group">
                     <input type="checkbox" name="number_in_list" id="number_in_list"/>
                     <label for="number_in_list">Number in list</label>
