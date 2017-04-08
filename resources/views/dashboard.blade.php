@@ -15,12 +15,16 @@
                 </ol>
                 <h1>My FlowGig</h1>
 
-                <band-cards></band-cards>
-
                 <p>Name: {{ $user->name }}</p>
                 <p>{{ $user->email }}</p>
                 <br>
                 <h2>Upcoming gigs</h2>
+
+                <upcoming-gigs></upcoming-gigs>
+
+                <band-cards></band-cards>
+
+
                 <div class="row">
                     <ul class="list menu-list">
                         @foreach($user->upcomingGigs()->sortBy('date') as $gig)
