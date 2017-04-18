@@ -127,11 +127,10 @@ let rules = [
         test: /\.css$/,
         loaders: ['style-loader', 'css-loader']
     },
-
     {
         test: /\.s[ac]ss$/,
         include: /node_modules/,
-        loaders: ['style-loader', 'css-loader', 'sass-loader']
+        loaders: ['css-loader', 'sass-loader']
     },
 
     {

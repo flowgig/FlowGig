@@ -1,4 +1,5 @@
 let mix = require('laravel-mix');
+let ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 /*
  |--------------------------------------------------------------------------
@@ -11,9 +12,34 @@ let mix = require('laravel-mix');
  |
  */
 
+mix.options({
+    purifyCss: false,
+    uglify: {
+        compress: {
+            warnings: false,
+            unused: true,
+            dead_code: true,
+            drop_console: true
+        }
+    }
+});
+
 mix.js('resources/assets/js/app.js', 'public/js')
-    .extract(['quark-gui', 'vue', 'axios'])
     .sass('resources/assets/sass/app.scss', 'public/css')
+    .extract(['quark-gui', 'vue', 'axios'])
+    .webpackConfig({
+        module: {
+            rules: [
+                {
+                    test: /\.s[ac]ss$/,
+                    include: /node_modules/,
+                    loader: ExtractTextPlugin.extract({
+                        use: "css-loader?minimize!sass-loader",
+                    })
+                }
+            ]
+        }
+    });
 
 // Full API
 // mix.js(src, output);
