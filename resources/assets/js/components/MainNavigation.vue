@@ -16,7 +16,7 @@
                     logo: {
                         image: {
                             src: require('../../images/svg/flowgig-logo-white.svg'),
-                            alt: 'quarkGUI logo'
+                            alt: 'FlowGig logo'
                         },
                         url: "/"
                     },
@@ -33,20 +33,19 @@
                                 dropdownContent: {
                                     listItems: [
                                         {
-                                            name: "Button row",
-                                            link: "#"
+                                            name: "Songs",
+                                            link: "#",
+                                            iconClass: "fa fa-music"
                                         },
                                         {
-                                            name: "Checkbox",
-                                            link: "#"
+                                            name: "Gigs",
+                                            link: "#",
+                                            iconClass: "fa fa-calendar"
                                         },
                                         {
-                                            name: "Radio button",
-                                            link: "#"
-                                        },
-                                        {
-                                            name: "Input fied",
-                                            link: "#"
+                                            name: "Members",
+                                            link: "#",
+                                            iconClass: "fa fa-group"
                                         }
                                     ]
                                 }
@@ -58,23 +57,19 @@
                         sidebarNavigation: {
                             listItems: [
                                 {
-                                    name: "Global",
+                                    name: "About",
                                     link: "",
-                                    moduleLink: "global"
+                                    iconClass: "fa fa-info-circle"
                                 },
                                 {
-                                    name: "Atoms",
+                                    name: "Developers",
                                     link: "",
-                                    moduleLink: "atoms"
+                                    iconClass: "fa fa-code"
                                 },
                                 {
-                                    name: "Molecules",
+                                    name: "Send feedback",
                                     link: "",
-                                    moduleLink: "molecules"
-                                }, {
-                                    name: "Organisms",
-                                    link: "",
-                                    moduleLink: "organisms"
+                                    iconClass: "fa fa-comment"
                                 }
                             ]
                         }
