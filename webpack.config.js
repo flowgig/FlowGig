@@ -214,7 +214,10 @@ let rules = [
 
 let sassRule = {
     test: /\.s[ac]ss$/,
-    loaders: ['style-loader', 'css-loader', 'sass-loader']
+    include: /node_modules/,
+    loader: webpackPlugins.ExtractTextPlugin.extract({
+        use: "css-loader?minimize!sass-loader",
+    })
 };
 
 if (Mix.preprocessors) {

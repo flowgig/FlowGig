@@ -26,20 +26,7 @@ mix.options({
 
 mix.js('resources/assets/js/app.js', 'public/js')
     .sass('resources/assets/sass/app.scss', 'public/css')
-    .extract(['quark-gui', 'vue', 'axios'])
-    .webpackConfig({
-        module: {
-            rules: [
-                {
-                    test: /\.s[ac]ss$/,
-                    include: /node_modules/,
-                    loader: ExtractTextPlugin.extract({
-                        use: "css-loader?minimize!sass-loader",
-                    })
-                }
-            ]
-        }
-    });
+    .extract(['quark-gui', 'vue', 'axios']);
 
 // Full API
 // mix.js(src, output);
