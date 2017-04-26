@@ -46,6 +46,7 @@ mix.js('resources/assets/js/app.js', 'public/js')
 // mix.react(src, output); <-- Identical to mix.js(), but registers React Babel compilation.
 // mix.extract(vendorLibs);
 // mix.sass(src, output);
+// mix.standaloneSass('src', output); <-- Faster, but isolated from Webpack.
 // mix.less(src, output);
 // mix.stylus(src, output);
 // mix.browserSync('my-site.dev');
