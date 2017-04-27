@@ -17,6 +17,7 @@ import Vue from 'vue';
 Vue.component('MainNavigation', require('./components/MainNavigation.vue'));
 Vue.component('UpcomingGigs', require('./components/UpcomingGigs.vue'));
 Vue.component('BandCards', require('./components/BandCards.vue'));
+Vue.component('MainFooter', require('./components/MainFooter.vue'));
 
 const app = new Vue({
     el: '#app'
