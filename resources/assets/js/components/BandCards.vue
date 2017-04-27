@@ -56,6 +56,7 @@
                 var listItems = [
                     {
                         title: 'Songs',
+                        iconClass: 'fa fa-music',
                         buttonRow: {
                             id: 'list-menu-button-row1',
                             buttons: [
@@ -75,10 +76,12 @@
                         }
                     },
                     {
-                        title: 'Gigs'
+                        title: 'Gigs',
+                        iconClass: 'fa fa-calendar'
                     },
                     {
-                        title: 'Members'
+                        title: 'Members',
+                        iconClass: 'fa fa-group'
                     }
                 ];
                 return listItems;
