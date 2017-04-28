@@ -14,6 +14,7 @@ import Vue from 'vue';
  */
 
 
+Vue.component('LoginForm', require('./components/LoginForm.vue'));
 Vue.component('MainNavigation', require('./components/MainNavigation.vue'));
 Vue.component('UpcomingGigs', require('./components/UpcomingGigs.vue'));
 Vue.component('BandCards', require('./components/BandCards.vue'));
