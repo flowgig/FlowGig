@@ -4,13 +4,25 @@
             <div class="content">
                 <div class="title" v-html="logo"></div>
                 <div class="box z-2 login-box">
-                    <div v-html="inputEmail"></div>
-                    <div v-html="inputPassword"></div>
+                    <div class="content">
+                        <div class="login-box-header">
+                            <p>Log in</p>
+                        </div>
+                        <div v-html="inputEmail"></div>
+                        <div v-html="inputPassword"></div>
+                        <div v-html="checkboxRemember"></div>
+
+                        <div class="input-group float-right">
+                            <a class="button button-flat button-primary" href="/login">Log in</a>
+                        </div>
+                        <div class="clearfix"></div>
+
+                        <div class="input-group text-center">
+                            <a href="https://flowgig.com/password/reset">Forgot Your Password?</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="input-group float-right">
-                    <a class="button button-flat button-primary" href="/login">Log in</a>
-                    <div class="clearfix"></div>
-                </div>
+
             </div>
         </div>
     </div>
@@ -22,41 +34,28 @@
         name: 'LoginForm',
         data () {
             return {
-                htmlContent: this.createFooterElement(),
                 logo: quark.Atoms.Media.Image.getModule({
                     src: require('../../images/svg/flowgig-logo-white.svg'),
                     alt: "FlowGig logo"
                 }),
                 inputEmail: quark.Molecules.FormElements.InputField.getModule({
+                    id: "login-email",
                     name: "email",
                     label: "E-Mail Address",
                     type: "email"
                 }),
                 inputPassword: quark.Molecules.FormElements.InputField.getModule({
+                    id: "login-password",
                     name: "password",
                     label: "Password",
                     type: "password"
+                }),
+                checkboxRemember: quark.Molecules.FormElements.Checkbox.getModule({
+                    id: "login-remember",
+                    name: "remember",
+                    label: "Remember Me",
+                    value: "true"
                 })
-            }
-        },
-        methods: {
-            createFooterElement: function () {
-                var footerElement = quark.Organisms.Global.Footer.getModule({
-                    logo: {
-                        image: {
-                            src: require('../../images/svg/flowgig-logo-gray.svg'),
-                            alt: 'quarkGUI logo'
-                        },
-                        url: '/'
-                    },
-                    content: `
-                        <div class="text-center">
-                            <p>FlowGig licensed under <a href="https://github.com/flowgig/flowgig/blob/master/LICENSE">GNU General Public License</a></p>
-                            <p><a href="#">About</a> - <a href="#">Developers</a> - <a href="#">Send feedback</a></p>
-                        </div>
-			        `
-                });
-                return footerElement;
             }
         }
     }
