@@ -63,6 +63,7 @@
                        href="{{ route('setlists.edit', $setlist) }}"><span class="fa fa-pencil"></span>
                     </a>
                 </div>
+                <small>{{ $setlist->setlistSongs->count() }} songs</small>
                 <div>
                 <ul class="list">
                     @foreach($setlist->setlistSongs->sortBy('number_in_list') as $setlistSong)
@@ -72,6 +73,7 @@
                     @endforeach
                 </ul>
                 </div>
+                <small>{{ $setlist->setlistSongs->count() }} songs</small>
                 <div class="block text-right">
                     <a class="button button-flat button-default" href="{{ route('gigs.show', $setlist->gig) }}">
                         Back to gig
