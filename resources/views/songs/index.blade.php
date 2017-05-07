@@ -30,6 +30,7 @@
                     <a class="button button-flat button-default" href="{{ route('bands.show', $band) }}">Back to band</a>
                     <a class="button button-flat button-primary" href="{{ route('songs.create', $band) }}">New song</a>
                 </div>
+                <songs></songs>
                 <ul class="list menu-list">
                     @foreach($band->songs as $song)
                         <li itemscope itemtype="http://schema.org/MusicGroup">
