@@ -5350,8 +5350,8 @@ qs@~6.3.0:
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.3.2.tgz#e75bd5f6e268122a2a0e0bda630b2550c166502c"
 
 quark-gui@^0.4.0:
-  version "0.4.15"
-  resolved "https://registry.yarnpkg.com/quark-gui/-/quark-gui-0.4.15.tgz#34b8ea6fd34ce7019878977ae7e5d9ee9d569d39"
+  version "0.4.16"
+  resolved "https://registry.yarnpkg.com/quark-gui/-/quark-gui-0.4.16.tgz#7dbe0ee2c55c827b8cf3ce9883b4cbdef280228d"
   dependencies:
     dragula "^3.7.2"
     font-awesome "^4.7.0"
@@ -7034,7 +7034,7 @@ yargs@3.29.0:
     window-size "^0.1.2"
     y18n "^3.2.0"
 
-yargs@6.4.0, yargs@^6.0.0:
+yargs@6.4.0:
   version "6.4.0"
   resolved "https://registry.yarnpkg.com/yargs/-/yargs-6.4.0.tgz#816e1a866d5598ccf34e5596ddce22d92da490d4"
   dependencies:
@@ -7065,7 +7065,7 @@ yargs@^3.10.0:
     window-size "^0.1.4"
     y18n "^3.2.0"
 
-yargs@^6.6.0:
+yargs@^6.0.0, yargs@^6.6.0:
   version "6.6.0"
   resolved "https://registry.yarnpkg.com/yargs/-/yargs-6.6.0.tgz#782ec21ef403345f830a808ca3d513af56065208"
   dependencies:
