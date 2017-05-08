@@ -112,6 +112,7 @@
                             Back to gig
                         </a>
                     </div>
+                    <small>@{{ setlistSongs.length }} songs</small>
                     <div>
                         <ul v-sortable.li="setlistSongs" class="list sortable-list">
                             <li v-for="setlistSong in setlistSongs" class="setlistsong">
@@ -119,6 +120,7 @@
                             </li>
                         </ul>
                     </div>
+                    <small>@{{ setlistSongs.length }} songs</small>
                     <div class="block text-right">
                         <a class="button button-flat button-default" href="{{ route('gigs.show', $setlist->gig) }}">
                             Back to gig
