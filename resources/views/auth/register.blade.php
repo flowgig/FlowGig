@@ -37,7 +37,7 @@
                 @endif
             </div>
             <div class="input-group">
-                <button type="submit" disabled class="button button-flat button-primary float-right">Register</button>
+                <button type="submit" class="button button-flat button-primary float-right">Register</button>
             </div>
         </form>
     </div>
