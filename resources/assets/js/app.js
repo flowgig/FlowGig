@@ -13,13 +13,13 @@ import Vue from 'vue';
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-
+Vue.component('BandCards', require('./components/BandCards.vue'));
+Vue.component('Gigs', require('./components/Gigs.vue'));
 Vue.component('LoginForm', require('./components/LoginForm.vue'));
+Vue.component('MainFooter', require('./components/MainFooter.vue'));
 Vue.component('MainNavigation', require('./components/MainNavigation.vue'));
 Vue.component('Songs', require('./components/Songs.vue'));
 Vue.component('UpcomingGigs', require('./components/UpcomingGigs.vue'));
-Vue.component('BandCards', require('./components/BandCards.vue'));
-Vue.component('MainFooter', require('./components/MainFooter.vue'));
 
 const app = new Vue({
     el: '#app'
