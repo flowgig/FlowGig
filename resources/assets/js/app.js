@@ -18,6 +18,7 @@ Vue.component('Gigs', require('./components/Gigs.vue'));
 Vue.component('LoginForm', require('./components/LoginForm.vue'));
 Vue.component('MainFooter', require('./components/MainFooter.vue'));
 Vue.component('MainNavigation', require('./components/MainNavigation.vue'));
+Vue.component('Setlist', require('./components/Setlist.vue'));
 Vue.component('Songs', require('./components/Songs.vue'));
 Vue.component('UpcomingGigs', require('./components/UpcomingGigs.vue'));
 
