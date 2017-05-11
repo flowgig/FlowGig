@@ -5,32 +5,14 @@
     <div class="content">
         <div class="box">
             <div class="content">
-                <ol itemscope itemtype="http://schema.org/BreadcrumbList" class="breadcrumbs">
-                    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                        <a itemprop="item" href="{{ route('bands.index') }}">
-                            <span itemprop="name">Bands</span>
-                        </a>
-                        <meta itemprop="position" content="1"/>
-                    </li>
-                    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                        <a itemprop="item" href="{{ route('bands.show', $band) }}">
-                            <span itemprop="name">{{ $band->name }}</span>
-                        </a>
-                        <meta itemprop="position" content="2"/>
-                    </li>
-                    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                        <a itemprop="item" href="{{ route('band-memberships.index', $band) }}">
-                            <span itemprop="name">Band members</span>
-                        </a>
-                        <meta itemprop="position" content="3"/>
-                    </li>
-                    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                        <a itemprop="item" href="{{ route('band-memberships.create', $band) }}">
-                            <span itemprop="name">New band member</span>
-                        </a>
-                        <meta itemprop="position" content="4"/>
-                    </li>
-                </ol>
+                <breadcrumbs
+                        v-bind:breadcrumb-items="[
+                        {name: 'Bands', link: '{{ route('bands.index') }}'},
+                        {name: '{{ $band->name }}', link: '{{ route('bands.show', $band) }}'},
+                        {name: 'Band members', link: '{{ route('band-memberships.index', $band) }}'},
+                        {name: 'New band member', link: '{{ route('band-memberships.create', $band) }}'}
+                        ]">
+                </breadcrumbs>
                 <h1>Add new band member</h1>
                 <div class="row">
                     <div class="block text-right">

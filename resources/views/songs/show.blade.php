@@ -5,32 +5,14 @@
     <div class="content">
         <div class="box">
             <div class="content">
-                <ol itemscope itemtype="http://schema.org/BreadcrumbList" class="breadcrumbs">
-                    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                        <a itemprop="item" href="{{ route('bands.index') }}">
-                            <span itemprop="name">Bands</span>
-                        </a>
-                        <meta itemprop="position" content="1"/>
-                    </li>
-                    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                        <a itemprop="item" href="{{ route('bands.show', $song->band) }}">
-                            <span itemprop="name">{{ $song->band->name }}</span>
-                        </a>
-                        <meta itemprop="position" content="2"/>
-                    </li>
-                    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                        <a itemprop="item" href="{{ route('songs.index', $song->band) }}">
-                            <span itemprop="name">Songs</span>
-                        </a>
-                        <meta itemprop="position" content="3"/>
-                    </li>
-                    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                        <a itemprop="item" href="{{ route('songs.show', $song) }}">
-                            <span itemprop="name">{{$song->title}}</span>
-                        </a>
-                        <meta itemprop="position" content="4"/>
-                    </li>
-                </ol>
+                <breadcrumbs
+                        v-bind:breadcrumb-items="[
+                        {name: 'Bands', link: '{{ route('bands.index') }}'},
+                        {name: '{{ $song->band->name }}', link: '{{ route('bands.show', $song->band) }}'},
+                        {name: 'Songs', link: '{{ route('songs.index', $song->band) }}'},
+                        {name: '{{$song->title}}', link: '{{ route('songs.show', $song) }}'}
+                        ]">
+                </breadcrumbs>
                 <h1>{{ $song->title }}</h1>
                 <div class="text-right">
                     <a class="button button-icon button-flat button-default tooltip" title="Edit {{$song->title}}"

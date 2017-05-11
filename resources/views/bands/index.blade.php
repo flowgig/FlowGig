@@ -5,14 +5,11 @@
     <div class="content">
         <div class="box">
             <div class="content">
-                <ol itemscope itemtype="http://schema.org/BreadcrumbList" class="breadcrumbs">
-                    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                        <a itemprop="item" href="{{ route('bands.index') }}">
-                            <span itemprop="name">Bands</span>
-                        </a>
-                        <meta itemprop="position" content="1"/>
-                    </li>
-                </ol>
+                <breadcrumbs
+                        v-bind:breadcrumb-items="[
+                        {name: 'Bands', link: '{{ route('bands.index') }}'}
+                        ]">
+                </breadcrumbs>
                 <h1>Bands</h1>
                 <div class="block text-right">
                     <a class="button button-flat button-primary" href="{{ route('bands.create') }}">New band</a>

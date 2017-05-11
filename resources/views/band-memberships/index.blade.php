@@ -5,26 +5,13 @@
     <div class="content">
         <div class="box">
             <div class="content">
-                <ol itemscope itemtype="http://schema.org/BreadcrumbList" class="breadcrumbs">
-                    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                        <a itemprop="item" href="{{ route('bands.index') }}">
-                            <span itemprop="name">Bands</span>
-                        </a>
-                        <meta itemprop="position" content="1"/>
-                    </li>
-                    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                        <a itemprop="item" href="{{ route('bands.show', $band) }}">
-                            <span itemprop="name">{{ $band->name }}</span>
-                        </a>
-                        <meta itemprop="position" content="2"/>
-                    </li>
-                    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                        <a itemprop="item" href="{{ route('band-memberships.index', $band) }}">
-                            <span itemprop="name">Band members</span>
-                        </a>
-                        <meta itemprop="position" content="3"/>
-                    </li>
-                </ol>
+                <breadcrumbs
+                        v-bind:breadcrumb-items="[
+                        {name: 'Bands', link: '{{ route('bands.index') }}'},
+                        {name: '{{ $band->name }}', link: '{{ route('bands.show', $band) }}'},
+                        {name: 'Band members', link: '{{ route('band-memberships.index', $band) }}'}
+                        ]">
+                </breadcrumbs>
                 <h1>Members</h1>
                 <div class="block text-right">
                     <a class="button button-flat button-default" href="{{ route('bands.show', $band) }}">

@@ -5,38 +5,15 @@
     <div class="content">
         <div class="box">
             <p class="content">
-                <ol itemscope itemtype="http://schema.org/BreadcrumbList" class="breadcrumbs">
-                    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                        <a itemprop="item" href="{{ route('bands.index') }}">
-                            <span itemprop="name">Bands</span>
-                        </a>
-                        <meta itemprop="position" content="1"/>
-                    </li>
-                    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                        <a itemprop="item" href="{{ route('bands.show', $song->band) }}">
-                            <span itemprop="name">{{ $song->band->name }}</span>
-                        </a>
-                        <meta itemprop="position" content="2"/>
-                    </li>
-                    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                        <a itemprop="item" href="{{ route('songs.index', $song->band_id) }}">
-                            <span itemprop="name">Songs</span>
-                        </a>
-                        <meta itemprop="position" content="3"/>
-                    </li>
-                    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                        <a itemprop="item" href="{{ route('songs.show', $song) }}">
-                            <span itemprop="name">{{$song->title}}</span>
-                        </a>
-                        <meta itemprop="position" content="4"/>
-                    </li>
-                    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                        <a itemprop="item" href="{{ route('songs.edit', $song) }}">
-                            <span itemprop="name">Edit song</span>
-                        </a>
-                        <meta itemprop="position" content="5"/>
-                    </li>
-                </ol>
+                <breadcrumbs
+                        v-bind:breadcrumb-items="[
+                        {name: 'Bands', link: '{{ route('bands.index') }}'},
+                        {name: '{{ $song->band->name }}', link: '{{ route('bands.show', $song->band) }}'},
+                        {name: 'Songs', link: '{{ route('songs.index', $song->band) }}'},
+                        {name: '{{$song->title}}', link: '{{ route('songs.show', $song) }}'},
+                        {name: 'Edit song', link: '{{ route('songs.edit', $song)  }}'}
+                        ]">
+                </breadcrumbs>
                 <h1>{{ $song->title }}</h1>
                 <form action="{{ route('songs.update', $song) }}" method="POST">
                     {{ csrf_field() }}
