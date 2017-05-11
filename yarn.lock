@@ -745,8 +745,8 @@ babel-types@^6.19.0, babel-types@^6.24.1:
     to-fast-properties "^1.0.1"
 
 babylon@^6.11.0, babylon@^6.15.0:
-  version "6.17.0"
-  resolved "https://registry.yarnpkg.com/babylon/-/babylon-6.17.0.tgz#37da948878488b9c4e3c4038893fa3314b3fc932"
+  version "6.17.1"
+  resolved "https://registry.yarnpkg.com/babylon/-/babylon-6.17.1.tgz#17f14fddf361b695981fe679385e4f1c01ebd86f"
 
 backo2@1.0.2:
   version "1.0.2"
@@ -1235,7 +1235,7 @@ chokidar@^1.4.3, chokidar@^1.6.0, chokidar@^1.6.1:
   optionalDependencies:
     fsevents "^1.0.0"
 
-cipher-base@^1.0.0, cipher-base@^1.0.1:
+cipher-base@^1.0.0, cipher-base@^1.0.1, cipher-base@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/cipher-base/-/cipher-base-1.0.3.tgz#eeabf194419ce900da3018c207d212f2a6df0a07"
   dependencies:
@@ -1248,21 +1248,21 @@ clap@^1.0.9:
     chalk "^1.1.3"
 
 clean-css@4.0.x:
-  version "4.0.12"
-  resolved "https://registry.yarnpkg.com/clean-css/-/clean-css-4.0.12.tgz#a02e61707f1840bd3338f54dbc9acbda4e772fa3"
+  version "4.0.13"
+  resolved "https://registry.yarnpkg.com/clean-css/-/clean-css-4.0.13.tgz#feb2a176062d72a6c3e624d9213cac6a0c485e80"
   dependencies:
     source-map "0.5.x"
 
 clean-css@^3.1.9, clean-css@^3.2.10:
-  version "3.4.25"
-  resolved "https://registry.yarnpkg.com/clean-css/-/clean-css-3.4.25.tgz#9e9a52d5c1e6bc5123e1b2783fa65fe958946ede"
+  version "3.4.26"
+  resolved "https://registry.yarnpkg.com/clean-css/-/clean-css-3.4.26.tgz#55323b344ff3bcee684a2eac81c93df8fa73deeb"
   dependencies:
     commander "2.8.x"
     source-map "0.4.x"
 
 clean-css@^4.0.7:
-  version "4.1.1"
-  resolved "https://registry.yarnpkg.com/clean-css/-/clean-css-4.1.1.tgz#427e737efedc1a1adf095f71d8e7641ae3b80fbd"
+  version "4.1.2"
+  resolved "https://registry.yarnpkg.com/clean-css/-/clean-css-4.1.2.tgz#6029aea30b1d9520a968a3caee0dabb1184e353a"
   dependencies:
     source-map "0.5.x"
 
@@ -1579,21 +1579,25 @@ create-error-class@^3.0.1:
   dependencies:
     capture-stack-trace "^1.0.0"
 
-create-hash@^1.1.0, create-hash@^1.1.1:
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/create-hash/-/create-hash-1.1.2.tgz#51210062d7bb7479f6c65bb41a92208b1d61abad"
+create-hash@^1.1.0, create-hash@^1.1.1, create-hash@^1.1.2:
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/create-hash/-/create-hash-1.1.3.tgz#606042ac8b9262750f483caddab0f5819172d8fd"
   dependencies:
     cipher-base "^1.0.1"
     inherits "^2.0.1"
-    ripemd160 "^1.0.0"
-    sha.js "^2.3.6"
+    ripemd160 "^2.0.0"
+    sha.js "^2.4.0"
 
-create-hmac@^1.1.0, create-hmac@^1.1.2:
-  version "1.1.4"
-  resolved "https://registry.yarnpkg.com/create-hmac/-/create-hmac-1.1.4.tgz#d3fb4ba253eb8b3f56e39ea2fbcb8af747bd3170"
+create-hmac@^1.1.0, create-hmac@^1.1.2, create-hmac@^1.1.4:
+  version "1.1.6"
+  resolved "https://registry.yarnpkg.com/create-hmac/-/create-hmac-1.1.6.tgz#acb9e221a4e17bdb076e90657c42b93e3726cf06"
   dependencies:
+    cipher-base "^1.0.3"
     create-hash "^1.1.0"
     inherits "^2.0.1"
+    ripemd160 "^2.0.0"
+    safe-buffer "^5.0.1"
+    sha.js "^2.4.8"
 
 cross-env@^3.1.3:
   version "3.2.4"
@@ -1602,9 +1606,9 @@ cross-env@^3.1.3:
     cross-spawn "^5.1.0"
     is-windows "^1.0.0"
 
-cross-env@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/cross-env/-/cross-env-4.0.0.tgz#16083862d08275a4628b0b243b121bedaa55dd80"
+cross-env@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/cross-env/-/cross-env-5.0.0.tgz#565ccae4d09676441a5087f406fe7661a29c931b"
   dependencies:
     cross-spawn "^5.1.0"
     is-windows "^1.0.0"
@@ -1890,8 +1894,8 @@ decompress@^3.0.0:
     vinyl-fs "^2.2.0"
 
 deep-extend@~0.4.0:
-  version "0.4.1"
-  resolved "https://registry.yarnpkg.com/deep-extend/-/deep-extend-0.4.1.tgz#efe4113d08085f4e6f9687759810f807469e2253"
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/deep-extend/-/deep-extend-0.4.2.tgz#48b699c27e334bf89f10892be432f6e4c7d34a7f"
 
 defaults@^1.0.0:
   version "1.0.3"
@@ -2077,8 +2081,8 @@ ee-first@1.1.1:
   resolved "https://registry.yarnpkg.com/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
 
 electron-to-chromium@^1.2.7:
-  version "1.3.9"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.9.tgz#db1cba2a26aebcca2f7f5b8b034554468609157d"
+  version "1.3.10"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.10.tgz#63d62b785471f0d8dda85199d64579de8a449f08"
 
 elliptic@^6.0.0:
   version "6.4.0"
@@ -3091,6 +3095,12 @@ has@^1.0.1:
   dependencies:
     function-bind "^1.0.2"
 
+hash-base@^2.0.0:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/hash-base/-/hash-base-2.0.2.tgz#66ea1d856db4e8a5470cadf6fce23ae5244ef2e1"
+  dependencies:
+    inherits "^2.0.1"
+
 hash-sum@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/hash-sum/-/hash-sum-1.0.2.tgz#33b40777754c6432573c120cc3808bbd10d47f04"
@@ -3255,8 +3265,8 @@ ieee754@^1.1.4:
   resolved "https://registry.yarnpkg.com/ieee754/-/ieee754-1.1.8.tgz#be33d40ac10ef1926701f6f08a2d86fbfd1ad3e4"
 
 image-size@~0.5.0:
-  version "0.5.2"
-  resolved "https://registry.yarnpkg.com/image-size/-/image-size-0.5.2.tgz#8e97cd0eb69ce04a2831a11a6095983100f8bda4"
+  version "0.5.3"
+  resolved "https://registry.yarnpkg.com/image-size/-/image-size-0.5.3.tgz#5cbe9fafc8436386ceb7e9e3a9d90c5b71b70ad9"
 
 imagemin-gifsicle@^5.1.0:
   version "5.1.0"
@@ -4364,9 +4374,13 @@ mime@1.2.4:
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/mime/-/mime-1.2.4.tgz#11b5fdaf29c2509255176b80ad520294f5de92b7"
 
-mime@1.3.4, "mime@>= 0.0.1", mime@^1.2.11, mime@^1.3.4:
+mime@1.3.4:
   version "1.3.4"
   resolved "https://registry.yarnpkg.com/mime/-/mime-1.3.4.tgz#115f9e3b6b3daf2959983cb38f149a2d40eb5d53"
+
+"mime@>= 0.0.1", mime@^1.2.11, mime@^1.3.4:
+  version "1.3.5"
+  resolved "https://registry.yarnpkg.com/mime/-/mime-1.3.5.tgz#dc1ee70b80fee4999cb0775c9f94beefc9a779a3"
 
 minimalistic-assert@^1.0.0:
   version "1.0.0"
@@ -4947,10 +4961,14 @@ path@^0.12.7:
     util "^0.10.3"
 
 pbkdf2@^3.0.3:
-  version "3.0.9"
-  resolved "https://registry.yarnpkg.com/pbkdf2/-/pbkdf2-3.0.9.tgz#f2c4b25a600058b3c3773c086c37dbbee1ffe693"
+  version "3.0.12"
+  resolved "https://registry.yarnpkg.com/pbkdf2/-/pbkdf2-3.0.12.tgz#be36785c5067ea48d806ff923288c5f750b6b8a2"
   dependencies:
-    create-hmac "^1.1.2"
+    create-hash "^1.1.2"
+    create-hmac "^1.1.4"
+    ripemd160 "^2.0.1"
+    safe-buffer "^5.0.1"
+    sha.js "^2.4.8"
 
 pend@~1.2.0:
   version "1.2.0"
@@ -5365,8 +5383,8 @@ qs@~6.3.0:
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.3.2.tgz#e75bd5f6e268122a2a0e0bda630b2550c166502c"
 
 quark-gui@^0.4.0:
-  version "0.4.17"
-  resolved "https://registry.yarnpkg.com/quark-gui/-/quark-gui-0.4.17.tgz#eeda60c940b5de6054d23c5976bdb26ba959d026"
+  version "0.4.18"
+  resolved "https://registry.yarnpkg.com/quark-gui/-/quark-gui-0.4.18.tgz#a1a5858dc9b3f1d4baf7a16aa36b1d48c47fdbdf"
   dependencies:
     dragula "^3.7.2"
     font-awesome "^4.7.0"
@@ -5740,9 +5758,12 @@ rimraf@2, rimraf@^2.2.6, rimraf@^2.2.8, rimraf@^2.5.1, rimraf@^2.5.4, rimraf@^2.
   dependencies:
     glob "^7.0.5"
 
-ripemd160@^1.0.0:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/ripemd160/-/ripemd160-1.0.1.tgz#93a4bbd4942bc574b69a8fa57c71de10ecca7d6e"
+ripemd160@^2.0.0, ripemd160@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/ripemd160/-/ripemd160-2.0.1.tgz#0f4584295c53a3628af7e6d79aca21ce57d1c6e7"
+  dependencies:
+    hash-base "^2.0.0"
+    inherits "^2.0.1"
 
 rx@4.1.0:
   version "4.1.0"
@@ -5762,8 +5783,8 @@ sass-graph@^2.1.1:
     yargs "^6.6.0"
 
 sass-loader@^6.0.0:
-  version "6.0.4"
-  resolved "https://registry.yarnpkg.com/sass-loader/-/sass-loader-6.0.4.tgz#e1f20f534e8514445b9362deb566a4c40440d98d"
+  version "6.0.5"
+  resolved "https://registry.yarnpkg.com/sass-loader/-/sass-loader-6.0.5.tgz#a847910f36442aa56c5985879d54eb519e24a328"
   dependencies:
     async "^2.1.5"
     clone-deep "^0.2.4"
@@ -5904,7 +5925,7 @@ setprototypeof@1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/setprototypeof/-/setprototypeof-1.0.3.tgz#66567e37043eeb4f04d91bd658c0cbefb55b8e04"
 
-sha.js@^2.3.6:
+sha.js@^2.4.0, sha.js@^2.4.8:
   version "2.4.8"
   resolved "https://registry.yarnpkg.com/sha.js/-/sha.js-2.4.8.tgz#37068c2c476b6baf402d14a49c67f597921f634f"
   dependencies:
@@ -6347,8 +6368,8 @@ tar-pack@^3.4.0:
     uid-number "^0.0.6"
 
 tar-stream@^1.1.1:
-  version "1.5.2"
-  resolved "https://registry.yarnpkg.com/tar-stream/-/tar-stream-1.5.2.tgz#fbc6c6e83c1a19d4cb48c7d96171fc248effc7bf"
+  version "1.5.4"
+  resolved "https://registry.yarnpkg.com/tar-stream/-/tar-stream-1.5.4.tgz#36549cf04ed1aee9b2a30c0143252238daf94016"
   dependencies:
     bl "^1.0.0"
     end-of-stream "^1.0.0"
@@ -6946,10 +6967,10 @@ which@1, which@^1.0.5, which@^1.2.12, which@^1.2.9:
     isexe "^2.0.0"
 
 wide-align@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/wide-align/-/wide-align-1.1.0.tgz#40edde802a71fea1f070da3e62dcda2e7add96ad"
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/wide-align/-/wide-align-1.1.2.tgz#571e0f1b0604636ebc0dfc21b0339bbe31341710"
   dependencies:
-    string-width "^1.0.1"
+    string-width "^1.0.2"
 
 window-size@0.1.0:
   version "0.1.0"
