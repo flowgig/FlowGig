@@ -18,7 +18,7 @@
                         band</a>
                     <a class="button button-flat button-primary" href="{{ route('gigs.create', $band) }}">New gig</a>
                 </div>
-                <gigs></gigs>
+                <gigs v-bind:gigs="{{ $band->gigs }}"></gigs>
                 <ul class="list menu-list">
                     @foreach($band->gigs->sortByDesc('date') as $gig)
                         <li>
