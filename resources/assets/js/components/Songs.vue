@@ -7,61 +7,56 @@
 
     export default {
         name: 'Songs',
+        props: ['songs'],
         data () {
             return {
                 htmlContent: ""
             }
         },
         created: function () {
-            this.htmlContent = this.createListElement();
+            this.htmlContent = this.createListMenuElement();
         },
         methods: {
-            createListElement: function () {
+            createListMenuElement: function () {
                 return quark.Organisms.Menus.ListMenu.getModule({
                     id: 'songs-list',
                     hover: true,
-                    listItems: this.createDummyListItems()
+                    listItems: this.getListItems()
                 });
             },
-            createDummyListItems: function () {
-                return [
-                    {
-                        title: 'CHAPTER II. The',
-                        subTitle: 'The User Experience Researchers',
-                        link: "#",
-                        buttonRow: {
-                            id: 'list-menu-button-row1',
-                            buttons: [
-                                {
-                                    id: 'list-menu-buttonrow-button1',
-                                    iconClass: 'fa fa-pencil'
-                                },
-                                {
-                                    id: 'list-menu-buttonrow-button2',
-                                    iconClass: 'fa fa-trash'
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        title: 'Rabbit actually',
-                        subTitle: 'The Molding and Casting Workers',
-                        link: "#",
-                        buttonRow: {
-                            id: 'list-menu-button-row1',
-                            buttons: [
-                                {
-                                    id: 'list-menu-buttonrow-button1',
-                                    iconClass: 'fa fa-pencil'
-                                },
-                                {
-                                    id: 'list-menu-buttonrow-button2',
-                                    iconClass: 'fa fa-trash'
-                                }
-                            ]
-                        }
+            getListItems: function () {
+                let listItems = [];
+                this.songs.forEach(function (song) {
+                    let listItem = {
+                        title: song.title,
+                        subTitle: this.getSubTitle(song),
+                        link: this.getLink(song),
+                        buttonRow: this.getButtonRow(song),
                     }
-                ];
+                    listItems.push(listItem);
+                }.bind(this));
+                return listItems;
+            },
+            getSubTitle: function (song) {
+                let subTitle = song.artist;
+                return subTitle;
+            },
+            getLink: function (song) {
+                return '/songs/' + song.id; //TODO get route link
+            },
+            getButtonRow: function (song) {
+                let buttonRow = {
+                    buttons: [
+                        {
+                            iconClass: 'fa fa-pencil',
+                            link: '/songs/' + song.id + '/edit' //TODO get route link
+                        },
+                        {
+                            iconClass: 'fa fa-trash' //TODO add function for delete
+                        }
+                    ]
+                }
+                return buttonRow;
             }
         }
     }
