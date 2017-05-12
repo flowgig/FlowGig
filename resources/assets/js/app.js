@@ -15,6 +15,7 @@ import Vue from 'vue';
 
 Vue.component('BandCards', require('./components/BandCards.vue'));
 Vue.component('Breadcrumbs', require('./components/Breadcrumbs.vue'));
+Vue.component('CustomButton', require('./components/CustomButton.vue'));
 Vue.component('Gigs', require('./components/Gigs.vue'));
 Vue.component('LoginForm', require('./components/LoginForm.vue'));
 Vue.component('MainFooter', require('./components/MainFooter.vue'));
