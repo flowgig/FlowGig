@@ -7,37 +7,58 @@
 
     export default {
         name: 'UpcomingGigs',
+        props: ['gigs'],
         data () {
             return {
                 htmlContent: ""
             }
         },
         created: function () {
-            this.htmlContent = this.createListElement();
+            this.htmlContent = this.createListMenuElement();
         },
         methods: {
-            createListElement: function () {
+            createListMenuElement: function () {
                 return quark.Organisms.Menus.ListMenu.getModule({
-                    id: 'upcoming-gigs-list',
+                    id: 'songs-list',
                     hover: true,
-                    listItems: this.createDummyListItems()
+                    listItems: this.getListItems()
                 });
             },
-            createDummyListItems: function () {
-                return [
-                    {
-                        title: 'Student event with The Wurlitzers',
-                        iconClass: 'fa fa-check-circle-o',
-                        subTitle: '2017-08-19 - Wisozk Lodge Stadium - North Lonport',
-                        link: "#"
-                    },
-                    {
-                        title: 'Lunch Gig with The Wurlitzers',
-                        iconClass: 'fa fa-globe',
-                        subTitle: '2017-10-28 - Johnny Walk Concert House - Morrisburgh',
-                        link: "#"
-                    },
-                ];
+            getListItems: function () {
+                let listItems = [];
+                this.gigs.forEach(function (gig) {
+                    let listItem = {
+                        title: gig.name,
+                        subTitle: this.getSubTitle(gig),
+                        iconClass: this.getIconClass(gig),
+                        link: this.getLink(gig),
+                    }
+                    listItems.push(listItem);
+                }.bind(this));
+                return listItems;
+            },
+            getSubTitle: function (gig) {
+                let subTitle = gig.date + ' - ' + gig.venue + ' - ' + gig.location;
+                return subTitle;
+            },
+            getIconClass: function (gig) {
+                let iconClass = '';
+                if (gig.status !== undefined) {
+                    //TODO add title attribute for icons
+                    if (gig.status == 'Proposed') {
+                        iconClass = 'fa fa-question-circle-o'
+                    } //Title: Status: Proposed
+                    if (gig.status == 'Settled') {
+                        iconClass = 'fa fa-check-circle-o'
+                    } //Title: Status: Settled
+                    if (gig.status == 'Public') {
+                        iconClass = 'fa fa-globe'
+                    } //Title: Status: Public
+                }
+                return iconClass;
+            },
+            getLink: function (gig) {
+                return '/gigs/' + gig.id; //TODO get route link
             }
         }
     }

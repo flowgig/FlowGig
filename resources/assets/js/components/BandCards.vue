@@ -3,7 +3,6 @@
 </template>
 
 <script>
-    import * as axios from 'axios';
     import * as quark from 'quark-gui';
 
     export default {
@@ -11,80 +10,60 @@
         data () {
             return {
                 htmlContent: "",
-                bands: []
             }
         },
+        props: ['bands'],
         created: function () {
-            axios.get('/quark').then(
-                function (response) {
-                    this.bands = response.data;
-                    this.bands.forEach(function(band){
-                        let gridItems = [];
-                        this.bands.forEach(function(band){
-                            gridItems.push({
-                                sizes: {
-                                    phone: 12,
-                                    tablet: 6,
-                                    tabletLandscape: 4,
-                                    screen: 4
-                                },
-                                content: this.createCardElement(band)
-                            });
-                        }.bind(this));
-                        let gridElement = quark.Molecules.Sections.Grid.getModule({
-                            gridItems: gridItems
-                        })
-                        this.htmlContent = gridElement;
-                    }.bind(this))
-                }.bind(this)
-            );
+            this.htmlContent = this.getGridElement(this.bands);
         },
         methods: {
-            createCardElement: function (band) {
-                var cardElement = quark.Organisms.Cards.Card.getModule({
+            getGridElement: function (bands) {
+                let gridItems = [];
+                bands.forEach(function (band) {
+                    gridItems.push({
+                        sizes: {
+                            phone: 12,
+                            tablet: 6,
+                            tabletLandscape: 4,
+                            screen: 4
+                        },
+                        content: this.getCardElement(band)
+                    });
+                }.bind(this));
+                return quark.Molecules.Sections.Grid.getModule({
+                    gridItems: gridItems
+                });
+            },
+            getCardElement: function (band) {
+                return quark.Organisms.Cards.Card.getModule({
                     title: band.name,
                     theme: 'primary',
                     content: quark.Organisms.Menus.ListMenu.getModule({
                         id: 'band-card-list-' + band.id,
                         hover: true,
-                        listItems: this.createDummyListItems()
+                        listItems: this.getListItems(band)
                     })
                 });
-                return cardElement;
             },
-            createDummyListItems: function(){
-                var listItems = [
+            getListItems: function (band) {
+                return [
                     {
                         title: 'Songs',
                         iconClass: 'fa fa-music',
-                        buttonRow: {
-                            id: 'list-menu-button-row1',
-                            buttons: [
-                                {
-                                    id: 'list-menu-buttonrow-button1',
-                                    iconClass: 'fa fa-home'
-                                },
-                                {
-                                    id: 'list-menu-buttonrow-button2',
-                                    iconClass: 'fa fa-cog'
-                                },
-                                {
-                                    id: 'list-menu-buttonrow-button3',
-                                    iconClass: 'fa fa-list'
-                                }
-                            ]
-                        }
+                        link: '/bands/' + band.id + '/songs'
                     },
                     {
                         title: 'Gigs',
-                        iconClass: 'fa fa-calendar'
+                        iconClass: 'fa fa-calendar',
+                        link: '/bands/' + band.id + '/gigs'
+
                     },
                     {
                         title: 'Members',
-                        iconClass: 'fa fa-group'
+                        iconClass: 'fa fa-group',
+                        link: '/bands/' + band.id + '/band-memberships'
                     }
                 ];
-                return listItems;
             }
         }
     }
