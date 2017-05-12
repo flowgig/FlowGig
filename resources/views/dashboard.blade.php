@@ -5,20 +5,12 @@
     <div class="content">
         <div class="box">
             <div class="content">
-                <ol itemscope itemtype="http://schema.org/BreadcrumbList" class="breadcrumbs">
-                    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                        <a itemprop="item" href="/dashboard">
-                            <span itemprop="name">Dashboard</span>
-                        </a>
-                        <meta itemprop="position" content="1"/>
-                    </li>
-                </ol>
+                <breadcrumbs
+                        v-bind:breadcrumb-items="[
+                        {name: 'Dashboard', link: '/dashboard'}
+                        ]">
+                </breadcrumbs>
                 <h1>My FlowGig</h1>
-
-
-
-
-
 
                 <div id="dashboard" class="content">
                     <p>Name: {{ $user->name }}</p>
