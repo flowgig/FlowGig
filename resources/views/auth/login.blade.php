@@ -3,6 +3,8 @@
 @section('title', 'Log in')
 @section('content')
     <div class="content">
+        <welcome-screen v-bind:form-type="'login'"></welcome-screen>
+
         <form method="POST" action="{{ url('/login') }}">
             {{ csrf_field() }}
             <div class="login-box-header">
