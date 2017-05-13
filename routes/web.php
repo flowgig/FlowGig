@@ -17,6 +17,18 @@ Route::get('/', function () {
 
 Auth::routes();
 
+
+Route::get('register/verify', [
+    'as' => 'register.verify',
+    'uses' => 'Auth\RegisterController@verify'
+]);
+
+Route::post('register/re-verify', [
+    'as' => 'register.re-verify',
+    'uses' => 'Auth\RegisterController@reVerify'
+]);
+
+
 Route::get('/dashboard', 'DashboardController@index');
 
 Route::singularResourceParameters();

@@ -56,7 +56,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest', ['except' => ['getVerification', 'getVerificationError']]);
+        $this->middleware('guest', ['except' => ['getVerification', 'getVerificationError', 'verify', 'reVerify']]);
     }
 
     /**
@@ -109,5 +109,21 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+    }
+    
+    /**
+     * @param User $user
+     */
+    protected function verify(User $user)
+    {
+        return "verify";
+    }
+
+    /**
+     * @param User $user
+     */
+    protected function reVerify(User $user)
+    {
+        return "reVerify() was called";
     }
 }
