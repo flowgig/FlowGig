@@ -46,7 +46,7 @@ class Handler extends ExceptionHandler
     public function render($request, Exception $exception)
     {
         if ($exception instanceof UserNotVerifiedException) {
-            return response()->view('errors.user-not-verified', [], 500);
+            return $this->unverified($request, $exception);
         }
 
         return parent::render($request, $exception);
@@ -66,5 +66,21 @@ class Handler extends ExceptionHandler
         }
 
         return redirect()->guest('login');
+    }
+
+    /**
+     * Convert an verification exception into an unverified response.
+     *
+     * @param  \Illuminate\Http\Request $request
+     * @param UserNotVerifiedException $exception
+     * @return \Illuminate\Http\Response
+     */
+    protected function unverified($request, UserNotVerifiedException $exception)
+    {
+        if ($request->expectsJson()) {
+            return response()->json(['error' => 'Unverified.'], 500);
+        }
+
+        return redirect()->route('email-verification.info');
     }
 }
