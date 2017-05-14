@@ -20,7 +20,7 @@
     import * as quark from 'quark-gui';
     export default {
         name: 'WelcomeScreen',
-        props: ['formType'],
+        props: ['formType', 'formData'],
         components: {
             welcome: Welcome,
             loginForm: LoginForm
