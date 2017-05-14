@@ -21,6 +21,7 @@
                 return quark.Organisms.Menus.ListMenu.getModule({
                     id: 'songs-list',
                     hover: true,
+                    raised: true,
                     listItems: this.getListItems()
                 });
             },
