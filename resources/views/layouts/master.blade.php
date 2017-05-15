@@ -41,7 +41,13 @@
 
 {{-- @yield('actionbar') --}}
 <div id="app">
-    <main-navigation></main-navigation>
+    @if(isset($currentBand))
+        <main-navigation v-bind:current-band='{id: "{{ $currentBand->id }}", name: "{{ $currentBand->name }}"}'
+                         v-bind:current-user='{name: "{{ Auth::user()->name }}", email: "{{ Auth::user()->email }}"}'></main-navigation>
+
+    @else
+        <main-navigation v-bind:current-user='{name: "{{ Auth::user()->name }}", email: "{{ Auth::user()->email }}"}'></main-navigation>
+    @endif
     <main id="mainContent">
         <div class="main-content">
             <div id="page"></div>
