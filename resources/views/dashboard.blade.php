@@ -6,9 +6,9 @@
         <div class="box">
             <div class="content">
                 <breadcrumbs
-                        v-bind:breadcrumb-items="[
-                        {name: 'Dashboard', link: '/dashboard'}
-                        ]">
+                        v-bind:breadcrumb-items='[
+                        {name: "Dashboard", link: "/dashboard"}
+                        ]'>
                 </breadcrumbs>
                 <h1>My FlowGig</h1>
 

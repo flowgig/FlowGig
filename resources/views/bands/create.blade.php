@@ -6,10 +6,10 @@
         <div class="box">
             <div class="content">
                 <breadcrumbs
-                        v-bind:breadcrumb-items="[
-                        {name: 'Bands', link: '{{ route('bands.index') }}'},
-                        {name: 'Create new band', link: '{{ route('bands.create') }}'}
-                        ]">
+                        v-bind:breadcrumb-items='[
+                        {name: "Bands", link: "{{ route('bands.index') }}"},
+                        {name: "Create new band", link: "{{ route('bands.create') }}"}
+                        ]'>
                 </breadcrumbs>
                 <h1>Create new band</h1>
                 <form action="{{ route('bands.store') }}" method="POST">

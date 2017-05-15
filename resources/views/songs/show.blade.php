@@ -6,12 +6,12 @@
         <div class="box">
             <div class="content">
                 <breadcrumbs
-                        v-bind:breadcrumb-items="[
-                        {name: 'Bands', link: '{{ route('bands.index') }}'},
-                        {name: '{{ $song->band->name }}', link: '{{ route('bands.show', $song->band) }}'},
-                        {name: 'Songs', link: '{{ route('songs.index', $song->band) }}'},
-                        {name: '{{$song->title}}', link: '{{ route('songs.show', $song) }}'}
-                        ]">
+                        v-bind:breadcrumb-items='[
+                        {name: "Bands", link: "{{ route('bands.index') }}"},
+                        {name: "{{ $song->band->name }}", link: "{{ route('bands.show', $song->band) }}"},
+                        {name: "Songs", link: "{{ route('songs.index', $song->band) }}"},
+                        {name: "{{$song->title}}", link: "{{ route('songs.show', $song) }}"}
+                        ]'>
                 </breadcrumbs>
                 <h1>{{ $song->title }}</h1>
                 <div class="text-right">

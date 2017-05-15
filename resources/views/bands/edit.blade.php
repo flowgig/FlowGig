@@ -6,11 +6,11 @@
         <div class="box">
             <div class="content">
                 <breadcrumbs
-                        v-bind:breadcrumb-items="[
-                        {name: 'Bands', link: '{{ route('bands.index') }}'},
-                        {name: '{{ $band->name }}', link: '{{ route('bands.show', $band) }}'},
-                        {name: 'Edit band', link: '{{ route('bands.edit', $band) }}'}
-                        ]">
+                        v-bind:breadcrumb-items='[
+                        {name: "Bands", link: "{{ route('bands.index') }}"},
+                        {name: "{{ $band->name }}", link: "{{ route('bands.show', $band) }}"},
+                        {name: "Edit band", link: "{{ route('bands.edit', $band) }}"}
+                        ]'>
                 </breadcrumbs>
                 <h1>{{ $band->name }}</h1>
                 <form action="{{ route('bands.update', $band) }}" method="POST">
@@ -18,7 +18,8 @@
                     {{ method_field('PUT') }}
                     <div class="row">
                         <div class="input-group col-sm-4">
-                            <input type="text" name="name" id="name" value="{{ $band->name }}" placeholder="The Rolling Stones"/>
+                            <input type="text" name="name" id="name" value="{{ $band->name }}"
+                                   placeholder="The Rolling Stones"/>
                             <label for="name">Band name</label>
                         </div>
                     </div>

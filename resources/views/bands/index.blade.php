@@ -6,9 +6,9 @@
         <div class="box">
             <div class="content">
                 <breadcrumbs
-                        v-bind:breadcrumb-items="[
-                        {name: 'Bands', link: '{{ route('bands.index') }}'}
-                        ]">
+                        v-bind:breadcrumb-items='[
+                        {name: "Bands", link: "{{ route('bands.index') }}"}
+                        ]'>
                 </breadcrumbs>
                 <h1>Bands</h1>
                 <div class="block text-right">
@@ -23,7 +23,8 @@
                                 </a>
                             </span>
                             <span class="list-item-buttons">
-                                <a class="button button-icon button-flat button-default tooltip" title="Edit {{$band->name}}" href="{{ route('bands.edit', $band) }}">
+                                <a class="button button-icon button-flat button-default tooltip"
+                                   title="Edit {{$band->name}}" href="{{ route('bands.edit', $band) }}">
                                     <span class="fa fa-pencil"></span>
                                 </a>
                                 <form action="{{ route('bands.destroy', $band) }}" method="POST">

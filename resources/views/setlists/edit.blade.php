@@ -71,13 +71,13 @@
             <div class="box">
                 <div class="content">
                     <breadcrumbs
-                            v-bind:breadcrumb-items="[
-                        {name: 'Bands', link: '{{ route('bands.index') }}'},
-                        {name: '{{ $setlist->gig->band->name  }}', link: '{{ route('bands.show', $setlist->gig->band) }}'},
-                        {name: 'Gigs', link: '{{ route('gigs.index', $setlist->gig->band)  }}'},
-                        {name: '{{ $setlist->gig->name }}', link: '{{ route('gigs.show', $setlist->gig) }}'},
-                        {name: 'Edit setlist', link: '{{ route('setlists.edit', $setlist) }}'}
-                        ]">
+                            v-bind:breadcrumb-items='[
+                        {name: "Bands", link: "{{ route('bands.index') }}"},
+                        {name: "{{ $setlist->gig->band->name  }}", link: "{{ route('bands.show', $setlist->gig->band) }}"},
+                        {name: "Gigs", link: "{{ route('gigs.index', $setlist->gig->band)  }}"},
+                        {name: "{{ $setlist->gig->name }}", link: "{{ route('gigs.show', $setlist->gig) }}"},
+                        {name: "Edit setlist", link: "{{ route('setlists.edit', $setlist) }}"}
+                        ]'>
                     </breadcrumbs>
 
                     <p style="font-size: x-large">Setlist for</p>

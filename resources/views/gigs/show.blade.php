@@ -6,12 +6,12 @@
         <div class="box">
             <div class="content">
                 <breadcrumbs
-                        v-bind:breadcrumb-items="[
-                        {name: 'Bands', link: '{{ route('bands.index') }}'},
-                        {name: '{{ $gig->band->name }}', link: '{{ route('bands.show', $gig->band) }}'},
-                        {name: 'Gigs', link: '{{ route('gigs.index', $gig->band) }}'},
-                        {name: '{{ $gig->name }}', link: '{{ route('gigs.show', $gig) }}'}
-                        ]">
+                        v-bind:breadcrumb-items='[
+                        {name: "Bands", link: "{{ route('bands.index') }}"},
+                        {name: "{{ $gig->band->name }}", link: "{{ route('bands.show', $gig->band) }}"},
+                        {name: "Gigs", link: "{{ route('gigs.index', $gig->band) }}"},
+                        {name: "{{ $gig->name }}", link: "{{ route('gigs.show', $gig) }}"}
+                        ]'>
                 </breadcrumbs>
                 <h1>{{ $gig->name }}</h1>
                 <div class="text-right">
@@ -38,19 +38,19 @@
                             </li>
                         </ul>
                         @include('meta.user-timestamps', ['model' => $gig])
-                        <br /><br />
+                        <br/><br/>
                         <ul class="list menu-list">
                             <li>
                                 <span class="list-item-content single-line">
 
                             @if($gig->setlist)
-                                <a class="tooltip" title="Show setlist for {{ $gig->name }}"
-                                   href="{{ route('setlists.show', $gig->setlist) }}">Setlist
+                                        <a class="tooltip" title="Show setlist for {{ $gig->name }}"
+                                           href="{{ route('setlists.show', $gig->setlist) }}">Setlist
                             </a>
-                            @else Setlist
-                            @endif
+                                    @else Setlist
+                                    @endif
                         </span>
-                        <span class="list-item-buttons">
+                                <span class="list-item-buttons">
                         @if($gig->setlist)
                                         <a class="button button-icon button-flat button-default tooltip"
                                            title="Edit setlist for {{ $gig->name }}"
