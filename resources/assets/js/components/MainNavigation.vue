@@ -20,7 +20,7 @@
                 theme: 'dark',
                 logo: {
                     image: {
-                        src: require('../../images/svg/flowgig-logo-white.svg'),
+                        src: require('../../images/svg/flowgig-beta-logo-white.svg'),
                         alt: 'FlowGig logo'
                     },
                     url: "/dashboard"
