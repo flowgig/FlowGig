@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="/css/vendor.css" type="text/css">
 <link rel="stylesheet" href="/css/app.css" type="text/css">
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
