@@ -6,8 +6,11 @@
                 <div v-if="formType == 'welcome'">
                     <welcome></welcome>
                 </div>
-                <div v-if="formType == 'login'">
+                <div v-else-if="formType == 'login'">
                     <login-form></login-form>
+                </div>
+                <div v-else-if="formType == 'register'">
+                    <register-form></register-form>
                 </div>
             </div>
         </div>
@@ -16,6 +19,7 @@
 
 <script>
     import LoginForm from './auth/LoginForm.vue';
+    import RegisterForm from './auth/RegisterForm.vue';
     import Welcome from './auth/Welcome.vue';
     import * as quark from 'quark-gui';
     export default {
@@ -23,7 +27,8 @@
         props: ['formType', 'formData'],
         components: {
             welcome: Welcome,
-            loginForm: LoginForm
+            loginForm: LoginForm,
+            registerForm: RegisterForm
         },
         data () {
             return {
