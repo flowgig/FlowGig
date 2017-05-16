@@ -60,7 +60,6 @@
             font-size: 96px;
             color: #FFF;
             text-shadow: 0 0 20px rgba(0, 0, 0, .8);
-            margin: 0 8px;
         }
     }
 

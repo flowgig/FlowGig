@@ -8,14 +8,14 @@
                 </div>
                 <div v-html="inputEmail"></div>
                 <div v-html="inputPassword"></div>
-                <div v-html="checkboxRemember"></div>
+                <div v-html="checkboxRemember" class="checkbox-container"></div>
 
                 <div class="input-group float-right">
                     <div v-html="loginButton"></div>
                 </div>
                 <div class="clearfix"></div>
 
-                <div class="input-group text-center">
+                <div class="text-center">
                     <a v-bind:href="$parent.formData.resetUrl">Forgot Your Password?</a>
                 </div>
             </form>
@@ -64,6 +64,7 @@
 <style lang="scss" scoped>
     .input-group {
         text-align: left;
+        margin-bottom: 25px;
     }
 
     .title {
@@ -95,6 +96,10 @@
         width: 100%;
     }
 
+    .text-center {
+        text-align: center;
+    }
+
     button[disabled]:hover {
         cursor: not-allowed;
     }
@@ -104,29 +109,9 @@
         padding: 0;
     }
 
-    .input-group input[type="text"] + label,
-    .input-group input[type="password"] + label,
-    .input-group input[type="number"] + label,
-    .input-group input[type="email"] + label,
-    .input-group input[type="checkbox"]:not(:focus),
-    .input-group input[type="radio"]:not(:focus),
-    .input-group select + label {
-        color: #CCC;
-    }
-
-    .input-group input[type="text"].is-not-empty,
-    .input-group input[type="text"]:focus.is-not-empty,
-    .input-group input[type="password"].is-not-empty,
-    .input-group input[type="password"]:focus.is-not-empty,
-    .input-group input[type="number"].is-not-empty,
-    .input-group input[type="number"]:focus.is-not-empty,
-    .input-group input[type="search"].is-not-empty,
-    .input-group input[type="search"]:focus.is-not-empty,
-    .input-group input[type="email"].is-not-empty,
-    .input-group input[type="email"]:focus.is-not-empty,
-    .input-group select.is-not-empty,
-    .input-group select.is-not-empty:focus {
-        color: #FFF;
+    .checkbox-container{
+        display: inline-block;
+        padding: 4px 0 2px;
     }
 
     @media screen and (min-width: 550px) {
@@ -148,36 +133,8 @@
 
         .login-box > .content {
             zoom: 1;
-            padding: 6px 12px;
+            padding: 6px 12px 12px;
         }
 
-        .input-group {
-            margin-bottom: 25px;
-        }
-
-        .input-group input[type="text"] + label,
-        .input-group input[type="password"] + label,
-        .input-group input[type="number"] + label,
-        .input-group input[type="email"] + label,
-        .input-group input[type="checkbox"]:not(:focus),
-        .input-group input[type="radio"]:not(:focus),
-        .input-group select + label {
-            color: #777;
-        }
-
-        .input-group input[type="text"].is-not-empty,
-        .input-group input[type="text"]:focus.is-not-empty,
-        .input-group input[type="password"].is-not-empty,
-        .input-group input[type="password"]:focus.is-not-empty,
-        .input-group input[type="number"].is-not-empty,
-        .input-group input[type="number"]:focus.is-not-empty,
-        .input-group input[type="search"].is-not-empty,
-        .input-group input[type="search"]:focus.is-not-empty,
-        .input-group input[type="email"].is-not-empty,
-        .input-group input[type="email"]:focus.is-not-empty,
-        .input-group select.is-not-empty,
-        .input-group select.is-not-empty:focus {
-            color: #212121;
-        }
     }
 </style>
