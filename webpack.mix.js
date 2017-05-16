@@ -21,7 +21,8 @@ mix.options({
             dead_code: true,
             drop_console: true
         }
-    }
+    },
+    extractVueStyles: true
 });
 
 mix.js('resources/assets/js/app.js', 'public/js')
