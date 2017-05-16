@@ -11,3 +11,4 @@ Homestead.json
 /.phpstorm.meta.php
 /.vagrant
 .DS_Store
+yarn-error.log
