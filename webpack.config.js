@@ -212,10 +212,14 @@ let rules = [
     }
 ];
 
+var sassExtractTextPlugin = new webpackPlugins.ExtractTextPlugin('/css/vendor.css');
+
+plugins.push(sassExtractTextPlugin);
+
 let sassRule = {
     test: /\.s[ac]ss$/,
     include: /node_modules/,
-    loader: webpackPlugins.ExtractTextPlugin.extract({
+    loader: sassExtractTextPlugin.extract({
         use: "css-loader?minimize!sass-loader",
     })
 };
