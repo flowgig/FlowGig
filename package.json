@@ -16,7 +16,7 @@
     "gulp-real-favicon": "^0.2.1",
     "laravel-mix": "0.*",
     "lodash": "^4.17.4",
-    "purifycss-webpack": "^0.6.0",
+    "purifycss-webpack": "^0.7.0",
     "vue": "^2.1.10"
   },
   "dependencies": {
