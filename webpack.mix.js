@@ -1,5 +1,4 @@
 let mix = require('laravel-mix');
-let ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 /*
  |--------------------------------------------------------------------------
@@ -13,7 +12,6 @@ let ExtractTextPlugin = require('extract-text-webpack-plugin');
  */
 
 mix.options({
-    purifyCss: false,
     uglify: {
         compress: {
             warnings: false,
