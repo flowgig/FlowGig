@@ -38,7 +38,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth'); // TODO: Replace with 'guest' on GA-release
+        $this->middleware(['auth', 'isVerified']); // TODO: Replace with 'guest' on GA-release
     }
 
     /**
