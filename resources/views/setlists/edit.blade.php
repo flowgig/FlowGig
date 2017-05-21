@@ -86,10 +86,11 @@
                     <p style="font-size: large">{{ $setlist->gig->date }}
                         at {{ $setlist->gig->venue }}, {{ $setlist->gig->location }}
                     </p>
+
                     <div class="block text-right">
-                        <a class="button button-flat button-default" href="{{ route('gigs.show', $setlist->gig) }}">
-                            Back to gig
-                        </a>
+                        <custom-button
+                                v-bind:button="{link: '{{ route('gigs.show', $setlist->gig) }}', content: 'Back to gig'}">
+                        </custom-button>
                     </div>
                     {{-- <small>@{{ setlistSongs.length }} songs</small> --}}
                     <div>
@@ -100,17 +101,20 @@
                             </ul> --}}
                     </div>
                     {{--   <small>@{{ setlistSongs.length }} songs</small> --}}
+
+                    <setlist v-bind:setlist="{{ $setlist }}" v-bind:repertoire="{{ $setlist->gig->band->songs }}"></setlist>
+
+                    
                     <div class="block text-right">
-                        <a class="button button-flat button-default" href="{{ route('gigs.show', $setlist->gig) }}">
-                            Back to gig
-                        </a>
+                        <custom-button
+                                v-bind:button="{link: '{{ route('gigs.show', $setlist->gig) }}', content: 'Back to gig'}">
+                        </custom-button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <setlist v-bind:setlist="{{ $setlist }}" v-bind:repertoire="{{ $setlist->gig->band->songs }}"></setlist>
 
     {{--
         <template id="song">
