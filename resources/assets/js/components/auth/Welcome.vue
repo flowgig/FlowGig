@@ -1,11 +1,14 @@
 <template>
     <div class="float-right">
-        <!-- <custom-button
-                 v-bind:button="{link: '/register', content: 'Register'}">
-         </custom-button> -->
-        <custom-button
-                v-bind:button="{link: '/login', theme: 'primary', content: 'Log in'}">
-        </custom-button>
+        <custom-button-row
+                v-bind:button-row="{
+                    id:'buttonRow',
+                    buttons: [
+                        {link: '/register', theme: 'primary', content: 'Register'},
+                        {link: '/login', theme: 'primary', content: 'Log in'},
+                    ]
+                }">
+        </custom-button-row>
     </div>
 </template>
 
