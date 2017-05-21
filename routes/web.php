@@ -22,6 +22,26 @@ Route::get('quark', function () {
 
 Auth::routes();
 
+Route::post('email-verification/send-token', [
+    'as' => 'email-verification.send-token',
+    'uses' => 'Auth\VerifyController@sendVerificationToken'
+]);
+
+Route::get('email-verification/info', [
+    'as' => 'email-verification.info',
+    'uses' => 'Auth\VerifyController@getVerificationInfo'
+]);
+
+Route::get('email-verification/check/{token}', [
+    'as' => 'email-verification.check',
+    'uses' => 'Auth\VerifyController@getVerification'
+]);
+
+Route::get('email-verification/error', [
+    'as' => 'email-verification.error',
+    'uses' => 'Auth\VerifyController@getVerificationError'
+]);
+
 Route::get('/dashboard', 'DashboardController@index');
 
 Route::singularResourceParameters();

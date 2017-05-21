@@ -6,6 +6,8 @@ use App\User;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Services\UserVerificationService;
+use Illuminate\Support\Facades\Auth;
 
 class RegisterController extends Controller
 {
@@ -36,7 +38,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth'); // TODO: Replace with 'guest' on GA-release
+        $this->middleware(['auth', 'isVerified']); // TODO: Replace with 'guest' on GA-release
     }
 
     /**
@@ -67,5 +69,17 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+    }
+
+    /**
+     * The user has been registered.
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    protected function registered()
+    {
+        UserVerificationService::sendVerificationToken(Auth::user());
+
+        return redirect()->route('email-verification.info');
     }
 }
