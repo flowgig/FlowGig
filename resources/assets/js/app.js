@@ -31,6 +31,7 @@ window.axios.defaults.headers.common = {
 Vue.component('BandCards', require('./components/BandCards.vue'));
 Vue.component('Breadcrumbs', require('./components/Breadcrumbs.vue'));
 Vue.component('CustomButton', require('./components/CustomButton.vue'));
+Vue.component('CustomButtonRow', require('./components/CustomButtonRow.vue'));
 Vue.component('Gigs', require('./components/Gigs.vue'));
 Vue.component('MainFooter', require('./components/MainFooter.vue'));
 Vue.component('MainNavigation', require('./components/MainNavigation.vue'));
