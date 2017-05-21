@@ -36,7 +36,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        $this->middleware('auth'); // TODO: Replace with 'guest' on GA-release
     }
 
     /**
@@ -62,14 +62,10 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        /* Self-registration disabled
-
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
-
-        */
     }
 }
