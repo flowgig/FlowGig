@@ -1,1 +1,28 @@
+.page-header {
+  padding: 30px 0;
+  .page-title {
+    float: left;
+    margin: 0 10px 0 0;
+  }
+  .button-row {
+    float: right;
+    margin: 14px 0 6px;
+  }
+  &:after {
+    display: table;
+    content: '';
+    clear: both;
+  }
+}
 
+.page-footer {
+  padding: 30px 0;
+  .button-row {
+    float: right;
+  }
+  &:after {
+    display: table;
+    content: '';
+    clear: both;
+  }
+}
