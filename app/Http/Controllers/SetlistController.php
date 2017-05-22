@@ -69,6 +69,10 @@ class SetlistController extends Controller
     {
         $this->authorize('view', $setlist);
 
+        $setlist->setlistSongs->load(['song' => function($query){
+            $query->withTrashed();
+        }]);
+
         return view('setlists.show', ['setlist' => $setlist]);
     }
 

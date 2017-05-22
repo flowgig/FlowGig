@@ -20,6 +20,7 @@ class UsersTableSeeder extends Seeder
             'email' => 'bob@flowgig.com',
             'password' => bcrypt('fender'),
             'remember_token' => str_random(10),
+            'verified' => true,
         ]);
 
         User::create([
@@ -27,6 +28,7 @@ class UsersTableSeeder extends Seeder
             'email' => 'tina@flowgig.com',
             'password' => bcrypt('fender'),
             'remember_token' => str_random(10),
+            'verified' => true,
         ]);
 
         factory(App\User::class, 50)->create();
