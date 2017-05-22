@@ -12,17 +12,31 @@
                         {name: "Gigs", link: "{{ route('gigs.index', $band) }}"}
                         ]'>
                 </breadcrumbs>
-                <h1>Gigs</h1>
-                <div class="block text-right">
-                    <a class="button button-flat button-default" href="{{ route('bands.show', $band) }}">Back to
-                        band</a>
-                    <a class="button button-flat button-primary" href="{{ route('gigs.create', $band) }}">New gig</a>
+                <div class="page-header">
+                    <h1 class="page-title">Gigs</h1>
+                    <div class="button-row">
+                        <custom-button-row
+                                v-bind:button-row="{
+                                buttons: [
+                                    {link: '{{ route('bands.show', $band) }}', type: 'raised', content: 'Back to band'},
+                                    {link: '{{ route('gigs.create', $band) }}', type: 'raised', theme: 'primary', content: 'New gig'},
+                                ]
+                            }">
+                        </custom-button-row>
+                    </div>
                 </div>
                 <gigs v-bind:gigs="{{ $band->gigs }}"></gigs>
-                <div class="block text-right">
-                    <a class="button button-flat button-default" href="{{ route('bands.show', $band) }}">Back to
-                        band</a>
-                    <a class="button button-flat button-primary" href="{{ route('gigs.create', $band) }}">New gig</a>
+                <div class="page-footer">
+                    <div class="button-row">
+                        <custom-button-row
+                                v-bind:button-row="{
+                                buttons: [
+                                    {link: '{{ route('bands.show', $band) }}', type: 'raised', content: 'Back to band'},
+                                    {link: '{{ route('gigs.create', $band) }}', type: 'raised', theme: 'primary', content: 'New gig'},
+                                ]
+                            }">
+                        </custom-button-row>
+                    </div>
                 </div>
             </div>
         </div>
