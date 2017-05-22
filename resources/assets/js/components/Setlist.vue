@@ -133,6 +133,7 @@
                     id: 'songs-list',
                     hover: true,
                     dragable: true,
+                    raised: true,
                     listItems: this.createListItems()
                 });
             },
