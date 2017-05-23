@@ -4,7 +4,7 @@
 
 <script>
     import * as quark from 'quark-gui';
-
+    import * as dragula from 'dragula';
     export default {
         name: 'Setlist',
         props: ['setlist', 'repertoire'],
@@ -20,9 +20,29 @@
             /*this.setlistSongs = this.setlist.setlist_songs.sort(function (a, b) {
              return a.number_in_list - b.number_in_list;
              });*/
+
         },
         created: function () {
             this.htmlContent = this.createListElement();
+
+
+        },
+        mounted: function () {
+            var self = this;
+            var from = null;
+            var drake = dragula([document.querySelector('#songs-list')]);
+            drake.on('drag', function (element, source) {
+                var index = [].indexOf.call(element.parentNode.children, element);
+                console.log('drag from', index, element, source);
+                from = index;
+            })
+            drake.on('drop', function (element, target, source, sibling) {
+                var index = [].indexOf.call(element.parentNode.children, element)
+                console.log('drop to', index, element, target, source, sibling);
+                self.setlist.setlist_songs.splice(index, 0, self.setlist.setlist_songs.splice(from, 1)[0]);
+
+                this.updateNumberInListForAllSetlistSongs();
+            }.bind(this))
         },
         components: {
             /*'song': {
@@ -132,7 +152,6 @@
                 return quark.Organisms.Menus.ListMenu.getModule({
                     id: 'songs-list',
                     hover: true,
-                    dragable: true,
                     raised: true,
                     listItems: this.createListItems()
                 });
@@ -156,6 +175,11 @@
                     listItems.push(listItem);
                 }.bind(this));
                 return listItems;
+            },
+            updateNumberInListForAllSetlistSongs: function () {
+                this.setlist.setlist_songs.forEach(function (setlistSong, index) {
+                    setlistSong.number_in_list = index + 1;
+                })
             }
         }
     }
