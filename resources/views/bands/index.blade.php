@@ -10,9 +10,17 @@
                         {name: "Bands", link: "{{ route('bands.index') }}"}
                         ]'>
                 </breadcrumbs>
-                <h1>Bands</h1>
-                <div class="block text-right">
-                    <a class="button button-flat button-primary" href="{{ route('bands.create') }}">New band</a>
+                <div class="page-header">
+                    <h1 class="page-title">Bands</h1>
+                    <div class="button-row">
+                        <custom-button-row
+                                v-bind:button-row="{
+                                buttons: [
+                                    {link: '{{ route('bands.create') }}', type: 'raised', theme: 'primary', content: 'New band'}
+                                ]
+                            }">
+                        </custom-button-row>
+                    </div>
                 </div>
                 <ul class="list menu-list">
                     @foreach($bands as $band)
@@ -41,8 +49,16 @@
                         </li>
                     @endforeach
                 </ul>
-                <div class="block text-right">
-                    <a class="button button-flat button-primary" href="{{ route('bands.create') }}">New band</a>
+                <div class="page-footer">
+                    <div class="button-row">
+                        <custom-button-row
+                                v-bind:button-row="{
+                                buttons: [
+                                    {link: '{{ route('bands.create') }}', type: 'raised', theme: 'primary', content: 'New band'}
+                                ]
+                            }">
+                        </custom-button-row>
+                    </div>
                 </div>
             </div>
         </div>

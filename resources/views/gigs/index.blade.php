@@ -32,7 +32,7 @@
                                 v-bind:button-row="{
                                 buttons: [
                                     {link: '{{ route('bands.show', $band) }}', type: 'raised', content: 'Back to band'},
-                                    {link: '{{ route('gigs.create', $band) }}', type: 'raised', theme: 'primary', content: 'New gig'},
+                                    {link: '{{ route('gigs.create', $band) }}', type: 'raised', theme: 'primary', content: 'New gig'}
                                 ]
                             }">
                         </custom-button-row>

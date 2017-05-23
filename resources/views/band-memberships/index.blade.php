@@ -12,14 +12,18 @@
                         {name: "Band members", link: "{{ route('band-memberships.index', $band) }}"}
                         ]'>
                 </breadcrumbs>
-                <h1>Members</h1>
-                <div class="block text-right">
-                    <a class="button button-flat button-default" href="{{ route('bands.show', $band) }}">
-                        Back to band
-                    </a>
-                    <a class="button button-flat button-primary" href="{{ route('band-memberships.create', $band) }}">
-                        New member
-                    </a>
+                <div class="page-header">
+                    <h1 class="page-title">Members</h1>
+                    <div class="button-row">
+                        <custom-button-row
+                                v-bind:button-row="{
+                                buttons: [
+                                    {link: '{{ route('bands.show', $band) }}', type: 'raised', content: 'Back to band'},
+                                    {link: '{{ route('band-memberships.create', $band) }}', type: 'raised', theme: 'primary', content: 'New member'}
+                                ]
+                            }">
+                        </custom-button-row>
+                    </div>
                 </div>
                 <ul class="list menu-list">
                     @foreach($band->memberships as $membership)
@@ -44,13 +48,17 @@
                         </li>
                     @endforeach
                 </ul>
-                <div class="block text-right">
-                    <a class="button button-flat button-default" href="{{ route('bands.show', $band) }}">
-                        Back to band
-                    </a>
-                    <a class="button button-flat button-primary" href="{{ route('band-memberships.create', $band) }}">
-                        New member
-                    </a>
+                <div class="page-footer">
+                    <div class="button-row">
+                        <custom-button-row
+                                v-bind:button-row="{
+                                buttons: [
+                                    {link: '{{ route('bands.show', $band) }}', type: 'raised', content: 'Back to band'},
+                                    {link: '{{ route('band-memberships.create', $band) }}', type: 'raised', theme: 'primary', content: 'New member'}
+                                ]
+                            }">
+                        </custom-button-row>
+                    </div>
                 </div>
             </div>
         </div>
@@ -59,11 +67,13 @@
 @section('scripts')
     <script>
         function validateDelete(userId, userName) {
-            if ({{ $band->memberships->count() }} == 1) {
+            if ({{ $band->memberships->count() }} == 1)
+            {
                 alert('You are the last member and cannot be removed.\n(You\'ll have to delete the band)');
                 return false;
             }
-            else if (userId == {{ Auth::user()->id }}) {
+        else
+            if (userId == {{ Auth::user()->id }}) {
                 return confirm('This completely removes your access to the band {{ $band->name }}')
             }
             return confirm('This removes ' + userName)

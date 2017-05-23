@@ -12,17 +12,31 @@
                         {name: "Songs", link: "{{ route('songs.index', $band) }}"}
                         ]'>
                 </breadcrumbs>
-                <h1>Songs</h1>
-                <div class="block text-right">
-                    <a class="button button-flat button-default" href="{{ route('bands.show', $band) }}">Back to
-                        band</a>
-                    <a class="button button-flat button-primary" href="{{ route('songs.create', $band) }}">New song</a>
+                <div class="page-header">
+                    <h1 class="page-title">Songs</h1>
+                    <div class="button-row">
+                        <custom-button-row
+                                v-bind:button-row="{
+                                buttons: [
+                                    {link: '{{ route('bands.show', $band) }}', type: 'raised', content: 'Back to band'},
+                                    {link: '{{ route('songs.create', $band) }}', type: 'raised', theme: 'primary', content: 'New song'}
+                                ]
+                            }">
+                        </custom-button-row>
+                    </div>
                 </div>
                 <songs v-bind:songs="{{  $band->songs }}"></songs>
-                <div class="block text-right">
-                    <a class="button button-flat button-default" href="{{ route('bands.show', $band) }}">Back to
-                        band</a>
-                    <a class="button button-flat button-primary" href="{{ route('songs.create', $band) }}">New song</a>
+                <div class="page-footer">
+                    <div class="button-row">
+                        <custom-button-row
+                                v-bind:button-row="{
+                                buttons: [
+                                    {link: '{{ route('bands.show', $band) }}', type: 'raised', content: 'Back to band'},
+                                    {link: '{{ route('songs.create', $band) }}', type: 'raised', theme: 'primary', content: 'New song'}
+                                ]
+                            }">
+                        </custom-button-row>
+                    </div>
                 </div>
             </div>
         </div>
