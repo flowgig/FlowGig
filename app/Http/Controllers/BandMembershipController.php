@@ -29,7 +29,7 @@ class BandMembershipController extends Controller
      */
     public function index($bandId)
     {
-        $band = Band::with('members')->find($bandId);
+        $band = Band::with('memberships.user')->find($bandId);
 
         $this->authorize('view', $band);
 
