@@ -102,9 +102,10 @@
                     </div>
                     {{--   <small>@{{ setlistSongs.length }} songs</small> --}}
 
-                    <setlist v-bind:setlist="{{ $setlist }}" v-bind:repertoire="{{ $setlist->gig->band->songs }}"></setlist>
+                    <setlist-editable v-bind:setlist="{{ $setlist }}"
+                                      v-bind:repertoire="{{ $setlist->gig->band->songs }}"></setlist-editable>
 
-                    
+
                     <div class="block text-right">
                         <custom-button
                                 v-bind:button="{link: '{{ route('gigs.show', $setlist->gig) }}', content: 'Back to gig'}">

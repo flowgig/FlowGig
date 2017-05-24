@@ -6,7 +6,7 @@
     import * as quark from 'quark-gui';
     import * as dragula from 'dragula';
     export default {
-        name: 'Setlist',
+        name: 'SetlistEditable',
         props: ['setlist', 'repertoire'],
         data () {
             return {
