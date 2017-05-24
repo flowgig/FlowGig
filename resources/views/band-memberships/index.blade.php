@@ -25,29 +25,7 @@
                         </custom-button-row>
                     </div>
                 </div>
-                <ul class="list menu-list">
-                    @foreach($band->memberships as $membership)
-                        <li itemscope itemtype="http://schema.org/MusicGroup">
-                            <span class="list-item-content single-line">
-                                <span itemprop="member" itemscope itemtype="http://schema.org/musicGroupMember">
-                                    <span itemprop="name">{{ $membership->user->name }}</span>
-                                </span>
-                            </span>
-                            <span class="list-item-buttons">
-                                <form action="{{ route('band-memberships.destroy', $membership) }}" method="POST">
-                                    {{ csrf_field() }}
-                                    {{ method_field('DELETE') }}
-                                    <button type="submit"
-                                            onclick="return validateDelete('{{ $membership->user->id }}', '{{ $membership->user->name }}')"
-                                            class="button button-icon button-flat button-default tooltip"
-                                            title="Remove {{ $membership->user->name }}">
-                                         <span class="fa fa-trash"></span>
-                                    </button>
-                                 </form>
-                            </span>
-                        </li>
-                    @endforeach
-                </ul>
+                <band-members v-bind:band-members="{{ $band->memberships }}" v-bind:auth-user="{{ Auth::user() }}"></band-members>
                 <div class="page-footer">
                     <div class="button-row">
                         <custom-button-row
@@ -65,18 +43,5 @@
     </div>
 @endsection
 @section('scripts')
-    <script>
-        function validateDelete(userId, userName) {
-            if ({{ $band->memberships->count() }} == 1)
-            {
-                alert('You are the last member and cannot be removed.\n(You\'ll have to delete the band)');
-                return false;
-            }
-        else
-            if (userId == {{ Auth::user()->id }}) {
-                return confirm('This completely removes your access to the band {{ $band->name }}')
-            }
-            return confirm('This removes ' + userName)
-        }
-    </script>
+
 @endsection
