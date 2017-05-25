@@ -1,0 +1,138 @@
+[
+  {
+    "name": "C",
+    "value": "C"
+  },
+  {
+    "name": "D",
+    "value": "D"
+  },
+  {
+    "name": "E",
+    "value": "E"
+  },
+  {
+    "name": "F",
+    "value": "F"
+  },
+  {
+    "name": "G",
+    "value": "G"
+  },
+  {
+    "name": "A",
+    "value": "A"
+  },
+  {
+    "name": "B",
+    "value": "B"
+  },
+  {
+    "name": "Cm",
+    "value": "Cm"
+  },
+  {
+    "name": "Dm",
+    "value": "Dm"
+  },
+  {
+    "name": "Em",
+    "value": "Em"
+  },
+  {
+    "name": "Fm",
+    "value": "Fm"
+  },
+  {
+    "name": "Gm",
+    "value": "Gm"
+  },
+  {
+    "name": "Am",
+    "value": "Am"
+  },
+  {
+    "name": "Bm",
+    "value": "Bm"
+  },
+  {
+    "name": "C♯",
+    "value": "C♯"
+  },
+  {
+    "name": "D♯",
+    "value": "D♯"
+  },
+  {
+    "name": "F♯",
+    "value": "F♯"
+  },
+  {
+    "name": "G♯",
+    "value": "G♯"
+  },
+  {
+    "name": "A♯",
+    "value": "A♯"
+  },
+  {
+    "name": "C♯m",
+    "value": "C♯m"
+  },
+  {
+    "name": "D♯m",
+    "value": "D♯m"
+  },
+  {
+    "name": "F♯m",
+    "value": "F♯m"
+  },
+  {
+    "name": "G♯m",
+    "value": "G♯m"
+  },
+  {
+    "name": "A♯m",
+    "value": "A♯m"
+  },
+  {
+    "name": "D♭",
+    "value": "D♭"
+  },
+  {
+    "name": "E♭",
+    "value": "E♭"
+  },
+  {
+    "name": "G♭",
+    "value": "G♭"
+  },
+  {
+    "name": "A♭",
+    "value": "A♭"
+  },
+  {
+    "name": "B♭♯",
+    "value": "B♭"
+  },
+  {
+    "name": "D♭m",
+    "value": "D♭m"
+  },
+  {
+    "name": "E♭m",
+    "value": "E♭m"
+  },
+  {
+    "name": "G♭m",
+    "value": "G♭m"
+  },
+  {
+    "name": "A♭m",
+    "value": "A♭m"
+  },
+  {
+    "name": "B♭m",
+    "value": "B♭m"
+  }
+]
