@@ -21,7 +21,6 @@
                 return quark.Organisms.Menus.ListMenu.getModule({
                     id: 'band-members-list',
                     hover: false,
-                    raised: true,
                     listItems: this.getListItems()
                 });
             },

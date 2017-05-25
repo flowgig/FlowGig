@@ -25,7 +25,10 @@
                         </custom-button-row>
                     </div>
                 </div>
-                <band-members v-bind:band-members="{{ $band->memberships }}" v-bind:auth-user="{{ Auth::user() }}"></band-members>
+                <div class="content-container raised">
+                    <band-members v-bind:band-members="{{ $band->memberships }}"
+                                  v-bind:auth-user="{{ Auth::user() }}"></band-members>
+                </div>
                 <div class="page-footer">
                     <div class="button-row">
                         <custom-button-row
