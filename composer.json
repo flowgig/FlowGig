@@ -11,7 +11,8 @@
         "barryvdh/laravel-dompdf": "^0.8.0",
         "doctrine/dbal": "^2.5",
         "guzzlehttp/guzzle": "^6.2",
-        "jrean/laravel-user-verification": "^4.1"
+        "jrean/laravel-user-verification": "^4.1",
+        "sebastian/version": "^2.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

@@ -61,6 +61,7 @@
                         <a href="https://github.com/flowgig/flowgig/blob/master/LICENSE">GNU General Public License</a>
                     </p>
                     <p><a href="#">About</a> - <a href="#">Developers</a> - <a href="#">Send feedback</a></p>
+                    <small>{{ $flowGigVersion }}</small>
                 </div>
             </div>
         </footer>
