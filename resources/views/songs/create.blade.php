@@ -14,7 +14,7 @@
                         ]'>
                 </breadcrumbs>
                 <h1>Create new song</h1>
-                <edit-song v-bind:form-data="{registerUrl: '{{ route('songs.store', $band) }}'}"></edit-song>
+                <edit-song v-bind:form-data="{postUrl: '{{ route('songs.store', $band) }}', newInstance: true}"></edit-song>
                 @include('errors.validation-errors')
                 <div class="page-footer">
                     <div class="button-row">

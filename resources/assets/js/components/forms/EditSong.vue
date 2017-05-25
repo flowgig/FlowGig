@@ -1,6 +1,7 @@
 <template>
-    <form method="POST" v-bind:action="formData.registerUrl">
+    <form method="POST" v-bind:action="formData.postUrl">
         <input type="hidden" name="_token" v-bind:value="csrfToken"/>
+        <input v-if="!formData.newInstance" type="hidden" name="_method" value="PUT">
         <div v-html="songInfoGridElement"></div>
         <p>You may set the following values different every time you add this song to a setlist,
             but values entered here will be used as default</p>
@@ -28,7 +29,7 @@
                             label: "Title",
                             type: "text",
                             placeholder: "The song title",
-                            //value: this.$parent.formData.oldName,
+                            value: !this.formData.newInstance ? this.formData.savedValues.title : '',
                             attributes: ["required"]
                         }),
                         quark.Molecules.FormElements.InputField.getModule({
@@ -37,7 +38,7 @@
                             label: "Artist",
                             type: "text",
                             placeholder: "The original artist/band",
-                            //value: this.$parent.formData.oldName,
+                            value: !this.formData.newInstance ? this.formData.savedValues.artist : '',
                         }),
                         quark.Molecules.FormElements.InputField.getModule({
                             id: "lyrics-by",
@@ -45,7 +46,7 @@
                             label: "Lyrics by",
                             type: "text",
                             placeholder: "The lyrics author",
-                            //value: this.$parent.formData.oldName,
+                            value: !this.formData.newInstance ? this.formData.savedValues.lyrics_by : '',
                         }),
                         quark.Molecules.FormElements.InputField.getModule({
                             id: "music-by",
@@ -53,7 +54,7 @@
                             label: "Music by",
                             type: "text",
                             placeholder: "The music composer",
-                            //value: this.$parent.formData.oldName,
+                            value: !this.formData.newInstance ? this.formData.savedValues.music_by : '',
                         })
                     ],
                     defaultValues: [
@@ -63,7 +64,7 @@
                             label: "Key",
                             searchable: true,
                             placeholder: "F/Am/C# etc.",
-                            //value: this.$parent.formData.oldName,
+                            value: !this.formData.newInstance ? this.formData.savedValues.key : '',
                             options: require("../../data/musicalKeys.json")
                         }),
                         quark.Molecules.FormElements.InputField.getModule({
@@ -72,7 +73,7 @@
                             label: "BPM",
                             type: "number",
                             placeholder: "Beats Per Minute",
-                            //value: this.$parent.formData.oldName,
+                            value: !this.formData.newInstance ? this.formData.savedValues.bpm : '',
                             attributes: ["min='0'"]
                         }),
                         quark.Molecules.FormElements.InputField.getModule({
@@ -81,7 +82,7 @@
                             label: "Duration",
                             type: "number",
                             placeholder: "Minutes",
-                            //value: this.$parent.formData.oldName,
+                            value: !this.formData.newInstance ? this.formData.savedValues.duration : '',
                             attributes: ["min='0'"]
                         }),
                         quark.Molecules.FormElements.InputField.getModule({
@@ -90,15 +91,15 @@
                             label: "Intensity",
                             type: "number",
                             placeholder: "1&ndash;10 (Ballad&ndash;Bebop)",
-                            //value: this.$parent.formData.oldName,
+                            value: !this.formData.newInstance ? this.formData.savedValues.intensity : '',
                             attributes: ["min='0'", "max='10'"]
                         })
                     ]
                 },
                 registerButton: quark.Atoms.Buttons.Button.getModule({
                     submit: true,
-                    theme: "primary",
-                    content: "Create"
+                    theme: 'primary',
+                    content: this.formData.newInstance ? 'Create' : 'Update'
                 }),
                 csrfToken: window.Laravel.csrfToken,
                 songInfoGridElement: '',
@@ -131,7 +132,3 @@
         }
     }
 </script>
-
-<style lang="scss" scoped>
-
-</style>
