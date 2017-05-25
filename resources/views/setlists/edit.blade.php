@@ -81,7 +81,6 @@
                         ]'>
                     </breadcrumbs>
 
-                    <p style="font-size: x-large">Setlist for</p>
                     <h1>{{ $setlist->gig->name }}</h1>
                     <p style="font-size: large">{{ $setlist->gig->date }}
                         at {{ $setlist->gig->venue }}, {{ $setlist->gig->location }}
@@ -102,8 +101,10 @@
                     </div>
                     {{--   <small>@{{ setlistSongs.length }} songs</small> --}}
 
+                    <div class="content-container raised">
                     <setlist-editable v-bind:setlist="{{ $setlist }}"
                                       v-bind:repertoire="{{ $setlist->gig->band->songs }}"></setlist-editable>
+                    </div>
 
 
                     <div class="block text-right">
