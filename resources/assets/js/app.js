@@ -29,6 +29,7 @@ window.axios.defaults.headers.common = {
  */
 
 /* Forms */
+Vue.component('EditGig', require('./components/forms/EditGig.vue'));
 Vue.component('EditSong', require('./components/forms/EditSong.vue'));
 
 
