@@ -28,6 +28,11 @@ window.axios.defaults.headers.common = {
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+/* Forms */
+Vue.component('EditSong', require('./components/forms/EditSong.vue'));
+
+
+/* Lists */
 Vue.component('BandMembers', require('./components/lists/BandMembers.vue'));
 Vue.component('Gigs', require('./components/lists/Gigs.vue'));
 Vue.component('SetlistEditable', require('./components/lists/SetlistEditable.vue'));
