@@ -26,22 +26,3 @@
     clear: both;
   }
 }
-
-.content-container {
-  margin: 0 -25px;
-  padding: 25px;
-  background-color: #FFF;
-  border-radius: 2px;
-  max-width: 768px;
-  @media (min-width: 718px) {
-    margin: auto;
-    padding: 10px;
-  }
-  &.raised {
-    @media (min-width: 718px) {
-      -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.37);
-      -moz-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.37);
-      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.37);
-    }
-  }
-}
