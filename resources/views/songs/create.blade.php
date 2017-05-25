@@ -12,7 +12,9 @@
                         ]'>
         </breadcrumbs>
         <h1>Create new song</h1>
-        <edit-song v-bind:form-data="{postUrl: '{{ route('songs.store', $band) }}', newInstance: true}"></edit-song>
+        <div class="content-container raised">
+            <edit-song v-bind:form-data="{postUrl: '{{ route('songs.store', $band) }}', newInstance: true}"></edit-song>
+        </div>
         @include('errors.validation-errors')
         <div class="page-footer">
             <div class="button-row">

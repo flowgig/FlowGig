@@ -25,7 +25,9 @@
                         </custom-button-row>
                     </div>
                 </div>
-                <songs v-bind:songs="{{  $band->songs }}"></songs>
+                <div class="content-container raised">
+                    <songs v-bind:songs="{{  $band->songs }}"></songs>
+                </div>
                 <div class="page-footer">
                     <div class="button-row">
                         <custom-button-row
