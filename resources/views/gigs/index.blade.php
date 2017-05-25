@@ -25,7 +25,9 @@
                         </custom-button-row>
                     </div>
                 </div>
-                <gigs v-bind:gigs="{{ $band->gigs }}"></gigs>
+                <div class="content-container raised">
+                    <gigs v-bind:gigs="{{ $band->gigs }}"></gigs>
+                </div>
                 <div class="page-footer">
                     <div class="button-row">
                         <custom-button-row

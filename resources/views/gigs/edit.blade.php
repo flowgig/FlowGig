@@ -13,13 +13,15 @@
                         ]'>
         </breadcrumbs>
         <h1>{{ $gig->name }}</h1>
-        <edit-gig
-                v-bind:form-data="{
+        <div class="content-container raised">
+            <edit-gig
+                    v-bind:form-data="{
                         postUrl: '{{ route('gigs.update', $gig) }}',
                         newInstance: false,
                         savedValues: {{ $gig }}
-                        }">
-        </edit-gig>
+                            }">
+            </edit-gig>
+        </div>
         @include('errors.validation-errors')
         @include('meta.user-timestamps', ['model' => $gig])
         <div class="page-footer">

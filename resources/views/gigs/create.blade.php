@@ -12,12 +12,14 @@
                         ]'>
         </breadcrumbs>
         <h1>Create new gig</h1>
-        <edit-gig
-                v-bind:form-data="{
+        <div class="content-container raised">
+            <edit-gig
+                    v-bind:form-data="{
                         postUrl: '{{ route('gigs.store', $band) }}',
                         newInstance: true
                                 }">
-        </edit-gig>
+            </edit-gig>
+        </div>
         @include('errors.validation-errors')
         <div class="page-footer">
             <div class="button-row">
