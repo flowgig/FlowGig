@@ -24,8 +24,8 @@
                         sizes: {
                             phone: 12,
                             tablet: 6,
-                            tabletLandscape: 4,
-                            screen: 4
+                            tabletLandscape: 6,
+                            screen: 6
                         },
                         content: this.getCardElement(band)
                     });
