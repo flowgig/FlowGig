@@ -13,7 +13,7 @@
         <div v-html="formElements.duration"></div>
         <div v-html="formElements.intensity"></div>
         <div class="input-group float-right">
-            <div v-html="formElements.submit"></div>
+            <div v-html="formElements.actionButton"></div>
         </div>
         <div class="clearfix"></div>
     </form>
@@ -33,7 +33,7 @@
                         label: "Title",
                         type: "text",
                         placeholder: "The song title",
-                        value: !this.formData.newInstance ? this.formData.savedValues.title : '',
+                        value: this.formData.savedValues !== undefined && this.formData.savedValues.title !== undefined ? this.formData.savedValues.title : '',
                         attributes: ["required"]
                     }),
                     artist: quark.Molecules.FormElements.InputField.getModule({
@@ -42,7 +42,7 @@
                         label: "Artist",
                         type: "text",
                         placeholder: "The original artist/band",
-                        value: !this.formData.newInstance ? this.formData.savedValues.artist : '',
+                        value: this.formData.savedValues !== undefined && this.formData.savedValues.artist !== undefined ? this.formData.savedValues.artist : '',
                     }),
                     lyricsBy: quark.Molecules.FormElements.InputField.getModule({
                         id: "lyrics-by",
@@ -50,7 +50,7 @@
                         label: "Lyrics by",
                         type: "text",
                         placeholder: "The lyrics author",
-                        value: !this.formData.newInstance ? this.formData.savedValues.lyrics_by : '',
+                        value: this.formData.savedValues !== undefined && this.formData.savedValues.lyrics_by !== undefined ? this.formData.savedValues.lyrics_by : '',
                     }),
                     musicBy: quark.Molecules.FormElements.InputField.getModule({
                         id: "music-by",
@@ -58,7 +58,7 @@
                         label: "Music by",
                         type: "text",
                         placeholder: "The music composer",
-                        value: !this.formData.newInstance ? this.formData.savedValues.music_by : '',
+                        value: this.formData.savedValues !== undefined && this.formData.savedValues.music_by !== undefined ? this.formData.savedValues.music_by : '',
                     }),
                     key: quark.Molecules.FormElements.SelectList.getModule({
                         id: "key",
@@ -66,7 +66,7 @@
                         label: "Key",
                         searchable: true,
                         placeholder: "E.g. F, Am, or C#",
-                        value: !this.formData.newInstance ? this.formData.savedValues.key : '',
+                        value: this.formData.savedValues !== undefined && this.formData.savedValues.key !== undefined ? this.formData.savedValues.key : '',
                         options: require("../../data/musicalKeys.json")
                     }),
                     bpm: quark.Molecules.FormElements.InputField.getModule({
@@ -75,7 +75,7 @@
                         label: "BPM",
                         type: "number",
                         placeholder: "Beats Per Minute",
-                        value: !this.formData.newInstance ? this.formData.savedValues.bpm : '',
+                        value: this.formData.savedValues !== undefined && this.formData.savedValues.bpm !== undefined ? this.formData.savedValues.bpm : '',
                         attributes: ["min='0'"]
                     }),
                     duration: quark.Molecules.FormElements.InputField.getModule({
@@ -84,7 +84,7 @@
                         label: "Duration",
                         type: "number",
                         placeholder: "Minutes",
-                        value: !this.formData.newInstance ? this.formData.savedValues.duration : '',
+                        value: this.formData.savedValues !== undefined && this.formData.savedValues.duration !== undefined ? this.formData.savedValues.duration : '',
                         attributes: ["min='0'"]
                     }),
                     intensity: quark.Molecules.FormElements.InputField.getModule({
@@ -93,18 +93,28 @@
                         label: "Intensity",
                         type: "number",
                         placeholder: "1&ndash;10 (Ballad&ndash;Bebop)",
-                        value: !this.formData.newInstance ? this.formData.savedValues.intensity : '',
+                        value: this.formData.savedValues !== undefined && this.formData.savedValues.intensity !== undefined ? this.formData.savedValues.intensity : '',
                         attributes: ["min='0'", "max='10'"]
                     }),
-                    submit: quark.Atoms.Buttons.Button.getModule({
-                        submit: true,
+                    actionButton: quark.Atoms.Buttons.Button.getModule({
+                        submit: this.formData.viewType == 'show' ? false : true,
+                        link: this.formData.viewType == 'show' ? 'this.formData.editLink' : null,
                         theme: 'primary',
-                        content: this.formData.newInstance ? 'Create' : 'Update'
+                        content: this.getActionButtonText()
                     })
                 },
                 csrfToken: window.Laravel.csrfToken,
                 songInfoGridElement: '',
                 defaultValuesGridElement: ''
+            }
+        },
+        methods: {
+            getActionButtonText: function () {
+                let actionButtonText = '';
+                if (this.formData.viewType == 'create') actionButtonText = 'Create';
+                else if (this.formData.viewType == 'edit') actionButtonText = 'Update';
+                else if (this.formData.viewType == 'show') actionButtonText = 'Edit';
+                return actionButtonText;
             }
         }
     }

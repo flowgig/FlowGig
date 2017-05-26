@@ -17,7 +17,7 @@
             <edit-song
                     v-bind:form-data="{
                         postUrl: '{{ route('songs.update', $song) }}',
-                        newInstance: false,
+                        viewType: 'edit',
                         savedValues: {{ $song }}
                             }">
             </edit-song>
