@@ -17,7 +17,7 @@
             <edit-gig
                     v-bind:form-data="{
                         postUrl: '{{ route('gigs.update', $gig) }}',
-                        newInstance: false,
+                        viewType: 'edit',
                         savedValues: {{ $gig }}
                             }">
             </edit-gig>

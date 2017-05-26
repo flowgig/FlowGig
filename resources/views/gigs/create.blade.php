@@ -16,7 +16,7 @@
             <edit-gig
                     v-bind:form-data="{
                         postUrl: '{{ route('gigs.store', $band) }}',
-                        newInstance: true
+                        viewType: 'create',
                                 }">
             </edit-gig>
         </div>
