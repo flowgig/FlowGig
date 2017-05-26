@@ -53,7 +53,7 @@
             <div id="page"></div>
             @yield('content')
         </div>
-        <main-footer></main-footer>
+        <main-footer v-bind:app-version='"{{ $flowGigVersion }}"'></main-footer>
     </main>
 </div>
 @yield('scripts')

@@ -7,6 +7,7 @@
 
     export default {
         name: 'MainFooter',
+        props: ['appVersion'],
         data () {
             return {
                 htmlContent: this.createFooterElement()
@@ -26,6 +27,7 @@
                         <div class="text-center">
                             <p>FlowGig licensed under <a href="https://github.com/flowgig/flowgig/blob/master/LICENSE">GNU General Public License</a></p>
                             <p><a href="#">About</a> - <a href="#">Developers</a> - <a href="#">Send feedback</a></p>
+                            <small>${this.appVersion}</small>
                         </div>
 			        `
                 });
