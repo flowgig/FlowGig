@@ -110,9 +110,7 @@
                         content: this.getActionButtonText()
                     })
                 },
-                csrfToken: window.Laravel.csrfToken,
-                songInfoGridElement: '',
-                defaultValuesGridElement: ''
+                csrfToken: window.Laravel.csrfToken
             }
         },
         methods: {
