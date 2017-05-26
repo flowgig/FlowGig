@@ -14,6 +14,14 @@
                         ]'>
                 </breadcrumbs>
                 <h1>{{ $gig->name }}</h1>
+                <div class="content-container raised">
+                    <edit-gig v-bind:form-data="{
+                        viewType: 'show',
+                        editLink: '{{ route('gigs.edit', $gig) }}',
+                        savedValues: {{ $gig }}
+                            }">
+                    </edit-gig>
+                </div>
                 <div class="text-right">
                     <a class="button button-icon button-flat button-default tooltip" title="Edit {{ $gig->name }}"
                        href="{{ route('gigs.edit', $gig) }}"><span class="fa fa-pencil"></span>
@@ -142,7 +150,7 @@
         </div>
     </div>
     <script>
-        $(document).ready(function () {
+    /*    $(document).ready(function () {
             $(".setlist-copy").val($(".setlist-template").val());
         });
         $(".setlist-template").change(function () {
@@ -150,6 +158,6 @@
         });
         $("input[name='sourceGigId']").change(function () {
             $(".setlist-template").prop('disabled', $(this).data('disable-list'));
-        });
+        });*/
     </script>
 @endsection
