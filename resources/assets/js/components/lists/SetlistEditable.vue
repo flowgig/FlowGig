@@ -1,5 +1,8 @@
 <template>
-    <div v-html="htmlContent"></div>
+    <div>
+        <div v-html="htmlContent"></div>
+        <div v-html="modalHtmlContent"></div>
+    </div>
 </template>
 
 <script>
@@ -11,6 +14,7 @@
         data () {
             return {
                 htmlContent: "",
+                modalHtmlContent: "",
                 csrfToken: "",
                 setlistSongs: [],
                 newSong: {}
@@ -24,8 +28,7 @@
         },
         created: function () {
             this.htmlContent = this.createListElement();
-
-
+            this.modalHtmlContent = this.createRepertoireModalElement();
         },
         mounted: function () {
             var self = this;
@@ -179,6 +182,45 @@
                 this.setlist.setlist_songs.forEach(function (setlistSong, index) {
                     setlistSong.number_in_list = index + 1;
                 })
+            },
+            createRepertoireListElement: function () {
+                return quark.Organisms.Menus.ListMenu.getModule({
+                    id: 'repertoire-list',
+                    hover: true,
+                    listItems: this.createRepertoireListItems()
+                });
+            },
+            createRepertoireListItems: function () {
+                var listItems = [];
+                this.repertoire.forEach(function (repertoireSong) {
+                    var listItem = {
+                        id: 'repertoire-' + this.setlist.id + '-song-' + repertoireSong.id,
+                        title: repertoireSong.title,
+                        buttonRow: {
+                            buttons: [
+                                {
+                                    iconClass: 'fa fa-plus'
+                                }
+                            ]
+                        }
+                    }
+                    listItems.push(listItem);
+                }.bind(this));
+                return listItems;
+            },
+            createRepertoireModalElement: function () {
+                return quark.Molecules.Messaging.Modal.getModule({
+                    id: 'repertoire-modal',
+                    triggerElement: quark.Atoms.Buttons.Button.getModule({
+                        content: "Add song",
+                        theme: "primary"
+                    }),
+                    modalElement: {
+                        title: 'Repertoire',
+                        content: this.createRepertoireListElement(),
+                        scrollable: true
+                    }
+                });
             }
         }
     }
