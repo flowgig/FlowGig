@@ -10,7 +10,8 @@
         props: ['gigs'],
         data () {
             return {
-                htmlContent: ""
+                htmlContent: "",
+                csrfToken: window.Laravel.csrfToken
             }
         },
         created: function () {
@@ -59,17 +60,32 @@
                 return iconClass;
             },
             getLink: function (gig) {
-                return '/gigs/' + gig.id; //TODO get route link
+                return '/gigs/' + gig.id;
             },
             getButtonRow: function (gig) {
                 let buttonRow = {
                     buttons: [
                         {
                             iconClass: 'fa fa-pencil',
-                            link: '/gigs/' + gig.id + '/edit' //TODO get route link
+                            link: '/gigs/' + gig.id + '/edit'
                         },
                         {
-                            iconClass: 'fa fa-trash' //TODO add function for delete
+                            iconClass: 'fa fa-trash',
+                            submit: true,
+                            formWrapper: {
+                                formAction: '/gigs/' + gig.id,
+                                formMethod: 'POST',
+                                hiddenFields: [
+                                    {
+                                        name: '_token',
+                                        value: this.csrfToken
+                                    },
+                                    {
+                                        name: '_method',
+                                        value: 'DELETE'
+                                    }
+                                ]
+                            }
                         }
                     ]
                 }
