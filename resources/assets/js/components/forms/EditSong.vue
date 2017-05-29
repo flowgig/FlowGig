@@ -1,7 +1,7 @@
 <template>
     <form method="POST" v-bind:action="formData.postUrl">
-        <input v-if="!formData.viewType=='show'" type="hidden" name="_token" v-bind:value="csrfToken"/>
-        <input v-if="formData.viewType=='edit'" type="hidden" name="_method" value="PUT">
+        <input v-if="formData.viewType !== 'show'" type="hidden" name="_token" v-bind:value="csrfToken"/>
+        <input v-if="formData.viewType == 'edit'" type="hidden" name="_method" value="PUT">
         <div v-html="formElements.title"></div>
         <div v-html="formElements.artist"></div>
         <div v-html="formElements.lyricsBy"></div>

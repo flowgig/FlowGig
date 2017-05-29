@@ -1,7 +1,7 @@
 <template>
     <form method="POST" v-bind:action="formData.postUrl">
-        <input v-if="!formData.viewType=='show'" type="hidden" name="_token" v-bind:value="csrfToken"/>
-        <input v-if="formData.viewType=='edit'" type="hidden" name="_method" value="PUT">
+        <input v-if="formData.viewType !== 'show'" type="hidden" name="_token" v-bind:value="csrfToken"/>
+        <input v-if="formData.viewType == 'edit'" type="hidden" name="_method" value="PUT">
         <div v-html="formElements.name"></div>
         <div v-html="formElements.venue"></div>
         <div v-html="formElements.location"></div>
