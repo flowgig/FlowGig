@@ -4936,8 +4936,8 @@ qs@~6.3.0:
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.3.2.tgz#e75bd5f6e268122a2a0e0bda630b2550c166502c"
 
 quark-gui@^0.5.0:
-  version "0.5.13"
-  resolved "https://registry.yarnpkg.com/quark-gui/-/quark-gui-0.5.13.tgz#f20d8e780e254162825fd5e4c05ff4167c098b35"
+  version "0.5.14"
+  resolved "https://registry.yarnpkg.com/quark-gui/-/quark-gui-0.5.14.tgz#a1160c84a54c1cf78b8a8653d89a6c5059e13264"
   dependencies:
     dragula "^3.7.2"
 
@@ -6030,8 +6030,8 @@ ua-parser-js@0.7.12:
   resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.12.tgz#04c81a99bdd5dc52263ea29d24c6bf8d4818a4bb"
 
 uglify-js@3.0.x:
-  version "3.0.12"
-  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.0.12.tgz#a3f9f0d77e3b0344022f4a5aa4e29134509e0693"
+  version "3.0.13"
+  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.0.13.tgz#1871d736aa1e550c728d7e5a6556579e70925d68"
   dependencies:
     commander "~2.9.0"
     source-map "~0.5.1"

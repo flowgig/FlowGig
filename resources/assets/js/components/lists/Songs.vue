@@ -10,7 +10,8 @@
         props: ['songs'],
         data () {
             return {
-                htmlContent: ""
+                htmlContent: "",
+                csrfToken: window.Laravel.csrfToken
             }
         },
         created: function () {
@@ -42,17 +43,32 @@
                 return subTitle;
             },
             getLink: function (song) {
-                return '/songs/' + song.id; //TODO get route link
+                return '/songs/' + song.id;
             },
             getButtonRow: function (song) {
                 let buttonRow = {
                     buttons: [
                         {
                             iconClass: 'fa fa-pencil',
-                            link: '/songs/' + song.id + '/edit' //TODO get route link
+                            link: '/songs/' + song.id + '/edit'
                         },
                         {
-                            iconClass: 'fa fa-trash' //TODO add function for delete
+                            iconClass: 'fa fa-trash',
+                            submit: true,
+                            formWrapper: {
+                                formAction: '/songs/' + song.id,
+                                formMethod: 'POST',
+                                hiddenFields: [
+                                    {
+                                        name: '_token',
+                                        value: this.csrfToken
+                                    },
+                                    {
+                                        name: '_method',
+                                        value: 'DELETE'
+                                    }
+                                ]
+                            }
                         }
                     ]
                 }
