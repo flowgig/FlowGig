@@ -22,30 +22,9 @@
                             }">
                     </gig>
                 </div>
-                <div class="text-right">
-                    <a class="button button-icon button-flat button-default tooltip" title="Edit {{ $gig->name }}"
-                       href="{{ route('gigs.edit', $gig) }}"><span class="fa fa-pencil"></span>
-                    </a>
-                </div>
+                @include('meta.user-timestamps', ['model' => $gig])
                 <div class="row">
                     <div class="col-sm-12">
-                        <ul class="list">
-                            <li><b>Date: </b> {{ $gig->date() }}</li>
-                            <li><b>Venue: </b> {{ $gig->venue }}</li>
-                            <li><b>Location: </b> {{ $gig->location }}</li>
-                            <li><b>Status: </b> {{ $gig->status }} &nbsp;
-                                @if($gig->status == 'Proposed')
-                                    <span class="fa fa-question-circle-o" title="Status: Proposed"></span>
-                                @endif
-                                @if($gig->status == 'Settled')
-                                    <span class="fa fa-check-circle-o " title="Status: Settled"></span>
-                                @endif
-                                @if($gig->status == 'Public')
-                                    <span class="fa fa-globe" title="Status: Public"></span>
-                                @endif
-                            </li>
-                        </ul>
-                        @include('meta.user-timestamps', ['model' => $gig])
                         <br/><br/>
                         <ul class="list menu-list">
                             <li>
@@ -150,14 +129,14 @@
         </div>
     </div>
     <script>
-    /*    $(document).ready(function () {
-            $(".setlist-copy").val($(".setlist-template").val());
-        });
-        $(".setlist-template").change(function () {
-            $(".setlist-copy").val($(this).val());
-        });
-        $("input[name='sourceGigId']").change(function () {
-            $(".setlist-template").prop('disabled', $(this).data('disable-list'));
-        });*/
+        /*    $(document).ready(function () {
+         $(".setlist-copy").val($(".setlist-template").val());
+         });
+         $(".setlist-template").change(function () {
+         $(".setlist-copy").val($(this).val());
+         });
+         $("input[name='sourceGigId']").change(function () {
+         $(".setlist-template").prop('disabled', $(this).data('disable-list'));
+         });*/
     </script>
 @endsection
