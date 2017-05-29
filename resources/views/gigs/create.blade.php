@@ -13,12 +13,12 @@
         </breadcrumbs>
         <h1>Create new gig</h1>
         <div class="content-container raised">
-            <edit-gig
+            <gig
                     v-bind:form-data="{
                         postUrl: '{{ route('gigs.store', $band) }}',
                         viewType: 'create',
                                 }">
-            </edit-gig>
+            </gig>
         </div>
         @include('errors.validation-errors')
         <div class="page-footer">

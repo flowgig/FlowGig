@@ -14,13 +14,13 @@
         </breadcrumbs>
         <h1>{{ $gig->name }}</h1>
         <div class="content-container raised">
-            <edit-gig
+            <gig
                     v-bind:form-data="{
                         postUrl: '{{ route('gigs.update', $gig) }}',
                         viewType: 'edit',
                         savedValues: {{ $gig }}
                             }">
-            </edit-gig>
+            </gig>
         </div>
         @include('errors.validation-errors')
         @include('meta.user-timestamps', ['model' => $gig])

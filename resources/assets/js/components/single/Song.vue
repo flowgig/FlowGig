@@ -25,7 +25,7 @@
 <script>
     import * as quark from 'quark-gui';
     export default {
-        name: 'EditSong',
+        name: 'Song',
         props: ['formData'],
         data () {
             return {

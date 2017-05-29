@@ -15,12 +15,12 @@
                 </breadcrumbs>
                 <h1>{{ $gig->name }}</h1>
                 <div class="content-container raised">
-                    <edit-gig v-bind:form-data="{
+                    <gig v-bind:form-data="{
                         viewType: 'show',
                         editLink: '{{ route('gigs.edit', $gig) }}',
                         savedValues: {{ $gig }}
                             }">
-                    </edit-gig>
+                    </gig>
                 </div>
                 <div class="text-right">
                     <a class="button button-icon button-flat button-default tooltip" title="Edit {{ $gig->name }}"

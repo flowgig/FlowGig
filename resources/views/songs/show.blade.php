@@ -15,12 +15,12 @@
                 </breadcrumbs>
                 <h1>{{ $song->title }}</h1>
                 <div class="content-container raised">
-                    <edit-song v-bind:form-data="{
+                    <song v-bind:form-data="{
                         viewType: 'show',
                         editLink: '{{ route('songs.edit', $song) }}',
                         savedValues: {{ $song }}
                             }">
-                    </edit-song>
+                    </song>
                 </div>
                 @include('meta.user-timestamps', ['model' => $song])
                 <div class="page-footer">

@@ -14,13 +14,13 @@
         </breadcrumbs>
         <h1>{{ $song->title }}</h1>
         <div class="content-container raised">
-            <edit-song
+            <song
                     v-bind:form-data="{
                         postUrl: '{{ route('songs.update', $song) }}',
                         viewType: 'edit',
                         savedValues: {{ $song }}
                             }">
-            </edit-song>
+            </song>
         </div>
         @include('errors.validation-errors')
         @include('meta.user-timestamps', ['model' => $song])

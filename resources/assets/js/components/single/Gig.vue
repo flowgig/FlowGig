@@ -17,7 +17,7 @@
 <script>
     import * as quark from 'quark-gui';
     export default {
-        name: 'EditGig',
+        name: 'Gig',
         props: ['formData'],
         data () {
             return {

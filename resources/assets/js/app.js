@@ -28,9 +28,9 @@ window.axios.defaults.headers.common = {
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-/* Forms */
-Vue.component('EditGig', require('./components/forms/EditGig.vue'));
-Vue.component('EditSong', require('./components/forms/EditSong.vue'));
+/* Single */
+Vue.component('Gig', require('./components/single/Gig.vue'));
+Vue.component('Song', require('./components/single/Song.vue'));
 
 
 /* Lists */
