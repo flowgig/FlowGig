@@ -33,6 +33,7 @@
                         subTitle: this.getSubTitle(song),
                         link: this.getLink(song),
                         buttonRow: this.getButtonRow(song),
+                        hiddenButtonRow: true
                     }
                     listItems.push(listItem);
                 }.bind(this));
@@ -50,11 +51,15 @@
                     buttons: [
                         {
                             iconClass: 'fa fa-pencil',
-                            link: '/songs/' + song.id + '/edit'
+                            link: '/songs/' + song.id + '/edit',
+                            type: 'minimal',
+                            theme: 'primary'
                         },
                         {
                             iconClass: 'fa fa-trash',
                             submit: true,
+                            type: 'minimal',
+                            theme: 'primary',
                             formWrapper: {
                                 formAction: '/songs/' + song.id,
                                 formMethod: 'POST',
