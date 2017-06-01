@@ -21,7 +21,6 @@
             createListMenuElement: function () {
                 return quark.Organisms.Menus.ListMenu.getModule({
                     id: 'songs-list',
-                    hover: true,
                     listItems: this.getListItems()
                 });
             },

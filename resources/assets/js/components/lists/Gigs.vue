@@ -21,7 +21,6 @@
             createListMenuElement: function () {
                 return quark.Organisms.Menus.ListMenu.getModule({
                     id: 'songs-list',
-                    hover: true,
                     listItems: this.getListItems()
                 });
             },
@@ -34,6 +33,7 @@
                         iconClass: this.getIconClass(gig),
                         link: this.getLink(gig),
                         buttonRow: this.getButtonRow(gig),
+                        hiddenButtonRow: true
                     }
                     listItems.push(listItem);
                 }.bind(this));
@@ -67,11 +67,15 @@
                     buttons: [
                         {
                             iconClass: 'fa fa-pencil',
-                            link: '/gigs/' + gig.id + '/edit'
+                            link: '/gigs/' + gig.id + '/edit',
+                            type: 'minimal',
+                            theme: 'primary'
                         },
                         {
                             iconClass: 'fa fa-trash',
                             submit: true,
+                            type: 'minimal',
+                            theme: 'primary',
                             formWrapper: {
                                 formAction: '/gigs/' + gig.id,
                                 formMethod: 'POST',
