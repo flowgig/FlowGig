@@ -6,6 +6,7 @@
 
 // require('./bootstrap');
 import Vue from 'vue';
+import * as quark from 'quark-gui';
 
 
 /**
@@ -52,29 +53,4 @@ const app = new Vue({
     el: '#app'
 });
 
-document.addEventListener('DOMContentLoaded', function () {
-    var overlayElements = document.getElementsByClassName('overlay-element') !== undefined ? document.getElementsByClassName('overlay-element') : false;
-    if (overlayElements) {
-        for (var i = 0; i < overlayElements.length; i++) {
-            var overlayElement = overlayElements[i];
-
-            document.onclick = function (event) {
-                for (var i = 0; i < overlayElements.length; i++) {
-                    overlayElements[i].classList.remove('active');
-                }
-                var thisNodeClassList = event.target.classList !== undefined ? event.target.classList : false;
-                var parentNodeClassList = event.target.parentNode !== null && event.target.parentNode.classList !== undefined ? event.target.parentNode.classList : false;
-                if (thisNodeClassList) {
-                    thisNodeClassList.forEach(function (className) {
-                        if (className == 'overlay-element') thisNodeClassList.add('active');
-                    });
-                }
-                if (parentNodeClassList) {
-                    parentNodeClassList.forEach(function (className) {
-                        if (className == 'overlay-element') parentNodeClassList.add('active');
-                    });
-                }
-            }
-        }
-    }
-}, false);
+quark.Init.default();
