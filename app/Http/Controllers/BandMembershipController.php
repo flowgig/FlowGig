@@ -29,7 +29,10 @@ class BandMembershipController extends Controller
      */
     public function index($bandId)
     {
-        $band = Band::with('memberships.user')->find($bandId);
+        // Eager-load band members, newest first:
+        $band = Band::with(['memberships' => function ($query) {
+            $query->latest();
+        }, 'memberships.user'])->find($bandId);
 
         $this->authorize('view', $band);
 
