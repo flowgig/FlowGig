@@ -9,22 +9,12 @@
             <p>Toggle fields in setlist</p>
             <form action="{{ route('setlists.export', $setlist) }}" method="GET" target="_blank">
                 <div class="input-group">
-                    <input type="checkbox" name="number_in_list" id="number_in_list"/>
-                    <label for="number_in_list">Number in list</label>
-                </div>
-                <div class="input-group">
                     <input type="checkbox" name="key" id="key" checked/>
                     <label for="key">Key</label>
                 </div>
                 <div class="input-group">
                     <input type="checkbox" name="bpm" id="bpm"/>
                     <label for="bpm">BPM</label>
-                </div>
-                <input type="checkbox" name="duration" id="duration"/>
-                <label for="duration">Duration</label>
-                <div class="input-group">
-                    <input type="checkbox" name="intensity" id="intensity"/>
-                    <label for="intensity">Intensity</label>
                 </div>
                 <div class="input-group">
                     <input type="checkbox" name="comment" id="comment" checked/>

@@ -36,13 +36,6 @@
             line-height: 24pt;
         }
 
-        .song-number {
-            width: 30px;
-            margin: 0;
-            padding: 0;
-            display: inline-block;
-        }
-
         div.setlist .setlist-song {
             padding: 10px 0;
             display: block;
@@ -81,9 +74,6 @@
 <div class="setlist">
     @foreach($setlist->setlistSongs->sortBy('number_in_list') as $setlistSong)
         <div class="setlist-song">
-            @if ($request->input('number_in_list'))
-                <span class="song-number">{{ $setlistSong->number_in_list }}</span>
-            @endif
             {{ $setlistSong->song->title }}
             <div class="song-info">
                 <div class="inline">
@@ -92,12 +82,6 @@
                     @endif
                     @if ($request->input('bpm') && $setlistSong->bpm)
                         <span class="bpm"><strong>BPM: </strong>{{ $setlistSong->bpm }}</span>
-                    @endif
-                    @if ($request->input('duration') && $setlistSong->duration)
-                        <span class="intensity"><strong>Duration: </strong>{{ $setlistSong->duration }}</span>
-                    @endif
-                    @if ($request->input('intensity') && $setlistSong->intensity)
-                        <span class="intensity"><strong>Intensity: </strong>{{ $setlistSong->intensity }}</span>
                     @endif
                 </div>
                 <!--
