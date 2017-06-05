@@ -42,10 +42,9 @@
             border-bottom: 1px solid #eee;
         }
 
-        div.setlist .setlist-song .song-info {
-            padding-left: 40px;
-            font-size: 12pt;
-            line-height: 16pt;
+        div.setlist .setlist-song .song-info * {
+            margin-left: 10px;
+            font-size: .8em
         }
 
         div.setlist div.inline span {
@@ -75,28 +74,17 @@
     @foreach($setlist->setlistSongs->sortBy('number_in_list') as $setlistSong)
         <div class="setlist-song">
             {{ $setlistSong->song->title }}
-            <div class="song-info">
-                <div class="inline">
-                    @if ($request->input('key') && $setlistSong->key)
-                        <span class="key"><strong>Key: </strong>{{ $setlistSong->key }}</span>
-                    @endif
-                    @if ($request->input('bpm') && $setlistSong->bpm)
-                        <span class="bpm"><strong>BPM: </strong>{{ $setlistSong->bpm }}</span>
-                    @endif
-                </div>
-                <!--
-                <div class="inline instruments">
-                    <strong>Instruments: </strong>
-                    <span>Banjo</span>
-                    <span>Organ</span>
-                </div>
-                -->
-                <div class="comment">
-                    @if ($request->input('comment') && $setlistSong->comment)
-                        <span><strong>Comment: </strong><i>{{ $setlistSong->comment }}</i></span>
-                    @endif
-                </div>
-            </div>
+            <span class="song-info">
+                @if ($request->input('key') && $setlistSong->key)
+                    <span>{{ $setlistSong->key }}</span>
+                @endif
+                @if ($request->input('bpm') && $setlistSong->bpm)
+                    <span>&#9833;{{ $setlistSong->bpm }}</span>
+                @endif
+                @if ($request->input('comment') && $setlistSong->comment)
+                    <i>{{ $setlistSong->comment }}</i>
+                @endif
+            </span>
         </div>
     @endforeach
 </div>
