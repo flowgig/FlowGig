@@ -12,6 +12,10 @@
             padding: 1.5cm 2cm;
         }
 
+        h1 {
+            font-size: 24pt;
+        }
+
         * {
             box-sizing: border-box;
             -moz-box-sizing: border-box;
@@ -36,23 +40,15 @@
             line-height: 24pt;
         }
 
-        .song-number {
-            width: 30px;
-            margin: 0;
-            padding: 0;
-            display: inline-block;
-        }
-
         div.setlist .setlist-song {
             padding: 10px 0;
             display: block;
             border-bottom: 1px solid #eee;
         }
 
-        div.setlist .setlist-song .song-info {
-            padding-left: 40px;
-            font-size: 12pt;
-            line-height: 16pt;
+        div.setlist .setlist-song .song-info * {
+            margin-left: 10px;
+            font-size: .8em
         }
 
         div.setlist div.inline span {
@@ -75,48 +71,27 @@
     <title>FlowGig - Setlist for {{ $setlist->gig->name }}</title>
 </head>
 <body>
-<p>{{ $setlist->gig->band->name }}</p>
 <h1>{{ $setlist->gig->name }}</h1>
-<p><small>{{ $setlist->gig->date }} at {{ $setlist->gig->venue }}, {{ $setlist->gig->location }}</small></p>
+<p><small>{{ $setlist->gig->band->name }} - {{ $setlist->gig->date() }} at {{ $setlist->gig->venue }}, {{ $setlist->gig->location }}</small></p>
 <div class="setlist">
     @foreach($setlist->setlistSongs->sortBy('number_in_list') as $setlistSong)
         <div class="setlist-song">
-            @if ($request->input('number_in_list'))
-                <span class="song-number">{{ $setlistSong->number_in_list }}</span>
-            @endif
             {{ $setlistSong->song->title }}
-            <div class="song-info">
-                <div class="inline">
-                    @if ($request->input('key') && $setlistSong->key)
-                        <span class="key"><strong>Key: </strong>{{ $setlistSong->key }}</span>
-                    @endif
-                    @if ($request->input('bpm') && $setlistSong->bpm)
-                        <span class="bpm"><strong>BPM: </strong>{{ $setlistSong->bpm }}</span>
-                    @endif
-                    @if ($request->input('duration') && $setlistSong->duration)
-                        <span class="intensity"><strong>Duration: </strong>{{ $setlistSong->duration }}</span>
-                    @endif
-                    @if ($request->input('intensity') && $setlistSong->intensity)
-                        <span class="intensity"><strong>Intensity: </strong>{{ $setlistSong->intensity }}</span>
-                    @endif
-                </div>
-                <!--
-                <div class="inline instruments">
-                    <strong>Instruments: </strong>
-                    <span>Banjo</span>
-                    <span>Organ</span>
-                </div>
-                -->
-                <div class="comment">
-                    @if ($request->input('comment') && $setlistSong->comment)
-                        <span><strong>Comment: </strong><i>{{ $setlistSong->comment }}</i></span>
-                    @endif
-                </div>
-            </div>
+            <span class="song-info">
+                @if ($request->input('key') && $setlistSong->key)
+                    <span>{{ $setlistSong->key }}</span>
+                @endif
+                @if ($request->input('bpm') && $setlistSong->bpm)
+                    <span>&#9833;{{ $setlistSong->bpm }}</span>
+                @endif
+                @if ($request->input('comment') && $setlistSong->comment)
+                    <i>{{ $setlistSong->comment }}</i>
+                @endif
+            </span>
         </div>
     @endforeach
 </div>
-<br /><small style="font-size: .6em">Last changed {{ $setlist->updated_at->toDayDateTimeString() }}</small>
+<br /><small style="font-size: .6em">Last changed {{ $setlist->updated_at }}</small>
 {{-- <span class="footer-text">Generated with <a href="http://www.flowgig.com">www.flowgig.com</a></span> --}}
 </body>
 </html>
