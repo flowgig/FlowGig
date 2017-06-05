@@ -1,12 +1,13 @@
 <div class="modal export-setlist-modal">
     <div class="modal-container">
         <div class="modal-header">
-            Export setlist:
+            Export setlist as PDF
             <button class="modal-close toggle-modal"
                     value="export-setlist-modal"></button>
         </div>
         <div class="modal-content">
-            <p>Toggle fields in setlist</p>
+            <p><b>Included song information:</b></p>
+            <br />
             <form action="{{ route('setlists.export', $setlist) }}" method="GET" target="_blank">
                 <div class="input-group">
                     <input type="checkbox" name="key" id="key" checked/>
