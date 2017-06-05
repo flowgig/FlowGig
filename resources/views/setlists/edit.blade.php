@@ -152,6 +152,8 @@
         <span class="list-item-divider"></span>
         <span class="list-item-content single-line">
             @{{ setlistSong.song.title }}
+            <span v-if="setlistSong.key" style="margin-left: 10px; font-size: .8em">@{{ setlistSong.key }}</span>
+            <i v-if="setlistSong.comment" style="margin: 0 5px 0 10px; font-size: .8em">@{{ setlistSong.comment }}</i>
         </span>
         <span class="list-item-buttons">
             <a v-on:click="edit = !edit" class="button button-icon button-flat button-default tooltip"
