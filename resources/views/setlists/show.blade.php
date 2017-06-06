@@ -43,13 +43,21 @@
                 </div>
                 <small>{{ $setlist->setlistSongs->count() }} songs</small>
                 <div>
-                    <ul class="list">
-                        @foreach($setlist->setlistSongs->sortBy('number_in_list') as $setlistSong)
-                            <li class="setlistsong">
-                                <span class="list-item-content single-line">{{ $setlistSong->song->title }}</span>
-                            </li>
-                        @endforeach
-                    </ul>
+                <ul class="list">
+                    @foreach($setlist->setlistSongs->sortBy('number_in_list') as $setlistSong)
+                    <li>
+                        <span class="list-item-content single-line">
+                            {{ $setlistSong->song->title }}
+                            @if($setlistSong->key)
+                                <span style="margin-left: 10px; font-size: .8em">{{ $setlistSong->key }}</span>
+                            @endif
+                            @if($setlistSong->comment)
+                                <i style="margin: 0 5px 0 10px; font-size: .8em">{{ $setlistSong->comment }}</i>
+                            @endif
+                        </span>
+                    </li>
+                    @endforeach
+                </ul>
                 </div>
                 <small>{{ $setlist->setlistSongs->count() }} songs</small>
                 <div class="block text-right">
