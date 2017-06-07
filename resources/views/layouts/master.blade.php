@@ -42,8 +42,7 @@
 </head>
 <body>
 
-@include('layouts.navbar', ['currentBand' => isset($currentBand) ? $currentBand : null])
-{{-- TODO: Use ['currentBand' => $currentBand ?? null] when on PHP 7 --}}
+@include('layouts.navbar', ['currentBand' => $currentBand ?? null])
 
 @yield('actionbar')
 <div class="main-content">
