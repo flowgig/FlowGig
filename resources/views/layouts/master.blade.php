@@ -34,7 +34,6 @@
 </head>
 <body>
 
-@include('layouts.navbar', ['currentBand' => $currentBand ?? null])
 
 <div id="app">
     @if(isset($currentBand))
