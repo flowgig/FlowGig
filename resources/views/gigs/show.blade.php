@@ -128,6 +128,7 @@
             </div>
         </div>
     </div>
+    {{--
     <script>
         /*    $(document).ready(function () {
          $(".setlist-copy").val($(".setlist-template").val());
@@ -139,4 +140,5 @@
          $(".setlist-template").prop('disabled', $(this).data('disable-list'));
          });*/
     </script>
+    --}}
 @endsection
