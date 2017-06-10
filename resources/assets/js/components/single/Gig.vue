@@ -49,11 +49,11 @@
                         value: this.formData.savedValues !== undefined && this.formData.savedValues.location !== undefined ? this.formData.savedValues.location : '',
                         attributes: this.formData.viewType == 'show' ? ["readonly"] : []
                     }),
-                    date: quark.Molecules.FormElements.InputField.getModule({
+                    date: quark.Molecules.FormElements.DatePicker.getModule({
                         id: "date",
                         name: "date",
                         label: "Date",
-                        type: "text",
+                        type: "datetime",
                         value: this.formData.savedValues !== undefined && this.formData.savedValues.date !== undefined ? this.formData.savedValues.date : '',
                         attributes: this.formData.viewType == 'show' ? ["readonly"] : []
                     }),
