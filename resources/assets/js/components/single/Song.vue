@@ -92,7 +92,7 @@
                         type: "time",
                         placeholder: "03:25",
                         value: this.formData.savedValues !== undefined && this.formData.savedValues.duration !== undefined ? this.formData.savedValues.duration : '',
-                        attributes: this.formData.viewType == 'show' ? ["readonly"] : ["min='0'"],
+                        attributes: this.formData.viewType == 'show' ? ["readonly"] : [],
                         clockOptions: {
                             showHours: false
                         }
