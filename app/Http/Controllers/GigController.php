@@ -62,7 +62,7 @@ class GigController extends Controller
 
         $this->validate($request, [
             'name' => 'required|max:60',
-            'date' => 'nullable|date_format:Y-m-d',
+            'date' => 'nullable|date_format:Y-m-d H:i:s',
             'status' => 'nullable|in:Proposed,Settled,Public'
         ]);
 
@@ -116,7 +116,7 @@ class GigController extends Controller
 
         $this->validate($request, [
             'name' => 'required|max:60',
-            'date' => 'nullable|date_format:Y-m-d',
+            'date' => 'nullable|date_format:Y-m-d H:i:s',
             'status' => 'nullable|in:Proposed,Settled,Public'
         ]);
 
