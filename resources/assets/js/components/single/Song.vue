@@ -85,14 +85,17 @@
                         value: this.formData.savedValues !== undefined && this.formData.savedValues.bpm !== undefined ? this.formData.savedValues.bpm : '',
                         attributes: this.formData.viewType == 'show' ? ["readonly"] : ["min='0'"]
                     }),
-                    duration: quark.Molecules.FormElements.InputField.getModule({
+                    duration: quark.Molecules.FormElements.DatePicker.getModule({
                         id: "duration",
                         name: "duration",
                         label: "Duration",
-                        type: "number",
-                        placeholder: "Minutes",
+                        type: "time",
+                        placeholder: "03:25",
                         value: this.formData.savedValues !== undefined && this.formData.savedValues.duration !== undefined ? this.formData.savedValues.duration : '',
-                        attributes: this.formData.viewType == 'show' ? ["readonly"] : ["min='0'"]
+                        attributes: this.formData.viewType == 'show' ? ["readonly"] : ["min='0'"],
+                        clockOptions: {
+                            showHours: false
+                        }
                     }),
                     intensity: quark.Molecules.FormElements.InputField.getModule({
                         id: "intensity",
