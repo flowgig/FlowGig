@@ -1,4 +1,5 @@
 let mix = require('laravel-mix');
+let ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 /*
  |--------------------------------------------------------------------------
@@ -23,6 +24,27 @@ mix.options({
     extractVueStyles: true
 });
 
+let sassExtractTextPlugin = new ExtractTextPlugin('/css/vendor.css');
+
+let sassRule = {
+    test: /\.s[ac]ss$/,
+    include: /node_modules/,
+    loader: sassExtractTextPlugin.extract({
+        use: "css-loader?minimize!sass-loader",
+    })
+}
+
+mix.webpackConfig({
+    plugins: [
+        sassExtractTextPlugin
+    ],
+    module: {
+        rules: [
+            sassRule
+        ]
+    }
+})
+
 mix.js('resources/assets/js/app.js', 'public/js')
     .sass('resources/assets/sass/app.scss', 'public/css')
     .extract(['quark-gui', 'vue', 'axios']);
@@ -33,6 +55,7 @@ mix.js('resources/assets/js/app.js', 'public/js')
 // mix.extract(vendorLibs);
 // mix.sass(src, output);
 // mix.standaloneSass('src', output); <-- Faster, but isolated from Webpack.
+// mix.fastSass('src', output); <-- Alias for mix.standaloneSass().
 // mix.less(src, output);
 // mix.stylus(src, output);
 // mix.browserSync('my-site.dev');
