@@ -55,7 +55,10 @@
                         label: "Date",
                         type: "datetime",
                         value: this.formData.savedValues !== undefined && this.formData.savedValues.date !== undefined ? this.formData.savedValues.date : '',
-                        attributes: this.formData.viewType == 'show' ? ["readonly"] : []
+                        attributes: this.formData.viewType == 'show' ? ["readonly"] : [],
+                        clockOptions: {
+                            required: false
+                        }
                     }),
                     status: quark.Molecules.FormElements.SelectList.getModule({
                         id: "status",
