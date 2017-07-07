@@ -1,23 +1,34 @@
 <template>
     <div>
-        <div v-html="htmlContent"></div>
-        <div v-html="modalHtmlContent"></div>
+        <div>
+            <div v-for="setlistSong in setlist.setlist_songs">
+                <setlist-song
+                        v-bind:form-data="{
+                            viewType: formData.viewType,
+                            savedValues: setlistSong}"
+                        v-bind:setlist-song-id="setlistSong.id">
+                </setlist-song>
+            </div>
+            <div v-html="htmlContent"></div>
+            <div v-html="modalHtmlContent"></div>
+        </div>
     </div>
 </template>
 
 <script>
     import * as quark from 'quark-gui';
     import * as dragula from 'dragula';
+    import SetlistSong from "../single/SetlistSong";
     export default {
         name: 'SetlistEditable',
-        props: ['setlist', 'repertoire'],
+        props: ['setlist', 'repertoire', 'formData'],
         data () {
             return {
                 htmlContent: "",
                 modalHtmlContent: "",
                 csrfToken: "",
-                setlistSongs: [],
-                newSong: {}
+                newSong: {},
+                setlistSongModalButtons: {}
             }
         },
         ready: function () {
@@ -27,7 +38,6 @@
 
         },
         created: function () {
-            this.htmlContent = this.createListElement();
             this.modalHtmlContent = this.createRepertoireModalElement();
         },
         mounted: function () {
@@ -46,8 +56,12 @@
 
                 this.updateNumberInListForAllSetlistSongs();
             }.bind(this))
+
+            this.htmlContent = this.createListElement();
+
         },
         components: {
+            SetlistSong
             /*'song': {
              //  template: '#song',
              props: ['song'],
@@ -161,18 +175,23 @@
             createListItems: function () {
                 var listItems = [];
                 this.setlist.setlist_songs.forEach(function (setlistSong) {
+
+                    let modalButton = this.setlistSongModalButtons[setlistSong.id];
+
                     var listItem = {
                         id: 'setlist-' + this.setlist.id + '-song-' + setlistSong.song.id,
                         title: setlistSong.song.title,
-                        expandable: true,
                         buttonRow: {
                             buttons: [
                                 {
-                                    iconClass: 'fa fa-minus'
+                                    iconClass: 'fa fa-minus',
+                                    type: 'minimal'
                                 }
+                            ],
+                            buttonElements: [
+                                modalButton
                             ]
-                        },
-                        expandableContent: "test"
+                        }
                     }
                     listItems.push(listItem);
                 }.bind(this));
@@ -218,6 +237,20 @@
                     modalElement: {
                         title: 'Repertoire',
                         content: this.createRepertoireListElement(),
+                        scrollable: true
+                    }
+                });
+            },
+            createSetlistSongModalElement: function () {
+                return quark.Molecules.Messaging.Modal.getModule({
+                    id: 'setlist-song-modal-' + this.formData.savedValues.id,
+                    triggerElement: quark.Atoms.Buttons.Button.getModule({
+                        content: "Edit song",
+                        theme: "primary"
+                    }),
+                    modalElement: {
+                        title: 'Setlist song',
+                        content: this.createModalContent(),
                         scrollable: true
                     }
                 });

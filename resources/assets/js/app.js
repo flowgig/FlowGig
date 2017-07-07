@@ -31,6 +31,7 @@ window.axios.defaults.headers.common = {
 
 /* Single */
 Vue.component('Gig', require('./components/single/Gig.vue'));
+Vue.component('SetlistSong', require('./components/single/SetlistSong.vue'));
 Vue.component('Song', require('./components/single/Song.vue'));
 
 
