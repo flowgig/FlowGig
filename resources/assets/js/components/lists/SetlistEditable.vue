@@ -31,16 +31,12 @@
                 setlistSongModalButtons: {}
             }
         },
-        ready: function () {
-            /*this.setlistSongs = this.setlist.setlist_songs.sort(function (a, b) {
-             return a.number_in_list - b.number_in_list;
-             });*/
-
-        },
         created: function () {
             this.modalHtmlContent = this.createRepertoireModalElement();
         },
         mounted: function () {
+            this.htmlContent = this.createListElement();
+
             var self = this;
             var from = null;
             var drake = dragula([document.querySelector('#songs-list')]);
@@ -56,8 +52,6 @@
 
                 this.updateNumberInListForAllSetlistSongs();
             }.bind(this))
-
-            this.htmlContent = this.createListElement();
 
         },
         components: {
@@ -254,7 +248,8 @@
                         scrollable: true
                     }
                 });
-            }
+            },
+
         }
     }
 </script>

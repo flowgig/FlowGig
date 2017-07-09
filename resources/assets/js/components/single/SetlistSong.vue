@@ -1,66 +1,85 @@
 <template>
-
 </template>
 <script>
     import * as quark from 'quark-gui';
+
     export default {
         name: 'SetlistSong',
         props: ['formData', 'setlistSongId'],
         data () {
+
+            let setlistSong = {
+                key: {
+                    id: "setlist-song-modal-key-" + this.formData.savedValues.id,
+                    value: this.formData.savedValues !== undefined && this.formData.savedValues.key !== undefined ? this.formData.savedValues.key : ''
+                },
+                bpm: {
+                    id: "setlist-song-modal-bpm-" + this.formData.savedValues.id,
+                    value: this.formData.savedValues !== undefined && this.formData.savedValues.bpm !== undefined ? this.formData.savedValues.bpm : ''
+                },
+                duration: {
+                    id: "setlist-song-modal-duration-" + this.formData.savedValues.id,
+                    value: this.formData.savedValues !== undefined && this.formData.savedValues.duration !== undefined ? this.formData.savedValues.duration : ''
+                },
+                intensity: {
+                    id: "setlist-song-modal-intensity-" + this.formData.savedValues.id,
+                    value: this.formData.savedValues !== undefined && this.formData.savedValues.intensity !== undefined ? this.formData.savedValues.intensity : ''
+                },
+                comment: {
+                    id: "setlist-song-modal-comment-" + this.formData.savedValues.id,
+                    value: this.formData.savedValues !== undefined && this.formData.savedValues.comment !== undefined ? this.formData.savedValues.comment : ''
+                }
+            };
+
             return {
+                setlistSong: setlistSong,
                 formElements: {
                     key: quark.Molecules.FormElements.SelectList.getModule({
-                        id: "setlist-song-modal-key-" + this.formData.savedValues.id,
+                        id: setlistSong.key.id,
                         name: "key",
                         label: "Key",
                         searchable: true,
                         placeholder: "E.g. F, Am, or C#",
-                        value: this.formData.savedValues !== undefined && this.formData.savedValues.key !== undefined ? this.formData.savedValues.key : '',
+                        value: setlistSong.key.value,
                         options: require("../../data/musicalKeys.json"),
                         attributes: this.formData.viewType == 'show' ? ["readonly"] : []
                     }),
                     bpm: quark.Molecules.FormElements.InputField.getModule({
-                        id: "setlist-song-modal-bpm-" + this.formData.savedValues.id,
+                        id: setlistSong.bpm.id,
                         name: "bpm",
                         label: "BPM",
                         type: "number",
                         placeholder: "Beats Per Minute",
-                        value: this.formData.savedValues !== undefined && this.formData.savedValues.bpm !== undefined ? this.formData.savedValues.bpm : '',
+                        value: setlistSong.bpm.value,
                         attributes: this.formData.viewType == 'show' ? ["readonly"] : ["min='0'"]
                     }),
                     duration: quark.Molecules.FormElements.DatePicker.getModule({
-                        id: "setlist-song-modal-duration-" + this.formData.savedValues.id,
+                        id: setlistSong.duration.id,
                         name: "duration",
                         label: "Duration",
                         type: "time",
                         placeholder: "03:25",
-                        value: this.formData.savedValues !== undefined && this.formData.savedValues.duration !== undefined ? this.formData.savedValues.duration : '',
+                        value: setlistSong.duration.value,
                         attributes: this.formData.viewType == 'show' ? ["readonly"] : [],
                         clockOptions: {
                             showHours: false
                         }
                     }),
                     intensity: quark.Molecules.FormElements.InputField.getModule({
-                        id: "setlist-song-modal-intensity-" + this.formData.savedValues.id,
+                        id: setlistSong.intensity.id,
                         name: "intensity",
                         label: "Intensity",
                         type: "number",
                         placeholder: "1&ndash;10 (Ballad&ndash;Bebop)",
-                        value: this.formData.savedValues !== undefined && this.formData.savedValues.intensity !== undefined ? this.formData.savedValues.intensity : '',
+                        value: setlistSong.intensity.value,
                         attributes: this.formData.viewType == 'show' ? ["readonly"] : ["min='0'", "max='10'"]
                     }),
                     comment: quark.Molecules.FormElements.InputField.getModule({
-                        id: "setlist-song-modal-comment-" + this.formData.savedValues.id,
+                        id: setlistSong.comment.id,
                         name: "comment",
                         label: "Comment",
-                        value: this.formData.savedValues !== undefined && this.formData.savedValues.comment !== undefined ? this.formData.savedValues.comment : '',
+                        value: setlistSong.comment.value,
                         attributes: this.formData.viewType == 'show' ? ["readonly"] : []
-                    }),
-                    actionButton: quark.Atoms.Buttons.Button.getModule({
-                        submit: this.formData.viewType == 'show' ? false : true,
-                        link: this.formData.viewType == 'show' ? this.formData.editLink : null,
-                        theme: 'primary',
-                        content: this.getActionButtonText()
                     })
                 },
                 csrfToken: window.Laravel.csrfToken
@@ -87,23 +106,81 @@
                     methodInputElement = `<input type="hidden" name="_method" value="PUT">`;
                 }
                 let inputElements = `${tokenInputElement}${methodInputElement}${this.formElements.key}${this.formElements.bpm}${this.formElements.duration}${this.formElements.intensity}${this.formElements.comment}`;
-                let actionButtonElement = `<div class="input-group float-right">${this.formElements.actionButton}</div>`;
-                return `<form method="POST" action="${this.formData.postUrl}">${inputElements}${actionButtonElement}<div class="clearfix"></div></form>`;
+                return `<div class="content-container"><form method="POST" action="${this.formData.postUrl}">${inputElements}<div class="clearfix"></div></form></div>`;
             },
+
             createModalElement: function () {
-                return quark.Molecules.Messaging.Modal.getModule({
-                    id: 'setlist-song-modal-' + this.formData.savedValues.id,
-                    triggerElement: quark.Atoms.Buttons.Button.getModule({
-                        iconClass: 'fa fa-pencil',
-                        type: 'minimal',
-                        theme: 'primary'
-                    }),
-                    modalElement: {
-                        title: 'Setlist song',
-                        content: this.createModalContent(),
-                        scrollable: true
+
+                /*     var payLoad = {
+                 _token: this.csrfToken,
+                 setlist_id: this.formData.savedValues.setlist_id,
+                 song_id: this.formData.savedValues.song.id,
+                 number_in_list: this.formData.savedValues.number_in_list,
+                 key: setlistSong.key,
+                 bpm: setlistSong.bpm ? setlistSong.bpm : null,
+                 intensity: setlistSong.intensity ? setlistSong.intensity : null,
+                 duration: setlistSong.duration ? setlistSong.duration : null,
+                 comment: this.getValueById(this.setlistSong.comment.id)
+                 };*/
+
+                let actionButton = {
+                    id: "setlist-song-action-button-" + this.formData.savedValues.id,
+                    theme: 'primary',
+                    content: this.getActionButtonText(),
+                    ajaxOptions: {
+                        method: 'put',
+                        url: '/setlistsongs/' + this.formData.savedValues.id,
+                        data: {
+                            setlist_id: this.formData.savedValues.setlist_id,
+                            song_id: this.formData.savedValues.song.id,
+                            number_in_list: this.formData.savedValues.number_in_list
+                        },
+                        getDataFromElements: true,
+                        dataFromElements: [
+                            {
+                                name: 'key',
+                                elementId: this.setlistSong.key.id + '-input'
+                            },
+                            {
+                                name: 'bpm',
+                                elementId: this.setlistSong.bpm.id
+                            },
+                            {
+                                name: 'duration',
+                                elementId: this.setlistSong.duration.id + '-input'
+                            },
+                            {
+                                name: 'intensity',
+                                elementId: this.setlistSong.intensity.id
+                            },
+                            {
+                                name: 'comment',
+                                elementId: this.setlistSong.comment.id
+                            }
+                        ],
                     }
-                });
+                };
+                return quark.Molecules.Messaging.Modal.getModule({
+                        id: 'setlist-song-modal-' + this.formData.savedValues.id,
+                        triggerElement: quark.Atoms.Buttons.Button.getModule({
+                            iconClass: 'fa fa-pencil',
+                            type: 'minimal',
+                            theme: 'primary'
+                        }),
+                        modalElement: {
+                            title: 'Setlist song',
+                            content: this.createModalContent(),
+                            scrollable: true,
+                            footerButtons: {
+                                buttonRow: {
+                                    buttons: [
+                                        actionButton
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                );
             }
         }
     }
