@@ -59,7 +59,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="{{ route('account.show') }}">
                                 <span class="icon fa fa-user"></span> My account
                             </a>
                         </li>
