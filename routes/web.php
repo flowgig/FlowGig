@@ -39,6 +39,23 @@ Route::get('email-verification/error', [
 
 Route::get('/dashboard', 'DashboardController@index');
 
+// Account
+
+Route::get('account', [
+    'as' => 'account.show',
+    'uses' => 'AccountController@show'
+]);
+
+Route::get('account/edit', [
+    'as' => 'account.edit',
+    'uses' => 'AccountController@edit'
+]);
+
+Route::put('account/update', [
+    'as' => 'account.update',
+    'uses' => 'AccountController@update'
+]);
+
 Route::singularResourceParameters();
 
 // Bands
