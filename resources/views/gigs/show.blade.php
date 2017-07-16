@@ -130,7 +130,8 @@
                                                                     class="setlist-template" disabled>
                                                                 @foreach($gig->band->gigsWithSetlist as $gigWithSetlist)
                                                                     <option value="{{ $gigWithSetlist->id }}">
-                                                                        {{ $gigWithSetlist->name }}
+                                                                        {{ $gigWithSetlist->name }},
+                                                                        {{ $gigWithSetlist->date->toDateString() }}
                                                                     </option>
                                                                 @endforeach
                                                             </select>
