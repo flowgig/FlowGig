@@ -43,6 +43,7 @@
                         </a>
                     </li>
                 </ul>
+                @include('meta.user-timestamps', ['model' => $band])
                 <div class="block text-right">
                     <a class="button button-flat button-default" href="{{ route('bands.index') }}">Manage bands</a>
                 </div>

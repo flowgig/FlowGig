@@ -121,6 +121,8 @@
                         </ul>
                     </div>
                     <small>@{{ setlistSongs.length }} songs</small>
+                    <div style="margin-top: 10px; visibility: hidden; ">dirty spacer</div>
+                    @include('meta.user-timestamps', ['model' => $setlist])
                     <div class="block text-right">
                         <a class="button button-flat button-default" href="{{ route('gigs.show', $setlist->gig) }}">
                             Back to gig

@@ -28,6 +28,9 @@
                         </ul>
                     </div>
                 </div>
+                <div>
+                    <i><small>Last updated {{ $user->updated_at }} UTC</small></i>
+                </div>
                 <div class="block text-right">
                     <a class="button button-flat button-default" href="{{ url('/dashboard') }}">Back to dashboard</a>
                 </div>
