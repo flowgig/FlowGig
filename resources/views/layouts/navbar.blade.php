@@ -1,6 +1,6 @@
 <nav class="navbar navbar-dark z-2">
     <a class="sidenav-toggle"><i class="sidenav-toggle-logo fa fa-bars"></i></a>
-    <a class="logo" href="/dashboard">
+    <a class="logo" href="{{ route('dashboard') }}">
         <img src="/images/svg/flowgig-beta-logo-white.svg" alt="FlowGig beta logo">
     </a>
     <span class="menu-divider hide-xsmall"></span>
@@ -54,7 +54,7 @@
                     <span class="separator"></span>
                     <ul class="list hover-list">
                         <li>
-                            <a href="/dashboard">
+                            <a href="{{ route('dashboard') }}">
                                 <span class="icon fa fa-dashboard"></span> Dashboard
                             </a>
                         </li>

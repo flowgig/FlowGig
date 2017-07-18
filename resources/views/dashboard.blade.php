@@ -7,7 +7,7 @@
             <div class="content">
                 <ol itemscope itemtype="http://schema.org/BreadcrumbList" class="breadcrumbs">
                     <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                        <a itemprop="item" href="/dashboard">
+                        <a itemprop="item" href="{{ route('dashboard') }}">
                             <span itemprop="name">Dashboard</span>
                         </a>
                         <meta itemprop="position" content="1"/>

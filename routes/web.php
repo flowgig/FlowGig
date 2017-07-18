@@ -37,7 +37,12 @@ Route::get('email-verification/error', [
     'uses' => 'Auth\VerifyController@getVerificationError'
 ]);
 
-Route::get('/dashboard', 'DashboardController@index');
+// Dashboard
+
+Route::get('dashboard', [
+    'as' => 'dashboard',
+    'uses' => 'DashboardController@index'
+]);
 
 // Account
 
