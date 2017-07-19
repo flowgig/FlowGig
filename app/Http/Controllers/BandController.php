@@ -108,7 +108,7 @@ class BandController extends Controller
 
         // TODO: Flash band updated
 
-        return redirect()->route('bands.index');
+        return redirect()->route('bands.show', $band);
     }
 
     /**
