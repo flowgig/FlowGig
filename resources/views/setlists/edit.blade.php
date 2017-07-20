@@ -108,6 +108,10 @@
                         at {{ $setlist->gig->venue }}, {{ $setlist->gig->location }}
                     </p>
                     <div class="block text-right">
+                        <small style="color: red">Changes are auto-saved</small>
+                        <a class="button button-flat button-default" href="{{ route('setlists.show', $setlist) }}">
+                            Leave edit mode
+                        </a>
                         <a class="button button-flat button-default" href="{{ route('gigs.show', $setlist->gig) }}">
                             Back to gig
                         </a>
@@ -124,6 +128,10 @@
                     <div style="margin-top: 10px; visibility: hidden; ">dirty spacer</div>
                     @include('meta.user-timestamps', ['model' => $setlist])
                     <div class="block text-right">
+                        <small style="color: red">Changes are auto-saved</small>
+                        <a class="button button-flat button-default" href="{{ route('setlists.show', $setlist) }}">
+                            Leave edit mode
+                        </a>
                         <a class="button button-flat button-default" href="{{ route('gigs.show', $setlist->gig) }}">
                             Back to gig
                         </a>
