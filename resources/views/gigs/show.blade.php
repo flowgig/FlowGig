@@ -95,7 +95,7 @@
                                     <div class="modal add-setlist-modal-{{ $gig->id }}">
                                         <div class="modal-container">
                                             <div class="modal-header">
-                                                Create setlist:
+                                                Create setlist for {{ $gig->name }}:
                                                 <button class="modal-close toggle-elements"
                                                         value="add-setlist-modal-{{ $gig->id }}"></button>
                                             </div>
@@ -135,7 +135,7 @@
                                                                     </option>
                                                                 @endforeach
                                                             </select>
-                                                            <label for="setlist-template-{{ $gig->id }}">Template</label>
+                                                            <label for="setlist-template-{{ $gig->id }}">{{ $gig->band->name }}'s gigs having setlist</label>
                                                         </div>
                                                         <div class="clearfix"></div>
                                                     </div>
