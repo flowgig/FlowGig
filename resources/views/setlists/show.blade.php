@@ -6,11 +6,12 @@
         <i class="icon fa fa-plus"></i>
     </div>
     <div class="action-menu" id="action-menu">
-        <button class="toggle-action-button toggle-modal tooltip" data-type="radio" title="Export setlist"
+        <button class="toggle-action-button toggle-modal tooltip" data-type="radio" title="Create PDF from setlist"
                 value="export-setlist-modal">
-                <span class="icon fa fa-download">
+                <span class="icon fa fa-file-pdf-o">
                 </span>
         </button>
+        Create PDF
     </div>
     @include('setlists.export-modal')
 @endsection

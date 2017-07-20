@@ -11,11 +11,13 @@
             <span class="icon fa fa-list">
             </span>
         </button>
-        <button class="toggle-action-button toggle-modal tooltip" data-type="radio" title="Export setlist"
+        Repertoire
+        <button class="toggle-action-button toggle-modal tooltip" data-type="radio" title="Create PDF from setlist"
                 value="export-setlist-modal">
-                <span class="icon fa fa-download">
+                <span class="icon fa fa-file-pdf-o">
                 </span>
         </button>
+        Create PDF
     </div>
     <div id="repertoire" class="modal repertoire-modal">
         <div class="modal-container">
