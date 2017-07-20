@@ -11,11 +11,6 @@
             <span class="icon fa fa-list">
             </span>
         </button>
-        <button class="toggle-action-button toggle-modal tooltip" data-type="radio" title="Add new song"
-                value="add-song-modal">
-                <span class="icon fa fa-plus">
-                </span>
-        </button>
         <button class="toggle-action-button toggle-modal tooltip" data-type="radio" title="Export setlist"
                 value="export-setlist-modal">
                 <span class="icon fa fa-download">
@@ -36,29 +31,6 @@
                         <song v-bind:song="song"></song>
                     </li>
                 </ul>
-            </div>
-        </div>
-    </div>
-    <div id="new-song" class="modal add-song-modal">
-        <div class="modal-container">
-            <div class="modal-header">
-                Add new song:
-                <button class="modal-close toggle-modal"
-                        value="add-song-modal"></button>
-            </div>
-            <div class="modal-content">
-                <div class="input-group">
-                    <input id="title" v-model="newSong.title" type="text"/><label for="title">Title</label>
-                </div>
-                <div class="input-group">
-                    <input id="lyrics_by" v-model="newSong.lyrics_by" type="text"/><label for="lyrics_by">Lyrics
-                        by</label>
-                </div>
-                <div class="input-group">
-                    <input id="music_by" v-model="newSong.music_by" type="text"/><label for="music_by">Music by</label>
-                </div>
-                <a class="button button-flat button-primary float-right tooltip" v-on:click="addSong(newSong)"
-                   title="Add @{{ newSong.title }} to setlist">Add song</a>
             </div>
         </div>
     </div>
