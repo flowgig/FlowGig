@@ -3,7 +3,7 @@
 @section('navbar-title', $setlist->gig->name)
 @section('actionbar')
     <div class="action-button">
-        <i class="icon fa fa-plus"></i>
+        <i class="icon fa fa-cogs" title="Setlist actions"></i>
     </div>
     <div class="action-menu" id="action-menu">
         <button class="toggle-action-button toggle-modal tooltip" data-type="radio" title="Add song from repertoire"
