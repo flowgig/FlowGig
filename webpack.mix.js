@@ -24,26 +24,25 @@ mix.options({
     extractVueStyles: true
 });
 
-let sassExtractTextPlugin = new ExtractTextPlugin('/css/vendor.css');
-
-let sassRule = {
-    test: /\.s[ac]ss$/,
-    include: /node_modules/,
-    loader: sassExtractTextPlugin.extract({
-        use: "css-loader?minimize!sass-loader",
-    })
-}
-
+// TODO: Fix SCSS extraction to file with Laravel Mix v1.4
+/*
 mix.webpackConfig({
     plugins: [
-        sassExtractTextPlugin
+        new ExtractTextPlugin('/css/vendor.css')
     ],
     module: {
         rules: [
-            sassRule
+            {
+                test: /\.s[ac]ss$/,
+                include: /node_modules/,
+                loader: ExtractTextPlugin.extract({
+                    use: "css-loader?minimize!sass-loader",
+                })
+            }
         ]
     }
-})
+});
+*/
 
 mix.js('resources/assets/js/app.js', 'public/js')
     .sass('resources/assets/sass/app.scss', 'public/css')
@@ -58,6 +57,7 @@ mix.js('resources/assets/js/app.js', 'public/js')
 // mix.fastSass('src', output); <-- Alias for mix.standaloneSass().
 // mix.less(src, output);
 // mix.stylus(src, output);
+// mix.postCss(src, output, [require('postcss-some-plugin')()]);
 // mix.browserSync('my-site.dev');
 // mix.combine(files, destination);
 // mix.babel(files, destination); <-- Identical to mix.combine(), but also includes Babel compilation.
