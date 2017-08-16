@@ -3,7 +3,7 @@
 @section('navbar-title', $setlist->gig->name)
 @section('actionbar')
     <div class="action-button">
-        <i class="icon fa fa-plus"></i>
+        <i class="icon fa fa-cogs" title="Setlist actions"></i>
     </div>
     <div class="action-menu" id="action-menu">
         <button class="toggle-action-button toggle-modal tooltip" data-type="radio" title="Add song from repertoire"
@@ -11,16 +11,13 @@
             <span class="icon fa fa-list">
             </span>
         </button>
-        <button class="toggle-action-button toggle-modal tooltip" data-type="radio" title="Add new song"
-                value="add-song-modal">
-                <span class="icon fa fa-plus">
-                </span>
-        </button>
-        <button class="toggle-action-button toggle-modal tooltip" data-type="radio" title="Export setlist"
+        Repertoire
+        <button class="toggle-action-button toggle-modal tooltip" data-type="radio" title="Create PDF from setlist"
                 value="export-setlist-modal">
-                <span class="icon fa fa-download">
+                <span class="icon fa fa-file-pdf-o">
                 </span>
         </button>
+        Create PDF
     </div>
     {{--
     <div id="repertoire" class="modal repertoire-modal">
@@ -108,6 +105,7 @@
                     </div>
 
 
+                    @include('meta.user-timestamps', ['model' => $setlist])
                     <div class="block text-right">
                         <custom-button
                                 v-bind:button="{link: '{{ route('gigs.show', $setlist->gig) }}', content: 'Back to gig'}">

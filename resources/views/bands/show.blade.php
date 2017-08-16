@@ -12,6 +12,12 @@
                         ]'>
                 </breadcrumbs>
                 <h1>{{ $band->name }}</h1>
+                <div class="text-right">
+                    <a class="button button-icon button-flat button-default tooltip" title="Edit {{ $band->name }}"
+                       style="margin-bottom: 20px"
+                       href="{{ route('bands.edit', $band) }}"><span class="fa fa-pencil"></span>
+                    </a>
+                </div>
                 <ul class="list hover-list box-list">
                     <li>
                         <a href="{{ route('songs.index', $band) }}"
@@ -35,6 +41,7 @@
                         </a>
                     </li>
                 </ul>
+                @include('meta.user-timestamps', ['model' => $band])
                 <div class="block text-right">
                     <a class="button button-flat button-default" href="{{ route('bands.index') }}">Manage bands</a>
                 </div>

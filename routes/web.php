@@ -38,7 +38,29 @@ Route::get('email-verification/error', [
     'uses' => 'Auth\VerifyController@getVerificationError'
 ]);
 
-Route::get('/dashboard', 'DashboardController@index');
+// Dashboard
+
+Route::get('dashboard', [
+    'as' => 'dashboard',
+    'uses' => 'DashboardController@index'
+]);
+
+// Account
+
+Route::get('account', [
+    'as' => 'account.show',
+    'uses' => 'AccountController@show'
+]);
+
+Route::get('account/edit', [
+    'as' => 'account.edit',
+    'uses' => 'AccountController@edit'
+]);
+
+Route::put('account/update', [
+    'as' => 'account.update',
+    'uses' => 'AccountController@update'
+]);
 
 Route::singularResourceParameters();
 

@@ -3,14 +3,15 @@
 @section('navbar-title', $setlist->gig->name)
 @section('actionbar')
     <div class="action-button">
-        <i class="icon fa fa-plus"></i>
+        <i class="icon fa fa-cogs" title="Setlist actions"></i>
     </div>
     <div class="action-menu" id="action-menu">
-        <button class="toggle-action-button toggle-modal tooltip" data-type="radio" title="Export setlist"
+        <button class="toggle-action-button toggle-modal tooltip" data-type="radio" title="Create PDF from setlist"
                 value="export-setlist-modal">
-                <span class="icon fa fa-download">
+                <span class="icon fa fa-file-pdf-o">
                 </span>
         </button>
+        Create PDF
     </div>
     @include('setlists.export-modal')
 @endsection
@@ -60,6 +61,8 @@
                 </ul>
                 </div>
                 <small>{{ $setlist->setlistSongs->count() }} songs</small>
+                <div style="margin-top: 10px; visibility: hidden; ">dirty spacer</div>
+                @include('meta.user-timestamps', ['model' => $setlist])
                 <div class="block text-right">
                     <a class="button button-flat button-default" href="{{ route('gigs.show', $setlist->gig) }}">
                         Back to gig

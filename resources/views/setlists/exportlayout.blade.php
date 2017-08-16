@@ -91,7 +91,7 @@
         </div>
     @endforeach
 </div>
-<br /><small style="font-size: .6em">Last changed {{ $setlist->updated_at }}</small>
+<br /><small style="font-size: .6em">Last changed {{ $setlist->updated_at }} UTC</small>
 {{-- <span class="footer-text">Generated with <a href="http://www.flowgig.com">www.flowgig.com</a></span> --}}
 </body>
 </html>
