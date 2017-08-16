@@ -111,18 +111,6 @@
 
             createModalElement: function () {
 
-                /*     var payLoad = {
-                 _token: this.csrfToken,
-                 setlist_id: this.formData.savedValues.setlist_id,
-                 song_id: this.formData.savedValues.song.id,
-                 number_in_list: this.formData.savedValues.number_in_list,
-                 key: setlistSong.key,
-                 bpm: setlistSong.bpm ? setlistSong.bpm : null,
-                 intensity: setlistSong.intensity ? setlistSong.intensity : null,
-                 duration: setlistSong.duration ? setlistSong.duration : null,
-                 comment: this.getValueById(this.setlistSong.comment.id)
-                 };*/
-
                 let actionButton = {
                     id: "setlist-song-action-button-" + this.formData.savedValues.id,
                     theme: 'primary',
