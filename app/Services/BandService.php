@@ -19,8 +19,7 @@ class BandService
         $band = new Band(['name' => $bandName]);
         $band->creator()->associate($creator);
         $band->save();
-        $band->members()->attach($creator);
-
+        $band->members()->attach($creator, ['created_by' => $creator->id]);
 
         return $band;
     }
