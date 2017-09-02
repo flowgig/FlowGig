@@ -27,22 +27,34 @@ mix.options({
 // TODO: Fix SCSS extraction to file with Laravel Mix v1.4
 /*
 mix.webpackConfig({
-    plugins: [
-        new ExtractTextPlugin('/css/vendor.css')
-    ],
     module: {
         rules: [
             {
-                test: /\.s[ac]ss$/,
-                include: /node_modules/,
-                loader: ExtractTextPlugin.extract({
-                    use: "css-loader?minimize!sass-loader",
+                test: /\.scss$/,
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: ['css-loader', 'sass-loader']
                 })
+            }
+        ]
+    },
+    plugins: [
+        new ExtractTextPlugin('/css/vendor.css')
+    ]
+});
+*/
+
+mix.webpackConfig({
+    module: {
+        rules: [
+            {
+                test: /\.quark$/,
+                loaders: ['babel-loader'],
+                exclude: '/node_modules/'
             }
         ]
     }
 });
-*/
 
 mix.js('resources/assets/js/app.js', 'public/js')
     .sass('resources/assets/sass/app.scss', 'public/css')
