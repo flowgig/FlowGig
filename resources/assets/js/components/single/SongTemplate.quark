@@ -101,8 +101,27 @@ let formElements = {
             "v-bind:readonly='form.readOnly'",
             "v-model='form.data.savedValues.intensity'"
         ],
-    })
-    // TODO: Add logic for action button
+    }),
+    actionButton: {
+        create: Button.getModule({
+            submit: true,
+            theme: 'primary',
+            content: 'Create'
+        }),
+        edit: Button.getModule({
+            submit: true,
+            theme: 'primary',
+            content: 'Update'
+        }),
+        show: Button.getModule({
+            submit: false,
+            theme: 'primary',
+            content: 'Edit',
+            attributes: [
+                "v-bind:href='this.form.data.editLink'"
+            ]
+        })
+    }
 };
 
 let template = `
@@ -123,8 +142,11 @@ let template = `
     ${formElements.duration}
     ${formElements.intensity}
     <div class="input-group float-right">
-        
+        <div v-if="form.data.viewType == 'create'">${formElements.actionButton.create}</div>
+        <div v-else-if="form.data.viewType == 'edit'">${formElements.actionButton.edit}</div>
+        <div v-else-if="form.data.viewType == 'show'">${formElements.actionButton.show}</div>
     </div>
+    <div class="clearfix"></div> 
 </form>
 `;
 
