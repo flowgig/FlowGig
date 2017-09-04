@@ -1,0 +1,108 @@
+import * as quark from "quark-gui";
+
+let InputField = quark.Molecules.FormElements.InputField;
+let SelectList = quark.Molecules.FormElements.SelectList;
+let DatePicker = quark.Molecules.FormElements.DatePicker;
+let Button = quark.Atoms.Buttons.Button;
+
+let formElements = {
+    name: InputField.getModule({
+        id: "name",
+        name: "name",
+        label: "Name",
+        type: "text",
+        placeholder: "Name of the gig",
+        attributes: [
+            "required",
+            "v-bind:readonly='form.readOnly'",
+            "v-model='form.data.savedValues.name'"
+        ]
+    }),
+    venue: InputField.getModule({
+        id: "venue",
+        name: "venue",
+        label: "Venue",
+        type: "text",
+        placeholder: "Venue the gig takes place",
+        attributes: [
+            "v-bind:readonly='form.readOnly'",
+            "v-model='form.data.savedValues.venue'"
+        ]
+    }),
+    location: InputField.getModule({
+        id: "location",
+        name: "location",
+        label: "Location",
+        type: "text",
+        placeholder: "Location of the gig",
+        attributes: [
+            "v-bind:readonly='form.readOnly'",
+            "v-model='form.data.savedValues.location'"
+        ]
+    }),
+    date: DatePicker.getModule({
+        id: "date",
+        name: "date",
+        label: "Date",
+        type: "datetime",
+        clockOptions: {
+            required: false
+        },
+        attributes: [
+            "v-bind:readonly='form.readOnly'",
+            "v-model='form.data.savedValues.date'"
+        ],
+    }),
+    status: SelectList.getModule({
+        id: "status",
+        name: "status",
+        label: "Status",
+        searchable: true,
+        placeholder: "Status for the gig",
+        options: require("../../data/gigStatuses.json"),
+        attributes: [
+            "v-bind:readonly='form.readOnly'",
+            "v-model='form.data.savedValues.status'"
+        ]
+    }),
+    actionButton: {
+        create: Button.getModule({
+            submit: true,
+            theme: 'primary',
+            content: 'Create'
+        }),
+        edit: Button.getModule({
+            submit: true,
+            theme: 'primary',
+            content: 'Update'
+        }),
+        show: Button.getModule({
+            submit: false,
+            theme: 'primary',
+            content: 'Edit',
+            attributes: [
+                "v-bind:href='this.form.data.editLink'"
+            ]
+        })
+    }
+};
+
+let template = `
+<form method="POST" v-bind:action="form.data.postUrl">
+    <input v-if="!form.readOnly" type="hidden" name="_token" v-bind:value="csrfToken" />
+    <input v-if="form.data.viewType == 'edit'" type="hidden" name="_method" value="PUT" />
+    ${formElements.name}
+    ${formElements.venue}
+    ${formElements.location}
+    ${formElements.date}
+    ${formElements.status}
+    <div class="input-group float-right">
+        <div v-if="form.data.viewType == 'create'">${formElements.actionButton.create}</div>
+        <div v-else-if="form.data.viewType == 'edit'">${formElements.actionButton.edit}</div>
+        <div v-else-if="form.data.viewType == 'show'">${formElements.actionButton.show}</div>
+    </div>
+    <div class="clearfix"></div> 
+</form>
+`;
+
+export default template;
