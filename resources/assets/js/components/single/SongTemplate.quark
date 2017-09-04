@@ -15,7 +15,7 @@ let formElements = {
         attributes: [
             "required",
             "v-bind:readonly='form.readOnly'",
-            "v-model='form.data.savedValues.title'"
+            "v-model='form.data.title'"
         ]
     }),
     artist: InputField.getModule({
@@ -26,7 +26,7 @@ let formElements = {
         placeholder: "The original artist/band",
         attributes: [
             "v-bind:readonly='form.readOnly'",
-            "v-model='form.data.savedValues.artist'"
+            "v-model='form.data.artist'"
         ]
     }),
     lyricsBy: InputField.getModule({
@@ -37,7 +37,7 @@ let formElements = {
         placeholder: "The lyrics author",
         attributes: [
             "v-bind:readonly='form.readOnly'",
-            "v-model='form.data.savedValues.lyrics_by'"
+            "v-model='form.data.lyrics_by'"
         ]
     }),
     musicBy: InputField.getModule({
@@ -48,7 +48,7 @@ let formElements = {
         placeholder: "The music composer",
         attributes: [
             "v-bind:readonly='form.readOnly'",
-            "v-model='form.data.savedValues.music_by'"
+            "v-model='form.data.music_by'"
         ]
     }),
     key: SelectList.getModule({
@@ -60,7 +60,7 @@ let formElements = {
         options: require("../../data/musicalKeys.json"),
         attributes: [
             "v-bind:readonly='form.readOnly'",
-            "v-model='form.data.savedValues.key'"
+            "v-model='form.data.key'"
         ]
     }),
     bpm: InputField.getModule({
@@ -72,7 +72,7 @@ let formElements = {
         attributes: [
             "min='0'",
             "v-bind:readonly='form.readOnly'",
-            "v-model='form.data.savedValues.bpm'"
+            "v-model='form.data.bpm'"
         ]
     }),
     duration: DatePicker.getModule({
@@ -83,7 +83,7 @@ let formElements = {
         placeholder: "03:25",
         attributes: [
             "v-bind:readonly='form.readOnly'",
-            "v-model='form.data.savedValues.duration'"
+            "v-model='form.data.duration'"
         ],
         clockOptions: {
             showHours: false
@@ -94,12 +94,12 @@ let formElements = {
         name: "intensity",
         label: "Intensity",
         type: "number",
-        placeholder: "1&ndash;10 (Ballad&ndash;Bebop)",
+        placeholder: "1–10 (Ballad–Bebop)",
         attributes: [
             "min='0'",
             "max='10'",
             "v-bind:readonly='form.readOnly'",
-            "v-model='form.data.savedValues.intensity'"
+            "v-model='form.data.intensity'"
         ],
     }),
     actionButton: {
@@ -118,16 +118,16 @@ let formElements = {
             theme: 'primary',
             content: 'Edit',
             attributes: [
-                "v-bind:href='this.form.data.editLink'"
+                "v-bind:href='this.formData.editLink'"
             ]
         })
     }
 };
 
 let template = `
-<form method="POST" v-bind:action="form.data.postUrl">
+<form method="POST" v-bind:action="formData.postUrl">
     <input v-if="!form.readOnly" type="hidden" name="_token" v-bind:value="csrfToken" />
-    <input v-if="form.data.viewType == 'edit'" type="hidden" name="_method" value="PUT" />
+    <input v-if="formData.viewType == 'edit'" type="hidden" name="_method" value="PUT" />
     ${formElements.title}
     ${formElements.artist}
     ${formElements.lyricsBy}
@@ -142,9 +142,9 @@ let template = `
     ${formElements.duration}
     ${formElements.intensity}
     <div class="input-group float-right">
-        <div v-if="form.data.viewType == 'create'">${formElements.actionButton.create}</div>
-        <div v-else-if="form.data.viewType == 'edit'">${formElements.actionButton.edit}</div>
-        <div v-else-if="form.data.viewType == 'show'">${formElements.actionButton.show}</div>
+        <div v-if="formData.viewType == 'create'">${formElements.actionButton.create}</div>
+        <div v-else-if="formData.viewType == 'edit'">${formElements.actionButton.edit}</div>
+        <div v-else-if="formData.viewType == 'show'">${formElements.actionButton.show}</div>
     </div>
     <div class="clearfix"></div> 
 </form>

@@ -9,7 +9,7 @@
         data() {
             return {
                 form: {
-                    data: this.formData,
+                    data: this.formData.viewType == 'create' ? {} : this.formData.savedValues,
                     readOnly: this.formData.viewType == 'show'
                 },
                 csrfToken: window.Laravel.csrfToken

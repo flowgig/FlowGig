@@ -15,7 +15,7 @@ let formElements = {
         attributes: [
             "required",
             "v-bind:readonly='form.readOnly'",
-            "v-model='form.data.savedValues.name'"
+            "v-model='form.data.name'"
         ]
     }),
     venue: InputField.getModule({
@@ -26,7 +26,7 @@ let formElements = {
         placeholder: "Venue the gig takes place",
         attributes: [
             "v-bind:readonly='form.readOnly'",
-            "v-model='form.data.savedValues.venue'"
+            "v-model='form.data.venue'"
         ]
     }),
     location: InputField.getModule({
@@ -37,7 +37,7 @@ let formElements = {
         placeholder: "Location of the gig",
         attributes: [
             "v-bind:readonly='form.readOnly'",
-            "v-model='form.data.savedValues.location'"
+            "v-model='form.data.location'"
         ]
     }),
     date: DatePicker.getModule({
@@ -50,7 +50,7 @@ let formElements = {
         },
         attributes: [
             "v-bind:readonly='form.readOnly'",
-            "v-model='form.data.savedValues.date'"
+            "v-model='form.data.date'"
         ],
     }),
     status: SelectList.getModule({
@@ -62,7 +62,7 @@ let formElements = {
         options: require("../../data/gigStatuses.json"),
         attributes: [
             "v-bind:readonly='form.readOnly'",
-            "v-model='form.data.savedValues.status'"
+            "v-model='form.data.status'"
         ]
     }),
     actionButton: {
@@ -81,25 +81,25 @@ let formElements = {
             theme: 'primary',
             content: 'Edit',
             attributes: [
-                "v-bind:href='this.form.data.editLink'"
+                "v-bind:href='this.formData.editLink'"
             ]
         })
     }
 };
 
 let template = `
-<form method="POST" v-bind:action="form.data.postUrl">
+<form method="POST" v-bind:action="formData.postUrl">
     <input v-if="!form.readOnly" type="hidden" name="_token" v-bind:value="csrfToken" />
-    <input v-if="form.data.viewType == 'edit'" type="hidden" name="_method" value="PUT" />
+    <input v-if="formData.viewType == 'edit'" type="hidden" name="_method" value="PUT" />
     ${formElements.name}
     ${formElements.venue}
     ${formElements.location}
     ${formElements.date}
     ${formElements.status}
     <div class="input-group float-right">
-        <div v-if="form.data.viewType == 'create'">${formElements.actionButton.create}</div>
-        <div v-else-if="form.data.viewType == 'edit'">${formElements.actionButton.edit}</div>
-        <div v-else-if="form.data.viewType == 'show'">${formElements.actionButton.show}</div>
+        <div v-if="formData.viewType == 'create'">${formElements.actionButton.create}</div>
+        <div v-else-if="formData.viewType == 'edit'">${formElements.actionButton.edit}</div>
+        <div v-else-if="formData.viewType == 'show'">${formElements.actionButton.show}</div>
     </div>
     <div class="clearfix"></div> 
 </form>
