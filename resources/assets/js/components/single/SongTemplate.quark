@@ -5,8 +5,13 @@ let SelectList = quark.Molecules.FormElements.SelectList;
 let DatePicker = quark.Molecules.FormElements.DatePicker;
 let Button = quark.Atoms.Buttons.Button;
 
+function createReadOnlyFormElement(formElement) {
+    formElement.attributes.push("readonly");
+    return formElement;
+}
+
 let formElements = {
-    title: InputField.getModule({
+    title: {
         id: "title",
         name: "title",
         label: "Title",
@@ -14,44 +19,40 @@ let formElements = {
         placeholder: "The song title",
         attributes: [
             "required",
-            "v-bind:readonly='form.readOnly'",
             "v-model='form.data.title'"
         ]
-    }),
-    artist: InputField.getModule({
+    },
+    artist: {
         id: "artist",
         name: "artist",
         label: "Artist",
         type: "text",
         placeholder: "The original artist/band",
         attributes: [
-            "v-bind:readonly='form.readOnly'",
             "v-model='form.data.artist'"
         ]
-    }),
-    lyricsBy: InputField.getModule({
+    },
+    lyricsBy: {
         id: "lyrics-by",
         name: "lyrics_by",
         label: "Lyrics by",
         type: "text",
         placeholder: "The lyrics author",
         attributes: [
-            "v-bind:readonly='form.readOnly'",
             "v-model='form.data.lyrics_by'"
         ]
-    }),
-    musicBy: InputField.getModule({
+    },
+    musicBy: {
         id: "music-by",
         name: "music_by",
         label: "Music by",
         type: "text",
         placeholder: "The music composer",
         attributes: [
-            "v-bind:readonly='form.readOnly'",
             "v-model='form.data.music_by'"
         ]
-    }),
-    key: SelectList.getModule({
+    },
+    key: {
         id: "key",
         name: "key",
         label: "Key",
@@ -59,11 +60,10 @@ let formElements = {
         placeholder: "E.g. F, Am, or C#",
         options: require("../../data/musicalKeys.json"),
         attributes: [
-            "v-bind:readonly='form.readOnly'",
             "v-model='form.data.key'"
         ]
-    }),
-    bpm: InputField.getModule({
+    },
+    bpm: {
         id: "bpm",
         name: "bpm",
         label: "BPM",
@@ -71,25 +71,23 @@ let formElements = {
         placeholder: "Beats Per Minute",
         attributes: [
             "min='0'",
-            "v-bind:readonly='form.readOnly'",
             "v-model='form.data.bpm'"
         ]
-    }),
-    duration: DatePicker.getModule({
+    },
+    duration: {
         id: "duration",
         name: "duration",
         label: "Duration",
         type: "time",
         placeholder: "03:25",
         attributes: [
-            "v-bind:readonly='form.readOnly'",
             "v-model='form.data.duration'"
         ],
         clockOptions: {
             showHours: false
         }
-    }),
-    intensity: InputField.getModule({
+    },
+    intensity: {
         id: "intensity",
         name: "intensity",
         label: "Intensity",
@@ -98,10 +96,64 @@ let formElements = {
         attributes: [
             "min='0'",
             "max='10'",
-            "v-bind:readonly='form.readOnly'",
             "v-model='form.data.intensity'"
         ],
-    }),
+    },
+    actionButton: {
+        create: Button.getModule({
+            submit: true,
+            theme: 'primary',
+            content: 'Create'
+        }),
+        edit: Button.getModule({
+            submit: true,
+            theme: 'primary',
+            content: 'Update'
+        }),
+        show: Button.getModule({
+            submit: false,
+            theme: 'primary',
+            content: 'Edit',
+            attributes: [
+                "v-bind:href='this.formData.editLink'"
+            ]
+        })
+    }
+};
+
+let formHtmlElements = {
+    title: {
+        editable: InputField.getModule(formElements.title),
+        readOnly: InputField.getModule(createReadOnlyFormElement(formElements.title))
+    },
+    artist: {
+        editable: InputField.getModule(formElements.artist),
+        readOnly: InputField.getModule(createReadOnlyFormElement(formElements.artist))
+    },
+    lyricsBy: {
+        editable: InputField.getModule(formElements.lyricsBy),
+        readOnly: InputField.getModule(createReadOnlyFormElement(formElements.lyricsBy))
+    },
+    musicBy: {
+        editable: InputField.getModule(formElements.musicBy),
+        readOnly: InputField.getModule(createReadOnlyFormElement(formElements.musicBy))
+    },
+    key: {
+        editable: SelectList.getModule(formElements.key),
+        readOnly: SelectList.getModule(createReadOnlyFormElement(formElements.key))
+    },
+    bpm: {
+        editable: InputField.getModule(formElements.bpm),
+        readOnly: InputField.getModule(createReadOnlyFormElement(formElements.bpm))
+    },
+    duration: {
+        editable: DatePicker.getModule(formElements.duration),
+        readOnly: DatePicker.getModule(createReadOnlyFormElement(formElements.duration))
+    },
+    intensity: {
+        editable: InputField.getModule(formElements.intensity),
+        readOnly: InputField.getModule(createReadOnlyFormElement(formElements.intensity))
+    },
     actionButton: {
         create: Button.getModule({
             submit: true,
@@ -128,19 +180,20 @@ let template = `
 <form method="POST" v-bind:action="formData.postUrl">
     <input v-if="!form.readOnly" type="hidden" name="_token" v-bind:value="csrfToken" />
     <input v-if="formData.viewType == 'edit'" type="hidden" name="_method" value="PUT" />
-    ${formElements.title}
-    ${formElements.artist}
-    ${formElements.lyricsBy}
-    ${formElements.musicBy}
-    <p v-if="form.readOnly">The following properties are defaults which may be set
-        different for each instance of this song in setlists
+    <div v-if="form.readOnly">${formHtmlElements.title.readOnly}</div><div v-else>${formHtmlElements.title.editable}</div>
+    <div v-if="form.readOnly">${formHtmlElements.artist.readOnly}</div><div v-else>${formHtmlElements.artist.editable}</div>
+    <div v-if="form.readOnly">${formHtmlElements.lyricsBy.readOnly}</div><div v-else>${formHtmlElements.lyricsBy.editable}</div>
+    <div v-if="form.readOnly">${formHtmlElements.musicBy.readOnly}</div><div v-else>${formHtmlElements.musicBy.editable}</div>
+    <p v-if="form.readOnly">
+        The following properties are defaults which may be set different for each instance of this song in setlists
     </p>
-    <p v-else>You may set the following values different every time you add this song to a setlist,
-        but values entered here will be used as default</p>
-    ${formElements.key}
-    ${formElements.bpm}
-    ${formElements.duration}
-    ${formElements.intensity}
+    <p v-else>
+        You may set the following values different every time you add this song to a setlist, but values entered here will be used as default
+    </p>
+    <div v-if="form.readOnly">${formHtmlElements.key.readOnly}</div><div v-else>${formHtmlElements.key.editable}</div>
+    <div v-if="form.readOnly">${formHtmlElements.bpm.readOnly}</div><div v-else>${formHtmlElements.bpm.editable}</div>
+    <div v-if="form.readOnly">${formHtmlElements.duration.readOnly}</div><div v-else>${formHtmlElements.duration.editable}</div>
+    <div v-if="form.readOnly">${formHtmlElements.intensity.readOnly}</div><div v-else>${formHtmlElements.intensity.editable}</div>
     <div class="input-group float-right">
         <div v-if="formData.viewType == 'create'">${formElements.actionButton.create}</div>
         <div v-else-if="formData.viewType == 'edit'">${formElements.actionButton.edit}</div>
