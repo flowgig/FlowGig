@@ -100,24 +100,24 @@ let formElements = {
         ],
     },
     actionButton: {
-        create: Button.getModule({
+        create: {
             submit: true,
             theme: 'primary',
             content: 'Create'
-        }),
-        edit: Button.getModule({
+        },
+        edit: {
             submit: true,
             theme: 'primary',
             content: 'Update'
-        }),
-        show: Button.getModule({
+        },
+        show: {
             submit: false,
             theme: 'primary',
             content: 'Edit',
             attributes: [
                 "v-bind:href='this.formData.editLink'"
             ]
-        })
+        }
     }
 };
 
@@ -155,24 +155,9 @@ let formHtmlElements = {
         readOnly: InputField.getModule(createReadOnlyFormElement(formElements.intensity))
     },
     actionButton: {
-        create: Button.getModule({
-            submit: true,
-            theme: 'primary',
-            content: 'Create'
-        }),
-        edit: Button.getModule({
-            submit: true,
-            theme: 'primary',
-            content: 'Update'
-        }),
-        show: Button.getModule({
-            submit: false,
-            theme: 'primary',
-            content: 'Edit',
-            attributes: [
-                "v-bind:href='this.formData.editLink'"
-            ]
-        })
+        create: Button.getModule(formElements.actionButton.create),
+        edit: Button.getModule(formElements.actionButton.edit),
+        show: Button.getModule(formElements.actionButton.show)
     }
 };
 
@@ -195,9 +180,9 @@ let template = `
     <div v-if="form.readOnly">${formHtmlElements.duration.readOnly}</div><div v-else>${formHtmlElements.duration.editable}</div>
     <div v-if="form.readOnly">${formHtmlElements.intensity.readOnly}</div><div v-else>${formHtmlElements.intensity.editable}</div>
     <div class="input-group float-right">
-        <div v-if="formData.viewType == 'create'">${formElements.actionButton.create}</div>
-        <div v-else-if="formData.viewType == 'edit'">${formElements.actionButton.edit}</div>
-        <div v-else-if="formData.viewType == 'show'">${formElements.actionButton.show}</div>
+        <div v-if="formData.viewType == 'create'">${formHtmlElements.actionButton.create}</div>
+        <div v-else-if="formData.viewType == 'edit'">${formHtmlElements.actionButton.edit}</div>
+        <div v-else-if="formData.viewType == 'show'">${formHtmlElements.actionButton.show}</div>
     </div>
     <div class="clearfix"></div> 
 </form>
