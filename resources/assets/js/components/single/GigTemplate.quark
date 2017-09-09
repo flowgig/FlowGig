@@ -5,8 +5,13 @@ let SelectList = quark.Molecules.FormElements.SelectList;
 let DatePicker = quark.Molecules.FormElements.DatePicker;
 let Button = quark.Atoms.Buttons.Button;
 
+function createReadOnlyFormElement(formElement) {
+    formElement.attributes.push("readonly");
+    return formElement;
+}
+
 let formElements = {
-    name: InputField.getModule({
+    name: {
         id: "name",
         name: "name",
         label: "Name",
@@ -14,33 +19,30 @@ let formElements = {
         placeholder: "Name of the gig",
         attributes: [
             "required",
-            "v-bind:readonly='form.readOnly'",
             "v-model='form.data.name'"
         ]
-    }),
-    venue: InputField.getModule({
+    },
+    venue: {
         id: "venue",
         name: "venue",
         label: "Venue",
         type: "text",
         placeholder: "Venue the gig takes place",
         attributes: [
-            "v-bind:readonly='form.readOnly'",
             "v-model='form.data.venue'"
         ]
-    }),
-    location: InputField.getModule({
+    },
+    location: {
         id: "location",
         name: "location",
         label: "Location",
         type: "text",
         placeholder: "Location of the gig",
         attributes: [
-            "v-bind:readonly='form.readOnly'",
             "v-model='form.data.location'"
         ]
-    }),
-    date: DatePicker.getModule({
+    },
+    date: {
         id: "date",
         name: "date",
         label: "Date",
@@ -49,11 +51,10 @@ let formElements = {
             required: false
         },
         attributes: [
-            "v-bind:readonly='form.readOnly'",
             "v-model='form.data.date'"
         ],
-    }),
-    status: SelectList.getModule({
+    },
+    status: {
         id: "status",
         name: "status",
         label: "Status",
@@ -61,29 +62,56 @@ let formElements = {
         placeholder: "Status for the gig",
         options: require("../../data/gigStatuses.json"),
         attributes: [
-            "v-bind:readonly='form.readOnly'",
             "v-model='form.data.status'"
         ]
-    }),
+    },
     actionButton: {
-        create: Button.getModule({
+        create: {
             submit: true,
             theme: 'primary',
             content: 'Create'
-        }),
-        edit: Button.getModule({
+        },
+        edit: {
             submit: true,
             theme: 'primary',
             content: 'Update'
-        }),
-        show: Button.getModule({
+        },
+        show: {
             submit: false,
             theme: 'primary',
             content: 'Edit',
             attributes: [
                 "v-bind:href='this.formData.editLink'"
             ]
-        })
+        }
+    }
+};
+
+let formHtmlElements = {
+    name: {
+        editable: InputField.getModule(formElements.name),
+        readOnly: InputField.getModule(createReadOnlyFormElement(formElements.name))
+    },
+    venue: {
+        editable: InputField.getModule(formElements.venue),
+        readOnly: InputField.getModule(createReadOnlyFormElement(formElements.venue))
+    },
+    location: {
+        editable: InputField.getModule(formElements.location),
+        readOnly: InputField.getModule(createReadOnlyFormElement(formElements.location))
+    },
+    date: {
+        editable: DatePicker.getModule(formElements.date),
+        readOnly: DatePicker.getModule(createReadOnlyFormElement(formElements.date))
+    },
+    status: {
+        editable: SelectList.getModule(formElements.status),
+        readOnly: SelectList.getModule(createReadOnlyFormElement(formElements.status))
+    },
+    actionButton: {
+        create: Button.getModule(formElements.actionButton.create),
+        edit: Button.getModule(formElements.actionButton.edit),
+        show: Button.getModule(formElements.actionButton.show)
     }
 };
 
@@ -91,15 +119,15 @@ let template = `
 <form method="POST" v-bind:action="formData.postUrl">
     <input v-if="!form.readOnly" type="hidden" name="_token" v-bind:value="csrfToken" />
     <input v-if="formData.viewType == 'edit'" type="hidden" name="_method" value="PUT" />
-    ${formElements.name}
-    ${formElements.venue}
-    ${formElements.location}
-    ${formElements.date}
-    ${formElements.status}
+    <div v-if="form.readOnly">${formHtmlElements.name.readOnly}</div><div v-else>${formHtmlElements.name.editable}</div>
+    <div v-if="form.readOnly">${formHtmlElements.venue.readOnly}</div><div v-else>${formHtmlElements.venue.editable}</div>
+    <div v-if="form.readOnly">${formHtmlElements.location.readOnly}</div><div v-else>${formHtmlElements.location.editable}</div>
+    <div v-if="form.readOnly">${formHtmlElements.date.readOnly}</div><div v-else>${formHtmlElements.date.editable}</div>
+    <div v-if="form.readOnly">${formHtmlElements.status.readOnly}</div><div v-else>${formHtmlElements.status.editable}</div>
     <div class="input-group float-right">
-        <div v-if="formData.viewType == 'create'">${formElements.actionButton.create}</div>
-        <div v-else-if="formData.viewType == 'edit'">${formElements.actionButton.edit}</div>
-        <div v-else-if="formData.viewType == 'show'">${formElements.actionButton.show}</div>
+        <div v-if="formData.viewType == 'create'">${formHtmlElements.actionButton.create}</div>
+        <div v-else-if="formData.viewType == 'edit'">${formHtmlElements.actionButton.edit}</div>
+        <div v-else-if="formData.viewType == 'show'">${formHtmlElements.actionButton.show}</div>
     </div>
     <div class="clearfix"></div> 
 </form>
