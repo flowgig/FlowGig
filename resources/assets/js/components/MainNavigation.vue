@@ -25,8 +25,12 @@
                     },
                     url: "/dashboard"
                 },
-                primaryNavigation: {
-                    id: "primary-navigation",
+                primaryNavigationLeft: {
+                    id: "primary-navigation-left",
+                    listItems: []
+                },
+                primaryNavigationRight: {
+                    id: "primary-navigation-right",
                     listItems: []
                 },
                 sidebar: {
@@ -74,8 +78,40 @@
                         ]
                     }
                 };
-                header.primaryNavigation.listItems.push(listItemBand);
+                header.primaryNavigationLeft.listItems.push(listItemBand);
             }
+
+            if (this.currentUser !== undefined) {
+                let listItemUser = {
+                    name: this.currentUser.name,
+                    iconClass: "fa fa-user",
+                    responsive: {
+                        showIcon: true,
+                        showText: false
+                    },
+                    dropdownContent: {
+                        listItems: [
+                            {
+                                name: "Dashboard",
+                                link: "/",
+                                iconClass: "fa fa fa-dashboard"
+                            },
+                            {
+                                name: "My account",
+                                link: "/account",
+                                iconClass: "fa fa-user"
+                            },
+                            {
+                                name: "Log out",
+                                link: "#",
+                                iconClass: "fa fa-sign-out"
+                            }
+                        ]
+                    }
+                };
+                header.primaryNavigationRight.listItems.push(listItemUser);
+            }
+
             this.header = header;
             this.htmlContent = quark.Organisms.Global.Header.getModule(this.header);
         }
