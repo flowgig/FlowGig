@@ -1,0 +1,41 @@
+import * as quark from "quark-gui";
+
+let ListItem = quark.Molecules.Lists.ListItem;
+let Button = quark.Atoms.Buttons.Button;
+let Modal = quark.Molecules.Messaging.Modal;
+
+let modalTriggerButton = Button.getModule({
+    content: "Edit song",
+    theme: "primary"
+});
+/*
+let modal = Modal.getModule({
+    id: 'setlist-song-modal-tetetetetetetetetet',
+    triggerElement: modalTriggerButton,
+    modalElement: {
+        title: 'Setlist song',
+        content: "test data for modal",
+        scrollable: true
+    }
+});*/
+
+let listItem = ListItem.getModule({
+    vueBindings: {
+        title: "form.data.song.title",
+        subTitle: "form.data.song.artist"
+    },
+    buttonRow: {
+        buttons: [{
+            content: "remove",
+            theme: "danger"
+        }],
+        buttonElements: [
+            modalTriggerButton
+        ]
+    }
+})
+
+
+let template = `${listItem}`;
+
+export default template;

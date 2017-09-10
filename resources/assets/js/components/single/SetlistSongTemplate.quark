@@ -1,0 +1,125 @@
+import * as quark from "quark-gui";
+
+let InputField = quark.Molecules.FormElements.InputField;
+let SelectList = quark.Molecules.FormElements.SelectList;
+let DatePicker = quark.Molecules.FormElements.DatePicker;
+let Button = quark.Atoms.Buttons.Button;
+
+function createReadOnlyFormElement(formElement) {
+    formElement.attributes.push("readonly");
+    return formElement;
+}
+
+let formElements = {
+    key: {
+        id: "key",
+        name: "key",
+        label: "Key",
+        searchable: true,
+        placeholder: "E.g. F, Am, or C#",
+        options: require("../../data/musicalKeys.json"),
+        attributes: [
+            "v-model='form.data.key'",
+            "v-bind:id='\"key-\" + form.data.id'"
+        ]
+    },
+    bpm: {
+        id: "bpm",
+        name: "bpm",
+        label: "BPM",
+        type: "number",
+        placeholder: "Beats Per Minute",
+        attributes: [
+            "min='0'",
+            "v-model='form.data.bpm'"
+        ]
+    },
+    duration: {
+        id: "duration",
+        name: "duration",
+        label: "Duration",
+        type: "time",
+        placeholder: "03:25",
+        attributes: [
+            "v-model='form.data.duration'"
+        ],
+        clockOptions: {
+            showHours: false
+        }
+    },
+    intensity: {
+        id: "intensity",
+        name: "intensity",
+        label: "Intensity",
+        type: "number",
+        placeholder: "1–10 (Ballad–Bebop)",
+        attributes: [
+            "min='0'",
+            "max='10'",
+            "v-model='form.data.intensity'"
+        ],
+    },
+    actionButton: {
+        create: {
+            submit: true,
+            theme: 'primary',
+            content: 'Create'
+        },
+        edit: {
+            submit: true,
+            theme: 'primary',
+            content: 'Update'
+        },
+        show: {
+            submit: false,
+            theme: 'primary',
+            content: 'Edit',
+            attributes: [
+                "v-bind:href='this.formData.editLink'"
+            ]
+        }
+    }
+};
+
+let formHtmlElements = {
+    key: {
+        editable: SelectList.getModule(formElements.key),
+        readOnly: SelectList.getModule(createReadOnlyFormElement(formElements.key))
+    },
+    bpm: {
+        editable: InputField.getModule(formElements.bpm),
+        readOnly: InputField.getModule(createReadOnlyFormElement(formElements.bpm))
+    },
+    duration: {
+        editable: DatePicker.getModule(formElements.duration),
+        readOnly: DatePicker.getModule(createReadOnlyFormElement(formElements.duration))
+    },
+    intensity: {
+        editable: InputField.getModule(formElements.intensity),
+        readOnly: InputField.getModule(createReadOnlyFormElement(formElements.intensity))
+    },
+    actionButton: {
+        create: Button.getModule(formElements.actionButton.create),
+        edit: Button.getModule(formElements.actionButton.edit),
+        show: Button.getModule(formElements.actionButton.show)
+    }
+};
+
+let template = `
+<form method="POST" v-bind:action="formData.postUrl">
+    <input v-if="!form.readOnly" type="hidden" name="_token" v-bind:value="csrfToken" />
+    <input v-if="formData.viewType == 'edit'" type="hidden" name="_method" value="PUT" />
+    <div v-if="form.readOnly">${formHtmlElements.key.readOnly}</div><div v-else>${formHtmlElements.key.editable}</div>
+    <div v-if="form.readOnly">${formHtmlElements.bpm.readOnly}</div><div v-else>${formHtmlElements.bpm.editable}</div>
+    <div v-if="form.readOnly">${formHtmlElements.duration.readOnly}</div><div v-else>${formHtmlElements.duration.editable}</div>
+    <div v-if="form.readOnly">${formHtmlElements.intensity.readOnly}</div><div v-else>${formHtmlElements.intensity.editable}</div>
+    <div class="input-group float-right">
+        <div v-if="formData.viewType == 'create'">${formHtmlElements.actionButton.create}</div>
+        <div v-else-if="formData.viewType == 'edit'">${formHtmlElements.actionButton.edit}</div>
+        <div v-else-if="formData.viewType == 'show'">${formHtmlElements.actionButton.show}</div>
+    </div>
+    <div class="clearfix"></div> 
+</form>
+`;
+
+export default template;

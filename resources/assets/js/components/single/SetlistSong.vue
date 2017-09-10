@@ -1,12 +1,21 @@
-<template>
-</template>
 <script>
     import * as quark from 'quark-gui';
+    import SetlistSongTemplate from './SetlistSongTemplate.quark';
 
     export default {
         name: 'SetlistSong',
         props: ['formData', 'setlistSongId'],
-        data () {
+        template: SetlistSongTemplate,
+        data() {
+            return {
+                form: {
+                    data: this.formData.viewType == 'create' ? {} : this.formData.savedValues,
+                    readOnly: this.formData.viewType == 'show'
+                },
+                csrfToken: window.Laravel.csrfToken
+            }
+        }
+     /*   data () {
 
             let setlistSong = {
                 key: {
@@ -84,11 +93,11 @@
                 },
                 csrfToken: window.Laravel.csrfToken
             }
-        },
-        created: function () {
+        },*/
+        /*created: function () {
             this.$parent.setlistSongModalButtons[this.setlistSongId] = this.createModalElement();
-        },
-        methods: {
+        },*/
+      /*  methods: {
             getActionButtonText: function () {
                 let actionButtonText = '';
                 if (this.formData.viewType == 'create') actionButtonText = 'Create';
@@ -170,6 +179,6 @@
                     }
                 );
             }
-        }
+        }*/
     }
 </script>
