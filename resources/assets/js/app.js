@@ -38,7 +38,7 @@ Vue.component('Song', require('./components/single/Song.vue'));
 /* Lists */
 Vue.component('BandMembers', require('./components/lists/BandMembers.vue'));
 Vue.component('Gigs', require('./components/lists/Gigs.vue'));
-Vue.component('SetlistEditable', require('./components/lists/SetlistEditable.vue'));
+Vue.component('Setlist', require('./components/lists/Setlist.vue'));
 Vue.component('Songs', require('./components/lists/Songs.vue'));
 Vue.component('UpcomingGigs', require('./components/lists/UpcomingGigs.vue'));
 

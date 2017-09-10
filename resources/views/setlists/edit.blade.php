@@ -99,9 +99,9 @@
                     {{--   <small>@{{ setlistSongs.length }} songs</small> --}}
 
                     <div class="content-container raised">
-                        <setlist-editable v-bind:setlist="{{ $setlist }}"
+                        <setlist v-bind:setlist="{{ $setlist }}"
                                           v-bind:repertoire="{{ $setlist->gig->band->songs }}"
-                                          v-bind:form-data="{viewType: 'edit'}"></setlist-editable>
+                                          v-bind:form-data="{viewType: 'edit'}"></setlist>
                     </div>
 
 
