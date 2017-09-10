@@ -1,0 +1,46 @@
+import * as quark from "quark-gui";
+
+let InputField = quark.Molecules.FormElements.InputField;
+
+let template = `
+        <div>
+            <div v-for="setlistSong in setlist.setlist_songs">
+                <setlist-song
+                        v-bind:form-data="{
+                            viewType: formData.viewType,
+                            savedValues: setlistSong}"
+                        v-bind:setlist-song-id="setlistSong.id">
+                </setlist-song>
+            </div> 
+        </div>
+`;
+/*
+function getTestsongs() {
+    axios.get('/setlists/1/setlistsongs/').then(function (response) {
+        console.log(response);
+        response.data.setlist_songs.forEach(function (setlistSong) {
+            console.log("Key: " + setlistSong.key);
+            template += InputField.getModule({
+                value: setlistSong.key,
+                id: setlistSong.id,
+                name: "inputtest" + setlistSong.id
+            })
+        })
+    }).catch(function (error) {
+        console.log(error);
+    });
+}
+*/
+
+export default template;
+
+/*
+
+export default function(){
+    if (template !== undefined) {
+        template;
+    }else {
+        getTestsongs();
+    }
+};*/
+
