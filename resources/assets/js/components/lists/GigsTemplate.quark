@@ -1,0 +1,9 @@
+let template = `
+        <div>
+            <div v-for="gig in listItems">
+                <gig v-bind:list-item="gig"></gig>
+            </div> 
+        </div>
+`;
+
+export default template;

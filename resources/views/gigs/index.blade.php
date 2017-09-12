@@ -26,7 +26,7 @@
                     </div>
                 </div>
                 <div class="content-container raised">
-                    <gigs v-bind:gigs="{{ $band->gigs }}"></gigs>
+                    <gigs v-bind:list-items="{{ $band->gigs }}"></gigs>
                 </div>
                 <div class="page-footer">
                     <div class="button-row">
