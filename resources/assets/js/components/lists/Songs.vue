@@ -19,7 +19,7 @@
         },
         methods: {
             createListMenuElement: function () {
-                return quark.Organisms.Menus.ListMenu.getModule({
+                return quark.Organisms.Lists.List.getModule({
                     id: 'songs-list',
                     listItems: this.getListItems()
                 });

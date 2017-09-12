@@ -38,7 +38,7 @@
                 return quark.Organisms.Cards.Card.getModule({
                     title: band.name,
                     theme: 'primary',
-                    content: quark.Organisms.Menus.ListMenu.getModule({
+                    content: quark.Organisms.Lists.List.getModule({
                         id: 'band-card-list-' + band.id,
                         hover: true,
                         listItems: this.getListItems(band)

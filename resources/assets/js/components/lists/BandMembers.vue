@@ -18,7 +18,7 @@
         },
         methods: {
             createListMenuElement: function () {
-                return quark.Organisms.Menus.ListMenu.getModule({
+                return quark.Organisms.Lists.List.getModule({
                     id: 'band-members-list',
                     hover: false,
                     listItems: this.getListItems()
