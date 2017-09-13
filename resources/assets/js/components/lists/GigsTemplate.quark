@@ -1,9 +1,7 @@
 let template = `
-        <div>
-            <div v-for="gig in listItems">
-                <gig v-bind:list-item="gig"></gig>
-            </div> 
-        </div>
+     <div>
+        <gig v-for="gig in listItems" v-bind:list-item="gig"></gig>
+     </div>
 `;
 
 export default template;
