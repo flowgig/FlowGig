@@ -1,6 +1,6 @@
 let template = `
      <div>
-        <gig v-for="gig in listItems" v-bind:list-item="gig"></gig>
+        <gig v-for="gig in listItems" v-bind:list-item="gig" v-bind:key="gig.id"></gig>
      </div>
 `;
 
