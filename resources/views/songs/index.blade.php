@@ -26,7 +26,7 @@
                     </div>
                 </div>
                 <div class="content-container raised">
-                    <songs v-bind:songs="{{  $band->songs }}"></songs>
+                    <songs v-bind:list-items="{{  $band->songs }}"></songs>
                 </div>
                 <div class="page-footer">
                     <div class="button-row">

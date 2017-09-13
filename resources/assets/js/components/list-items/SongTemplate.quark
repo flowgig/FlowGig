@@ -1,0 +1,53 @@
+import * as quark from "quark-gui";
+
+let ListItem = quark.Molecules.Lists.ListItem;
+
+let listItem = ListItem.getModule({
+    vueBindings: {
+        title: 'listItem.title',
+        subTitle: 'subTitle',
+        link: 'links.show',
+    },
+    hiddenButtonRow: true,
+    buttonRow: {
+        buttons: [
+            {
+                iconClass: 'fa fa-pencil',
+                type: 'minimal',
+                theme: 'primary',
+                vueBindings: {
+                    link: 'links.edit'
+                }
+            },
+            {
+                iconClass: 'fa fa-trash',
+                submit: true,
+                type: 'minimal',
+                theme: 'primary',
+                formWrapper: {
+                    formMethod: 'POST',
+                    vueBindings: {
+                        formAction: 'links.show'
+                    },
+                    hiddenFields: [
+                        {
+                            name: '_token',
+                            vueBindings: {
+                                value: 'csrfToken'
+                            }
+                        },
+                        {
+                            name: '_method',
+                            value: 'DELETE'
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+});
+
+
+let template = `${listItem}`;
+
+export default template;
