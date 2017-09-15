@@ -18,6 +18,10 @@
                        href="{{ route('bands.edit', $band) }}"><span class="fa fa-pencil"></span>
                     </a>
                 </div>
+                <div class="content-container raised">
+                    <div class="content-container-header"><h2>Upcoming gigs</h2></div>
+                    <gigs v-bind:list-items="{{ $band->upcomingGigs()->sortBy('date') }}"></gigs>
+                </div>
                 <ul class="list hover-list box-list">
                     <li>
                         <a href="{{ route('songs.index', $band) }}"

@@ -16,10 +16,11 @@
                     <p>Name: {{ $user->name }}</p>
                     <p>{{ $user->email }}</p>
                     <br>
-                    <h2>Upcoming gigs</h2>
 
-                    <upcoming-gigs v-bind:gigs="{{ $user->upcomingGigs()->sortBy('date') }}"></upcoming-gigs>
-
+                    <div class="content-container raised">
+                        <div class="content-container-header"><h2>Upcoming gigs</h2></div>
+                        <gigs v-bind:list-items="{{ $user->upcomingGigs()->sortBy('date') }}"></gigs>
+                    </div>
                     <h2>Bands</h2>
                     <div class="block text-right">
                         <custom-button
