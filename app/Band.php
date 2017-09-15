@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Collection;
 
 class Band extends Model
 {
@@ -69,6 +70,19 @@ class Band extends Model
     public function gigsWithSetlist()
     {
         return $this->gigs()->has('setlist')->orderBy('date', 'desc');
+    }
+
+    /**
+     * Get all upcoming gigs for the band.
+     */
+    public function upcomingGigs()
+    {
+        $gigs = new Collection();
+
+        foreach ($this->gigs()->upcoming()->get() as $gig)
+            $gigs->push($gig);
+
+        return $gigs;
     }
 
     /**
