@@ -11,43 +11,46 @@
                         {name: "{{ $band->name }}", link: "{{ route('bands.show', $band) }}"}
                         ]'>
                 </breadcrumbs>
-                <h1>{{ $band->name }}</h1>
-                <div class="text-right">
-                    <a class="button button-icon button-flat button-default tooltip" title="Edit {{ $band->name }}"
-                       style="margin-bottom: 20px"
-                       href="{{ route('bands.edit', $band) }}"><span class="fa fa-pencil"></span>
-                    </a>
+                <div class="page-header">
+                    <h1 class="page-title">{{ $band->name }}</h1>
+                    <div class="button-row">
+                        <custom-button-row
+                                v-bind:button-row="{
+                                buttons: [
+                                    {link: '{{ route('bands.index') }}', type: 'raised', content: 'Manage bands'},
+                                    {link: '{{ route('bands.edit', $band) }}', type: 'raised', theme: 'primary', content: 'Edit band'}
+                                ]
+                            }">
+                        </custom-button-row>
+                    </div>
                 </div>
                 <div class="content-container raised">
                     <div class="content-container-header"><h2>Upcoming gigs</h2></div>
                     <gigs v-bind:list-items="{{ $band->upcomingGigs()->sortBy('date') }}"></gigs>
                 </div>
-                <ul class="list hover-list box-list">
-                    <li>
-                        <a href="{{ route('songs.index', $band) }}"
-                           class="list-item-content tooltip" title="Show songs">
-                            <span class="fa fa-music"></span> Songs:
-                            <span class="float-right">{{ count($band->songs) }}</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('gigs.index', $band) }}"
-                           class="list-item-content tooltip" title="Show gigs">
-                            <span class="fa fa-calendar"></span> Gigs:
-                            <span class="float-right">{{ count($band->gigs) }}</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('band-memberships.index', $band) }}"
-                           class="list-item-content tooltip" title="Show members">
-                            <span class="fa fa-group"></span> Members:
-                            <span class="float-right">{{ count($band->members) }}</span>
-                        </a>
-                    </li>
-                </ul>
+                <div class="spacer-vertical-12"></div>
+                <div class="content-container raised">
+                    <band-navigation
+                            v-bind:band-id="{{ $band->id }}"
+                            v-bind:counter="{
+                                songs: '{{ count($band->songs) }}',
+                                gigs: '{{ count($band->gigs) }}',
+                                members: '{{ count($band->members) }}'
+                            }">
+                    </band-navigation>
+                </div>
                 @include('meta.user-timestamps', ['model' => $band])
-                <div class="block text-right">
-                    <a class="button button-flat button-default" href="{{ route('bands.index') }}">Manage bands</a>
+                <div class="page-footer">
+                    <div class="button-row">
+                        <custom-button-row
+                                v-bind:button-row="{
+                                 buttons: [
+                                    {link: '{{ route('bands.index') }}', type: 'raised', content: 'Manage bands'},
+                                    {link: '{{ route('bands.edit', $band) }}', type: 'raised', theme: 'primary', content: 'Edit band'}
+                                ]
+                            }">
+                        </custom-button-row>
+                    </div>
                 </div>
             </div>
         </div>
