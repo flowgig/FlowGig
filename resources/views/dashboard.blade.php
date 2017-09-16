@@ -17,15 +17,34 @@
                     <p>{{ $user->email }}</p>
                     <br>
 
+                    <div class="section-header">
+                        <h2 class="section-title">Upcoming gigs</h2>
+                        <div class="button-row">
+                        {{-- TODO: Add all gigs view (maybe) --}}
+                           {{-- <custom-button-row
+                                    v-bind:button-row="{
+                                buttons: [
+                                    {link: '{{ route('bands.index') }}', content: 'Show all gigs bands'},
+                                ]
+                            }">
+                            </custom-button-row> --}}
+                        </div>
+                    </div>
                     <div class="content-container raised">
-                        <div class="content-container-header"><h2>Upcoming gigs</h2></div>
                         <gigs v-bind:list-items="{{ $user->upcomingGigs()->sortBy('date') }}"></gigs>
                     </div>
-                    <h2>Bands</h2>
-                    <div class="block text-right">
-                        <custom-button
-                                v-bind:button="{link: '{{ route('bands.index') }}', content: 'Manage bands'}">
-                        </custom-button>
+                    <div class="spacer-vertical-36"></div>
+                    <div class="section-header">
+                        <h2 class="section-title">Bands</h2>
+                        <div class="button-row">
+                            <custom-button-row
+                                    v-bind:button-row="{
+                                buttons: [
+                                    {link: '{{ route('bands.index') }}', content: 'Manage bands'},
+                                ]
+                            }">
+                            </custom-button-row>
+                        </div>
                     </div>
                     <div class="grid">
                         @foreach($user->bands as $band)
