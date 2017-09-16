@@ -10,7 +10,7 @@ let listItemElements = {
         title: 'Songs',
         iconClass: 'fa fa-music',
         buttonRow: {
-            buttonElements: ["<span v-html='counter.songs'></span>"]
+            buttonElements: ["<span class='list-item-counter' v-html='counter.songs'></span>"]
         }
     }),
     gigs: ListItem.getModule({
@@ -20,7 +20,7 @@ let listItemElements = {
         title: 'Gigs',
         iconClass: 'fa fa-calendar',
         buttonRow: {
-            buttonElements: ["<span v-html='counter.gigs'></span>"]
+            buttonElements: ["<span class='list-item-counter' v-html='counter.gigs'></span>"]
         }
     }),
     members: ListItem.getModule({
@@ -30,7 +30,7 @@ let listItemElements = {
         title: 'Members',
         iconClass: 'fa fa-group',
         buttonRow: {
-            buttonElements: ["<span v-html='counter.members'></span>"]
+            buttonElements: ["<span class='list-item-counter' v-html='counter.members'></span>"]
         }
     })
 };
