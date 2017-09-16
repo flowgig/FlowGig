@@ -42,7 +42,11 @@ Vue.component('Gigs', require('./components/lists/Gigs.vue'));
 Vue.component('Setlist', require('./components/lists/Setlist.vue'));
 Vue.component('Songs', require('./components/lists/Songs.vue'));
 
-Vue.component('BandCards', require('./components/BandCards.vue'));
+
+/* Grid items */
+Vue.component('BandCard', require('./components/grid-items/BandCard.vue'));
+
+
 Vue.component('Breadcrumbs', require('./components/Breadcrumbs.vue'));
 Vue.component('CustomButton', require('./components/CustomButton.vue'));
 Vue.component('CustomButtonRow', require('./components/CustomButtonRow.vue'));

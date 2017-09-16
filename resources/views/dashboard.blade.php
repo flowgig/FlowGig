@@ -27,7 +27,18 @@
                                 v-bind:button="{link: '{{ route('bands.index') }}', content: 'Manage bands'}">
                         </custom-button>
                     </div>
-                    <band-cards v-bind:bands="{{ $user->bands }}"></band-cards>
+                    <div class="grid">
+                        @foreach($user->bands as $band)
+                            <band-card
+                                    v-bind:band="{{ $band }}"
+                                    v-bind:counter="{
+                                    songs: '{{ count($band->songs) }}',
+                                    gigs: '{{ count($band->gigs) }}',
+                                    members: '{{ count($band->members) }}'
+                                    }">
+                            </band-card>
+                        @endforeach
+                    </div>
                 </div>
             </div>
         </div>
