@@ -28,7 +28,8 @@
                         <custom-button-row
                                 v-bind:button-row="{
                                 buttons: [
-                                    {link: '{{ route('songs.index', $song->band) }}', type: 'raised', content: 'Back to song list'}                                ]
+                                    {link: '{{ route('songs.index', $song->band) }}', type: 'raised', content: 'Back to song list'}
+                                ]
                             }">
                         </custom-button-row>
                     </div>
