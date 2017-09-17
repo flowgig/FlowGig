@@ -47,6 +47,10 @@ Vue.component('Songs', require('./components/lists/Songs.vue'));
 Vue.component('BandCard', require('./components/grid-items/BandCard.vue'));
 
 
+/* Modals */
+Vue.component('CreateSetlist', require('./components/modals/CreateSetlist.vue'));
+
+
 Vue.component('Breadcrumbs', require('./components/Breadcrumbs.vue'));
 Vue.component('CustomButton', require('./components/CustomButton.vue'));
 Vue.component('CustomButtonRow', require('./components/CustomButtonRow.vue'));

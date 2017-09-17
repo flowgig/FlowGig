@@ -1,0 +1,67 @@
+import * as quark from "quark-gui";
+
+let Button = quark.Atoms.Buttons.Button;
+let Modal = quark.Molecules.Messaging.Modal;
+let SelectList = quark.Molecules.FormElements.SelectList;
+let RadioButton = quark.Molecules.FormElements.RadioButton;
+
+let modalTriggerButton = Button.getModule({
+    content: "Create setlist",
+    theme: "primary"
+});
+
+let createSetlistButton = {
+    content: "Create setlist",
+    theme: "primary"
+};
+
+let copyFromListElement = SelectList.getModule({
+    label: 'Copy from',
+    vueBindings: {
+        options: 'copyFromOptions'
+    }
+});
+
+let radioButtonBlankSetlist = RadioButton.getModule({
+    id: 'sourceGigId-blank',
+    label: 'Create blank setlist',
+    name: 'sourceGigId'
+});
+let radioButtonCopyFrom = RadioButton.getModule({
+    id: 'sourceGigId-copy',
+    label: 'Copy from existing setlist',
+    name: 'sourceGigId'
+});
+
+let modalContent = `
+<p>Create a new blank setlist or copy from an existing setlist</p>
+${radioButtonBlankSetlist}
+${radioButtonCopyFrom}
+${copyFromListElement}
+`;
+
+let modalElement = Modal.getModule({
+    triggerElement: modalTriggerButton,
+    id: 'create-new-setlist',
+    modalElement: {
+        title: 'Create setlist',
+        scrollable: true,
+        fullscreen: false,
+        content: modalContent,
+        footerButtons: {
+            buttonRow: {
+                buttons: [
+                    createSetlistButton
+                ]
+            }
+        }
+    }
+})
+
+let template = `
+<div>
+    ${modalElement}
+</div>
+`;
+
+export default template;
