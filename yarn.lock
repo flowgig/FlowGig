@@ -1053,12 +1053,12 @@ caniuse-api@^1.5.2:
     lodash.uniq "^4.5.0"
 
 caniuse-db@^1.0.30000529, caniuse-db@^1.0.30000634, caniuse-db@^1.0.30000639:
-  version "1.0.30000731"
-  resolved "https://registry.yarnpkg.com/caniuse-db/-/caniuse-db-1.0.30000731.tgz#6f5296f1fa67331ee2d10b87b8fdcd41f3886e47"
+  version "1.0.30000732"
+  resolved "https://registry.yarnpkg.com/caniuse-db/-/caniuse-db-1.0.30000732.tgz#ddb3c885e88caf779c7080ee09653fb85d1bd24b"
 
 caniuse-lite@^1.0.30000718, caniuse-lite@^1.0.30000726:
-  version "1.0.30000731"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000731.tgz#6f2b9096285af3c7bcf2abe39647bb525d68c842"
+  version "1.0.30000732"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000732.tgz#7cf9ca565f4d31a4b3dfa6e26b72ec22e9027da1"
 
 capture-stack-trace@^1.0.0:
   version "1.0.0"
@@ -1730,8 +1730,8 @@ deep-extend@~0.4.0:
   resolved "https://registry.yarnpkg.com/deep-extend/-/deep-extend-0.4.2.tgz#48b699c27e334bf89f10892be432f6e4c7d34a7f"
 
 default-gateway@^2.2.2:
-  version "2.3.1"
-  resolved "https://registry.yarnpkg.com/default-gateway/-/default-gateway-2.3.1.tgz#52de54201428c22e60306f14069656d5f6622f58"
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/default-gateway/-/default-gateway-2.4.0.tgz#65dc9a39bc78ac5cba8d4ef9e8de008ffb00e116"
   dependencies:
     execa "^0.7.0"
     ip-regex "^2.1.0"
@@ -5254,8 +5254,8 @@ qs@~6.4.0:
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.4.0.tgz#13e26d28ad6b0ffaa91312cd3bf708ed351e7233"
 
 quark-gui@^0.7.0:
-  version "0.7.18"
-  resolved "https://registry.yarnpkg.com/quark-gui/-/quark-gui-0.7.18.tgz#4d5e9ea68244048d5579e7165aa97dbab4d23734"
+  version "0.7.19"
+  resolved "https://registry.yarnpkg.com/quark-gui/-/quark-gui-0.7.19.tgz#10c9c4495fbcbb15ccbca0460a73649614f2d60e"
   dependencies:
     axios "^0.16.2"
     dragula "^3.7.2"
@@ -6349,8 +6349,8 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
 
 uglify-js@3.1.x:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.1.0.tgz#92fae17b88dfbc3c394175a935044cdbcf4085ae"
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.1.1.tgz#e7144307281a1bc38a9a20715090b546c9f44791"
   dependencies:
     commander "~2.11.0"
     source-map "~0.5.1"
