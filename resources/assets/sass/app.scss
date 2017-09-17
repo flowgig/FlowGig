@@ -56,7 +56,13 @@
   }
 }
 
-.list-item-counter{
+.button-row {
+  > * {
+    display: inline-block;
+  }
+}
+
+.list-item-counter {
   line-height: 34px;
 }
 

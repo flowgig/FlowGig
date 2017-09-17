@@ -13,7 +13,29 @@
                         {name: "{{ $gig->name }}", link: "{{ route('gigs.show', $gig) }}"}
                         ]'>
                 </breadcrumbs>
-                <h1>{{ $gig->name }}</h1>
+                <div class="page-header">
+                    <h1 class="page-title">{{ $gig->name }}</h1>
+                    <div class="button-row">
+                        <custom-button-row
+                                v-bind:button-row="{
+                                buttons: [
+                                    {link: '{{ route('gigs.index', $gig->band) }}', type: 'raised', content: 'Back to gig list'},
+                                    @if($gig->setlist)
+                                        {link: '{{ route('setlists.show', $gig->setlist) }}', type: 'raised', theme: 'primary', content: 'Show setlist'}
+                                    @endif
+                                        ]
+                                    }">
+                        </custom-button-row>
+                        <create-setlist
+                                v-bind:form-data="{
+                                    savedValues: {
+                                        gigsWithSetlist: {{ $gig->band->gigsWithSetlist }}
+                                    }
+                                }">
+
+                        </create-setlist>
+                    </div>
+                </div>
                 <div class="content-container raised">
                     <gig v-bind:form-data="{
                         viewType: 'show',
@@ -104,7 +126,8 @@
                                                                     </option>
                                                                 @endforeach
                                                             </select>
-                                                            <label for="setlist-template-{{ $gig->id }}">{{ $gig->band->name }}'s gigs having setlist</label>
+                                                            <label for="setlist-template-{{ $gig->id }}">{{ $gig->band->name }}
+                                                                's gigs having setlist</label>
                                                         </div>
                                                         <div class="clearfix"></div>
                                                     </div>
