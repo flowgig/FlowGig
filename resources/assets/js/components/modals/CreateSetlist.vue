@@ -16,14 +16,14 @@
             }
         },
         computed: {
-            copyFromOptions: function (){
+            copyFromOptions: function () {
                 let copyFromOptions = [];
-                this.formData.savedValues.gigsWithSetlist.forEach(function (gigWithSetlist){
+                this.formData.savedValues.gigsWithSetlist.forEach(function (gigWithSetlist) {
                     copyFromOptions.push({
                         name: gigWithSetlist.name + ', ' + gigWithSetlist.date,
                         value: gigWithSetlist.id
                     });
-                })
+                });
                 return copyFromOptions;
             }
         }

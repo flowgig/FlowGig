@@ -12,7 +12,8 @@ let modalTriggerButton = Button.getModule({
 
 let createSetlistButton = {
     content: "Create setlist",
-    theme: "primary"
+    theme: "primary",
+    submit: true
 };
 
 let copyFromListElement = SelectList.getModule({
@@ -60,7 +61,12 @@ let modalElement = Modal.getModule({
 
 let template = `
 <div>
+<form method="POST" v-bind:action="formData.postUrl">
+<input v-if="!form.readOnly" type="hidden" name="_token" v-bind:value="csrfToken" />
+
     ${modalElement}
+    </form>
+
 </div>
 `;
 

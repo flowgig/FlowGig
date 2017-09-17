@@ -26,14 +26,15 @@
                                         ]
                                     }">
                         </custom-button-row>
-                        <create-setlist
-                                v-bind:form-data="{
-                                    savedValues: {
-                                        gigsWithSetlist: {{ $gig->band->gigsWithSetlist }}
-                                    }
-                                }">
-
-                        </create-setlist>
+                        @if(!$gig->setlist)
+                            <create-setlist
+                                    v-bind:form-data="{
+                                        savedValues: { gigsWithSetlist: {{ $gig->band->gigsWithSetlist }} },
+                                        postUrl: '{{ route('setlists.store', $gig) }}'
+                                    }"
+                            >
+                            </create-setlist>
+                        @endif
                     </div>
                 </div>
                 <div class="content-container raised">
