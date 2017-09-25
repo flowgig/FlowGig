@@ -9,14 +9,14 @@
                 <p>Register</p>
             </div>
             <div class="input-group">
-                <input type="text" name="name" value="{{ old('name') }}" required autofocus/>
+                <input id="name" type="text" name="name" value="{{ old('name') }}" required autofocus/>
                 <label for="name">Name</label>
                 @if ($errors->has('name'))
                     {{ $errors->first('name') }}
                 @endif
             </div>
             <div class="input-group">
-                <input type="email" name="email" value="{{ old('email') }}" required/>
+                <input id="email" type="email" name="email" value="{{ old('email') }}" required/>
                 <label for="email">E-Mail Address</label>
                 @if ($errors->has('email'))
                     {{ $errors->first('email') }}
@@ -30,8 +30,8 @@
                 @endif
             </div>
             <div class="input-group">
-                <input type="password" name="password_confirmation" required/>
-                <label for="password-confirm">Confirm Password</label>
+                <input id="password_confirmation" type="password" name="password_confirmation" required/>
+                <label for="password_confirmation">Confirm Password</label>
                 @if ($errors->has('password_confirmation'))
                     {{ $errors->first('password_confirmation') }}
                 @endif
