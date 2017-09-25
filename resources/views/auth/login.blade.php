@@ -9,14 +9,14 @@
                 <p>Log in</p>
             </div>
             <div class="input-group">
-                <input type="email" name="email" value="{{ old('email') }}" required autofocus/>
+                <input id="email" type="email" name="email" value="{{ old('email') }}" required autofocus/>
                 <label for="email">E-Mail Address</label>
                 @if ($errors->has('email'))
                     {{ $errors->first('email') }}
                 @endif
             </div>
             <div class="input-group">
-                <input type="password" name="password" required/>
+                <input id="password" type="password" name="password" required/>
                 <label for="password">Password</label>
                 @if ($errors->has('password'))
                     {{ $errors->first('password') }}
