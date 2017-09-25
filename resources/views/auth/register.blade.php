@@ -37,6 +37,16 @@
                 @endif
             </div>
             <div class="input-group">
+                <div style="text-align: center">
+                    <img style="width: inherit" src="{!! captcha_src() !!}" alt="captcha"/>
+                </div>
+                <input id="captcha" type="text" name="captcha"/>
+                <label for="captcha">Enter the characters shown</label>
+                @if ($errors->has('captcha'))
+                    {{ $errors->first('captcha') }}
+                @endif
+            </div>
+            <div class="input-group">
                 <button type="submit" class="button button-flat button-primary float-right">Register</button>
             </div>
         </form>
