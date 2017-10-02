@@ -1,5 +1,9 @@
 @import "../../../style-config";
 
+body > div#app {
+  overflow: auto;
+}
+
 .page-header {
   padding: 30px 0;
   .page-title {
