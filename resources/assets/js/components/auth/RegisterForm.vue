@@ -10,6 +10,8 @@
                 <div v-html="inputEmail"></div>
                 <div v-html="inputPassword"></div>
                 <div v-html="inputPasswordConfirmation"></div>
+                <img v-bind:src="$parent.formData.captchaSrc" class="captcha"/>
+                <div v-html="inputCaptcha"></div>
 
                 <div class="input-group float-right">
                     <div v-html="registerButton"></div>
@@ -22,9 +24,10 @@
 
 <script>
     import * as quark from 'quark-gui';
+
     export default {
         name: 'RegisterForm',
-        data () {
+        data() {
             return {
                 inputName: quark.Molecules.FormElements.InputField.getModule({
                     id: "register-name",
@@ -54,6 +57,13 @@
                     name: "password_confirmation",
                     label: "Confirm Password",
                     type: "password",
+                    attributes: ["required"]
+                }),
+                inputCaptcha: quark.Molecules.FormElements.InputField.getModule({
+                    id: "captcha",
+                    name: "captcha",
+                    label: "Enter the characters shown",
+                    type: "text",
                     attributes: ["required"]
                 }),
                 registerButton: quark.Atoms.Buttons.Button.getModule({
@@ -102,6 +112,12 @@
         width: 100%;
     }
 
+    .login-box > .content .captcha {
+        margin: 32px auto 0;
+        display: block;
+        border-radius: 7px;
+    }
+
     .text-center {
         text-align: center;
     }
@@ -115,7 +131,7 @@
         padding: 0;
     }
 
-    .checkbox-container{
+    .checkbox-container {
         display: inline-block;
         padding: 4px 0 2px;
     }
