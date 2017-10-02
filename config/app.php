@@ -169,6 +169,7 @@ return [
         Laravel\Tinker\TinkerServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
         Jrean\UserVerification\UserVerificationServiceProvider::class,
+        Mews\Captcha\CaptchaServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -230,6 +231,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'PDF' => Barryvdh\DomPDF\Facade::class,
         'UserVerification' => Jrean\UserVerification\Facades\UserVerification::class,
+        'Captcha' => Mews\Captcha\Facades\Captcha::class,
 
     ],
 

@@ -9,6 +9,7 @@ Homestead.json
 /.idea
 /_ide_helper.php
 /.phpstorm.meta.php
+/ide-helper-update.sh
 /.vagrant
 .DS_Store
 yarn-error.log

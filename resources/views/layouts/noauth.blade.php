@@ -18,6 +18,12 @@
         })();
     </script>
     <!-- End Piwik Code -->
+    <style>
+        body.welcome-screen {
+            background-attachment: fixed;
+            overflow: auto;
+        }
+    </style>
 </head>
 <body>
 <div id="app">
