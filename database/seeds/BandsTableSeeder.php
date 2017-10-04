@@ -18,5 +18,7 @@ class BandsTableSeeder extends Seeder
         Band::create(['name' => 'The Wurlitzers', 'created_by' => 1]);
 
         Band::create(['name' => 'Roy\'s Equation', 'created_by' => 1]);
+
+        Band::create(['name' => 'Cucumbersomes', 'created_by' => 2]);
     }
 }
