@@ -36,5 +36,16 @@ class InvitationsTableSeeder extends Seeder
             'invitational_id' => 3,
             'invitational_type' => 'band'
         ]);
+
+        Invitation::create([
+            'created_by' => 2,
+            'invitee_id' => 1,
+            'invitee_email' => 'bob@flowgig.com',
+            'message' => 'We need you and your telecaster to twang things up!',
+            'status' => 'pending',
+            'status_set_at' => Carbon::now(),
+            'invitational_id' => 1,
+            'invitational_type' => 'gig'
+        ]);
     }
 }

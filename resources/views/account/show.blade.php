@@ -33,10 +33,15 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <ul class="list menu-list">
-                            @foreach($user->invitations()->for(['band'])->get() as $invitation)
+                            @foreach($user->invitations()->for(['band', 'gig'])->get() as $invitation)
                                 <li>
                                     <span class="list-item-content">You've been invited to
-                                        be a member of the band <b>{{ $invitation->invitational->name }}</b>.
+                                        @if($invitation->isFor('band'))
+                                            be a member of the band <b>{{ $invitation->invitational->name }}</b>.
+                                        @elseif($invitation->isFor('gig'))
+                                            participate on <b>{{ $invitation->invitational->band->name }}'s</b> gig
+                                            <b>{{ $invitation->invitational->name }}</b>.
+                                        @endif
                                         <br/>
                                         <small>The invitation was made by
                                             {{ $invitation->creator->name }}, {{ $invitation->created_at }}

@@ -47,6 +47,8 @@ class InvitationPolicy
     {
         if ($invitation->isFor('band'))
             $band = $invitation->invitational;
+        elseif ($invitation->isFor('gig'))
+            $band = $invitation->invitational->band;
         else return false;
 
         return $band->hasMember($user);

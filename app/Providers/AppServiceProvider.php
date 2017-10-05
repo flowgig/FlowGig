@@ -20,6 +20,7 @@ class AppServiceProvider extends ServiceProvider
 
         Relation::morphMap([
             'band' => 'App\Band',
+            'gig' => 'App\Gig',
         ]);
     }
 

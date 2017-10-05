@@ -76,4 +76,12 @@ class Gig extends Model
     {
         return $this->hasOne('App\Setlist');
     }
+
+    /**
+     * Get all of the gig's invitations.
+     */
+    public function invitations()
+    {
+        return $this->morphMany('App\Invitation', 'invitational');
+    }
 }
