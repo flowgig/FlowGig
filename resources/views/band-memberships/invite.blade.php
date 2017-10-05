@@ -47,7 +47,7 @@
                     <div class="row">
                         <div class="input-group col-sm-6">
                             <input type="hidden" name="invitee_id" :value="invitee.id">
-                            <input disabled
+                            <input readonly
                                    type="text" name="invitee_email" id="invitee_email"
                                    placeholder="invited@flowgig.com"
                                    autocomplete="off"
