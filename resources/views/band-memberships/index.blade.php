@@ -30,7 +30,7 @@
                     <a class="button button-flat button-default" href="{{ route('bands.show', $band) }}">
                         Back to band
                     </a>
-                    <a class="button button-flat button-primary" href="{{ route('band-memberships.create', $band) }}">
+                    <a class="button button-flat button-primary" href="{{ route('band-invitations.create', $band) }}">
                         New member
                     </a>
                 </div>
@@ -57,11 +57,44 @@
                         </li>
                     @endforeach
                 </ul>
+                @if($band->invitations()->count() > 0)
+                <h2>Invitations</h2>
+                <ul class="list menu-list">
+                    @foreach($band->invitations as $invitation)
+                        <li itemscope itemtype="http://schema.org/MusicGroup">
+                            <span class="list-item-content">
+                                <span itemprop="member" itemscope itemtype="http://schema.org/musicGroupMember">
+                                    <span itemprop="name">{{ $invitation->inviteeName() }}</span>
+                                </span>
+                                <br />
+                                <small>{{ $invitation->invitee_email }}</small>
+                            </span>
+                            <span class="list-item-buttons">
+                                <div style="font-size: 0.7em; text-align:right">
+                                    <span>{{ ucfirst($invitation->status) }}</span>
+                                        @if($invitation->isPending())
+                                            <form action="{{ route('band-invitations.set-expired', $invitation) }}" method="POST">
+                                            {{ csrf_field() }} {{ method_field('PUT') }}
+                                                <button onclick="return validateSetInvitationExpired('{{ $invitation->inviteeName() }}')"
+                                                        style="font-size: 10pt; line-height: 14pt; height:22px"
+                                                        class="button button-icon button-flat button-default tooltip"
+                                                        title="Set invitation expired">Set expired
+                                            </button>
+                                        </form>
+                                        @endif
+                                    <small style="font-size: 10pt; line-height: 14pt; display: block">{{ $invitation->status_set_at }}</small>
+                                </div>
+                            </span>
+                            <div style="clear:both"></div>
+                        </li>
+                    @endforeach
+                </ul>
+                @endif
                 <div class="block text-right">
                     <a class="button button-flat button-default" href="{{ route('bands.show', $band) }}">
                         Back to band
                     </a>
-                    <a class="button button-flat button-primary" href="{{ route('band-memberships.create', $band) }}">
+                    <a class="button button-flat button-primary" href="{{ route('band-invitations.create', $band) }}">
                         New member
                     </a>
                 </div>
@@ -80,6 +113,9 @@
                 return confirm('This completely removes your access to the band {{ $band->name }}')
             }
             return confirm('This removes ' + userName)
+        }
+        function validateSetInvitationExpired(inviteeName){
+            return confirm('This sets the invitation for ' + inviteeName + ' expired');
         }
     </script>
 @endsection

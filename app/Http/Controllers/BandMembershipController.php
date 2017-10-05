@@ -29,53 +29,19 @@ class BandMembershipController extends Controller
      */
     public function index($bandId)
     {
-        // Eager-load band members, newest first:
-        $band = Band::with(['memberships' => function ($query) {
-            $query->latest();
-        }, 'memberships.user'])->find($bandId);
+        // Eager-load band members (newest first) and invitations:
+        $band = Band::with([
+            'memberships' => function ($query) {
+                $query->latest();
+            },
+            'memberships.user',
+            'invitations',
+            'invitations.invitee'
+        ])->find($bandId);
 
         $this->authorize('view', $band);
 
         return view('band-memberships.index', ['band' => $band]);
-    }
-
-    /**
-     * Show the form for creating a new band membership.
-     *
-     * @param Band $band
-     * @return \Illuminate\Http\Response
-     */
-    public function create(Band $band)
-    {
-        $this->authorize('addMembers', $band);
-
-        // Provide all users except those already members in the band:
-        $bandMembersIds = $band->memberships->pluck('user_id')->toArray();
-        $users = User::whereNotIn('id', $bandMembersIds)->get();
-
-        return view('band-memberships.create', ['band' => $band, 'users' => $users]);
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @param Band $band
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request, Band $band)
-    {
-        $this->authorize('addMembers', $band);
-
-        $bandMembership = new BandMembership();
-        $bandMembership->creator()->associate(Auth::user());
-        $bandMembership->band()->associate($band);
-        $bandMembership->user()->associate($request->input('user_id'));
-        $bandMembership->save();
-
-        // TODO: Flash band membership created
-
-        return redirect()->route('band-memberships.index', $band);
     }
 
     /**

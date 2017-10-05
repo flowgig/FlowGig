@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Services\InvitationService;
 use App\User;
 use Validator;
 use App\Http\Controllers\Controller;
@@ -79,7 +80,11 @@ class RegisterController extends Controller
      */
     protected function registered()
     {
-        UserVerificationService::sendVerificationToken(Auth::user());
+        $user = Auth::user();
+
+        InvitationService::identifyInvitationsForUser($user);
+
+        UserVerificationService::sendVerificationToken($user);
 
         return redirect()->route('email-verification.info');
     }

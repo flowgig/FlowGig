@@ -28,6 +28,56 @@
                         </ul>
                     </div>
                 </div>
+                @if($user->invitations()->count() > 0)
+                <h2>Invitations</h2>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <ul class="list menu-list">
+                            @foreach($user->invitations()->for(['band'])->get() as $invitation)
+                                <li>
+                                    <span class="list-item-content">You've been invited to
+                                        be a member of the band <b>{{ $invitation->invitational->name }}</b>.
+                                        <br/>
+                                        <small>The invitation was made by
+                                            {{ $invitation->creator->name }}, {{ $invitation->created_at }}
+                                                <p><i>&nbsp;{{ $invitation->message }}</i></p>
+                                        </small>
+                                    </span>
+                                    <span class="list-item-buttons">
+                                        @if($invitation->isPending())
+                                            <form action="{{ route('band-invitations.accept', $invitation) }}" method="POST">
+                                                {{ csrf_field() }}
+                                                {{ method_field('PUT') }}
+                                                <button onclick="return confirm('This accepts the invitation')"
+                                                        class="button button-icon button-flat button-default tooltip"
+                                                        title="Accept invitation" style="margin-top: 17px">Accept
+                                                </button>
+                                            </form>
+                                            <form action="{{ route('band-invitations.decline', $invitation) }}" method="POST">
+                                                {{ csrf_field() }}
+                                                {{ method_field('PUT') }}
+                                                <button type="submit"
+                                                        onclick="return confirm('This declines the invitation')"
+                                                        class="button button-icon button-flat button-default tooltip"
+                                                        title="Decline invitation">Decline
+                                                </button>
+                                          </form>
+                                        @else
+                                            <p style="font-size: 0.7em; text-align:right"><i>{{ ucfirst($invitation->status) }}<br>
+                                                    <span style="font-size: 0.7em">
+                                                        {{ $invitation->status_set_at }}
+                                                    </span>
+                                                </i>
+                                            </p>
+                                        @endif
+                                    </span>
+                                    <div style="clear:both"></div>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
+                @endif
                 <div>
                     <i><small>Last updated {{ $user->updated_at }} UTC</small></i>
                 </div>

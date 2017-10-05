@@ -80,4 +80,12 @@ class Band extends Model
     {
         return $this->memberships()->whereUserId($user->id)->exists();
     }
+
+    /**
+     * Get all of the band's invitations.
+     */
+    public function invitations()
+    {
+        return $this->morphMany('App\Invitation', 'invitational');
+    }
 }
