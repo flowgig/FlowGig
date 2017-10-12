@@ -75,16 +75,6 @@ Route::get('bands/{band}/band-memberships', [
     'uses' => 'BandMembershipController@index'
 ]);
 
-Route::get('bands/{band}/band-memberships/create', [
-    'as' => 'band-memberships.create',
-    'uses' => 'BandMembershipController@create'
-]);
-
-Route::post('bands/{band}/band-memberships', [
-    'as' => 'band-memberships.store',
-    'uses' => 'BandMembershipController@store'
-]);
-
 Route::resource('band-memberships', 'BandMembershipController', ['only' => ['destroy']]);
 
 // Songs
@@ -147,3 +137,30 @@ Route::post('setlists/{setlist}/setlistsongs', [
 ]);
 
 Route::resource('setlistsongs', 'SetlistSongController', ['only' => ['update', 'destroy']]);
+
+// Band invitations
+
+Route::get('bands/{band}/invitations/create', [
+    'as' => 'band-invitations.create',
+    'uses' => 'BandInvitationController@create'
+]);
+
+Route::post('bands/{band}/invitations', [
+    'as' => 'band-invitations.store',
+    'uses' => 'BandInvitationController@store'
+]);
+
+Route::put('band-invitations/{band_invitation}/accept', [
+    'as' => 'band-invitations.accept',
+    'uses' => 'BandInvitationController@accept'
+]);
+
+Route::put('band-invitations/{band_invitation}/decline', [
+    'as' => 'band-invitations.decline',
+    'uses' => 'BandInvitationController@decline'
+]);
+
+Route::put('band-invitations/{band_invitation}/set-expired', [
+    'as' => 'band-invitations.set-expired',
+    'uses' => 'BandInvitationController@setExpired'
+]);

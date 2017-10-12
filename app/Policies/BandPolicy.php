@@ -95,13 +95,13 @@ class BandPolicy
     }
 
     /**
-     * Determine whether the user can add members in the band.
+     * Determine whether the user can invite members to the band.
      *
      * @param  User $user
      * @param  Band $band
      * @return mixed
      */
-    public function addMembers(User $user, Band $band)
+    public function inviteMembers(User $user, Band $band)
     {
         return $band->hasMember($user);
     }

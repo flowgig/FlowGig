@@ -48,4 +48,13 @@ class User extends Authenticatable
 
         return $gigs;
     }
+
+
+    /**
+     * Get all of the user's invitations.
+     */
+    public function invitations()
+    {
+        return $this->hasMany('App\Invitation', 'invitee_id');
+    }
 }
