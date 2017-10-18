@@ -64,9 +64,16 @@
                                 <option></option>
                                 <option @if($gig->status == 'Proposed') selected @endif>Proposed</option>
                                 <option @if($gig->status == 'Settled') selected @endif>Settled</option>
-                                <option @if($gig->status == 'Public') selected @endif>Public</option>
+                                <option @if($gig->status == 'Public') selected @endif value="Public">Public (read info)</option>
                             </select>
                             <label for="status">Status</label>
+                        </div>
+                        <div class="input-group col-sm-4">
+                            <small><b>NB!</b> Use the status <i>Public</i> only if it is OK that the
+                                information entered on this page is seen by anyone.
+                            </small>
+                            <i id="api-info" class="fa fa-info-circle"
+                               title="In a future version og FlowGig, public gigs might be exposed through an open API i.e. to be shown as a concert list on a web page."></i>
                         </div>
                     </div>
                     <div class="clearfix"></div>
@@ -98,6 +105,7 @@
             $("#date").datepicker({
                 dateFormat: "yy-mm-dd"
             });
+            $("#api-info").tooltip();
         });
     </script>
 
