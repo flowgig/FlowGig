@@ -21,7 +21,7 @@ class Gig extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'date', 'venue', 'location', 'status'
+        'name', 'date', 'venue', 'location', 'confirmed', 'public'
     ];
 
     /**

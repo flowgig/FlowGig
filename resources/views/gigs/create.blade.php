@@ -39,6 +39,8 @@
                             <input type="text" name="name" id="name"/>
                             <label for="name">Name</label>
                         </div>
+                    </div>
+                    <div class="row">
                         <div class="input-group col-sm-4">
                             <input type="text" name="venue" id="venue"/>
                             <label for="venue">Venue</label>
@@ -47,34 +49,38 @@
                             <input type="text" name="location" id="location"/>
                             <label for="location">Location</label>
                         </div>
+                    </div>
+                    <div class="row">
                         <div class="input-group col-sm-4">
                             <input type="text" name="date" id="date"/>
                             <label for="date">Date</label>
                         </div>
+                    </div>
+                    <div class="input-group">
+                        <input name="confirmed" id="confirmed" type="checkbox"/>
+                        <label for="confirmed" class="input-field-height">Confirmed</label>
+                    </div>
+                    <div class="row">
                         <div class="input-group col-sm-4">
-                            <select name="status" id="status">
-                                <option></option>
-                                <option>Proposed</option>
-                                <option>Settled</option>
-                                <option value="Public">Public (read info)</option>
-                            </select>
-                            <label for="status">Status</label>
+                            <input name="public" id="public" type="checkbox"/>
+                            <label for="public" class="input-field-height">Public</label>
                         </div>
                         <div class="input-group col-sm-4">
-                            <small><b>NB!</b> Use the status <i>Public</i> only if it is OK that the
-                                information entered on this page is seen by anyone.
-                            </small>
-                            <i id="api-info" class="fa fa-info-circle"
-                               title="In a future version og FlowGig, public gigs might be exposed through an open API i.e. to be shown as a concert list on a web page."></i>
+                            <div id="publicInfo">
+                                <small>
+                                    <b>NB!</b> Setting the gig to <i>Public</i> means that the
+                                    information entered on this page is made available to anyone.
+                                    <a id="api-info" title="In a future version og FlowGig, public gigs might be exposed
+                                    through an open API i.e. to be shown as a concert list on a web page.">More ...</a>
+                                </small>
+                            </div>
                         </div>
                     </div>
-                    <div class="clearfix"></div>
                     <div class="row">
                         <div class="input-group col-sm-4">
                             <button type="submit" class="button button-flat button-primary">Create</button>
                         </div>
                     </div>
-                    <div class="clearfix"></div>
                 </form>
                 @include('errors.validation-errors')
                 <div class="block text-right">
@@ -88,7 +94,6 @@
 
     {{-- TODO: Remove temporary date-picker --}}
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="/resources/demos/style.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script>
@@ -97,6 +102,24 @@
                 dateFormat: "yy-mm-dd"
             });
             $("#api-info").tooltip();
+
+            togglePublicFields($("#public").is(':checked'));
+        });
+
+        function showPublicFields() {
+            $("#publicInfo").show();
+        }
+
+        function hidePublicFields() {
+            $("#publicInfo").hide();
+        }
+
+        function togglePublicFields(show) {
+            show ? showPublicFields() : hidePublicFields();
+        }
+
+        $("#public").change(function () {
+            togglePublicFields(this.checked);
         });
     </script>
 
