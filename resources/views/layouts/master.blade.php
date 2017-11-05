@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en" prefix="og: http://ogp.me/ns#">
+<!doctype html>
+<html lang="{{ app()->getLocale() }}" prefix="og: http://ogp.me/ns#">
 <head>
     <title>FlowGig - @yield('title')</title>
     @include('layouts.header')
@@ -14,6 +14,27 @@
             border-top: 1px solid rgba(0, 0, 0, 0.05);
             padding: 5px 14px;
             background-color: #f6f7f8;
+        }
+        .row:after {
+            content: "";
+            clear: both;
+            display: block;
+        }
+        input[type=checkbox]:before {
+            content: "\f096";
+            display: inline-block;
+            width: 16px;
+        }
+        .input-group input[type=text].is-not-empty:disabled,
+        .input-group input[type=password].is-not-empty:disabled,
+        .input-group input[type=number].is-not-empty:disabled,
+        .input-group input[type=search].is-not-empty:disabled,
+        .input-group input[type=email].is-not-empty:disabled {
+            color: #777;
+        }
+        label.input-field-height {
+            margin-top: 22px;
+            display: inline-block;
         }
     </style>
     <!-- Piwik -->

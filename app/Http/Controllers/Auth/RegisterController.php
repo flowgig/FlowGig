@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\Services\InvitationService;
 use App\User;
-use Validator;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use App\Services\UserVerificationService;
 use Illuminate\Support\Facades\Auth;
@@ -26,7 +26,7 @@ class RegisterController extends Controller
     use RegistersUsers;
 
     /**
-     * Where to redirect users after login / registration.
+     * Where to redirect users after registration.
      *
      * @var string
      */
@@ -53,7 +53,7 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|min:6|confirmed',
+            'password' => 'required|min:8|confirmed',
             'captcha' => 'required|captcha',
         ]);
     }
@@ -62,7 +62,7 @@ class RegisterController extends Controller
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
-     * @return User
+     * @return \App\User
      */
     protected function create(array $data)
     {

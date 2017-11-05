@@ -48,7 +48,15 @@
                 @include('meta.user-timestamps', ['model' => $gig])
                 <div class="row">
                     <div class="col-sm-12">
-                        <br/><br/>
+                        <ul class="list">
+                            <li><b>Date: </b> {{ $gig->date() }}</li>
+                            <li><b>Venue: </b> {{ $gig->venue }}</li>
+                            <li><b>Location: </b> {{ $gig->location }}</li>
+                            <li><b>Confirmed: </b>{{ $gig->confirmed ? 'Yes' : 'No' }}</li>
+                            <li><b>Public: </b>{{ $gig->public ? 'Yes' : 'No' }}</li>
+                        </ul>
+                        @include('meta.user-timestamps', ['model' => $gig])
+                        <br /><br />
                         <ul class="list menu-list">
                             <li>
                                 <span class="list-item-content single-line">

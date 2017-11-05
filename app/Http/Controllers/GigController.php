@@ -62,14 +62,15 @@ class GigController extends Controller
 
         $this->validate($request, [
             'name' => 'required|max:60',
-            'date' => 'nullable|date_format:Y-m-d H:i:s',
-            'status' => 'nullable|in:Proposed,Settled,Public'
+            'date' => 'nullable|date_format:Y-m-d',
         ]);
 
         $gig = new Gig();
         $gig->creator()->associate(Auth::user());
         $gig->band()->associate($band);
         $gig->fill($request->all());
+        $gig->confirmed = $request->confirmed ? true : false;
+        $gig->public = $request->public ? true : false;
         $gig->save();
 
         // TODO: Flash setlist stored
@@ -116,11 +117,13 @@ class GigController extends Controller
 
         $this->validate($request, [
             'name' => 'required|max:60',
-            'date' => 'nullable|date_format:Y-m-d H:i:s',
-            'status' => 'nullable|in:Proposed,Settled,Public'
+            'date' => 'nullable|date_format:Y-m-d',
         ]);
 
         $gig->fill($request->all());
+        $gig->confirmed = $request->confirmed ? true : false;
+        $gig->public = $request->public ? true : false;
+
         if ($gig->isDirty())
             $gig->updater()->associate(Auth::user());
         $gig->save();
