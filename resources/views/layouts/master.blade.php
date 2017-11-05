@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en" prefix="og: http://ogp.me/ns#">
+<!doctype html>
+<html lang="{{ app()->getLocale() }}" prefix="og: http://ogp.me/ns#">
 <head>
     <title>FlowGig - @yield('title')</title>
     @include('layouts.header')

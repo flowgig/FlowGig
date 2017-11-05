@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="{{ app()->getLocale() }}">
 <head>
     <title>FlowGig - @yield('title')</title>
     @include('layouts.header')

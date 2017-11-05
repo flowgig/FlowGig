@@ -1,4 +1,3 @@
-// @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 @import "vendor";
 
 .main-content {
@@ -88,7 +87,6 @@
             }
           }
         }
-
       }
     }
     li {
@@ -185,6 +183,6 @@ ul.list li.setlistsong .list-item-content.single-line {
   }
 }
 
-select[disabled]{ // TODO add styling for disabled select elements
-  color: #777!important;
+select[disabled] { // TODO add styling for disabled select elements
+  color: #777 !important;
 }
