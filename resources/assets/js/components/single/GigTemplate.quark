@@ -1,11 +1,12 @@
 import * as quark from "quark-gui";
 
 let InputField = quark.Molecules.FormElements.InputField;
-let SelectList = quark.Molecules.FormElements.SelectList;
 let DatePicker = quark.Molecules.FormElements.DatePicker;
+let Checkbox = quark.Molecules.FormElements.Checkbox;
 let Button = quark.Atoms.Buttons.Button;
 
 function createReadOnlyFormElement(formElement) {
+    if (formElement.attributes == undefined) formElement.attributes = [];
     formElement.attributes.push("readonly");
     return formElement;
 }
@@ -54,16 +55,23 @@ let formElements = {
             "v-model='form.data.date'"
         ],
     },
-    status: {
-        id: "status",
-        name: "status",
-        label: "Status",
-        searchable: true,
-        placeholder: "Status for the gig",
-        options: require("../../data/gigStatuses.json"),
-        attributes: [
-            "v-model='form.data.status'"
-        ]
+    confirmed: {
+        id: "confirmed",
+        name: "confirmed",
+        label: "Confirmed",
+        value: "",
+        vueBindings: {
+            value: "form.data.confirmed"
+        }
+    },
+    public: {
+        id: "public",
+        name: "public",
+        label: "Public",
+        value: "",
+        vueBindings: {
+            value: "form.data.public"
+        }
     },
     actionButton: {
         create: {
@@ -104,9 +112,13 @@ let formHtmlElements = {
         editable: DatePicker.getModule(formElements.date),
         readOnly: DatePicker.getModule(createReadOnlyFormElement(formElements.date))
     },
-    status: {
-        editable: SelectList.getModule(formElements.status),
-        readOnly: SelectList.getModule(createReadOnlyFormElement(formElements.status))
+    confirmed: {
+        editable: Checkbox.getModule(formElements.confirmed),
+        readOnly: Checkbox.getModule(createReadOnlyFormElement(formElements.confirmed))
+    },
+    public: {
+        editable: Checkbox.getModule(formElements.public),
+        readOnly: Checkbox.getModule(createReadOnlyFormElement(formElements.public))
     },
     actionButton: {
         create: Button.getModule(formElements.actionButton.create),
@@ -123,7 +135,8 @@ let template = `
     <div v-if="form.readOnly">${formHtmlElements.venue.readOnly}</div><div v-else>${formHtmlElements.venue.editable}</div>
     <div v-if="form.readOnly">${formHtmlElements.location.readOnly}</div><div v-else>${formHtmlElements.location.editable}</div>
     <div v-if="form.readOnly">${formHtmlElements.date.readOnly}</div><div v-else>${formHtmlElements.date.editable}</div>
-    <div v-if="form.readOnly">${formHtmlElements.status.readOnly}</div><div v-else>${formHtmlElements.status.editable}</div>
+    <div v-if="form.readOnly">${formHtmlElements.confirmed.readOnly}</div><div v-else>${formHtmlElements.confirmed.editable}</div>
+    <div v-if="form.readOnly">${formHtmlElements.public.readOnly}</div><div v-else>${formHtmlElements.public.editable}</div>
     <div class="input-group float-right">
         <div v-if="formData.viewType == 'create'">${formHtmlElements.actionButton.create}</div>
         <div v-else-if="formData.viewType == 'edit'">${formHtmlElements.actionButton.edit}</div>
