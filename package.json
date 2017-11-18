@@ -16,7 +16,8 @@
     "gulp-real-favicon": "^0.2.1",
     "laravel-mix": "1.1.*",
     "lodash": "^4.17.4",
-    "vue": "^2.1.10"
+    "vue": "^2.1.10",
+    "vue-template-compiler": "^2.5.5"
   },
   "dependencies": {
     "quark-gui": "^0.7.0"
