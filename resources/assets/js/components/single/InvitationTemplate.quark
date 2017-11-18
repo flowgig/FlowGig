@@ -1,0 +1,120 @@
+import * as quark from "quark-gui";
+
+let InputField = quark.Molecules.FormElements.InputField;
+let SelectList = quark.Molecules.FormElements.SelectList;
+let Button = quark.Atoms.Buttons.Button;
+
+function createReadOnlyFormElement(formElement) {
+    if (formElement.attributes == undefined) formElement.attributes = [];
+    formElement.attributes.push("readonly");
+    return formElement;
+}
+
+let formElements = {
+    inviteeSelect: {
+        id: "invitee_select",
+        label: "Existing FlowGig user",
+        searchable: true,
+        placeholder: "Search for existing FlowGig user",
+        vueBindings: {
+            options: 'userOptions',
+            value: 'selectedInviteeValue'
+        }
+    },
+    inviteeId: {
+        id: "invitee_id",
+        name: "invitee_id",
+        type: "hidden",
+        vueBindings: {
+            value: 'form.selectedInvitee.id'
+        }
+    },
+    inviteeEmail: {
+        id: "invitee_email",
+        name: "invitee_email",
+        label: "E-mail address for the invited",
+        placeholder: "invited@flowgig.com",
+        attributes: [
+            "v-on:keydown='updateSelectedInvitee'",
+            "readonly=readonly"
+        ],
+        vueBindings: {
+            value: 'form.selectedInvitee.email'
+        }
+    },
+    message: {
+        id: "message",
+        name: "message",
+        label: "A message to the invited",
+        type: "text",
+        attributes: [
+            "v-bind:value='formData.savedValues.message'",
+        ],
+        vueBindings: {
+            placeholder: 'messagePlaceholder'
+        }
+    },
+    actionButton: {
+        create: {
+            submit: true,
+            theme: 'primary',
+            content: 'Invite'
+        },
+        edit: {
+            submit: true,
+            theme: 'primary',
+            content: 'Update'
+        },
+        show: {
+            submit: false,
+            theme: 'primary',
+            content: 'Edit',
+            attributes: [
+                "v-bind:href='this.formData.editLink'"
+            ]
+        }
+    }
+};
+
+let formHtmlElements = {
+    inviteeSelect: {
+        editable: SelectList.getModule(formElements.inviteeSelect),
+        readOnly: SelectList.getModule(createReadOnlyFormElement(formElements.inviteeSelect))
+    },
+    inviteeId: {
+        editable: InputField.getModule(formElements.inviteeId),
+        readOnly: InputField.getModule(createReadOnlyFormElement(formElements.inviteeId))
+    },
+    inviteeEmail: {
+        editable: InputField.getModule(formElements.inviteeEmail),
+        readOnly: InputField.getModule(createReadOnlyFormElement(formElements.inviteeEmail))
+    },
+    message: {
+        editable: InputField.getModule(formElements.message),
+        readOnly: InputField.getModule(createReadOnlyFormElement(formElements.message))
+    },
+    actionButton: {
+        create: Button.getModule(formElements.actionButton.create),
+        edit: Button.getModule(formElements.actionButton.edit),
+        show: Button.getModule(formElements.actionButton.show)
+    }
+};
+
+let template = `
+<form method="POST" v-bind:action="formData.postUrl">
+    <input v-if="!form.readOnly" type="hidden" name="_token" v-bind:value="csrfToken" />
+    <input v-if="formData.viewType == 'edit'" type="hidden" name="_method" value="PUT" />
+    <div v-if="form.readOnly">${formHtmlElements.inviteeSelect.readOnly}</div><div v-else>${formHtmlElements.inviteeSelect.editable}</div>
+    <div v-if="form.readOnly">${formHtmlElements.inviteeId.readOnly}</div><div v-else>${formHtmlElements.inviteeId.editable}</div>
+    <div v-if="form.readOnly">${formHtmlElements.inviteeEmail.readOnly}</div><div v-else>${formHtmlElements.inviteeEmail.editable}</div>
+    <div v-if="form.readOnly">${formHtmlElements.message.readOnly}</div><div v-else>${formHtmlElements.message.editable}</div>
+    <div class="input-group float-right">
+        <div v-if="formData.viewType == 'create'">${formHtmlElements.actionButton.create}</div>
+        <div v-else-if="formData.viewType == 'edit'">${formHtmlElements.actionButton.edit}</div>
+        <div v-else-if="formData.viewType == 'show'">${formHtmlElements.actionButton.show}</div>
+    </div>
+    <div class="clearfix"></div> 
+</form>
+`;
+
+export default template;
