@@ -19,7 +19,7 @@
                                 v-bind:button-row="{
                                 buttons: [
                                     {link: '{{ route('bands.show', $band) }}', type: 'raised', content: 'Back to band'},
-                                    {link: '{{ route('band-memberships.create', $band) }}', type: 'raised', theme: 'primary', content: 'New member'}
+                                    {link: '{{ route('band-invitations.create', $band) }}', type: 'raised', theme: 'primary', content: 'New member'}
                                 ]
                             }">
                         </custom-button-row>
@@ -35,7 +35,7 @@
                                 v-bind:button-row="{
                                 buttons: [
                                     {link: '{{ route('bands.show', $band) }}', type: 'raised', content: 'Back to band'},
-                                    {link: '{{ route('band-memberships.create', $band) }}', type: 'raised', theme: 'primary', content: 'New member'}
+                                    {link: '{{ route('band-invitations.create', $band) }}', type: 'raised', theme: 'primary', content: 'New member'}
                                 ]
                             }">
                         </custom-button-row>
@@ -45,6 +45,4 @@
         </div>
     </div>
 @endsection
-@section('scripts')
 
-@endsection
