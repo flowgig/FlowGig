@@ -29,6 +29,14 @@
                     <band-members v-bind:band-members="{{ $band->memberships }}"
                                   v-bind:auth-user="{{ Auth::user() }}"></band-members>
                 </div>
+
+                @if($band->invitations()->count() > 0)
+                    <div class="spacer-vertical-12"></div>
+                    <div class="content-container raised">
+                        <div class="content-container-header"><h2>Invitations</h2></div>
+                        <invitations v-bind:list-items="{{ $band->invitations }}"></invitations>
+                    </div>
+                @endif
                 <div class="page-footer">
                     <div class="button-row">
                         <custom-button-row
