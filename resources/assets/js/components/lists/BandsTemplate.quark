@@ -1,0 +1,7 @@
+let template = `
+     <div>
+        <band v-for="band in listItems" v-bind:list-item="band" v-bind:key="band.id"></band>
+     </div>
+`;
+
+export default template;
