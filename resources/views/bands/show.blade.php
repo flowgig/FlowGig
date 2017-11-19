@@ -26,11 +26,6 @@
                     </div>
                 </div>
                 <div class="content-container raised">
-                    <div class="content-container-header"><h2>Upcoming gigs</h2></div>
-                    <gigs v-bind:list-items="{{ $band->upcomingGigs()->sortBy('date') }}"></gigs>
-                </div>
-                <div class="spacer-vertical-12"></div>
-                <div class="content-container raised">
                     <band-navigation
                             v-bind:band-id="{{ $band->id }}"
                             v-bind:counter="{
@@ -41,6 +36,17 @@
                     </band-navigation>
                 </div>
                 @include('meta.user-timestamps', ['model' => $band])
+
+                <div class="spacer-vertical-12"></div>
+                <div class="content-container raised">
+                    <div class="content-container-header"><h2>Upcoming gigs</h2></div>
+                    @if($band->upcomingGigs()->count() > 0)
+                        <gigs v-bind:list-items="{{ $band->upcomingGigs()->sortBy('date') }}"></gigs>
+                    @else
+                        <p>You have no upcoming gigs at the moment</p>
+                    @endif
+                </div>
+
                 <div class="page-footer">
                     <div class="button-row">
                         <custom-button-row
