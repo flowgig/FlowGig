@@ -8,7 +8,7 @@
                 <div class="hidden">
                 <breadcrumbs
                         v-bind:breadcrumb-items='[
-                        {name: "Dashboard", link: "/dashboard"}
+                            {name: "FlowGig", link: "/"}
                         ]'>
                 </breadcrumbs>
                 </div>

@@ -7,6 +7,7 @@
             <div class="content">
                 <breadcrumbs
                         v-bind:breadcrumb-items='[
+                        {name: "FlowGig", link: "/"},
                         {name: "Bands", link: "{{ route('bands.index') }}"},
                         {name: "{{ $band->name }}", link: "{{ route('bands.show', $band) }}"},
                         {name: "Edit band", link: "{{ route('bands.edit', $band) }}"}
