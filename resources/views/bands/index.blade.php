@@ -22,33 +22,13 @@
                         </custom-button-row>
                     </div>
                 </div>
-                <ul class="list menu-list">
-                    @foreach($bands as $band)
-                        <li>
-                            <span class="list-item-content single-line">
-                                <a class="tooltip" title="Show {{ $band->name }}"
-                                   href="{{ route('bands.show', $band) }}">{{ $band->name }}
-                                </a>
-                            </span>
-                            <span class="list-item-buttons">
-                                <a class="button button-icon button-flat button-default tooltip"
-                                   title="Edit {{$band->name}}" href="{{ route('bands.edit', $band) }}">
-                                    <span class="fa fa-pencil"></span>
-                                </a>
-                                <form action="{{ route('bands.destroy', $band) }}" method="POST">
-                                    {{ csrf_field() }}
-                                    {{ method_field('DELETE') }}
-                                    <button type="submit"
-                                            onclick="return confirm('This deletes the band {{ $band->name }}')"
-                                            class="button button-icon button-flat button-default tooltip"
-                                            title="Delete {{$band->name}}">
-                                         <span class="fa fa-trash"></span>
-                                    </button>
-                                 </form>
-                            </span>
-                        </li>
-                    @endforeach
-                </ul>
+                <div class="content-container raised">
+                    @if($bands->count() > 0)
+                        <bands v-bind:list-items="{{ $bands }}"></bands>
+                    @else
+                        <p>You're not a member of any bands yet</p>
+                    @endif
+                </div>
                 <div class="page-footer">
                     <div class="button-row">
                         <custom-button-row
