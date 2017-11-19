@@ -1,0 +1,10 @@
+let template = `
+     <div v-if="Array.isArray(listItems)">
+        <setlist v-if="Array.isArray(listItems)" v-for="setlist in listItems" v-bind:list-item="setlist" v-bind:gig="gig" v-bind:key="setlist.id"></setlist>
+     </div>
+     <div v-else>
+        <setlist v-bind:list-item="listItems" v-bind:gig="gig" v-bind:key="listItems.id"></setlist>
+    </div>
+`;
+
+export default template;
