@@ -69,17 +69,4 @@
             </div>
         </div>
     </div>
-    {{--
-    <script>
-        /*    $(document).ready(function () {
-         $(".setlist-copy").val($(".setlist-template").val());
-         });
-         $(".setlist-template").change(function () {
-         $(".setlist-copy").val($(this).val());
-         });
-         $("input[name='sourceGigId']").change(function () {
-         $(".setlist-template").prop('disabled', $(this).data('disable-list'));
-         });*/
-    </script>
-    --}}
 @endsection
