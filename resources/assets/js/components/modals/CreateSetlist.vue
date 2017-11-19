@@ -12,7 +12,10 @@
                     data: this.formData.viewType == 'create' ? {} : this.formData.savedValues,
                     readOnly: this.formData.viewType == 'show'
                 },
-                csrfToken: window.Laravel.csrfToken
+                csrfToken: window.Laravel.csrfToken,
+                selectedOption: 'new',
+                useTemplate: false,
+                selectedTemplate: ''
             }
         },
         computed: {
@@ -25,6 +28,20 @@
                     });
                 });
                 return copyFromOptions;
+            }
+        },
+        watch: {
+            useTemplate: function () {
+                if (!this.useTemplate || this.useTemplate == 'false' || !this.selectedTemplate) {
+                    this.selectedOption = 'new';
+                } else {
+                    this.selectedOption = this.selectedTemplate;
+                }
+            },
+            selectedTemplate: function () {
+                if (this.selectedTemplate) {
+                    this.selectedOption = this.selectedTemplate;
+                }
             }
         }
     }

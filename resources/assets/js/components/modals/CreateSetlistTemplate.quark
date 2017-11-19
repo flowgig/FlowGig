@@ -4,6 +4,8 @@ let Button = quark.Atoms.Buttons.Button;
 let Modal = quark.Molecules.Messaging.Modal;
 let SelectList = quark.Molecules.FormElements.SelectList;
 let RadioButton = quark.Molecules.FormElements.RadioButton;
+let InputField = quark.Molecules.FormElements.InputField;
+
 
 let modalTriggerButton = Button.getModule({
     content: "Create setlist",
@@ -19,26 +21,46 @@ let createSetlistButton = {
 let copyFromListElement = SelectList.getModule({
     label: 'Copy from',
     vueBindings: {
-        options: 'copyFromOptions'
+        options: 'copyFromOptions',
+        value: 'selectedTemplate'
     }
 });
 
+let sourceGigId = InputField.getModule({
+    id: "sourceGigId",
+    name: "sourceGigId",
+    type: "hidden",
+    attributes: [
+        "v-model='selectedOption'"
+    ]
+})
+
 let radioButtonBlankSetlist = RadioButton.getModule({
-    id: 'sourceGigId-blank',
+    id: 'sourceGigId-new',
     label: 'Create blank setlist',
-    name: 'sourceGigId'
+    value: false,
+    attributes: [
+        'v-model="useTemplate"'
+    ]
 });
+
 let radioButtonCopyFrom = RadioButton.getModule({
     id: 'sourceGigId-copy',
     label: 'Copy from existing setlist',
-    name: 'sourceGigId'
+    value: true,
+    attributes: [
+        'v-model="useTemplate"'
+    ]
 });
 
 let modalContent = `
-<p>Create a new blank setlist or copy from an existing setlist</p>
-${radioButtonBlankSetlist}
-${radioButtonCopyFrom}
-${copyFromListElement}
+<div class="modal-content">
+    <p>Create a new blank setlist or copy from an existing setlist</p>
+    ${sourceGigId}
+    ${radioButtonBlankSetlist}
+    ${radioButtonCopyFrom}
+    <div v-show="useTemplate == 'true'">${copyFromListElement}</div>
+</div>
 `;
 
 let modalElement = Modal.getModule({
@@ -57,16 +79,14 @@ let modalElement = Modal.getModule({
             }
         }
     }
-})
+});
 
 let template = `
 <div>
 <form method="POST" v-bind:action="formData.postUrl">
 <input v-if="!form.readOnly" type="hidden" name="_token" v-bind:value="csrfToken" />
-
     ${modalElement}
     </form>
-
 </div>
 `;
 
