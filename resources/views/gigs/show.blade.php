@@ -19,13 +19,10 @@
                     <div class="button-row">
                         <custom-button-row
                                 v-bind:button-row="{
-                                buttons: [
-                                    {link: '{{ route('gigs.index', $gig->band) }}', type: 'raised', content: 'Back to gig list'},
-                                    @if($gig->setlist)
-                                        {link: '{{ route('setlists.show', $gig->setlist) }}', type: 'raised', theme: 'primary', content: 'Show setlist'}
-                                    @endif
-                                        ]
-                                    }">
+                                    buttons: [
+                                        {link: '{{ route('gigs.index', $gig->band) }}', type: 'raised', content: 'Back to gig list'}
+                                    ]
+                                }">
                         </custom-button-row>
                     </div>
                 </div>
@@ -62,15 +59,11 @@
                     <div class="button-row">
                         <custom-button-row
                                 v-bind:button-row="{
-                                buttons: [
-                                    {link: '{{ route('gigs.index', $gig->band) }}', type: 'raised', content: 'Back to gig list'},
-                                    @if($gig->setlist)
-                                        {link: '{{ route('setlists.show', $gig->setlist) }}', type: 'raised', theme: 'primary', content: 'Show setlist'}
-                                    @endif
-                                        ]
-                                    }">
+                                    buttons: [
+                                        {link: '{{ route('gigs.index', $gig->band) }}', type: 'raised', content: 'Back to gig list'},
+                                    ]
+                                }">
                         </custom-button-row>
-
                     </div>
                 </div>
             </div>
