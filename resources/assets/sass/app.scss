@@ -70,6 +70,17 @@ body > div#app {
   line-height: 34px;
 }
 
+.list-footer-button-row{
+  text-align: right;
+}
+
+main .content-container .content-container-footer{
+  margin: 0 -10px -10px;
+  padding: 10px;
+  background: #fbfcfd;
+  border-top: 1px solid #f4f5f6;
+}
+
 .spacer-vertical-6 {
   display: block;
   height: 6px;
@@ -88,4 +99,8 @@ body > div#app {
 .spacer-vertical-36 {
   display: block;
   height: 24px;
+}
+
+.hidden {
+  display: none;
 }
