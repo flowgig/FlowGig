@@ -1,0 +1,56 @@
+import * as quark from "quark-gui";
+
+let ListItem = quark.Molecules.Lists.ListItem;
+
+let listItem = {
+    vueBindings: {
+        title: 'listItem.invitee.name',
+        subTitle: 'subTitle',
+        iconClass: 'statusIconClass'
+    },
+    hiddenButtonRow: true,
+};
+
+function addExpiredButton(listItem) {
+    listItem.buttonRow = {
+        buttons: [
+            {
+                submit: true,
+                type: 'minimal',
+                theme: 'primary',
+                content: 'Set expired',
+                formWrapper: {
+                    formMethod: 'POST',
+                    vueBindings: {
+                        formAction: 'links.setExpired'
+                    },
+                    hiddenFields: [
+                        {
+                            name: '_token',
+                            vueBindings: {
+                                value: 'csrfToken'
+                            }
+                        },
+                        {
+                            name: '_method',
+                            value: 'PUT'
+                        }
+                    ]
+                }
+            }
+        ]
+    };
+    return listItem;
+}
+
+let listItemHtmlElements = {
+    defaultListItem: ListItem.getModule(listItem),
+    listItemWithExpiredButton: ListItem.getModule(addExpiredButton(listItem))
+};
+
+let template = `
+    <div v-if="listItem.status == 'pending'" class="list-item">${listItemHtmlElements.listItemWithExpiredButton}</div><div v-else class="list-item">${listItemHtmlElements.defaultListItem}</div>
+`;
+
+
+export default template;

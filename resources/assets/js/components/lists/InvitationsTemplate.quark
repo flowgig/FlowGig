@@ -1,0 +1,7 @@
+let template = `
+     <div>
+        <invitation v-for="invitation in listItems" v-bind:list-item="invitation" v-bind:key="invitation.id"></invitation>
+     </div>
+`;
+
+export default template;
