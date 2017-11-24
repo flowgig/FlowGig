@@ -39,7 +39,7 @@
                                         be a member of the band <b>{{ $invitation->invitational->name }}</b>.
                                         <br/>
                                         <small>The invitation was made by
-                                            {{ $invitation->creator->name }}, {{ $invitation->created_at }}
+                                            {{ $invitation->creator->name }} {{ $invitation->created_at->diffForHumans() }}
                                                 <p><i>&nbsp;{{ $invitation->message }}</i></p>
                                         </small>
                                     </span>
@@ -65,7 +65,7 @@
                                         @else
                                             <p style="font-size: 0.7em; text-align:right"><i>{{ ucfirst($invitation->status) }}<br>
                                                     <span style="font-size: 0.7em">
-                                                        {{ $invitation->status_set_at }}
+                                                        {{ $invitation->status_set_at->diffForHumans() }}
                                                     </span>
                                                 </i>
                                             </p>
@@ -79,7 +79,7 @@
                 </div>
                 @endif
                 <div>
-                    <i><small>Last updated {{ $user->updated_at }} UTC</small></i>
+                    <i><small>Updated {{ $user->updated_at->diffForHumans() }}</small></i>
                 </div>
                 <div class="block text-right">
                     <a class="button button-flat button-default" href="{{ route('dashboard') }}">Back to dashboard</a>

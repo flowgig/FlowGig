@@ -65,7 +65,7 @@
             </form>
             @include('errors.validation-errors')
             <div>
-                <i><small>Last updated {{ $user->updated_at }} UTC</small></i>
+                <i><small>Updated {{ $user->updated_at->diffForHumans() }}</small></i>
             </div>
             <div class="block text-right">
                 <a class="button button-flat button-default" href="{{ route('dashboard') }}">Back to dashboard</a>

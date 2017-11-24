@@ -2,9 +2,9 @@
     <i>
         <small>
             @if(isset($model->updater))
-                Last updated {{ $model->updated_at }} UTC by {{ $model->updater->name }}
+                Updated by {{ $model->updater->name }} {{ $model->updated_at->diffForHumans() }}
             @else
-                Created {{ $model->created_at }} UTC by {{ $model->creator->name }}
+                Created by {{ $model->creator->name }} {{ $model->created_at->diffForHumans() }}
             @endif
         </small>
     </i>
