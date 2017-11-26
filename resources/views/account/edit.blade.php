@@ -37,13 +37,6 @@
                 </div>
                 <div class="clearfix"></div>
                 <div class="row">
-                    {{--
-                    <div class="input-group col-sm-4">
-                        <input type="password" name="current_password" id="current_password"
-                               placeholder="Current password"/>
-                        <label for="current_password">Current password</label>
-                    </div>
-                    --}}
                     <div class="input-group col-sm-6">
                         <input type="password" name="password" id="password"
                                placeholder="New password"/>
