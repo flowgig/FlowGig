@@ -1,4 +1,4 @@
-<p>A FlowGig user account is created with with the e-mail address <b>{{ $user->email }}</b>.
+<p>A FlowGig user account is created with the e-mail address <b>{{ $user->email }}</b>.
     The account needs to be verified.</p>
 
 <b>If you never registered for FlowGig, ignore this e-mail message.</b>

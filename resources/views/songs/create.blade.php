@@ -73,7 +73,7 @@
                     </div>
                     <div class="row">
                         <div class="input-group col-sm-6">
-                            <input type="number" name="duration" min="0" placeholder="Minutes"/>
+                            <input type="number" name="duration" min="0" placeholder="Seconds"/>
                             <label for="duration">Duration</label>
                         </div>
                         <div class="input-group col-sm-6">
