@@ -50,7 +50,7 @@ class BandController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required|max:80',
+            'name' => 'required|string|max:80',
         ]);
 
         BandService::create($request->input('name'), Auth::user());
@@ -98,7 +98,7 @@ class BandController extends Controller
         $this->authorize('update', $band);
 
         $this->validate($request, [
-            'name' => 'required|max:80',
+            'name' => 'required|string|max:80',
         ]);
 
         $band->fill($request->all());
