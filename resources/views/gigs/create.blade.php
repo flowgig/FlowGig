@@ -36,23 +36,23 @@
                     {{ csrf_field() }}
                     <div class="row">
                         <div class="input-group col-sm-4">
-                            <input type="text" name="name" id="name"/>
+                            <input type="text" name="name" id="name" value="{{ old('name') }}"/>
                             <label for="name">Name</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-group col-sm-4">
-                            <input type="text" name="venue" id="venue"/>
+                            <input type="text" name="venue" id="venue" value="{{ old('venue') }}"/>
                             <label for="venue">Venue</label>
                         </div>
                         <div class="input-group col-sm-4">
-                            <input type="text" name="location" id="location"/>
+                            <input type="text" name="location" id="location" value="{{ old('location') }}"/>
                             <label for="location">Location</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-group col-sm-4">
-                            <input type="text" name="date" id="date"/>
+                            <input type="text" name="date" id="date" value="{{ old('date') }}"/>
                             <label for="date">Date</label>
                         </div>
                     </div>

@@ -24,7 +24,7 @@
                     {{ csrf_field() }}
                     <div class="row">
                         <div class="input-group col-sm-4">
-                            <input type="text" name="name" id="name" placeholder="The Rolling Stones"/>
+                            <input type="text" name="name" id="name" value="{{ old('name') }}" placeholder="The Rolling Stones"/>
                             <label for="name">Band name</label>
                         </div>
                     </div>

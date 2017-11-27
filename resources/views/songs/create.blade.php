@@ -36,21 +36,21 @@
                     {{ csrf_field() }}
                     <div class="row">
                         <div class="input-group col-sm-6">
-                            <input type="text" name="title" id="title" placeholder="The song title"/>
+                            <input type="text" name="title" id="title" value="{{ old('title') }}" placeholder="The song title"/>
                             <label for="title">Title</label>
                         </div>
                         <div class="input-group col-sm-6">
-                            <input type="text" name="artist" id="artist" placeholder="The original artist/band"/>
+                            <input type="text" name="artist" id="artist" value="{{ old('artist') }}" placeholder="The original artist/band"/>
                             <label for="artist">Artist</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-group col-sm-6">
-                            <input type="text" name="lyrics_by" id="lyrics-by" placeholder="The lyrics author"/>
+                            <input type="text" name="lyrics_by" id="lyrics-by" value="{{ old('lyrics_by') }}" placeholder="The lyrics author"/>
                             <label for="lyrics-by">Lyrics by</label>
                         </div>
                         <div class="input-group col-sm-6">
-                            <input type="text" name="music_by" id="music-by" placeholder="The music composer"/>
+                            <input type="text" name="music_by" id="music-by" value="{{ old('music_by') }}" placeholder="The music composer"/>
                             <label for="music-by">Music by</label>
                         </div>
                     </div>
@@ -67,17 +67,17 @@
                             <label for="key">Key</label>
                         </div>
                         <div class="input-group col-sm-6">
-                            <input type="number" name="bpm" min="0" placeholder="Beats Per Minute"/>
+                            <input type="number" name="bpm" min="0" value="{{ old('bpm') }}" placeholder="Beats Per Minute"/>
                             <label for="bpm">BPM</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-group col-sm-6">
-                            <input type="number" name="duration" min="0" placeholder="Seconds"/>
+                            <input type="number" name="duration" min="0" value="{{ old('duration') }}" placeholder="Seconds"/>
                             <label for="duration">Duration</label>
                         </div>
                         <div class="input-group col-sm-6">
-                            <input type="number" name="intensity" min="1" max="10" placeholder="1&ndash;10 (Ballad&ndash;Bebop)"/>
+                            <input type="number" name="intensity" min="1" max="10" value="{{ old('intensity') }}" placeholder="1&ndash;10 (Ballad&ndash;Bebop)"/>
                             <label for="intensity">Intensity</label>
                         </div>
                     </div>
