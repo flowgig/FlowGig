@@ -50,8 +50,8 @@ class BandInvitationController extends Controller
         $this->authorize('inviteMembers', $band);
 
         $this->validate($request, [
-            'invitee_email' => 'required|email',
-            'message' => 'max:140'
+            'invitee_email' => 'required|string|email|max:80',
+            'message' => 'nullable|string|max:140'
         ]);
 
         InvitationService::create($request->all(), $band, Auth::user());
