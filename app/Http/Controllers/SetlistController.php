@@ -94,25 +94,6 @@ class SetlistController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @param Setlist $setlist
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Setlist $setlist)
-    {
-        $this->authorize('update', $setlist);
-
-        $setlist->fill($request->all());
-        if ($setlist->isDirty())
-            $setlist->updater()->associate(Auth::user());
-        $setlist->save();
-
-        return redirect()->route('gigs.show', $setlist->gig);
-    }
-
-    /**
      * Export the setlist to file.
      *
      * @param Request $request
