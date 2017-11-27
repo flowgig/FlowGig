@@ -61,9 +61,9 @@ class GigController extends Controller
         $this->authorize('createGigs', $band);
 
         $this->validate($request, [
-            'name' => 'required|max:80',
-            'venue' => 'max:80',
-            'location' => 'max:80',
+            'name' => 'required|string|max:80',
+            'venue' => 'nullable|string|max:80',
+            'location' => 'nullable|string|max:80',
             'date' => 'nullable|date_format:Y-m-d',
         ]);
 
@@ -118,9 +118,9 @@ class GigController extends Controller
         $this->authorize('update', $gig);
 
         $this->validate($request, [
-            'name' => 'required|max:80',
-            'venue' => 'max:80',
-            'location' => 'max:80',
+            'name' => 'required|string|max:80',
+            'venue' => 'nullable|string|max:80',
+            'location' => 'nullable|string|max:80',
             'date' => 'nullable|date_format:Y-m-d',
         ]);
 
