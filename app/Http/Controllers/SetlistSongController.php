@@ -32,6 +32,11 @@ class SetlistSongController extends Controller
     {
         $this->authorize('createSetlistSongs', $setlist->gig->band);
 
+        $this->validate($request, [
+            'song_id' => 'required|numeric|min:0',
+            'number_in_list' => 'required|numeric|min:1',
+        ]);
+
         $setlistSong = new SetlistSong();
         $setlistSong->creator()->associate(Auth::user());
         $setlistSong->setlist()->associate($setlist);
@@ -59,6 +64,17 @@ class SetlistSongController extends Controller
     public function update(Request $request, SetlistSong $setlistSong)
     {
         $this->authorize('update', $setlistSong);
+
+        $this->validate($request, [
+            'setlist_id' => 'required|numeric|min:0',
+            'song_id' => 'required|numeric|min:0',
+            'number_in_list' => 'required|numeric|min:1',
+            'key' => 'nullable|string|max:3',
+            'bpm' => 'nullable|numeric|min:0',
+            'duration' => 'nullable|numeric|min:0',
+            'intensity' => 'nullable|numeric|min:0|max:10',
+            'comment' => 'nullable|string|max:100',
+        ]);
 
         $setlistSong->fill($request->all());
         if ($setlistSong->isDirty()) {
