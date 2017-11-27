@@ -62,8 +62,8 @@ class GigController extends Controller
 
         $this->validate($request, [
             'name' => 'required|max:80',
-            'venue' => 'required|max:80',
-            'location' => 'required|max:80',
+            'venue' => 'max:80',
+            'location' => 'max:80',
             'date' => 'nullable|date_format:Y-m-d',
         ]);
 
@@ -119,8 +119,8 @@ class GigController extends Controller
 
         $this->validate($request, [
             'name' => 'required|max:80',
-            'venue' => 'required|max:80',
-            'location' => 'required|max:80',
+            'venue' => 'max:80',
+            'location' => 'max:80',
             'date' => 'nullable|date_format:Y-m-d',
         ]);
 
