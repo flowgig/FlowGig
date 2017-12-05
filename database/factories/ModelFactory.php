@@ -1,5 +1,7 @@
 <?php
 
+use Faker\Generator as Faker;
+
 /*
 |--------------------------------------------------------------------------
 | Model Factories
@@ -11,19 +13,19 @@
 |
 */
 
-$factory->define(App\User::class, function (Faker\Generator $faker) {
+$factory->define(App\User::class, function (Faker $faker) {
     static $password;
 
     return [
         'name' => $faker->name,
-        'email' => $faker->safeEmail,
+        'email' => $faker->unique()->safeEmail,
         'password' => $password ?: $password = bcrypt('secret'),
         'remember_token' => str_random(10),
         'verified' => true,
     ];
 });
 
-$factory->define(App\Song::class, function (Faker\Generator $faker) {
+$factory->define(App\Song::class, function (Faker $faker) {
 
     $musicalKeys =
         [
@@ -49,7 +51,7 @@ $factory->define(App\Song::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(App\Gig::class, function (Faker\Generator $faker) {
+$factory->define(App\Gig::class, function (Faker $faker) {
 
     $gigNames = [
         'Summer Music Fest',
