@@ -15,12 +15,9 @@
         </breadcrumbs>
         <h1>{{ $song->title }}</h1>
         <div class="content-container raised">
-            <song
-                    v-bind:form-data="{
-                        postUrl: '{{ route('songs.update', $song) }}',
-                        viewType: 'edit',
-                        savedValues: {{ $song }}
-                            }">
+            <song url="{{ route('songs.update', $song) }}"
+                  method="PUT"
+                  v-bind:values="{{ $song }}">
             </song>
         </div>
         @include('errors.validation-errors')

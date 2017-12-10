@@ -16,11 +16,9 @@
                 </breadcrumbs>
                 <h1>{{ $song->title }}</h1>
                 <div class="content-container raised">
-                    <song v-bind:form-data="{
-                        viewType: 'show',
-                        editLink: '{{ route('songs.edit', $song) }}',
-                        savedValues: {{ $song }}
-                            }">
+                    <song url="{{ route('songs.edit', $song) }}"
+                         method="GET"
+                         v-bind:values="{{ $song }}">
                     </song>
                 </div>
                 @include('meta.user-timestamps', ['model' => $song])

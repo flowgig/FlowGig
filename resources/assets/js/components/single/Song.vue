@@ -4,15 +4,13 @@
 
     export default {
         name: 'Song',
-        props: ['formData'],
+        props: ['url', 'method', 'values', 'links'],
         template: SongTemplate,
         data() {
             return {
-                form: {
-                    data: this.formData.viewType == 'create' ? {} : this.formData.savedValues,
-                    readOnly: this.formData.viewType == 'show'
-                },
-                csrfToken: window.Laravel.csrfToken
+                data: {
+                    values: this.values != undefined ? this.values : {}
+                }
             }
         }
     }
