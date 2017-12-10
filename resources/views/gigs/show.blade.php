@@ -27,10 +27,9 @@
                     </div>
                 </div>
                 <div class="content-container raised">
-                    <gig url="{{ route('gigs.update', $gig) }}"
+                    <gig url="{{ route('gigs.edit', $gig) }}"
                          method="GET"
-                         v-bind:values="{{ $gig }}"
-                         v-bind:links="{edit: '{{ route('gigs.edit', $gig) }}'}">
+                         v-bind:values="{{ $gig }}">
                     </gig>
 
                 </div>

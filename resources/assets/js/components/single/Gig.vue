@@ -4,7 +4,7 @@
 
     export default {
         name: 'Gig',
-        props: ['url', 'method', 'values', 'links'],
+        props: ['url', 'method', 'values'],
         template: GigTemplate,
         data() {
             return {
