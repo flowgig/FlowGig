@@ -35,9 +35,10 @@
                 var index = [].indexOf.call(element.parentNode.children, element)
                 console.log('drop to', index, element, target, source, sibling);
                 this.setlistSongs.splice(index, 0, this.setlistSongs.splice(from, 1)[0]);
-
-                 this.updateNumberInListForAllSetlistSongs();
-
+                this.updateNumberInListForAllSetlistSongs();
+                setTimeout(function () {
+                    quark.LazyInit();
+                }, 100);
             }.bind(this))
         },
         components: {

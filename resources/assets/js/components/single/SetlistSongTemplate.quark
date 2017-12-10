@@ -19,12 +19,13 @@ let formElements = {
         placeholder: "E.g. F, Am, or C#",
         options: require("../../data/musicalKeys.json"),
         attributes: [
-            "v-model='data.values.key'",
-            "v-bind:id='\"key-\" + data.values.id'"
-        ]
+            "v-model='data.values.key'"
+        ],
+        vueBindings: {
+            id: '"key-" + data.values.number_in_list'
+        }
     },
     bpm: {
-        id: "bpm",
         name: "bpm",
         label: "BPM",
         type: "number",
@@ -32,7 +33,10 @@ let formElements = {
         attributes: [
             "min='0'",
             "v-model='data.values.bpm'"
-        ]
+        ],
+        vueBindings: {
+            id: '"bpm-" + data.values.number_in_list'
+        }
     },
     duration: {
         id: "duration",
@@ -48,7 +52,6 @@ let formElements = {
         }
     },
     intensity: {
-        id: "intensity",
         name: "intensity",
         label: "Intensity",
         type: "number",
@@ -58,6 +61,9 @@ let formElements = {
             "max='10'",
             "v-model='data.values.intensity'"
         ],
+        vueBindings: {
+            id: '"intensity-" + data.values.number_in_list'
+        }
     },
     actionButton: {
         create: {
