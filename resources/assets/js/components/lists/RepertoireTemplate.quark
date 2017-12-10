@@ -1,0 +1,7 @@
+let template = `
+     <div>
+        <repertoire-song v-for="song in listItems" v-bind:list-item="song" v-bind:key="song.id"></repertoire-song>
+     </div>
+`;
+
+export default template;
