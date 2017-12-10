@@ -1,0 +1,52 @@
+import * as quark from "quark-gui";
+
+let Button = quark.Atoms.Buttons.Button;
+let Modal = quark.Molecules.Messaging.Modal;
+let SelectList = quark.Molecules.FormElements.SelectList;
+let RadioButton = quark.Molecules.FormElements.RadioButton;
+let InputField = quark.Molecules.FormElements.InputField;
+
+
+let modalTriggerButton = Button.getModule({
+    content: "Add song",
+    theme: "primary"
+});
+
+let createSetlistButton = {
+    content: "Add song",
+    theme: "primary",
+    submit: false
+};
+
+let modalContent = `
+<div class="modal-content">
+    <repertoire v-bind:list-items="repertoire" v-bind:list-type="'addToSetlist'"></repertoire>
+</div>
+`;
+
+let modalElement = Modal.getModule({
+    triggerElement: modalTriggerButton,
+    id: 'add-song',
+    modalElement: {
+        title: 'Add song',
+        scrollable: true,
+        fullscreen: false,
+        content: modalContent,
+        /*footerButtons: {
+            buttonRow: {
+                buttons: [
+                    createSetlistButton
+                ]
+            }
+        }*/
+    }
+});
+
+let template = `
+<div>
+<input v-if="!form.readOnly" type="hidden" name="_token" v-bind:value="csrfToken" />
+    ${modalElement}
+</div>
+`;
+
+export default template;
