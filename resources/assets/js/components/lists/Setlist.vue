@@ -11,7 +11,6 @@
         template: SetlistTemplate,
         data() {
             return {
-
                 data: {
                     values: this.values != undefined ? this.values : {}
                 },
@@ -19,11 +18,7 @@
                 dragula: null
             }
         },
-        created: function () {
-            // this.modalHtmlContent = this.createRepertoireModalElement();
-        },
         mounted: function () {
-            // this.htmlContent = this.createListElement();
             this.dragula = dragula([document.querySelector('#setlist-songs-list')]);
             let from = null
             this.dragula.on('drag', function (element, source) {
@@ -79,97 +74,9 @@
             updateNumberInListForAllSetlistSongs: function () {
                 this.setlistSongs.forEach(function (setlistSong, index) {
                     setlistSong.number_in_list = index + 1;
-                })
+                });
+
             }
         }
-        /*  methods: {
-              createListElement: function () {
-                  return quark.Organisms.Menus.ListMenu.getModule({
-                      id: 'songs-list',
-                      hover: true,
-                      listItems: this.createListItems()
-                  });
-              },
-              createListItems: function () {
-                  var listItems = [];
-                  this.setlist.setlist_songs.forEach(function (setlistSong) {
-
-                      let modalButton = this.setlistSongModalButtons[setlistSong.id];
-
-                      var listItem = {
-                          id: 'setlist-' + this.setlist.id + '-song-' + setlistSong.song.id,
-                          title: setlistSong.song.title,
-                          buttonRow: {
-                              buttons: [
-                                  {
-                                      iconClass: 'fa fa-minus',
-                                      type: 'minimal'
-                                  }
-                              ],
-                              buttonElements: [
-                                  modalButton
-                              ]
-                          }
-                      }
-                      listItems.push(listItem);
-                  }.bind(this));
-                  return listItems;
-              },
-
-              createRepertoireListElement: function () {
-                  return quark.Organisms.Menus.ListMenu.getModule({
-                      id: 'repertoire-list',
-                      hover: true,
-                      listItems: this.createRepertoireListItems()
-                  });
-              },
-              createRepertoireListItems: function () {
-                  var listItems = [];
-                  this.repertoire.forEach(function (repertoireSong) {
-                      var listItem = {
-                          id: 'repertoire-' + this.setlist.id + '-song-' + repertoireSong.id,
-                          title: repertoireSong.title,
-                          buttonRow: {
-                              buttons: [
-                                  {
-                                      iconClass: 'fa fa-plus'
-                                  }
-                              ]
-                          }
-                      }
-                      listItems.push(listItem);
-                  }.bind(this));
-                  return listItems;
-              },
-              createRepertoireModalElement: function () {
-                  return quark.Molecules.Messaging.Modal.getModule({
-                      id: 'repertoire-modal',
-                      triggerElement: quark.Atoms.Buttons.Button.getModule({
-                          content: "Add song",
-                          theme: "primary"
-                      }),
-                      modalElement: {
-                          title: 'Repertoire',
-                          content: this.createRepertoireListElement(),
-                          scrollable: true
-                      }
-                  });
-              },
-              createSetlistSongModalElement: function () {
-                  return quark.Molecules.Messaging.Modal.getModule({
-                      id: 'setlist-song-modal-' + this.formData.savedValues.id,
-                      triggerElement: quark.Atoms.Buttons.Button.getModule({
-                          content: "Edit song",
-                          theme: "primary"
-                      }),
-                      modalElement: {
-                          title: 'Setlist song',
-                          content: this.createModalContent(),
-                          scrollable: true
-                      }
-                  });
-              },
-
-          }*/
     }
 </script>
