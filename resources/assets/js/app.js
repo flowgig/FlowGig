@@ -55,6 +55,7 @@ Vue.component('BandCard', require('./components/grid-items/BandCard.vue'));
 /* Modals */
 Vue.component('CreateSetlist', require('./components/modals/CreateSetlist.vue'));
 Vue.component('AddSetlistSong', require('./components/modals/AddSetlistSong.vue'));
+Vue.component('EditSetlistSong', require('./components/modals/EditSetlistSong.vue'));
 
 
 Vue.component('Breadcrumbs', require('./components/Breadcrumbs.vue'));

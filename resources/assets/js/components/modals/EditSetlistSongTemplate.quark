@@ -1,0 +1,39 @@
+import * as quark from "quark-gui";
+
+let Button = quark.Atoms.Buttons.Button;
+let Modal = quark.Molecules.Messaging.Modal;
+let SelectList = quark.Molecules.FormElements.SelectList;
+let RadioButton = quark.Molecules.FormElements.RadioButton;
+let InputField = quark.Molecules.FormElements.InputField;
+
+
+let modalTriggerButton = Button.getModule({
+    iconClass: 'fa fa-pencil',
+    type: 'minimal',
+    theme: "primary"
+});
+
+let modalContent = `
+<div class="modal-content">
+    <p>the setlist song</p>
+    <p>{{ newValues.song.title }}</p>
+    <setlist-song v-bind:form-data="formData" v-bind:new-values="newValues"></setlist-song>
+</div>
+`;
+
+let modalElement = Modal.getModule({
+    triggerElement: modalTriggerButton,
+    modalElement: {
+        title: 'Edit song',
+        scrollable: true,
+        fullscreen: false,
+        content: modalContent
+    },
+    vueBindings: {
+        id: 'modalId'
+    }
+});
+
+let template = `<div style="display: inline-block">${modalElement}</div>`;
+
+export default template;
