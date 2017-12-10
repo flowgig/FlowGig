@@ -62,8 +62,14 @@ class SongController extends Controller
         $this->authorize('createSongs', $band);
 
         $this->validate($request, [
-            'title' => 'required|max:80',
-            'key' => 'max:3'
+            'title' => 'required|string|max:80',
+            'artist' => 'nullable|string|max:80',
+            'music_by' => 'nullable|string|max:80',
+            'lyrics_by' => 'nullable|string|max:80',
+            'key' => 'nullable|string|max:3',
+            'bpm' => 'nullable|numeric|min:0',
+            'duration' => 'nullable|numeric|min:0',
+            'intensity' => 'nullable|numeric|min:0|max:10',
         ]);
 
         SongService::create($request->all(), $band, Auth::user());
@@ -111,8 +117,14 @@ class SongController extends Controller
         $this->authorize('update', $song);
 
         $this->validate($request, [
-            'title' => 'required|max:80',
-            'key' => 'max:3'
+            'title' => 'required|string|max:80',
+            'artist' => 'nullable|string|max:80',
+            'music_by' => 'nullable|string|max:80',
+            'lyrics_by' => 'nullable|string|max:80',
+            'key' => 'nullable|string|max:3',
+            'bpm' => 'nullable|numeric|min:0',
+            'duration' => 'nullable|numeric|min:0',
+            'intensity' => 'nullable|numeric|min:0|max:10',
         ]);
 
         $song->fill($request->all());

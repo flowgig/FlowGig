@@ -47,8 +47,8 @@ class AccountController extends Controller
     public function update(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required|max:255',
-            'password' => 'nullable|confirmed|min:6',
+            'name' => 'required|string|max:80',
+            'password' => 'nullable|string|confirmed|min:8|max:80',
         ]);
 
         $user = $request->user();
