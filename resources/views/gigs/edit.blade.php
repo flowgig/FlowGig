@@ -15,12 +15,9 @@
         </breadcrumbs>
         <h1>{{ $gig->name }}</h1>
         <div class="content-container raised">
-            <gig
-                    v-bind:form-data="{
-                        postUrl: '{{ route('gigs.update', $gig) }}',
-                        viewType: 'edit',
-                        savedValues: {{ $gig }}
-                            }">
+            <gig url="{{ route('gigs.update', $gig) }}"
+                 method="PUT"
+                 v-bind:values="{{ $gig }}">
             </gig>
         </div>
         @include('errors.validation-errors')

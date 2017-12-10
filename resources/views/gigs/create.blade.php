@@ -14,11 +14,8 @@
         </breadcrumbs>
         <h1>Create new gig</h1>
         <div class="content-container raised">
-            <gig
-                    v-bind:form-data="{
-                        postUrl: '{{ route('gigs.store', $band) }}',
-                        viewType: 'create',
-                                }">
+            <gig url="{{ route('gigs.store', $band) }}"
+                 method="POST">
             </gig>
         </div>
         @include('errors.validation-errors')

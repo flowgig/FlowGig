@@ -27,12 +27,12 @@
                     </div>
                 </div>
                 <div class="content-container raised">
-                    <gig v-bind:form-data="{
-                        viewType: 'show',
-                        editLink: '{{ route('gigs.edit', $gig) }}',
-                        savedValues: {{ $gig }}
-                            }">
+                    <gig url="{{ route('gigs.update', $gig) }}"
+                         method="GET"
+                         v-bind:values="{{ $gig }}"
+                         v-bind:links="{edit: '{{ route('gigs.edit', $gig) }}'}">
                     </gig>
+
                 </div>
                 @include('meta.user-timestamps', ['model' => $gig])
                 <div class="spacer-vertical-12"></div>

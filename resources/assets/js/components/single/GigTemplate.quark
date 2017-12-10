@@ -20,7 +20,7 @@ let formElements = {
         placeholder: "Name of the gig",
         attributes: [
             "required",
-            "v-model='form.data.name'"
+            "v-model='data.values.name'"
         ]
     },
     venue: {
@@ -30,7 +30,7 @@ let formElements = {
         type: "text",
         placeholder: "Venue the gig takes place",
         attributes: [
-            "v-model='form.data.venue'"
+            "v-model='data.values.venue'"
         ]
     },
     location: {
@@ -40,7 +40,7 @@ let formElements = {
         type: "text",
         placeholder: "Location of the gig",
         attributes: [
-            "v-model='form.data.location'"
+            "v-model='data.values.location'"
         ]
     },
     date: {
@@ -52,7 +52,7 @@ let formElements = {
             required: false
         },
         attributes: [
-            "v-model='form.data.date'"
+            "v-model='data.values.date'"
         ],
     },
     confirmed: {
@@ -61,7 +61,7 @@ let formElements = {
         label: "Confirmed",
         value: "",
         vueBindings: {
-            value: "form.data.confirmed"
+            value: "data.values.confirmed"
         }
     },
     public: {
@@ -70,7 +70,7 @@ let formElements = {
         label: "Public",
         value: "",
         vueBindings: {
-            value: "form.data.public"
+            value: "data.values.public"
         }
     },
     actionButton: {
@@ -79,17 +79,17 @@ let formElements = {
             theme: 'primary',
             content: 'Create'
         },
-        edit: {
+        update: {
             submit: true,
             theme: 'primary',
             content: 'Update'
         },
-        show: {
+        edit: {
             submit: false,
             theme: 'primary',
             content: 'Edit',
             attributes: [
-                "v-bind:href='this.formData.editLink'"
+                "v-bind:href='links.edit'"
             ]
         }
     }
@@ -122,25 +122,25 @@ let formHtmlElements = {
     },
     actionButton: {
         create: Button.getModule(formElements.actionButton.create),
-        edit: Button.getModule(formElements.actionButton.edit),
-        show: Button.getModule(formElements.actionButton.show)
+        update: Button.getModule(formElements.actionButton.update),
+        edit: Button.getModule(formElements.actionButton.edit)
     }
 };
 
 let template = `
-<form method="POST" v-bind:action="formData.postUrl">
-    <input v-if="!form.readOnly" type="hidden" name="_token" v-bind:value="csrfToken" />
-    <input v-if="formData.viewType == 'edit'" type="hidden" name="_method" value="PUT" />
-    <div v-if="form.readOnly">${formHtmlElements.name.readOnly}</div><div v-else>${formHtmlElements.name.editable}</div>
-    <div v-if="form.readOnly">${formHtmlElements.venue.readOnly}</div><div v-else>${formHtmlElements.venue.editable}</div>
-    <div v-if="form.readOnly">${formHtmlElements.location.readOnly}</div><div v-else>${formHtmlElements.location.editable}</div>
-    <div v-if="form.readOnly">${formHtmlElements.date.readOnly}</div><div v-else>${formHtmlElements.date.editable}</div>
-    <div v-if="form.readOnly">${formHtmlElements.confirmed.readOnly}</div><div v-else>${formHtmlElements.confirmed.editable}</div>
-    <div v-if="form.readOnly">${formHtmlElements.public.readOnly}</div><div v-else>${formHtmlElements.public.editable}</div>
+<form method="POST" v-bind:action="url">
+    <input v-if="method !== 'GET'" type="hidden" name="_token" value="${window.Laravel.csrfToken}" />
+    <input v-if="method == 'PUT'" type="hidden" name="_method" value="PUT" />
+    <div v-if="method == 'GET'">${formHtmlElements.name.readOnly}</div><div v-else>${formHtmlElements.name.editable}</div>
+    <div v-if="method == 'GET'">${formHtmlElements.venue.readOnly}</div><div v-else>${formHtmlElements.venue.editable}</div>
+    <div v-if="method == 'GET'">${formHtmlElements.location.readOnly}</div><div v-else>${formHtmlElements.location.editable}</div>
+    <div v-if="method == 'GET'">${formHtmlElements.date.readOnly}</div><div v-else>${formHtmlElements.date.editable}</div>
+    <div v-if="method == 'GET'">${formHtmlElements.confirmed.readOnly}</div><div v-else>${formHtmlElements.confirmed.editable}</div>
+    <div v-if="method == 'GET'">${formHtmlElements.public.readOnly}</div><div v-else>${formHtmlElements.public.editable}</div>
     <div class="input-group float-right">
-        <div v-if="formData.viewType == 'create'">${formHtmlElements.actionButton.create}</div>
-        <div v-else-if="formData.viewType == 'edit'">${formHtmlElements.actionButton.edit}</div>
-        <div v-else-if="formData.viewType == 'show'">${formHtmlElements.actionButton.show}</div>
+        <div v-if="method == 'POST'">${formHtmlElements.actionButton.create}</div>
+        <div v-else-if="method == 'PUT'">${formHtmlElements.actionButton.update}</div>
+        <div v-else-if="method == 'GET'">${formHtmlElements.actionButton.edit}</div>
     </div>
     <div class="clearfix"></div> 
 </form>
