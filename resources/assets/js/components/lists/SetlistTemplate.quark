@@ -4,14 +4,30 @@ let InputField = quark.Molecules.FormElements.InputField;
 
 let template = `
         <div>
-            <div v-for="setlistSong in setlist.setlist_songs">
-                <setlist-song
-                        v-bind:form-data="{
-                            viewType: formData.viewType,
-                            savedValues: setlistSong}"
-                        v-bind:setlist-song-id="setlistSong.id">
-                </setlist-song>
-            </div> 
+            <div id="setlist-songs-list">
+                <div v-show="values.setlist_songs.length" v-for="setlistSong in values.setlist_songs">
+                    <setlist-song
+                            v-bind:method="method"
+                            v-bind:values="setlistSong">
+                    </setlist-song> 
+                </div>  
+                
+                  
+                 
+                 
+            </div>
+            
+            
+            <div v-show="!values.setlist_songs.length">
+            no songs
+            </div>
+           <div class="content-container-footer list-footer-button-row">
+                            <add-setlist-song
+                                    v-bind:values="repertoire"
+                                    method="PUT"
+                            >
+                            </add-setlist-song>
+                        </div>
         </div>
 `;
 /*

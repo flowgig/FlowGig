@@ -4,15 +4,13 @@
 
     export default {
         name: 'SetlistSong',
-        props: ['formData', 'setlistSongId'],
+        props: ['method', 'values'],
         template: SetlistSongTemplate,
         data() {
             return {
-                form: {
-                    data: this.formData.viewType == 'create' ? {} : this.formData.savedValues,
-                    readOnly: this.formData.viewType == 'show'
-                },
-                csrfToken: window.Laravel.csrfToken
+                data: {
+                    values: this.values != undefined ? this.values : {}
+                }
             }
         }
      /*   data () {

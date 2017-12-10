@@ -44,7 +44,7 @@ let modalElement = Modal.getModule({
 
 let template = `
 <div>
-<input v-if="!form.readOnly" type="hidden" name="_token" v-bind:value="csrfToken" />
+<input v-if="method !== 'GET'" type="hidden" name="_token" value="${window.Laravel.csrfToken}" />
     ${modalElement}
 </div>
 `;

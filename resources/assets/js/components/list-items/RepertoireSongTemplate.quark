@@ -30,9 +30,7 @@ let listItem = ListItem.getModule({
                     hiddenFields: [
                         {
                             name: '_token',
-                            vueBindings: {
-                                value: 'csrfToken'
-                            }
+                            value: '${window.Laravel.csrfToken}'
                         },
                         {
                             name: '_method',

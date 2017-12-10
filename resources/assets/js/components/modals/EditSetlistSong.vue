@@ -8,18 +8,16 @@
 
     export default {
         name: 'EditSetlistSong',
-        props: ['formData', 'newValues'],
+        props: ['method', 'values'],
         template: EditSetlistSongTemplate,
         components: {
             SetlistSong: SetlistSong
         },
         data() {
             return {
-                form: {
-                    readOnly: this.formData.viewType == 'show'
-                },
-                htmlContent: '',
-                csrfToken: window.Laravel.csrfToken,
+                data: {
+                    values: this.values != undefined ? this.values : {}
+                }
             }
         },
         mounted: function () {
@@ -33,7 +31,7 @@
         },*/
         computed: {
             modalId: function () {
-                return 'setlist-song-modal-' + this.newValues.number_in_list
+                return 'setlist-song-modal-' + this.values.number_in_list
             }
         }
     }

@@ -99,12 +99,12 @@
                     </div>
                     {{--   <small>@{{ setlistSongs.length }} songs</small> --}}
 
-                    <div class="content-container raised">
-                        <setlist v-bind:setlist="{{ $setlist }}"
-                                          v-bind:repertoire="{{ $setlist->gig->band->songs }}"
-                                          v-bind:form-data="{viewType: 'edit'}"></setlist>
-                    </div>
 
+                    <div class="content-container raised">
+                        <setlist v-bind:values="{{ $setlist }}"
+                                 v-bind:repertoire="{{ $setlist->gig->band->songs }}"
+                                 method="PUT"></setlist>
+                    </div>
 
                     @include('meta.user-timestamps', ['model' => $setlist])
                     <div class="block text-right">

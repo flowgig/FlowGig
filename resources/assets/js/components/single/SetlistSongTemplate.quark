@@ -19,8 +19,8 @@ let formElements = {
         placeholder: "E.g. F, Am, or C#",
         options: require("../../data/musicalKeys.json"),
         attributes: [
-            "v-model='form.data.key'",
-            "v-bind:id='\"key-\" + form.data.id'"
+            "v-model='data.values.key'",
+            "v-bind:id='\"key-\" + data.values.id'"
         ]
     },
     bpm: {
@@ -31,7 +31,7 @@ let formElements = {
         placeholder: "Beats Per Minute",
         attributes: [
             "min='0'",
-            "v-model='form.data.bpm'"
+            "v-model='data.values.bpm'"
         ]
     },
     duration: {
@@ -41,7 +41,7 @@ let formElements = {
         type: "time",
         placeholder: "03:25",
         attributes: [
-            "v-model='form.data.duration'"
+            "v-model='data.values.duration'"
         ],
         clockOptions: {
             showHours: false
@@ -56,7 +56,7 @@ let formElements = {
         attributes: [
             "min='0'",
             "max='10'",
-            "v-model='form.data.intensity'"
+            "v-model='data.values.intensity'"
         ],
     },
     actionButton: {
@@ -65,18 +65,18 @@ let formElements = {
             theme: 'primary',
             content: 'Create'
         },
-        edit: {
+        update: {
             submit: true,
             theme: 'primary',
             content: 'Update'
         },
-        show: {
+        edit: {
             submit: false,
             theme: 'primary',
             content: 'Edit',
-            attributes: [
+           /* attributes: [
                 "v-bind:href='this.formData.editLink'"
-            ]
+            ]*/
         }
     }
 };
@@ -100,26 +100,28 @@ let formHtmlElements = {
     },
     actionButton: {
         create: Button.getModule(formElements.actionButton.create),
-        edit: Button.getModule(formElements.actionButton.edit),
-        show: Button.getModule(formElements.actionButton.show)
+        update: Button.getModule(formElements.actionButton.update),
+        edit: Button.getModule(formElements.actionButton.edit)
     }
 };
 
 let template = `
-<form method="POST" v-bind:action="formData.postUrl">
-    <input v-if="!form.readOnly" type="hidden" name="_token" v-bind:value="csrfToken" />
-    <input v-if="formData.viewType == 'edit'" type="hidden" name="_method" value="PUT" />
-    <div v-if="form.readOnly">${formHtmlElements.key.readOnly}</div><div v-else>${formHtmlElements.key.editable}</div>
-    <div v-if="form.readOnly">${formHtmlElements.bpm.readOnly}</div><div v-else>${formHtmlElements.bpm.editable}</div>
-    <div v-if="form.readOnly">${formHtmlElements.duration.readOnly}</div><div v-else>${formHtmlElements.duration.editable}</div>
-    <div v-if="form.readOnly">${formHtmlElements.intensity.readOnly}</div><div v-else>${formHtmlElements.intensity.editable}</div>
+<!--<form method="POST" v-bind:action="formData.postUrl"> -->
+<div>
+    <input v-if="method !== 'GET'" type="hidden" name="_token" value="${window.Laravel.csrfToken}" />
+    <input v-if="method == 'PUT'" type="hidden" name="_method" value="PUT" />
+    <div v-if="method == 'GET'">${formHtmlElements.key.readOnly}</div><div v-else>${formHtmlElements.key.editable}</div>
+    <div v-if="method == 'GET'">${formHtmlElements.bpm.readOnly}</div><div v-else>${formHtmlElements.bpm.editable}</div>
+    <div v-if="method == 'GET'">${formHtmlElements.duration.readOnly}</div><div v-else>${formHtmlElements.duration.editable}</div>
+    <div v-if="method == 'GET'">${formHtmlElements.intensity.readOnly}</div><div v-else>${formHtmlElements.intensity.editable}</div>
     <div class="input-group float-right">
-        <div v-if="formData.viewType == 'create'">${formHtmlElements.actionButton.create}</div>
-        <div v-else-if="formData.viewType == 'edit'">${formHtmlElements.actionButton.edit}</div>
-        <div v-else-if="formData.viewType == 'show'">${formHtmlElements.actionButton.show}</div>
+        <div v-if="method == 'POST'">${formHtmlElements.actionButton.create}</div>
+        <div v-else-if="method == 'PUT'">${formHtmlElements.actionButton.update}</div>
+        <div v-else-if="method == 'GET'">${formHtmlElements.actionButton.edit}</div>
     </div>
     <div class="clearfix"></div> 
-</form>
+    </div>
+<!--</form>-->
 `;
 
 export default template;

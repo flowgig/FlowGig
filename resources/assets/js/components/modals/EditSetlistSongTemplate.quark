@@ -16,8 +16,8 @@ let modalTriggerButton = Button.getModule({
 let modalContent = `
 <div class="modal-content">
     <p>the setlist song</p>
-    <p>{{ newValues.song.title }}</p>
-    <setlist-song v-bind:form-data="formData" v-bind:new-values="newValues"></setlist-song>
+    <p>{{ data.values.song.title }}</p>
+    <setlist-song v-bind:method="method" v-bind:values="data.values"></setlist-song>
 </div>
 `;
 
