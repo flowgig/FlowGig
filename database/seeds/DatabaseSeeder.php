@@ -19,5 +19,6 @@ class DatabaseSeeder extends Seeder
         $this->call(SetlistsTableSeeder::class);
         $this->call(SetlistSongsTableSeeder::class);
         $this->call(InvitationsTableSeeder::class);
+        $this->call(LinksTableSeeder::class);
     }
 }
