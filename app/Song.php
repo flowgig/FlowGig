@@ -48,5 +48,13 @@ class Song extends Model
     {
         return $this->belongsTo('App\Band');
     }
+
+    /**
+     * Get the links for the song.
+     */
+    public function links()
+    {
+        return $this->morphMany('App\Link', 'linkable');
+    }
 }
 

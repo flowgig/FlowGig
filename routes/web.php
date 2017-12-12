@@ -163,3 +163,17 @@ Route::put('band-invitations/{band_invitation}/set-expired', [
     'as' => 'band-invitations.set-expired',
     'uses' => 'BandInvitationController@setExpired'
 ]);
+
+// Song links
+
+Route::get('songs/{song}/links/create', [
+    'as' => 'song-links.create',
+    'uses' => 'SongLinkController@create'
+]);
+
+Route::post('songs/{song}/links', [
+    'as' => 'song-links.store',
+    'uses' => 'SongLinkController@store'
+]);
+
+Route::resource('song-links', 'SongLinkController', ['only' => ['edit', 'update', 'destroy']]);

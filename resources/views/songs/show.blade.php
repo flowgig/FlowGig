@@ -64,6 +64,45 @@
                     </div>
                 </div>
                 @include('meta.user-timestamps', ['model' => $song])
+                <br />
+                <h3>Links</h3>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="block text-right">
+                            <a class="button button-flat button-primary" href="{{ route('song-links.create', $song) }}">
+                                New link
+                            </a>
+                        </div>
+                        <ul class="list">
+                            @foreach($song->links as $link)
+                                <li>
+                                    <span class="list-item-content single-line">
+                                    <a class="tooltip" href="{{ $link->url }}" target="_blank" title="{{ $link->url }}">
+                                        {{ $link->text ?? $link->url }}
+                                    </a>
+                                        </span>
+                                    <span class="list-item-buttons">
+                                        <a class="button button-icon button-flat button-default tooltip"
+                                           title="Edit link {{ $link->text }}"
+                                           href="{{ route('song-links.edit', $link) }}">
+                                            <span class="fa fa-pencil"></span>
+                                        </a>
+                                        <form action="{{ route('song-links.destroy', $link) }}" method="POST">
+                                            {{ csrf_field() }}
+                                            {{ method_field('DELETE') }}
+                                            <button type="submit"
+                                                    onclick="return confirm('This deletes the link {{ $link->text }}')"
+                                                    class="button button-small button-icon button-flat button-default tooltip"
+                                                    title="Delete link {{ $link->text }}">
+                                                 <span class="fa fa-trash"></span>
+                                            </button>
+                                        </form>
+                                    </span>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
                 <div class="block text-right">
                     <a class="button button-flat button-default" href="{{ route('songs.index', $song->band) }}">Back to song list</a>
                 </div>
