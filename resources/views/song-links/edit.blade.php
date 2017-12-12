@@ -49,7 +49,7 @@
                     </div>
                     <div class="clearfix"></div>
                     <div class="row">
-                        <div class="input-group col-sm-4">
+                        <div class="input-group col-sm-10">
                             <input type="text" name="url" id="url" value="{{ $songLink->url }}" placeholder="https://www.flowgig.com"/>
                             <label for="url">URL</label>
                         </div>
