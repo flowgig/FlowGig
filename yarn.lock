@@ -5397,8 +5397,8 @@ qs@~6.4.0:
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.4.0.tgz#13e26d28ad6b0ffaa91312cd3bf708ed351e7233"
 
 quark-gui@^0.7.0:
-  version "0.7.30"
-  resolved "https://registry.yarnpkg.com/quark-gui/-/quark-gui-0.7.30.tgz#f1fb19b75cc06c00902d46e64866ce8b6ba7a846"
+  version "0.7.31"
+  resolved "https://registry.yarnpkg.com/quark-gui/-/quark-gui-0.7.31.tgz#63e5b17125f73e12b9a24d9ce6ef5c6bde880e4c"
   dependencies:
     axios "^0.17.1"
     dragula "^3.7.2"
