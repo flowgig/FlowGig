@@ -47,4 +47,16 @@ class SongPolicy
     {
         return $song->band->hasMember($user);
     }
+
+    /**
+     * Determine whether the user can add links to the song.
+     *
+     * @param  User $user
+     * @param  Song $song
+     * @return mixed
+     */
+    public function createSongLinks(User $user, Song $song)
+    {
+        return $song->band->hasMember($user);
+    }
 }
