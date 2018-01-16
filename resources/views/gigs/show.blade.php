@@ -121,8 +121,13 @@
                                                                     class="setlist-template" disabled>
                                                                 @foreach($gig->band->gigsWithSetlist as $gigWithSetlist)
                                                                     <option value="{{ $gigWithSetlist->id }}">
-                                                                        {{ $gigWithSetlist->name }},
-                                                                        {{ $gigWithSetlist->date->toDateString() }}
+                                                                        {{ $gigWithSetlist->name }}<!--
+                                                                        @if($gigWithSetlist->date)
+                                                                        {{-- The html comment prevents space before the comma --}}
+                                                                        -->, {{ $gigWithSetlist->date->toDateString() }}
+                                                                        @else
+                                                                        -->
+                                                                        @endif
                                                                     </option>
                                                                 @endforeach
                                                             </select>
