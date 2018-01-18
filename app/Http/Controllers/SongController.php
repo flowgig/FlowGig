@@ -72,11 +72,11 @@ class SongController extends Controller
             'intensity' => 'nullable|numeric|min:0|max:10',
         ]);
 
-        SongService::create($request->all(), $band, Auth::user());
+        $song = SongService::create($request->all(), $band, Auth::user());
 
         // TODO: Flash song stored
 
-        return redirect()->route('songs.index', $band);
+        return redirect()->route('songs.show', $song);
     }
 
     /**

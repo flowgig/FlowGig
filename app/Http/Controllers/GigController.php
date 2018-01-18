@@ -77,7 +77,7 @@ class GigController extends Controller
 
         // TODO: Flash setlist stored
 
-        return redirect()->route('gigs.index', $gig->band);
+        return redirect()->route('gigs.show', $gig);
     }
 
     /**

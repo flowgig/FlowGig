@@ -56,7 +56,7 @@ class SetlistController extends Controller
 
         // TODO: Flash setlist created
 
-        return redirect()->route('gigs.show', $gig);
+        return redirect()->route('setlists.show', $newSetlist);
     }
 
     /**
