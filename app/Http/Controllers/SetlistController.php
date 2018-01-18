@@ -39,7 +39,7 @@ class SetlistController extends Controller
         $newSetlist->save();
 
         $sourceGigId = $request->input('sourceGigId');
-        if($sourceGigId != "new") // TODO: Improve check
+        if($sourceGigId != null)
         {
             $sourceSetlist = $gig->band->gigs->find($sourceGigId)->setlist;
 

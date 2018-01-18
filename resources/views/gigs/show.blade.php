@@ -98,7 +98,7 @@
                                                         <div class="input-group col-sm-12">
                                                             <input id="setlist-new-{{ $gig->id }}"
                                                                    name="sourceGigId" type="radio"
-                                                                   value="new"
+                                                                   value=""
                                                                    data-disable-list="true"
                                                                    data-gig-id="{{ $gig->id }}"
                                                                    checked="checked"/>
