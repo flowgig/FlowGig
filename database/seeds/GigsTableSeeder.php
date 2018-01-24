@@ -22,6 +22,7 @@ class GigsTableSeeder extends Seeder
             'date' => Carbon::now()->addYear(),
             'venue' => 'Tina\'s garden',
             'location' => 'Nashville',
+            'description' => 'Barbecue and Jam! Just bring your instrument :-)',
             'confirmed' => true,
             'public' => false,
         ]);

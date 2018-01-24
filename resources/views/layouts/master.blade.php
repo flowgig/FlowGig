@@ -44,6 +44,29 @@
             margin-top: 22px;
             display: inline-block;
         }
+        textarea {
+            width: 100%;
+            max-height: 300px;
+            resize: none;
+            padding: 5px 0 5px 8px;
+            outline: none;
+            border: none;
+            border-bottom: 2px solid #eee;
+            transition: border .2s;
+            overflow-x: hidden;
+            overflow-y: scroll;
+            overflow-wrap: break-word;
+            font-family: inherit;
+            color: black;
+        }
+        textarea:focus {
+            outline: none !important;
+            border-bottom: 2px solid #c32a22;
+        }
+        .textarea-label {
+            margin-left: 8px;
+            color: #777
+        }
     </style>
     <!-- Piwik -->
     <script type="text/javascript">

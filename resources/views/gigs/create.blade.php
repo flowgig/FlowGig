@@ -39,6 +39,10 @@
                             <input type="text" name="name" id="name" value="{{ old('name') }}"/>
                             <label for="name">Name</label>
                         </div>
+                        <div class="input-group col-sm-4">
+                            <input type="text" name="date" id="date" value="{{ old('date') }}"/>
+                            <label for="date">Date</label>
+                        </div>
                     </div>
                     <div class="row">
                         <div class="input-group col-sm-4">
@@ -51,9 +55,9 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="input-group col-sm-4">
-                            <input type="text" name="date" id="date" value="{{ old('date') }}"/>
-                            <label for="date">Date</label>
+                        <div class="input-group col-sm-12">
+                            <label for="description" class="textarea-label">Description:</label>
+                            <textarea name="description" id="description">{{ old('description') }}</textarea>
                         </div>
                     </div>
                     <div class="input-group">
@@ -123,4 +127,8 @@
         });
     </script>
 
+    <script src="/js/autosize.min.js"></script>
+    <script>
+        autosize(document.getElementById('description'));
+    </script>
 @endsection
