@@ -62,9 +62,9 @@ class GigController extends Controller
 
         $this->validate($request, [
             'name' => 'required|string|max:80',
+            'date' => 'nullable|date_format:Y-m-d',
             'venue' => 'nullable|string|max:80',
             'location' => 'nullable|string|max:80',
-            'date' => 'nullable|date_format:Y-m-d',
             'description' => 'nullable|string',
         ]);
 
@@ -76,7 +76,7 @@ class GigController extends Controller
         $gig->public = $request->public ? true : false;
         $gig->save();
 
-        // TODO: Flash setlist stored
+        // TODO: Flash gig stored
 
         return redirect()->route('gigs.show', $gig);
     }
@@ -120,9 +120,9 @@ class GigController extends Controller
 
         $this->validate($request, [
             'name' => 'required|string|max:80',
+            'date' => 'nullable|date_format:Y-m-d',
             'venue' => 'nullable|string|max:80',
             'location' => 'nullable|string|max:80',
-            'date' => 'nullable|date_format:Y-m-d',
             'description' => 'nullable|string',
         ]);
 
