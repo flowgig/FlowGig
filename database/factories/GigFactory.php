@@ -37,6 +37,7 @@ $factory->define(App\Gig::class, function (Faker $faker) {
         'date' => $faker->dateTime,
         'venue' => $faker->streetName . ' ' . $faker->randomElement($streetNameVenueSuffix),
         'location' => $faker->city,
+        'description' => $faker->paragraphs($faker->numberBetween(0, 5), true),
         'confirmed' => $faker->randomElement([true,false]),
         'public' => $faker->randomElement([true,false]),
     ];

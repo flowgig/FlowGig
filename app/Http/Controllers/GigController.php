@@ -65,6 +65,7 @@ class GigController extends Controller
             'venue' => 'nullable|string|max:80',
             'location' => 'nullable|string|max:80',
             'date' => 'nullable|date_format:Y-m-d',
+            'description' => 'nullable|string',
         ]);
 
         $gig = new Gig();
@@ -77,7 +78,7 @@ class GigController extends Controller
 
         // TODO: Flash setlist stored
 
-        return redirect()->route('gigs.index', $gig->band);
+        return redirect()->route('gigs.show', $gig);
     }
 
     /**
@@ -122,6 +123,7 @@ class GigController extends Controller
             'venue' => 'nullable|string|max:80',
             'location' => 'nullable|string|max:80',
             'date' => 'nullable|date_format:Y-m-d',
+            'description' => 'nullable|string',
         ]);
 
         $gig->fill($request->all());

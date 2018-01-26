@@ -39,7 +39,7 @@ class SetlistController extends Controller
         $newSetlist->save();
 
         $sourceGigId = $request->input('sourceGigId');
-        if($sourceGigId != "new") // TODO: Improve check
+        if($sourceGigId != null)
         {
             $sourceSetlist = $gig->band->gigs->find($sourceGigId)->setlist;
 
@@ -56,7 +56,7 @@ class SetlistController extends Controller
 
         // TODO: Flash setlist created
 
-        return redirect()->route('gigs.show', $gig);
+        return redirect()->route('setlists.show', $newSetlist);
     }
 
     /**

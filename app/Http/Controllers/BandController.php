@@ -53,11 +53,11 @@ class BandController extends Controller
             'name' => 'required|string|max:80',
         ]);
 
-        BandService::create($request->input('name'), Auth::user());
+        $band = BandService::create($request->input('name'), Auth::user());
 
         // TODO: Flash band stored
 
-        return redirect()->route('bands.index');
+        return redirect()->route('bands.show', $band);
     }
 
     /**
