@@ -61,12 +61,12 @@
                         </div>
                     </div>
                     <div class="input-group">
-                        <input name="confirmed" id="confirmed" type="checkbox"/>
+                        <input name="confirmed" id="confirmed" type="checkbox" {{ old('confirmed') ? 'checked' : '' }}/>
                         <label for="confirmed" class="input-field-height">Confirmed</label>
                     </div>
                     <div class="row">
                         <div class="input-group col-sm-4">
-                            <input name="public" id="public" type="checkbox"/>
+                            <input name="public" id="public" type="checkbox" {{ old('public') ? 'checked' : '' }}/>
                             <label for="public" class="input-field-height">Public</label>
                         </div>
                         <div class="input-group col-sm-4">
