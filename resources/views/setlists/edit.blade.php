@@ -2,32 +2,14 @@
 @section('title', 'Setlist - ' . $setlist->gig->name)
 @section('navbar-title', $setlist->gig->name)
 @section('actionbar')
-    <div class="action-button">
-        <i class="icon fa fa-cogs" title="Setlist actions"></i>
-    </div>
-    <div class="action-menu" id="action-menu">
-        <button class="toggle-action-button toggle-modal tooltip" data-type="radio" title="Add song from repertoire"
-                value="repertoire-modal">
-            <span class="icon fa fa-list">
-            </span>
-        </button>
-        Repertoire
-        <button class="toggle-action-button toggle-modal tooltip" data-type="radio" title="Create PDF from setlist"
-                value="export-setlist-modal">
-                <span class="icon fa fa-file-pdf-o">
-                </span>
-        </button>
-        Create PDF
-    </div>
-    <div id="repertoire" class="modal repertoire-modal">
+    <div id="repertoire" class="modal">
         <div class="modal-container">
             <div class="modal-header">
                 Repertoire:
-                <button class="modal-close toggle-modal"
+                <button onclick="hideRepertoireModal()" class="modal-close toggle-modal"
                         value="repertoire-modal"></button>
             </div>
             <div class="modal-content">
-
                 <ul class="list">
                     <li v-for="song in repertoire">
                         <song v-bind:song="song"></song>
@@ -81,6 +63,8 @@
                     <p style="font-size: large">{{ $setlist->gig->date }}
                         at {{ $setlist->gig->venue }}, {{ $setlist->gig->location }}
                     </p>
+
+
                     <div class="block text-right">
                         <small style="color: red">Changes are auto-saved</small>
                         <a class="button button-flat button-default" href="{{ route('setlists.show', $setlist) }}">
@@ -99,6 +83,21 @@
                         </ul>
                     </div>
                     <small>@{{ setlistSongs.length }} songs</small>
+                    <div class="float-right">
+                        <button onclick="showExportSetlistModal()" class="tooltip button button-flat button-default"
+                                title="Create PDF from setlist">
+                                <span class="icon fa fa-file-pdf-o">
+                                </span>
+                            Create PDF
+                        </button>
+                        <button onclick="showRepertoireModal()" class="tooltip button button-flat button-primary"
+                                title="Add song from repertoire">
+                                <span class="icon fa fa-list">
+                                </span>
+                            Add song
+                        </button>
+                    </div>
+
                     <div style="margin-top: 10px; visibility: hidden; ">dirty spacer</div>
                     @include('meta.user-timestamps', ['model' => $setlist])
                     <div class="block text-right">
@@ -193,7 +192,6 @@
 
 @section('scripts')
     <script>
-
         Vue.directive('sortable', {
             twoWay: true,
             deep: true,
@@ -342,14 +340,14 @@
             }
         });
         var musicalKeys =
-                [
-                    'C', 'D', 'E', 'F', 'G', 'A', 'H',
-                    'Cm', 'Dm', 'Em', 'Fm', 'Gm', 'Am', 'Hm',
-                    'C\u266F', 'D\u266F', 'E\u266F', 'F\u266F', 'G\u266F', 'A\u266F', 'H\u266F',
-                    'C\u266Fm', 'D\u266Fm', 'E\u266Fm', 'F\u266Fm', 'G\u266Fm', 'A\u266Fm', 'H\u266Fm',
-                    'C\u266D', 'D\u266D', 'E\u266D', 'F\u266D', 'G\u266D', 'A\u266D', 'H\u266D',
-                    'C\u266Dm', 'D\u266Dm', 'E\u266Dm', 'F\u266Dm', 'G\u266Dm', 'A\u266Dm', 'H\u266Dm'
-                ];
+            [
+                'C', 'D', 'E', 'F', 'G', 'A', 'H',
+                'Cm', 'Dm', 'Em', 'Fm', 'Gm', 'Am', 'Hm',
+                'C\u266F', 'D\u266F', 'E\u266F', 'F\u266F', 'G\u266F', 'A\u266F', 'H\u266F',
+                'C\u266Fm', 'D\u266Fm', 'E\u266Fm', 'F\u266Fm', 'G\u266Fm', 'A\u266Fm', 'H\u266Fm',
+                'C\u266D', 'D\u266D', 'E\u266D', 'F\u266D', 'G\u266D', 'A\u266D', 'H\u266D',
+                'C\u266Dm', 'D\u266Dm', 'E\u266Dm', 'F\u266Dm', 'G\u266Dm', 'A\u266Dm', 'H\u266Dm'
+            ];
     </script>
 
 @endsection

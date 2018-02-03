@@ -113,6 +113,22 @@
         $(this).removeClass("is-not-empty");
         if ($(this).val() !== "") $(this).addClass("is-not-empty");
     });
+
+    function showRepertoireModal() {
+        document.getElementById("repertoire").style.display = "block";
+    }
+
+    function hideRepertoireModal() {
+        document.getElementById("repertoire").style.display = "none";
+    }
+
+    function showExportSetlistModal() {
+        document.getElementById("export-setlist").style.display = "block";
+    }
+
+    function hideExportSetlistModal() {
+        document.getElementById("export-setlist").style.display = "none";
+    }
 </script>
 </body>
 </html>

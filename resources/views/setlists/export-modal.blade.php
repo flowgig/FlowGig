@@ -1,9 +1,8 @@
-<div class="modal export-setlist-modal">
+<div id="export-setlist" class="modal">
     <div class="modal-container">
         <div class="modal-header">
             Export setlist as PDF
-            <button class="modal-close toggle-modal"
-                    value="export-setlist-modal"></button>
+            <button onclick="hideExportSetlistModal()" class="modal-close toggle-modal"></button>
         </div>
         <div class="modal-content">
             <p><b>Included song information:</b></p>

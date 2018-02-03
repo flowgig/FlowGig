@@ -2,17 +2,6 @@
 @section('title', 'Setlist - ' . $setlist->gig->name)
 @section('navbar-title', $setlist->gig->name)
 @section('actionbar')
-    <div class="action-button">
-        <i class="icon fa fa-cogs" title="Setlist actions"></i>
-    </div>
-    <div class="action-menu" id="action-menu">
-        <button class="toggle-action-button toggle-modal tooltip" data-type="radio" title="Create PDF from setlist"
-                value="export-setlist-modal">
-                <span class="icon fa fa-file-pdf-o">
-                </span>
-        </button>
-        Create PDF
-    </div>
     @include('setlists.export-modal')
 @endsection
 @section('content')
@@ -83,6 +72,14 @@
                 </ul>
                 </div>
                 <small>{{ $setlist->setlistSongs->count() }} songs</small>
+                <div class="float-right">
+                    <button onclick="showExportSetlistModal()" class="tooltip button button-flat button-default"
+                            title="Create PDF from setlist">
+                                <span class="icon fa fa-file-pdf-o">
+                                </span>
+                        Create PDF
+                    </button>
+                </div>
                 <div style="margin-top: 10px; visibility: hidden; ">dirty spacer</div>
                 @include('meta.user-timestamps', ['model' => $setlist])
                 <div class="block text-right">
