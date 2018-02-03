@@ -1,5 +1,5 @@
 <nav class="navbar navbar-dark z-2">
-    <a class="sidenav-toggle"><i class="sidenav-toggle-logo fa fa-bars"></i></a>
+    <span style="display: inline-block; width: 15px;"></span>
     <a class="logo" href="{{ route('dashboard') }}">
         <img src="/images/svg/flowgig-beta-logo-white.svg" alt="FlowGig beta logo">
     </a>
@@ -83,32 +83,3 @@
         </ul>
     </div>
 </nav>
-<div class="left-menu no-padding">
-    <div>
-        <div class="sidenav-logo">
-            <a class="sidenav-toggle">
-                <img src="/images/svg/flowgig-logo-black.svg" alt="FlowGig logo">
-                <i class="fa fa-angle-left float-right"></i>
-                <span class="clearfix"></span>
-            </a>
-        </div>
-        @if($currentBand)
-            <span class="hide-small hide-medium hide-big list-title">{{ $currentBand->name }} <a
-                        href="{{ route('bands.index') }}"
-                        class="float-right">Change band</a></span>
-            <ul class="hide-small hide-medium hide-big">
-                <li><a href="{{ route('songs.index', $currentBand) }}"><span class="icon fa fa-music"></span> Songs</a>
-                </li>
-                <li><a href="{{ route('gigs.index', $currentBand) }}"><span class="icon fa fa-calendar"></span> Gigs</a>
-                </li>
-            </ul>
-        @endif
-
-        <span class="hide-small hide-medium hide-big list-title">FlowGig</span>
-        <ul class="">
-            <li><a href="/dashboard"><span class="icon fa fa-info-circle"></span> About</a></li>
-            <li><a href="/dashboard"><span class="icon fa fa-code"></span> Developers</a></li>
-            <li><a href="#"><span class="icon fa fa-comment"></span> Send feedback</a></li>
-        </ul>
-    </div>
-</div>
