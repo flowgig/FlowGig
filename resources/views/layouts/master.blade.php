@@ -51,14 +51,38 @@
             font-family: inherit;
             color: black;
         }
+
         textarea:focus {
             outline: none !important;
             border-bottom: 2px solid #c32a22;
         }
+
         .textarea-label {
             margin-left: 8px;
             color: #777
         }
+
+        .modal .modal-header {
+            position: fixed;
+            width: 100%;
+            display: block;
+            box-shadow: none;
+            padding: 8px 16px;
+            background-color: #f4f5f6;
+            margin: -16px;
+        }
+
+        @media only screen and (min-width: 1160px) {
+            .modal .modal-header {
+                max-width: 870px;
+                margin: 0;
+            }
+        }
+
+        .modal .modal-content {
+            padding-top: 48px;
+        }
+
     </style>
     <!-- Piwik -->
     <script type="text/javascript">

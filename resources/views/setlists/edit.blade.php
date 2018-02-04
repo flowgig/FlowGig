@@ -2,33 +2,14 @@
 @section('title', 'Setlist - ' . $setlist->gig->name)
 @section('navbar-title', $setlist->gig->name)
 @section('actionbar')
-    <div class="action-button">
-        <i class="icon fa fa-cogs" title="Setlist actions"></i>
-    </div>
-    <div class="action-menu" id="action-menu">
-        <button class="toggle-action-button toggle-modal tooltip" data-type="radio" title="Add song from repertoire"
-                value="repertoire-modal">
-            <span class="icon fa fa-list">
-            </span>
-        </button>
-        Repertoire
-        <button class="toggle-action-button toggle-modal tooltip" data-type="radio" title="Create PDF from setlist"
-                value="export-setlist-modal">
-                <span class="icon fa fa-file-pdf-o">
-                </span>
-        </button>
-        Create PDF
-    </div>
-    {{--
-    <div id="repertoire" class="modal repertoire-modal">
+    <div id="repertoire" class="modal">
         <div class="modal-container">
             <div class="modal-header">
                 Repertoire:
-                <button class="modal-close toggle-modal"
+                <button onclick="hideRepertoireModal()" class="modal-close toggle-modal"
                         value="repertoire-modal"></button>
             </div>
             <div class="modal-content">
-
                 <ul class="list">
                     <li v-for="song in repertoire">
                         <song v-bind:song="song"></song>
