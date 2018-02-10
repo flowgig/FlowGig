@@ -147,5 +147,6 @@
     <script src="/js/autosize.min.js"></script>
     <script>
         autosize(document.getElementById('description'));
+        autosize(document.getElementById('internal-info'));
     </script>
 @endsection
