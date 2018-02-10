@@ -48,6 +48,7 @@
                             </li>
                             <li><b>Confirmed: </b>{{ $gig->confirmed ? 'Yes' : 'No' }}</li>
                             <li><b>Public: </b>{{ $gig->public ? 'Yes' : 'No' }}</li>
+                            <li><b>Public name: </b>{{ $gig->public_name }}</li>
                         </ul>
                         @include('meta.user-timestamps', ['model' => $gig])
                         <br /><br />

@@ -70,7 +70,11 @@
                             <label for="public" class="input-field-height">Public</label>
                         </div>
                         <div class="input-group col-sm-4">
-                            <div id="publicInfo">
+                            <input name="public-name" id="public-name" type="text"/>
+                            <label for="public-name">Public name</label>
+                        </div>
+                        <div class="input-group col-sm-4">
+                            <div id="public-info">
                                 <small>
                                     <b>NB!</b> Setting the gig to <i>Public</i> means that the
                                     information entered on this page is made available to anyone.
@@ -108,22 +112,48 @@
             $("#api-info").tooltip();
 
             togglePublicFields($("#public").is(':checked'));
+            updatePublicNameFieldState();
         });
 
         function showPublicFields() {
-            $("#publicInfo").show();
+            $("#public-name").prop('disabled', false);
+            $("#public-info").show();
         }
 
         function hidePublicFields() {
-            $("#publicInfo").hide();
+            $("#public-name").prop('disabled', true);
+            $("#public-info").hide();
         }
 
         function togglePublicFields(show) {
             show ? showPublicFields() : hidePublicFields();
         }
 
+        function setPublicNameFieldValue(value) {
+            value ? $("#public-name").addClass('is-not-empty') : $("#public-name").removeClass('is-not-empty');
+            $("#public-name").val(value);
+        }
+
+        function setPublicNameFieldState(changed) {
+            changed ? $("#public-name").addClass('changed') : $("#public-name").removeClass('changed');
+        }
+
+        function updatePublicNameFieldState() {
+            var publicNameIsChanged = $("#name").val() !== $("#public-name").val() && $("#public-name").val();
+            if (publicNameIsChanged) setPublicNameFieldState(true);
+        }
+
         $("#public").change(function () {
             togglePublicFields(this.checked);
+        });
+
+        $("#name").keyup(function () {
+            var publicNameChanged = $("#public-name").hasClass('changed');
+            if (!publicNameChanged) setPublicNameFieldValue($(this).val());
+        });
+
+        $("#public-name").keyup(function () {
+            setPublicNameFieldState(true);
         });
     </script>
 

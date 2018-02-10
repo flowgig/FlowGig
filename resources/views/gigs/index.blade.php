@@ -44,6 +44,9 @@
                                     <span class="inline">
                                         <small>
                                             public
+                                            @if($gig->public_name && $gig->public_name != $gig->name)
+                                                as <b>{{ $gig->public_name }}</b>
+                                            @endif
                                         </small>
                                     </span>
                                 @endif

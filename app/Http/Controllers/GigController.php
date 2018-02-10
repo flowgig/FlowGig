@@ -66,6 +66,9 @@ class GigController extends Controller
             'venue' => 'nullable|string|max:80',
             'location' => 'nullable|string|max:80',
             'description' => 'nullable|string',
+            'public_name' => 'required_with:public',
+        ], [
+            'required_with' => 'A public name is required when the gig is made public'
         ]);
 
         $gig = new Gig();
@@ -124,6 +127,9 @@ class GigController extends Controller
             'venue' => 'nullable|string|max:80',
             'location' => 'nullable|string|max:80',
             'description' => 'nullable|string',
+            'public_name' => 'nullable|required_with:public',
+        ], [
+            'required_with' => 'A public name is required when the gig is made public'
         ]);
 
         $gig->fill($request->all());
