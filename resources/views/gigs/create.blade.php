@@ -60,6 +60,12 @@
                             <textarea name="description" id="description">{{ old('description') }}</textarea>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="input-group col-sm-12">
+                            <label for="internal-info" class="textarea-label">Internal info:</label>
+                            <textarea name="internal_info" id="internal-info">{{ old('internal_info') }}</textarea>
+                        </div>
+                    </div>
                     <div class="input-group">
                         <input name="confirmed" id="confirmed" type="checkbox" {{ old('confirmed') ? 'checked' : '' }}/>
                         <label for="confirmed" class="input-field-height">Confirmed</label>
@@ -73,7 +79,7 @@
                             <div id="publicInfo">
                                 <small>
                                     <b>NB!</b> Setting the gig to <i>Public</i> means that the
-                                    information entered on this page is made available to anyone.
+                                    information entered on this page, except <i>Internal information</i>, is made available to anyone.
                                     <a id="api-info" title="In a future version og FlowGig, public gigs might be exposed
                                     through an open API i.e. to be shown as a concert list on a web page.">More ...</a>
                                 </small>

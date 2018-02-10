@@ -46,6 +46,9 @@
                             <li><b>Description: </b>
                                 <p style="padding-top: 10px; white-space: pre-wrap;">{{ $gig->description }}</p>
                             </li>
+                            <li><b>Internal information: </b>
+                                <p style="padding-top: 10px; white-space: pre-wrap;">{{ $gig->internal_info }}</p>
+                            </li>
                             <li><b>Confirmed: </b>{{ $gig->confirmed ? 'Yes' : 'No' }}</li>
                             <li><b>Public: </b>{{ $gig->public ? 'Yes' : 'No' }}</li>
                         </ul>

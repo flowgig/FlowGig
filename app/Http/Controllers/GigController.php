@@ -66,6 +66,7 @@ class GigController extends Controller
             'venue' => 'nullable|string|max:80',
             'location' => 'nullable|string|max:80',
             'description' => 'nullable|string',
+            'internal_info' => 'nullable|string',
         ]);
 
         $gig = new Gig();
@@ -124,6 +125,7 @@ class GigController extends Controller
             'venue' => 'nullable|string|max:80',
             'location' => 'nullable|string|max:80',
             'description' => 'nullable|string',
+            'internal_info' => 'nullable|string',
         ]);
 
         $gig->fill($request->all());
