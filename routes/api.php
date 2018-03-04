@@ -1,5 +1,7 @@
 <?php
 
+use App\Band;
+use App\Http\Resources\Gig as GigResource;
 use Illuminate\Http\Request;
 
 /*
@@ -15,4 +17,10 @@ use Illuminate\Http\Request;
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+// Public gigs for a given band
+
+Route::middleware('cors')->get('bands/{band}/gigs', function (Band $band) {
+    return GigResource::collection($band->publicGigs());
 });

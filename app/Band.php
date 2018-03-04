@@ -72,6 +72,14 @@ class Band extends Model
     }
 
     /**
+     * Get the public gigs for the band.
+     */
+    public function publicGigs()
+    {
+        return $this->gigs()->public()->get();
+    }
+
+    /**
      * Determine whether the given user is a member in the band.
      * @param User $user
      * @return bool

@@ -36,6 +36,17 @@ class Gig extends Model
     }
 
     /**
+     * Scope a query to only include public gigs.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopePublic($query)
+    {
+        return $query->wherePublic(true);
+    }
+
+    /**
      * Get the formatted date for the gig if any
      *
      * @return mixed
