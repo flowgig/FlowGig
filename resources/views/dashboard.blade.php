@@ -1,6 +1,5 @@
 @extends('layouts.master')
 @section('title', 'Dashboard')
-@section('navbar-title', 'Dashboard')
 @section('content')
     <div class="content">
         <div class="box">

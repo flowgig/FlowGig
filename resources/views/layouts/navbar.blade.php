@@ -4,7 +4,6 @@
         <img src="/images/svg/flowgig-beta-logo-white.svg" alt="FlowGig beta logo">
     </a>
     <span class="menu-divider hide-xsmall"></span>
-<!--  <span class="hide-xsmall navbar-page-title">@yield('navbar-title')</span> -->
     @if($currentBand)
         <div class="hide-xsmall main-menu-band inline">
             <ul class="dropdown-container">

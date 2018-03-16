@@ -1,6 +1,5 @@
 @extends('layouts.master')
 @section('title', 'Edit account - ' . $user->name)
-@section('navbar-title', $user->name)
 @section('content')
     <div class="content">
         <div class="box">

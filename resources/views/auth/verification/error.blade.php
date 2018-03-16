@@ -1,6 +1,5 @@
 @extends('layouts.master')
 @section('title', 'Verification error')
-@section('navbar-title', 'Verification error')
 @section('content')
     <div class="content">
         <div class="box">

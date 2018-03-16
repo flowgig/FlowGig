@@ -1,6 +1,5 @@
 @extends('layouts.master', ['currentBand' => $band])
 @section('title', 'Invite new member')
-@section('navbar-title', 'Invite new member')
 @section('content')
     <div class="content">
         <div class="box">

@@ -1,6 +1,5 @@
 @extends('layouts.master', ['currentBand' => $gig->band])
 @section('title', 'Gig - ' . $gig->name)
-@section('navbar-title', $gig->name)
 @section('content')
     <div class="content">
         <div class="box">
