@@ -10,7 +10,7 @@
             </div>
             <div class="input-group">
                 <input id="email" type="email" name="email" value="{{ old('email') }}" required autofocus/>
-                <label for="email">E-Mail Address</label>
+                <label for="email">E-mail address</label>
                 @if ($errors->has('email'))
                     {{ $errors->first('email') }}
                 @endif
@@ -24,11 +24,11 @@
             </div>
             <div class="input-group">
                 <input type="checkbox" name="remember" id="remember">
-                <label for="remember">Remember Me</label>
+                <label for="remember">Remember me</label>
                 <button type="submit" class="button button-flat button-primary float-right">Login</button>
             </div>
             <div class="input-group text-center">
-                <a href="{{ url('/password/reset') }}">Forgot Your Password?</a>
+                <a href="{{ url('/password/reset') }}">Forgot your password?</a>
             </div>
         </form>
     </div>
