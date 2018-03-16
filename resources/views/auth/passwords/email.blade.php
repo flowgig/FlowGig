@@ -1,6 +1,6 @@
 @extends('layouts.noauth')
 
-@section('title', 'Reset Password')
+@section('title', 'Reset password')
 @section('content')
 
     @if (session('status'))

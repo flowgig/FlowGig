@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'Create new band')
+@section('title', 'New band')
 @section('content')
     <div class="content">
         <div class="box">

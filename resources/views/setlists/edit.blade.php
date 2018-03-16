@@ -1,5 +1,5 @@
 @extends('layouts.master', ['currentBand' => $setlist->gig->band])
-@section('title', 'Setlist - ' . $setlist->gig->name)
+@section('title', 'Edit setlist - ' . $setlist->gig->name)
 @section('actionbar')
     <div id="repertoire" class="modal">
         <div class="modal-container">

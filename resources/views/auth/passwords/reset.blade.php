@@ -1,6 +1,6 @@
 @extends('layouts.noauth')
 
-@section('title', 'Reset Password')
+@section('title', 'Reset password')
 @section('content')
     <div class="content">
         <form method="POST" action="{{ url('/password/reset') }}">

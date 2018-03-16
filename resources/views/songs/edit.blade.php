@@ -1,5 +1,5 @@
 @extends('layouts.master', ['currentBand' => $song->band])
-@section('title', $song->title . ' - Edit')
+@section('title', 'Edit song - ' . $song->title)
 @section('content')
     <div class="content">
         <div class="box">

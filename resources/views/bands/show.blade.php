@@ -1,5 +1,5 @@
 @extends('layouts.master', ['currentBand' => $band])
-@section('title', 'Setlist - ' . $band->name)
+@section('title', 'Band - ' . $band->name)
 @section('content')
     <div class="content">
         <div class="box">
