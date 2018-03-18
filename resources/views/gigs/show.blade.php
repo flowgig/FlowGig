@@ -124,7 +124,7 @@
                                                         <div class="input-group col-lg-9 col-md-10 col-sm-9">
                                                             <select id="setlist-template-{{ $gig->id }}"
                                                                     class="setlist-template" disabled>
-                                                                @foreach($gig->band->gigsWithSetlist as $gigWithSetlist)
+                                                                @foreach($gig->band->gigsWithSetlist()->orderByDesc('date')->get() as $gigWithSetlist)
                                                                     <option value="{{ $gigWithSetlist->id }}">
                                                                         {{ $gigWithSetlist->name }}<!--
                                                                         @if($gigWithSetlist->date)

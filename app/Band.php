@@ -68,7 +68,7 @@ class Band extends Model
      */
     public function gigsWithSetlist()
     {
-        return $this->gigs()->has('setlist')->orderBy('date', 'desc');
+        return $this->gigs()->has('setlist');
     }
 
     /**
@@ -76,7 +76,7 @@ class Band extends Model
      */
     public function publicGigs()
     {
-        return $this->gigs()->public()->get();
+        return $this->gigs()->public();
     }
 
     /**

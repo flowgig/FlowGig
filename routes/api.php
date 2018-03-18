@@ -22,5 +22,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 // Public gigs for a given band
 
 Route::middleware('cors')->get('bands/{band}/gigs', function (Band $band) {
-    return GigResource::collection($band->publicGigs());
+    return GigResource::collection($band->publicGigs()->orderBy('date')->get());
 });

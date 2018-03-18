@@ -30,7 +30,7 @@
                     <a class="button button-flat button-primary" href="{{ route('gigs.create', $band) }}">New gig</a>
                 </div>
                 <ul class="list menu-list">
-                    @foreach($band->gigs->sortByDesc('date') as $gig)
+                    @foreach($band->gigs()->orderByDesc('date')->get() as $gig)
                         <li>
                             <span class="list-item-content">
                                 <a class="tooltip" title="Show {{ $gig->name }}" href="{{ route('gigs.show', $gig) }}">
