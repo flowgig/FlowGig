@@ -96,6 +96,7 @@
                     </div>
                     <div class="float-right">
                         <button onclick="showExportSetlistModal()" class="tooltip button button-flat button-default"
+                                v-show="setlistSongs.length > 0"
                                 title="Create PDF from setlist">
                                 <span class="icon fa fa-file-pdf-o">
                                 </span>
