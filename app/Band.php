@@ -76,7 +76,7 @@ class Band extends Model
      */
     public function publicGigs()
     {
-        return $this->gigs()->public()->get();
+        return $this->gigs()->public();
     }
 
     /**
