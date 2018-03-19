@@ -73,6 +73,17 @@
                             Back to gig
                         </a>
                     </div>
+                    <div style="margin-bottom: 10px; visibility: hidden; ">dirty spacer</div>
+                        <div class="float-right" >
+                            <button onclick="showRepertoireModal()" class="tooltip button button-flat button-primary"
+                                    v-show="setlistSongs.length > 0"
+                                    title="Add song from repertoire">
+                                <span class="icon fa fa-list">
+                                </span>
+                                Add song
+                            </button>
+                        </div>
+                    <div style="margin: 25px 0 -15px 0">
                     <small>@{{ setlistSongs.length }} songs</small>
                     <div>
                         <ul v-sortable.li="setlistSongs" class="list sortable-list">
@@ -82,6 +93,7 @@
                         </ul>
                     </div>
                     <small>@{{ setlistSongs.length }} songs</small>
+                    </div>
                     <div class="float-right">
                         <button onclick="showExportSetlistModal()" class="tooltip button button-flat button-default"
                                 title="Create PDF from setlist">
@@ -97,7 +109,7 @@
                         </button>
                     </div>
 
-                    <div style="margin-top: 10px; visibility: hidden; ">dirty spacer</div>
+                    <div style="margin-top: 25px; visibility: hidden; ">dirty spacer</div>
                     @include('meta.user-timestamps', ['model' => $setlist])
                     <div class="block text-right">
                         <small style="color: red">Changes are auto-saved</small>
