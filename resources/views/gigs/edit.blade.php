@@ -84,13 +84,14 @@
                                @if(old('public', $gig->public)) checked @endif/>
                             <label for="public" class="input-field-height">Public</label>
                         </div>
-                        <div class="input-group col-sm-4">
-                            <div id="publicInfo">
+                        <div class="input-group col-sm-5">
+                            <div id="publicInfo" style="border: 1px solid #C32A22; border-radius: 5px; padding: 5px">
                                 <small>
-                                    <b>NB!</b> Setting the gig to <i>Public</i> means that the
-                                    information entered on this page, except <i>Internal information</i>, is made available to anyone.
-                                    <a id="api-info" title="In a future version og FlowGig, public gigs might be exposed
-                                    through an open API i.e. to be shown as a concert list on a web page.">More ...</a>
+                                    <b>NB! The gig is made public.</b><i class="fa fa-exclamation-circle" style="float: right"></i>
+                                    <br />All information entered on this page, except
+                                    <i>Internal information</i>, is made available to anyone. Get all public gigs at the
+                                    <a href="{{ Request::root() }}/api/bands/{{ $gig->band->id }}/gigs" target="_blank">
+                                        FlowGig open gigs API</a>.
                                 </small>
                             </div>
                         </div>
@@ -139,6 +140,9 @@
         }
 
         $("#public").change(function () {
+            if (this.checked)
+                this.checked = confirm('NB! This makes all information entered on this page (except "Internal info") available to anyone.');
+
             togglePublicFields(this.checked);
         });
     </script>
