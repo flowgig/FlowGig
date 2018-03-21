@@ -72,15 +72,21 @@
                     <div class="row">
                         <div class="input-group col-sm-4">
                             <input name="public" id="public" type="checkbox" {{ old('public') ? 'checked' : '' }}/>
-                            <label for="public" class="input-field-height">Public</label>
+                            <label for="public" class="input-field-height">Public
+                                <small class="fa fa-info-circle" id="publicTooltip" title="Mark the gig as public to make it available in the open Gigs API"></small>
+                            </label>
                         </div>
                         <div class="input-group col-sm-4">
-                            <div id="publicInfo">
+                            <div id="publicInfo" style="width: 330px; border: 1px solid #C32A22; border-radius: 5px;
+                            padding: 5px; visibility: hidden">
                                 <small>
-                                    <b>NB!</b> Setting the gig to <i>Public</i> means that the
-                                    information entered on this page, except <i>Internal information</i>, is made available to anyone.
-                                    <a id="api-info" title="In a future version og FlowGig, public gigs might be exposed
-                                    through an open API i.e. to be shown as a concert list on a web page.">More ...</a>
+                                    <b>The gig is made public</b>
+                                    <i class="fa fa-exclamation-circle" style="float:right"></i><br/>
+                                    All information entered on this page, except in the field Internal information, is
+                                    made available to anyone.<br/><i>Fetch all public gigs for any band at the open
+                                        <a href="{{ Request::root() }}/api/bands/{{ $band->id }}/gigs"
+                                           target="_blank">Gigs API</a>
+                                    </i>
                                 </small>
                             </div>
                         </div>
@@ -110,25 +116,20 @@
             $("#date").datepicker({
                 dateFormat: "yy-mm-dd"
             });
-            $("#api-info").tooltip();
+            $("#publicTooltip").tooltip();
 
-            togglePublicFields($("#public").is(':checked'));
+            if($("#public").is(':checked'))
+                $("#publicInfo").css("visibility", "visible");
         });
 
-        function showPublicFields() {
-            $("#publicInfo").show();
-        }
-
-        function hidePublicFields() {
-            $("#publicInfo").hide();
-        }
-
-        function togglePublicFields(show) {
-            show ? showPublicFields() : hidePublicFields();
-        }
-
         $("#public").change(function () {
-            togglePublicFields(this.checked);
+            if(this.checked)
+                this.checked = confirm('NB! This makes all information entered on this page (except in the field Internal information) available to anyone.');
+
+            if(this.checked)
+                $("#publicInfo").css('visibility', "visible");
+            else
+                $("#publicInfo").css("visibility", "hidden");
         });
     </script>
 

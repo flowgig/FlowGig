@@ -81,17 +81,23 @@
                     <div class="row">
                         <div class="input-group col-sm-4">
                             <input name="public" id="public" type="checkbox"
+                                   title="Make the gig public to expose it in the FlowGig open Gigs API"
                                @if(old('public', $gig->public)) checked @endif/>
-                            <label for="public" class="input-field-height">Public</label>
+                            <label for="public" class="input-field-height">Public
+                                <small class="fa fa-info-circle" id="publicTooltip" title="Mark the gig as public to make it available in the open Gigs API"></small>
+                            </label>
                         </div>
-                        <div class="input-group col-sm-5">
-                            <div id="publicInfo" style="border: 1px solid #C32A22; border-radius: 5px; padding: 5px">
+                        <div class="input-group col-sm-4">
+                            <div id="publicInfo" style="width: 330px; border: 1px solid #C32A22; border-radius: 5px;
+                            padding: 5px; visibility: hidden">
                                 <small>
-                                    <b>NB! The gig is made public.</b><i class="fa fa-exclamation-circle" style="float: right"></i>
-                                    <br />All information entered on this page, except
-                                    <i>Internal information</i>, is made available to anyone. Get all public gigs at the
-                                    <a href="{{ Request::root() }}/api/bands/{{ $gig->band->id }}/gigs" target="_blank">
-                                        FlowGig open gigs API</a>.
+                                    <b>The gig is made public</b>
+                                    <i class="fa fa-exclamation-circle" style="float:right"></i><br/>
+                                    All information entered on this page, except in the field Internal information, is
+                                    made available to anyone.<br/><i>Fetch all public gigs for any band at the open
+                                        <a href="{{ Request::root() }}/api/bands/{{ $gig->band->id }}/gigs"
+                                           target="_blank">Gigs API</a>
+                                    </i>
                                 </small>
                             </div>
                         </div>
@@ -122,28 +128,20 @@
             $("#date").datepicker({
                 dateFormat: "yy-mm-dd"
             });
-            $("#api-info").tooltip();
+            $("#publicTooltip").tooltip();
 
-            togglePublicFields($("#public").is(':checked'));
+            if($("#public").is(':checked'))
+                $("#publicInfo").css("visibility", "visible");
         });
 
-        function showPublicFields() {
-            $("#publicInfo").show();
-        }
-
-        function hidePublicFields() {
-            $("#publicInfo").hide();
-        }
-
-        function togglePublicFields(show) {
-            show ? showPublicFields() : hidePublicFields();
-        }
-
         $("#public").change(function () {
-            if (this.checked)
-                this.checked = confirm('NB! This makes all information entered on this page (except "Internal info") available to anyone.');
+            if(this.checked)
+                this.checked = confirm('NB! This makes all information entered on this page (except in the field Internal information) available to anyone.');
 
-            togglePublicFields(this.checked);
+            if(this.checked)
+                $("#publicInfo").css('visibility', "visible");
+            else
+                $("#publicInfo").css("visibility", "hidden");
         });
     </script>
 
