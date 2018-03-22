@@ -122,10 +122,10 @@
                 <div class="text-center">
                     <img src="/images/svg/flowgig-logo-black.svg" alt="FlowGig logo"
                          style="width: 150px; opacity: .4;"/>
-                    <p>FlowGig licensed under
+                    <p>FlowGig is licensed under the
                         <a href="https://github.com/flowgig/flowgig/blob/master/LICENSE">GNU General Public License</a>
                     </p>
-                    <small>{{ $flowGigVersion }}</small>
+                    <small>Version {{ $flowGigVersion }}</small>
                 </div>
             </div>
         </footer>
