@@ -1,6 +1,5 @@
 @extends('layouts.master')
 @section('title', 'Unauthorized')
-@section('navbar-title', 'Unauthorized')
 @section('content')
     <div class="content">
         <div class="box">

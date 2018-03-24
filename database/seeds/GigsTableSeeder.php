@@ -23,6 +23,7 @@ class GigsTableSeeder extends Seeder
             'venue' => 'Tina\'s garden',
             'location' => 'Nashville',
             'description' => 'Barbecue and Jam! Just bring your instrument :-)',
+            'internal_info' => 'John brings stage modules (thank you!)',
             'confirmed' => true,
             'public' => false,
         ]);

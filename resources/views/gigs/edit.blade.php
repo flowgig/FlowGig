@@ -1,6 +1,5 @@
 @extends('layouts.master', ['currentBand' => $gig->band])
-@section('title', $gig->name . ' - Edit')
-@section('navbar-title', $gig->name)
+@section('title', 'Edit gig - ' . $gig->name)
 @section('content')
     <div class="content">
         <breadcrumbs

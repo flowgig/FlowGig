@@ -21,7 +21,7 @@ class Gig extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'date', 'venue', 'location', 'description', 'confirmed', 'public'
+        'name', 'date', 'venue', 'location', 'description', 'internal_info', 'confirmed', 'public'
     ];
 
     /**
@@ -33,6 +33,17 @@ class Gig extends Model
     public function scopeUpcoming($query)
     {
         return $query->where('date', '>', Carbon::now()->subDay(1));
+    }
+
+    /**
+     * Scope a query to only include public gigs.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopePublic($query)
+    {
+        return $query->wherePublic(true);
     }
 
     /**

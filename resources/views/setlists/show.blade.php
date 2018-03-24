@@ -1,6 +1,5 @@
 @extends('layouts.master', ['currentBand' => $setlist->gig->band])
 @section('title', 'Setlist - ' . $setlist->gig->name)
-@section('navbar-title', $setlist->gig->name)
 @section('actionbar')
     @include('setlists.export-modal')
 @endsection
@@ -52,12 +51,14 @@
                 </div>
                 <small>{{ $setlist->setlistSongs->count() }} songs</small>
                 <div class="float-right">
+                    @if($setlist->setlistSongs->count() > 0)
                     <button onclick="showExportSetlistModal()" class="tooltip button button-flat button-default"
                             title="Create PDF from setlist">
                                 <span class="icon fa fa-file-pdf-o">
                                 </span>
                         Create PDF
                     </button>
+                    @endif
                 </div>
                 <div style="margin-top: 10px; visibility: hidden; ">dirty spacer</div>
                 @include('meta.user-timestamps', ['model' => $setlist])
