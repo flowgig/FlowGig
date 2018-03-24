@@ -354,12 +354,12 @@
         });
         var musicalKeys =
             [
-                'C', 'D', 'E', 'F', 'G', 'A', 'H',
-                'Cm', 'Dm', 'Em', 'Fm', 'Gm', 'Am', 'Hm',
-                'C\u266F', 'D\u266F', 'E\u266F', 'F\u266F', 'G\u266F', 'A\u266F', 'H\u266F',
-                'C\u266Fm', 'D\u266Fm', 'E\u266Fm', 'F\u266Fm', 'G\u266Fm', 'A\u266Fm', 'H\u266Fm',
-                'C\u266D', 'D\u266D', 'E\u266D', 'F\u266D', 'G\u266D', 'A\u266D', 'H\u266D',
-                'C\u266Dm', 'D\u266Dm', 'E\u266Dm', 'F\u266Dm', 'G\u266Dm', 'A\u266Dm', 'H\u266Dm'
+                'C', 'D', 'E', 'F', 'G', 'A', 'B',
+                'Cm', 'Dm', 'Em', 'Fm', 'Gm', 'Am', 'Bm',
+                'C\u266F', 'D\u266F', 'E\u266F', 'F\u266F', 'G\u266F', 'A\u266F', 'B\u266F',
+                'C\u266Fm', 'D\u266Fm', 'E\u266Fm', 'F\u266Fm', 'G\u266Fm', 'A\u266Fm', 'B\u266Fm',
+                'C\u266D', 'D\u266D', 'E\u266D', 'F\u266D', 'G\u266D', 'A\u266D', 'B\u266D',
+                'C\u266Dm', 'D\u266Dm', 'E\u266Dm', 'F\u266Dm', 'G\u266Dm', 'A\u266Dm', 'B\u266Dm'
             ];
     </script>
 
