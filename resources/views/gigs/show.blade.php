@@ -37,7 +37,7 @@
                 <div class="content-container raised">
                     <div class="content-container-header"><h2>Setlist</h2></div>
                     @if($gig->setlist)
-                        <setlists v-bind:list-items="{{ $gig->setlist }}" v-bind:gig="{{ $gig }}"></setlists>
+                        <setlists v-bind:list-items="{{ $gig->setlist->setlistSongs->sortBy('number_in_list') }}" v-bind:gig="{{ $gig }}"></setlists>
                     @else
                         <p>This gig has no setlist</p>
                     @endif
