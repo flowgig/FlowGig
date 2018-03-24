@@ -61,7 +61,7 @@
                     @foreach($setlist->setlistSongs->sortBy('number_in_list') as $setlistSong)
                     <li>
                         <span class="list-item-content single-line">
-                            {{ $setlistSong->song->title }}
+                            <a href="{{ route('songs.show', $setlistSong->song) }}">{{ $setlistSong->song->title }}</a>
                             @if($setlistSong->key)
                                 <span style="margin-left: 10px; font-size: .8em">{{ $setlistSong->key }}</span>
                             @endif

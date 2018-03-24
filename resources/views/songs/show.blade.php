@@ -103,7 +103,11 @@
                     </div>
                 </div>
                 <div class="block text-right">
-                    <a class="button button-flat button-default" href="{{ route('songs.index', $song->band) }}">Back to song list</a>
+                    @if(strpos(URL::previous(), 'setlist'))
+                        <a class="button button-flat button-default" href="{{ URL::previous() }}">Back to setlist</a>
+                    @else
+                        <a class="button button-flat button-default" href="{{ route('songs.index', $song->band) }}">Back to song list</a>
+                    @endif
                 </div>
             </div>
         </div>
