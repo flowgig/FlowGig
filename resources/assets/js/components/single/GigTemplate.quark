@@ -73,6 +73,29 @@ let formElements = {
             value: "data.values.public"
         }
     },
+    setlist: {
+        create: {
+            submit: true,
+            theme: 'primary',
+            content: 'Create'
+        },
+        show: {
+            submit: false,
+            theme: 'primary',
+            content: 'Show',
+            attributes: [
+                "v-bind:href='setlistLinks.show'"
+            ]
+        },
+        edit: {
+            submit: false,
+            theme: 'primary',
+            content: 'Edit',
+            attributes: [
+                "v-bind:href='setlistLinks.edit'"
+            ]
+        }
+    },
     actionButton: {
         create: {
             submit: true,
@@ -120,6 +143,11 @@ let formHtmlElements = {
         editable: Checkbox.getModule(formElements.public),
         readOnly: Checkbox.getModule(createReadOnlyFormElement(formElements.public))
     },
+    setlist: {
+        create: Button.getModule(formElements.actionButton.create),
+        show: Button.getModule(formElements.setlist.show),
+        edit: Button.getModule(formElements.setlist.edit)
+    },
     actionButton: {
         create: Button.getModule(formElements.actionButton.create),
         update: Button.getModule(formElements.actionButton.update),
@@ -137,6 +165,17 @@ let template = `
     <div v-if="method == 'GET'">${formHtmlElements.date.readOnly}</div><div v-else>${formHtmlElements.date.editable}</div>
     <div v-if="method == 'GET'">${formHtmlElements.confirmed.readOnly}</div><div v-else>${formHtmlElements.confirmed.editable}</div>
     <div v-if="method == 'GET'">${formHtmlElements.public.readOnly}</div><div v-else>${formHtmlElements.public.editable}</div>
+    <div class="input-group">
+        <div v-if="method == 'GET'">
+            <div v-if="setlist">
+                ${formHtmlElements.setlist.show}
+                ${formHtmlElements.setlist.edit}
+            </div>
+            <div v-else>
+                ${formHtmlElements.setlist.create}
+            </div>
+        </div>
+    </div>
     <div class="input-group float-right">
         <div v-if="method == 'POST'">${formHtmlElements.actionButton.create}</div>
         <div v-else-if="method == 'PUT'">${formHtmlElements.actionButton.update}</div>
