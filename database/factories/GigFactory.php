@@ -4,7 +4,7 @@ use Faker\Generator as Faker;
 
 $factory->define(App\Gig::class, function (Faker $faker) {
 
-    $gigNames = [
+    $events = [
         'Summer Music Fest',
         'Funky Nights',
         'Jam session',
@@ -33,10 +33,10 @@ $factory->define(App\Gig::class, function (Faker $faker) {
     return [
         'created_by' => 1,
         'band_id' => 1,
-        'name' => $faker->randomElement($gigNames),
         'date' => $faker->dateTime,
         'venue' => $faker->streetName . ' ' . $faker->randomElement($streetNameVenueSuffix),
         'location' => $faker->city,
+        'event' => $faker->randomElement([$faker->randomElement($events), '', '']),
         'description' => $faker->paragraphs($faker->numberBetween(0, 5), true),
         'internal_info' => $faker->paragraphs($faker->numberBetween(0, 5), true),
         'confirmed' => $faker->randomElement([true,false]),

@@ -18,10 +18,10 @@ class GigsTableSeeder extends Seeder
         Gig::create([
             'created_by' => 2,
             'band_id' => 3,
-            'name' => 'Tina\'s birthday party',
             'date' => Carbon::now()->addYear(),
             'venue' => 'Tina\'s garden',
             'location' => 'Nashville',
+            'event' => 'Tina\'s birthday party',
             'description' => 'Barbecue and Jam! Just bring your instrument :-)',
             'internal_info' => 'John brings stage modules (thank you!)',
             'confirmed' => true,

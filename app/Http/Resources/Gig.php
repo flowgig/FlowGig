@@ -15,10 +15,10 @@ class Gig extends Resource
     public function toArray($request)
     {
         return [
-            'name' => $this->name,
             'date' => $this->date->toDateTimeString(),
             'venue' => $this->venue,
             'location' => $this->location,
+            'event' => $this->event,
             'description' => $this->description,
             'confirmed' => (bool) $this->confirmed,
         ];

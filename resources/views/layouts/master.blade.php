@@ -91,6 +91,23 @@
             padding-top: 48px;
         }
 
+        .label {
+            border: 1px solid #e3e4e5;
+            border-radius: 3px;
+            padding: 3px;
+            margin-bottom: 5px;
+            background-color: #f4f5f6;
+            text-transform: uppercase;
+            font-size: 10px;
+        }
+        .pre-heading {
+            font-size: 20px;
+            margin: 25px 0 -24px 0;
+        }
+        .post-heading {
+            font-size: 22px;
+            margin-top: -18px;
+        }
     </style>
     <!-- Piwik -->
     <script type="text/javascript">

@@ -67,12 +67,26 @@
             display: block;
             margin-top: 40px;
         }
+        .pre-heading {
+            font-size: 16px;
+            margin-bottom: -24px;
+        }
+        .post-heading {
+            font-size: 18px;
+            margin-top: -28px;
+        }
     </style>
-    <title>FlowGig - Setlist for {{ $setlist->gig->name }}</title>
+    <title>FlowGig - Setlist for {{ $setlist->gig->band->name }}, {{ $setlist->gig->composedTitle() }}</title>
 </head>
 <body>
-<h1>{{ $setlist->gig->name }}</h1>
-<p><small>{{ $setlist->gig->band->name }} - {{ $setlist->gig->date() }} at {{ $setlist->gig->venue }}, {{ $setlist->gig->location }}</small></p>
+@if($setlist->gig->event)
+    <p class="pre-heading">Setlist for {{ $setlist->gig->band->name }} at </p>
+    <h1>{{ $setlist->gig->event }}</h1>
+@else
+    <p class="pre-heading">Setlist for</p>
+    <h1>{{ $setlist->gig->band->name }}</h1>
+@endif
+<p class="post-heading">{{ $setlist->gig->composedTitle() }}</p>
 <div class="setlist">
     @foreach($setlist->setlistSongs->sortBy('number_in_list') as $setlistSong)
         <div class="setlist-song">

@@ -21,24 +21,22 @@
                     <ul class="list menu-list">
                         @foreach($user->upcomingGigs()->sortBy('date') as $gig)
                             <li>
-                            <span class="list-item-content">
-                                @if($gig->status == 'Proposed')
-                                    <span class="fa fa-question-circle-o" title="Status: Proposed">&nbsp;</span>
-                                @endif
-                                @if($gig->status == 'Settled')
-                                    <span class="fa fa-check-circle-o " title="Status: Settled">&nbsp;</span>
-                                @endif
-                                @if($gig->status == 'Public')
-                                    <span class="fa fa-globe" title="Status: Public">&nbsp;</span>
-                                @endif
-                                <a class="tooltip" title="Show {{ $gig->name }}" href="{{ route('gigs.show', $gig) }}">
-                                    {{ $gig->name }}
+                                <span class="list-item-content">
+                                <a class="block tooltip" title="Show gig" href="{{ route('gigs.show', $gig) }}">
+                                    {{ $gig->composedTitle() }}
                                 </a>
-                                <small class="inline"> with <a class="tooltip" title="Show {{ $gig->band->name }}"
-                                       href="{{ route('bands.show', $gig->band) }}">{{ $gig->band->name }}</a>
-                                </small>
-                                <small>{{ $gig->date() }} - {{ $gig->venue }} - {{ $gig->location }}</small>
-                            </span>
+                                    <small class="inline">{{ $gig->event }}
+                                         <a class="tooltip" title="Show {{ $gig->band->name }}"
+                                           href="{{ route('bands.show', $gig->band) }}">{{ $gig->band->name }}</a>
+                                    </small>
+                                        @if($gig->public)
+                                            <span class="label tooltip" title="The gig is made public">public</span>
+                                        @endif
+                                        @if(!$gig->confirmed)
+                                            <span class="label tooltip"
+                                                  title="The gig is not confirmed">unconfirmed</span>
+                                        @endif
+                                </span>
                             </li>
                         @endforeach
                     </ul>

@@ -33,33 +33,29 @@
                     @foreach($band->gigs->sortByDesc('date') as $gig)
                         <li>
                             <span class="list-item-content">
-                                <a class="tooltip" title="Show {{ $gig->name }}" href="{{ route('gigs.show', $gig) }}">
-                                    {{ $gig->name }}
+                                <a class="block tooltip" title="Show gig" href="{{ route('gigs.show', $gig) }}">
+                                    {{ $gig->composedTitle() }}
                                 </a>
-                                @if(!$gig->confirmed)
-                                    <i class="fa fa-question-circle-o" title="Unconfirmed"></i>
-                                @endif
+                                <small class="inline">{{ $gig->event }}</small>
                                 @if($gig->public)
-                                    <span class="inline">
-                                        <small>
-                                            public
-                                        </small>
-                                    </span>
+                                    <span class="label tooltip" title="The gig is made public">public</span>
                                 @endif
-                                <small>{{ $gig->date() }} - {{ $gig->venue }} - {{ $gig->location }}</small>
+                                @if(!$gig->confirmed)
+                                    <span class="label tooltip" title="The gig is not confirmed">unconfirmed</span>
+                                @endif
                             </span>
                             <span class="list-item-buttons">
                                 <a class="button button-icon button-flat button-default tooltip"
-                                   title="Edit {{ $gig->name }}" href="{{ route('gigs.edit', $gig) }}">
+                                   title="Edit the gig" href="{{ route('gigs.edit', $gig) }}">
                                     <span class="fa fa-pencil"></span>
                                 </a>
                                 <form action="{{ route('gigs.destroy', $gig) }}" method="POST">
                                     {{ csrf_field() }}
                                     {{ method_field('DELETE') }}
                                     <button type="submit"
-                                            onclick="return confirm('This deletes the gig {{ $gig->name }}')"
+                                            onclick="return confirm('This deletes the gig at {{ $gig->date() }}')"
                                             class="button button-icon button-flat button-default tooltip"
-                                            title="Delete {{ $gig->name }}">
+                                            title="Delete the gig">
                                          <span class="fa fa-trash"></span>
                                     </button>
                                  </form>

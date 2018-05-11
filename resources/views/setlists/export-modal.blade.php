@@ -24,12 +24,12 @@
                     <fieldset>
                         <legend>Create PDF</legend>
                         <button type="submit" name="create-pdf" value="stream"
-                                title="View {{ $setlist->gig->name }} as PDF"
+                                title="View setlist as PDF"
                                 class="button button-flat button-default tooltip">
                             View in new tab
                         </button>
                         <button type="submit" name="create-pdf" value="download"
-                                title="Download {{ $setlist->gig->name }} as PDF"
+                                title="Download setlist as PDF"
                                 class="button button-flat button-default tooltip">
                             Download
                         </button>

@@ -137,9 +137,11 @@ class SetlistController extends Controller
      */
     private function makeSetlistPdfFileName(Setlist $setlist): string
     {
-        $gigName =  strtolower(str_replace(' ', '_', $setlist->gig->name));
-        $bandName = strtolower(str_replace(' ', '_', $setlist->gig->band->name));
+        $toReplace = [' - ', ', ', ' '];
 
-        return 'setlist_' . $gigName . '_' . $bandName . '_' . $setlist->gig->date->toDateString() . '.pdf';
+        $gigName =  strtolower(str_replace($toReplace, '_', $setlist->gig->composedTitle()));
+        $bandName = strtolower(str_replace($toReplace, '_', $setlist->gig->band->name));
+
+        return 'setlist_' . $bandName . '_' . $gigName . '.pdf';
     }
 }

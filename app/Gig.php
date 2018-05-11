@@ -21,7 +21,7 @@ class Gig extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'date', 'venue', 'location', 'description', 'internal_info', 'confirmed', 'public'
+        'date', 'venue', 'location', 'event', 'description', 'internal_info', 'confirmed', 'public'
     ];
 
     /**
@@ -54,6 +54,22 @@ class Gig extends Model
     public function date()
     {
         return $this->date ? $this->date->toDateString() : "";
+    }
+
+    /**
+     * Get a gig title composed from the date and venue (if any) and/or location (if any)
+     *
+     * @return string
+     */
+    public function composedTitle()
+    {
+        if ($this->venue && $this->location)
+            return $this->date() . ' - ' . $this->venue . ', ' . $this->location;
+
+        if ($venueOrLocation = $this->venue ?? $this->location)
+            return $this->date() . ' - ' . $venueOrLocation;
+
+        return $this->date();
     }
 
     /**

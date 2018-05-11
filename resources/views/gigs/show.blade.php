@@ -1,5 +1,5 @@
 @extends('layouts.master', ['currentBand' => $gig->band])
-@section('title', 'Gig - ' . $gig->name)
+@section('title', 'Gig - ' . $gig->composedTitle())
 @section('content')
     <div class="content">
         <div class="box">
@@ -25,14 +25,14 @@
                     </li>
                     <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
                         <a itemprop="item" href="{{ route('gigs.show', $gig) }}">
-                            <span itemprop="name">{{$gig->name}}</span>
+                            <span itemprop="name">{{ $gig->composedTitle() }}</span>
                         </a>
                         <meta itemprop="position" content="4"/>
                     </li>
                 </ol>
-                <h1>{{ $gig->name }}</h1>
+                <h1>{{ $gig->composedTitle() }}</h1>
                 <div class="text-right">
-                    <a class="button button-icon button-flat button-default tooltip" title="Edit {{ $gig->name }}"
+                    <a class="button button-icon button-flat button-default tooltip" title="Edit gig"
                        href="{{ route('gigs.edit', $gig) }}"><span class="fa fa-pencil"></span>
                     </a>
                 </div>
@@ -42,6 +42,7 @@
                             <li><b>Date: </b> {{ $gig->date() }}</li>
                             <li><b>Venue: </b> {{ $gig->venue }}</li>
                             <li><b>Location: </b> {{ $gig->location }}</li>
+                            <li><b>Event: </b> {{ $gig->event }}</li>
                             <li><b>Description: </b>
                                 <p style="padding-top: 10px; white-space: pre-wrap;">{{ $gig->description }}</p>
                             </li>
@@ -58,7 +59,7 @@
                                 <span class="list-item-content single-line">
 
                             @if($gig->setlist)
-                                <a class="tooltip" title="Show setlist for {{ $gig->name }}"
+                                <a class="tooltip" title="Show setlist for the gig"
                                    href="{{ route('setlists.show', $gig->setlist) }}">Setlist
                             </a>
                             @else Setlist
@@ -67,7 +68,7 @@
                         <span class="list-item-buttons">
                         @if($gig->setlist)
                                         <a class="button button-icon button-flat button-default tooltip"
-                                           title="Edit setlist for {{ $gig->name }}"
+                                           title="Edit setlist for the gig"
                                            href="{{ route('setlists.edit', $gig->setlist) }}">
                                     <span class="fa fa-pencil"></span>
                                 </a>
@@ -75,23 +76,23 @@
                                     {{ csrf_field() }}
                                             {{ method_field('DELETE') }}
                                             <button type="submit"
-                                                    onclick="return confirm('This deletes the setlist for {{ $gig->name }}')"
+                                                    onclick="return confirm('This deletes the setlist for the gig')"
                                                     class="button button-icon button-flat button-default tooltip"
-                                                    title="Delete setlist for {{ $gig->name }}">
+                                                    title="Delete setlist">
                                          <span class="fa fa-trash"></span>
                                     </button>
                                  </form>
                             </span>
                                 @else
                                     <button class="toggle-elements button button-icon button-flat button-default tooltip"
-                                            title="Create setlist for {{ $gig->name }}"
+                                            title="Create setlist for the gig"
                                             value="add-setlist-modal-{{ $gig->id }}">
                                         <span class="fa fa-plus"></span>
                                     </button>
                                     <div class="modal add-setlist-modal-{{ $gig->id }}">
                                         <div class="modal-container">
                                             <div class="modal-header">
-                                                Create setlist for {{ $gig->name }}:
+                                                Create setlist for the gig:
                                                 <button class="modal-close toggle-elements"
                                                         value="add-setlist-modal-{{ $gig->id }}"></button>
                                             </div>
@@ -126,13 +127,7 @@
                                                                     class="setlist-template" disabled>
                                                                 @foreach($gig->band->gigsWithSetlist as $gigWithSetlist)
                                                                     <option value="{{ $gigWithSetlist->id }}">
-                                                                        {{ $gigWithSetlist->name }}<!--
-                                                                        @if($gigWithSetlist->date)
-                                                                        {{-- The html comment prevents space before the comma --}}
-                                                                        -->, {{ $gigWithSetlist->date->toDateString() }}
-                                                                        @else
-                                                                        -->
-                                                                        @endif
+                                                                        {{ $gigWithSetlist->composedTitle() }}
                                                                     </option>
                                                                 @endforeach
                                                             </select>

@@ -1,5 +1,5 @@
 @extends('layouts.master', ['currentBand' => $setlist->gig->band])
-@section('title', 'Setlist - ' . $setlist->gig->name)
+@section('title', 'Setlist - ' . $setlist->gig->composedTitle())
 @section('actionbar')
     @include('setlists.export-modal')
 @endsection
@@ -28,7 +28,7 @@
                     </li>
                     <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
                         <a itemprop="item" href="{{ route('gigs.show', $setlist->gig) }}">
-                            <span itemprop="name">{{ $setlist->gig->name }}</span>
+                            <span itemprop="name">{{ $setlist->gig->composedTitle() }}</span>
                         </a>
                         <meta itemprop="position" content="4"/>
                     </li>
@@ -39,16 +39,19 @@
                         <meta itemprop="position" content="4"/>
                     </li>
                 </ol>
-                <p style="font-size: x-large">Setlist for</p>
-                <h1>{{ $setlist->gig->name }}</h1>
-                <p style="font-size: large">{{ $setlist->gig->date }}
-                    at {{ $setlist->gig->venue }}, {{ $setlist->gig->location }}
-                </p>
+                @if($setlist->gig->event)
+                    <p class="pre-heading">Setlist for {{ $setlist->gig->band->name }} at </p>
+                    <h1>{{ $setlist->gig->event }}</h1>
+                @else
+                    <p class="pre-heading">Setlist for</p>
+                    <h1>{{ $setlist->gig->band->name }}</h1>
+                @endif
+                <p class="post-heading">{{ $setlist->gig->composedTitle() }}</p>
                 <div class="block text-right">
                     <a class="button button-flat button-default" href="{{ route('gigs.show', $setlist->gig) }}">
                         Back to gig
                     </a>
-                    <a class="button button-icon button-flat button-default tooltip" title="Edit setlist for {{ $setlist->gig->name }}"
+                    <a class="button button-icon button-flat button-default tooltip" title="Edit setlist for the gig"
                        href="{{ route('setlists.edit', $setlist) }}"><span class="fa fa-pencil"></span>
                     </a>
                 </div>
@@ -87,7 +90,7 @@
                     <a class="button button-flat button-default" href="{{ route('gigs.show', $setlist->gig) }}">
                         Back to gig
                     </a>
-                    <a class="button button-icon button-flat button-default tooltip" title="Edit setlist for {{ $setlist->gig->name }}"
+                    <a class="button button-icon button-flat button-default tooltip" title="Edit setlist for the gig"
                        href="{{ route('setlists.edit', $setlist) }}"><span class="fa fa-pencil"></span>
                     </a>
                 </div>

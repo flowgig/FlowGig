@@ -1,5 +1,5 @@
 @extends('layouts.master', ['currentBand' => $gig->band])
-@section('title', 'Edit gig - ' . $gig->name)
+@section('title', 'Edit gig - ' . $gig->composedTitle())
 @section('content')
     <div class="content">
         <div class="box">
@@ -25,7 +25,7 @@
                     </li>
                     <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
                         <a itemprop="item" href="{{ route('gigs.show', $gig) }}">
-                            <span itemprop="name">{{$gig->name}}</span>
+                            <span itemprop="name">{{ $gig->composedTitle() }}</span>
                         </a>
                         <meta itemprop="position" content="4"/>
                     </li>
@@ -36,16 +36,11 @@
                         <meta itemprop="position" content="5"/>
                     </li>
                 </ol>
-                <h1>{{ $gig->name }}</h1>
+                <h1>{{ $gig->composedTitle() }}</h1>
                 <form action="{{ route('gigs.update', $gig) }}" method="POST">
                     {{ csrf_field() }}
                     {{ method_field('PUT') }}
                     <div class="row">
-                        <div class="input-group col-sm-4">
-                            <input type="text" name="name" id="name" value="{{ $gig->name }}"/>
-                            <label for="name">Name</label>
-                        </div>
-
                         <div class="input-group col-sm-4">
                             <input type="text" name="date" id="date" value="{{ $gig->date() }}" />
                             <label for="date">Date</label>
@@ -56,9 +51,17 @@
                             <input type="text" name="venue" id="venue" value="{{ $gig->venue }}"/>
                             <label for="venue">Venue</label>
                         </div>
+                    </div>
+                    <div class="row">
                         <div class="input-group col-sm-4">
                             <input type="text" name="location" id="location" value="{{ $gig->location }}"/>
                             <label for="location">Location</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-group col-sm-4">
+                            <input type="text" name="event" id="event" value="{{ $gig->event }}"/>
+                            <label for="event">Event</label>
                         </div>
                     </div>
                     <div class="row">
