@@ -30,7 +30,7 @@
                     <a class="button button-flat button-primary" href="{{ route('songs.create', $band) }}">New song</a>
                 </div>
                 <ul class="list menu-list">
-                    @foreach($band->songs as $song)
+                    @foreach($band->songs->sortByDesc('created_at') as $song)
                         <li itemscope itemtype="http://schema.org/MusicGroup">
                             <span class="list-item-content">
                                 <span itemprop="tracks" itemscope itemtype="http://schema.org/MusicRecording">
