@@ -114,12 +114,17 @@ class BandController extends Controller
     /**
      * Remove the specified resource from storage.
      *
+     * @param Request $request
      * @param Band $band
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Band $band)
+    public function destroy(Request $request, Band $band)
     {
         $this->authorize('delete', $band);
+
+        $this->validate($request, [
+            'bandname' => 'required|in:' . $band->name,
+        ]);
 
         $band->delete();
 

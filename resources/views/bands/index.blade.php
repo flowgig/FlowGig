@@ -17,6 +17,7 @@
                     <a class="button button-flat button-default" href="{{ route('dashboard') }}">Back to dashboard</a>
                     <a class="button button-flat button-primary" href="{{ route('bands.create') }}">New band</a>
                 </div>
+                @include('errors.validation-errors')
                 <ul class="list menu-list">
                     @foreach($bands as $band)
                         <li>
@@ -29,18 +30,40 @@
                                 <a class="button button-icon button-flat button-default tooltip" title="Edit {{$band->name}}" href="{{ route('bands.edit', $band) }}">
                                     <span class="fa fa-pencil"></span>
                                 </a>
-                                <form action="{{ route('bands.destroy', $band) }}" method="POST">
-                                    {{ csrf_field() }}
-                                    {{ method_field('DELETE') }}
-                                    <button type="submit"
-                                            onclick="return confirm('This deletes the band {{ $band->name }}')"
-                                            class="button button-icon button-flat button-default tooltip"
-                                            title="Delete {{$band->name}}">
-                                         <span class="fa fa-trash"></span>
-                                    </button>
-                                 </form>
+                                <button class="toggle-elements button button-icon button-flat button-default tooltip"
+                                        title="Delete {{ $band->name }}"
+                                        value="delete-band-modal-{{ $band->id }}">
+                                    <span class="fa fa-trash"></span>
+                                </button>
                             </span>
                         </li>
+                        <div class="modal delete-band-modal-{{ $band->id }}">
+                            <div class="modal-container">
+                                <div class="modal-header">
+                                    Delete the band:
+                                    <button class="modal-close toggle-elements"
+                                            value="delete-band-modal-{{ $band->id }}"></button>
+                                </div>
+                                <div class="modal-content">
+                                    <form action="{{ route('bands.destroy', $band) }}" method="POST" class="block">
+                                        {{ csrf_field() }}
+                                        {{ method_field('DELETE') }}
+                                        <div class="row">
+                                            <div class="input-group col-sm-12">
+                                                <input id="bandname" type="text" name="bandname" required/>
+                                                <label for="bandname">Enter band name to confirm</label>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <button type="submit"
+                                                onclick="return confirm('This deletes the band {{ $band->name }}')"
+                                                class="button button-flat button-warning float-right tooltip"
+                                                title="Delete {{ $band->name }}">Delete band
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                     @endforeach
                 </ul>
                 <div class="block text-right">
