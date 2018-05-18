@@ -56,32 +56,6 @@
                                             <h3 class="box-title">
                                                 <a class="tooltip" href="{{ route('bands.show', $band) }}" title="Show {{$band->name}}">{{ $band->name }}</a>
                                             </h3>
-                                            <ul class="box-header-dropdown">
-                                                <li class="dropdown-menu">
-                                                    <span class="fa fa-chevron-down"></span>
-                                                    <div class="dropdown-content">
-                                                        <ul class="list hover-list">
-                                                            <li>
-                                                                <a href="{{ route('bands.edit', $band) }}" class="tooltip" title="Edit {{$band->name}}">
-                                                                    <span class="fa fa-cog"></span> Edit band
-                                                                </a>
-                                                            </li>
-                                                            <li>
-                                                                <form action="{{ route('bands.destroy', $band) }}" method="POST">
-                                                                    {{ csrf_field() }}
-                                                                    {{ method_field('DELETE') }}
-                                                                    <button type="submit"
-                                                                            onclick="return confirm('This deletes the band {{ $band->name }}')"
-                                                                            class="link-button tooltip"
-                                                                            title="Delete {{$band->name}}">
-                                                                        <span class="fa fa-trash"></span> Delete band
-                                                                    </button>
-                                                                </form>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </li>
-                                            </ul>
                                         </div>
                                     </div>
                                     <div class='content'>
