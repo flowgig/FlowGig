@@ -27,6 +27,7 @@ class SongController extends Controller
      *
      * @param $bandId
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function index($bandId)
     {
@@ -42,6 +43,7 @@ class SongController extends Controller
      *
      * @param Band $band
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function create(Band $band)
     {
@@ -56,6 +58,7 @@ class SongController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @param Band $band
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function store(Request $request, Band $band)
     {
@@ -84,6 +87,7 @@ class SongController extends Controller
      *
      * @param Song $song
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function show(Song $song)
     {
@@ -97,6 +101,7 @@ class SongController extends Controller
      *
      * @param Song $song
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function edit(Song $song)
     {
@@ -111,6 +116,7 @@ class SongController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @param Song $song
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function update(Request $request, Song $song)
     {
@@ -142,6 +148,8 @@ class SongController extends Controller
      *
      * @param Song $song
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     * @throws \Exception
      */
     public function destroy(Song $song)
     {

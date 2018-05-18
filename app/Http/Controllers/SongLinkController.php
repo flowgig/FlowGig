@@ -25,6 +25,7 @@ class SongLinkController extends Controller
      *
      * @param Song $song
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function create(Song $song)
     {
@@ -39,6 +40,7 @@ class SongLinkController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @param Song $song
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function store(Request $request, Song $song)
     {
@@ -62,6 +64,7 @@ class SongLinkController extends Controller
      *
      * @param Link $songLink
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function edit(Link $songLink)
     {
@@ -76,6 +79,7 @@ class SongLinkController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @param Link $songLink
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function update(Request $request, Link $songLink)
     {
@@ -104,6 +108,8 @@ class SongLinkController extends Controller
      *
      * @param Link $songLink
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     * @throws \Exception
      */
     public function destroy(Link $songLink)
     {

@@ -28,6 +28,7 @@ class SetlistController extends Controller
      * @param \Illuminate\Http\Request $request
      * @param Gig $gig
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function store(Request $request, Gig $gig)
     {
@@ -64,6 +65,7 @@ class SetlistController extends Controller
      *
      * @param Setlist $setlist
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function show(Setlist $setlist)
     {
@@ -81,6 +83,7 @@ class SetlistController extends Controller
      *
      * @param Setlist $setlist
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function edit(Setlist $setlist)
     {
@@ -99,6 +102,7 @@ class SetlistController extends Controller
      * @param Request $request
      * @param Setlist $setlist
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function export(Request $request, Setlist $setlist)
     {
@@ -119,6 +123,8 @@ class SetlistController extends Controller
      *
      * @param Setlist $setlist
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     * @throws \Exception
      */
     public function destroy(Setlist $setlist)
     {

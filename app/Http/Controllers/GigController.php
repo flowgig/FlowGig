@@ -26,6 +26,7 @@ class GigController extends Controller
      *
      * @param Band $band
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function index($bandId)
     {
@@ -41,6 +42,7 @@ class GigController extends Controller
      *
      * @param Band $band
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function create(Band $band)
     {
@@ -55,6 +57,7 @@ class GigController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @param Band $band
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function store(Request $request, Band $band)
     {
@@ -87,6 +90,7 @@ class GigController extends Controller
      *
      * @param Gig $gig
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function show(Gig $gig)
     {
@@ -100,6 +104,7 @@ class GigController extends Controller
      *
      * @param Gig $gig
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function edit(Gig $gig)
     {
@@ -114,6 +119,7 @@ class GigController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @param Gig $gig
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function update(Request $request, Gig $gig)
     {
@@ -146,6 +152,8 @@ class GigController extends Controller
      *
      * @param Gig $gig
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     * @throws \Exception
      */
     public function destroy(Gig $gig)
     {

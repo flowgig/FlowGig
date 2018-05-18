@@ -27,6 +27,7 @@ class SetlistSongController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @param Setlist $setlist
      * @return SetlistSong
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function store(Request $request, Setlist $setlist)
     {
@@ -60,6 +61,7 @@ class SetlistSongController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @param SetlistSong $setlistSong
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function update(Request $request, SetlistSong $setlistSong)
     {
@@ -91,6 +93,8 @@ class SetlistSongController extends Controller
      *
      * @param SetlistSong $setlistSong
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     * @throws \Exception
      */
     public function destroy(SetlistSong $setlistSong)
     {

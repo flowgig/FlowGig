@@ -26,6 +26,7 @@ class BandInvitationController extends Controller
      *
      * @param Band $band
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function create(Band $band)
     {
@@ -44,6 +45,7 @@ class BandInvitationController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @param Band $band
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function store(Request $request, Band $band)
     {
@@ -66,6 +68,7 @@ class BandInvitationController extends Controller
      *
      * @param Invitation $bandInvitation
      * @return \Illuminate\Http\RedirectResponse
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function accept(Invitation $bandInvitation)
     {
@@ -90,6 +93,7 @@ class BandInvitationController extends Controller
      *
      * @param Invitation $bandInvitation
      * @return \Illuminate\Http\RedirectResponse
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function decline(Invitation $bandInvitation)
     {
@@ -106,6 +110,7 @@ class BandInvitationController extends Controller
      *
      * @param Invitation $bandInvitation
      * @return \Illuminate\Http\RedirectResponse
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function setExpired(Invitation $bandInvitation)
     {

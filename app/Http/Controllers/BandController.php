@@ -65,6 +65,7 @@ class BandController extends Controller
      *
      * @param Band $band
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function show(Band $band)
     {
@@ -78,6 +79,7 @@ class BandController extends Controller
      *
      * @param Band $band
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function edit(Band $band)
     {
@@ -92,6 +94,7 @@ class BandController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @param Band $band
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function update(Request $request, Band $band)
     {
@@ -117,6 +120,8 @@ class BandController extends Controller
      * @param Request $request
      * @param Band $band
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     * @throws \Exception
      */
     public function destroy(Request $request, Band $band)
     {

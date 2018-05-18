@@ -26,6 +26,7 @@ class BandMembershipController extends Controller
      *
      * @param $bandId
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function index($bandId)
     {
@@ -49,6 +50,8 @@ class BandMembershipController extends Controller
      *
      * @param BandMembership $bandMembership
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     * @throws \Exception
      */
     public function destroy(BandMembership $bandMembership)
     {
