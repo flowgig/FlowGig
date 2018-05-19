@@ -23,4 +23,17 @@ class BandService
 
         return $band;
     }
+
+    /**
+     * Deletes the band and all associated invitations
+     *
+     * @param Band $band
+     * @throws \Exception
+     */
+    public static function delete(Band $band)
+    {
+        $band->invitations()->delete();
+
+        $band->delete();
+    }
 }

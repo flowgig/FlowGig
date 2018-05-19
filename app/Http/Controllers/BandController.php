@@ -131,7 +131,7 @@ class BandController extends Controller
             'bandname' => 'required|in:' . $band->name,
         ]);
 
-        $band->delete();
+        BandService::delete($band);
 
         // TODO: Flash band deleted
 
