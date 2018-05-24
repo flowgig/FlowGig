@@ -43,7 +43,7 @@ class User extends Authenticatable
         $gigs = new Collection();
 
         foreach ($this->bands as $band)
-            foreach ($band->gigs()->upcoming()->get() as $gig)
+            foreach ($band->upcomingGigs as $gig)
                 $gigs->push($gig);
 
         return $gigs;

@@ -80,6 +80,14 @@ class Band extends Model
     }
 
     /**
+     * Get the upcoming gigs for the band.
+     */
+    public function upcomingGigs()
+    {
+        return $this->gigs()->upcoming()->orderBy('date');
+    }
+
+    /**
      * Determine whether the given user is a member in the band.
      * @param User $user
      * @return bool
