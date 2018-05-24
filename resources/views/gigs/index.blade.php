@@ -29,8 +29,9 @@
                     <a class="button button-flat button-default" href="{{ route('bands.show', $band) }}">Back to band</a>
                     <a class="button button-flat button-primary" href="{{ route('gigs.create', $band) }}">New gig</a>
                 </div>
+                <small style="margin-left: 10px"><a href="?filter=upcoming">Upcoming</a> | <a href="{{ route('gigs.index', $band) }}">All</a></small>
                 <ul class="list menu-list">
-                    @foreach($band->gigs->sortByDesc('date') as $gig)
+                    @foreach(Request::get('filter') == 'upcoming' ? $band->upcomingGigs : $band->gigs->sortByDesc('date') as $gig)
                         <li>
                             <span class="list-item-content">
                                 <a class="block tooltip" title="Show gig" href="{{ route('gigs.show', $gig) }}">
@@ -63,6 +64,7 @@
                         </li>
                     @endforeach
                 </ul>
+                <small style="margin-left: 10px"><a href="?filter=upcoming">Upcoming</a> | <a href="{{ route('gigs.index', $band) }}">All</a></small>
                 <div class="block text-right">
                     <a class="button button-flat button-default" href="{{ route('bands.show', $band) }}">Back to band</a>
                     <a class="button button-flat button-primary" href="{{ route('gigs.create', $band) }}">New gig</a>
