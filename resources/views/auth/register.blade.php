@@ -47,6 +47,9 @@
                 @endif
             </div>
             <div class="input-group">
+                <button type="button" class="button button-flat button-default toggle-elements" value="privacy-modal">
+                    Privacy
+                </button>
                 <button type="submit" class="button button-flat button-primary float-right">Register</button>
             </div>
         </form>

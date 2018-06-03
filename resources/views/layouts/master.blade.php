@@ -80,16 +80,21 @@
             margin: -16px;
         }
 
+        .modal .modal-content {
+            padding-top: 48px;
+        }
+
         @media only screen and (min-width: 1160px) {
             .modal .modal-header {
                 max-width: 870px;
                 margin: 0;
             }
+            .modal .modal-content {
+                margin-top: 48px;
+                padding-top: 0;
+            }
         }
 
-        .modal .modal-content {
-            padding-top: 48px;
-        }
 
         .label {
             border: 1px solid #e3e4e5;
@@ -143,11 +148,17 @@
                         <a href="https://github.com/flowgig/flowgig/blob/master/LICENSE">GNU General Public License</a>
                     </p>
                     <small>Version {{ $flowGigVersion }}</small>
+                    <p>
+                        <button class="toggle-elements button button-icon button-flat button-default tooltip"
+                                title="Privacy" value="privacy-modal" style="font-size: .8em">Privacy
+                        </button>
+                    </p>
                 </div>
             </div>
         </footer>
     </div>
 </div>
+@include('privacy-modal')
 @yield('scripts')
 <script>
     $(document).on("change", ".input-group input", function () {

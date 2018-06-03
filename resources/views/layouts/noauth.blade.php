@@ -23,6 +23,35 @@
             background-attachment: fixed;
             overflow: auto;
         }
+
+        .modal {
+            padding-top: 0;
+        }
+
+        .modal .modal-header {
+            position: fixed;
+            width: 100%;
+            display: block;
+            box-shadow: none;
+            padding: 8px 16px;
+            background-color: #f4f5f6;
+            margin: -16px;
+        }
+
+        .modal .modal-content {
+            padding-top: 48px;
+        }
+
+        @media only screen and (min-width: 1160px) {
+            .modal .modal-header {
+                max-width: 870px;
+                margin: 0;
+            }
+            .modal .modal-content {
+                margin-top: 48px;
+                padding-top: 0;
+            }
+        }
     </style>
 </head>
 <body class="welcome-screen">
@@ -36,5 +65,6 @@
         </div>
     </div>
 </div>
+@include('privacy-modal')
 </body>
 </html>
