@@ -144,14 +144,22 @@
                 <div class="text-center">
                     <img src="/images/svg/flowgig-logo-black.svg" alt="FlowGig logo"
                          style="width: 150px; opacity: .4;"/>
-                    <p>FlowGig is licensed under the
+                    <p>
+                        <small>Version {{ $flowGigVersion }}</small>
+                    </p>
+                    <p>
+                        FlowGig is licensed under the
                         <a href="https://github.com/flowgig/flowgig/blob/master/LICENSE">GNU General Public License</a>
                     </p>
-                    <small>Version {{ $flowGigVersion }}</small>
                     <p>
-                        <button class="toggle-elements button button-icon button-flat button-default tooltip"
-                                title="Privacy" value="privacy-modal" style="font-size: .8em">Privacy
-                        </button>
+                        <small>
+                            <a href="https://github.com/flowgig/flowgig/releases" target="_blank">Release notes</a> |
+                            <button class="toggle-elements button button-icon button-flat button-default tooltip"
+                                    title="Privacy" value="privacy-modal" style="font-size: .9em">Privacy
+                            </button> |
+                            <a href="https://github.com/flowgig/flowgig" target="_blank">Source code</a> |
+                            <a href="https://github.com/orgs/flowgig/people" target="_blank">Developers</a>
+                        </small>
                     </p>
                 </div>
             </div>
