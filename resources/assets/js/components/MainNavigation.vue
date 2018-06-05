@@ -7,7 +7,7 @@
 
     export default {
         name: 'MainNavigation',
-        props: ['currentBand', 'currentUser'],
+        props: ['currentBand', 'currentUser', 'availableBands'],
         data () {
             return {
                 htmlContent: "",
@@ -56,34 +56,51 @@
                 }
             };
             if (this.currentBand !== undefined) {
+
+                let bandNavigation = [
+                    {
+                        name: "Songs",
+                        link: "/bands/" + this.currentBand.id + "/songs",
+                        iconClass: "fa fa-music"
+                    },
+                    {
+                        name: "Gigs",
+                        link: "/bands/" + this.currentBand.id + "/gigs",
+                        iconClass: "fa fa-calendar"
+                    },
+                    {
+                        name: "Members",
+                        link: "/bands/" + this.currentBand.id + "/band-memberships",
+                        iconClass: "fa fa-group"
+                    }
+                ]
+
                 let listItemBand = {
                     name: this.currentBand.name,
+                    iconClass: "fa fa-group",
+                    responsive: {
+                        showIcon: true,
+                        showText: false
+                    },
                     dropdownContent: {
-                        listItems: [
-                            {
-                                name: "Songs",
-                                link: "/bands/" + this.currentBand.id + "/songs",
-                                iconClass: "fa fa-music"
-                            },
-                            {
-                                name: "Gigs",
-                                link: "/bands/" + this.currentBand.id + "/gigs",
-                                iconClass: "fa fa-calendar"
-                            },
-                            {
-                                name: "Members",
-                                link: "/bands/" + this.currentBand.id + "/band-memberships",
-                                iconClass: "fa fa-group"
-                            }
-                        ]
+                        listItems: []
                     }
                 };
-                header.primaryNavigationLeft.listItems.push(listItemBand);
+
+                this.availableBands.forEach((availableBand) => {
+                    listItemBand.dropdownContent.listItems.push({
+                        name: availableBand.name,
+                        link: "/bands/" + availableBand.id
+                    })
+                });
+
+                header.primaryNavigationRight.listItems.push(listItemBand);
+                header.sidebar.sidebarNavigation.listItems = bandNavigation;
             }
 
             if (this.currentUser !== undefined) {
                 let listItemUser = {
-                    name: this.currentUser.name,
+                    name: '',//this.currentUser.name,
                     iconClass: "fa fa-user",
                     responsive: {
                         showIcon: true,

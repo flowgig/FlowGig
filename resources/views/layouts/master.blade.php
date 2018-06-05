@@ -83,6 +83,47 @@
             padding-top: 48px;
         }
 
+        .tab-navigation {
+            position: fixed;
+            top: 48px;
+            width: 100%;
+            background-color: #282b30;
+            z-index: 10;
+        }
+
+        .tab-navigation ul{
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            margin: 0;
+        }
+
+        .tab-navigation ul li {
+            -ms-flex-preferred-size: 0;
+            flex-basis: 0;
+            -ms-flex-positive: 1;
+            flex-grow: 1;
+        }
+
+        .tab-navigation ul li span{
+            display: block;
+            color: #FFF;
+            cursor: pointer;
+            text-align: center;
+            padding: 0.5rem 0;
+            border-bottom: 3px solid transparent;
+        }
+
+        .tab-navigation ul li span:hover{
+
+        }
+
+        @media only screen and (min-width: 768px) {
+            .tab-navigation {
+                top: 64px;
+            }
+        }
+
     </style>
     <!-- Piwik -->
     <script type="text/javascript">
@@ -102,15 +143,18 @@
 </head>
 <body>
 
-
 <div id="app">
     @if(isset($currentBand))
         <main-navigation v-bind:current-band='{id: "{{ $currentBand->id }}", name: "{{ $currentBand->name }}"}'
-                         v-bind:current-user='{name: "{{ Auth::user()->name }}", email: "{{ Auth::user()->email }}"}'></main-navigation>
+                         v-bind:current-user='{name: "{{ Auth::user()->name }}", email: "{{ Auth::user()->email }}"}'
+                         v-bind:available-bands='{{ Auth::user()->bands }}'>
+
+        </main-navigation>
 
     @else
         <main-navigation v-bind:current-user='{name: "{{ Auth::user()->name }}", email: "{{ Auth::user()->email }}"}'></main-navigation>
     @endif
+    @yield('tabs')
     <main id="mainContent">
         <div class="main-content">
             <div id="page"></div>
