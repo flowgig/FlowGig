@@ -149,16 +149,23 @@
                     </p>
                     <p>
                         FlowGig is licensed under the
-                        <a href="https://github.com/flowgig/flowgig/blob/master/LICENSE">GNU General Public License</a>
+                        <a href="https://github.com/flowgig/flowgig/blob/master/LICENSE"
+                           title="GNU General Public License" target="_blank">GNU General Public License</a>
                     </p>
                     <p>
                         <small>
-                            <a href="https://github.com/flowgig/flowgig/releases" target="_blank">Release notes</a> |
+                            <a href="https://github.com/flowgig/flowgig/releases" title="Release notes" target="_blank">
+                                Release notes</a>
+                            |
                             <button class="toggle-elements button button-icon button-flat button-default tooltip"
-                                    title="Privacy" value="privacy-modal" style="font-size: .9em">Privacy
-                            </button> |
-                            <a href="https://github.com/flowgig/flowgig" target="_blank">Source code</a> |
-                            <a href="https://github.com/orgs/flowgig/people" target="_blank">Developers</a>
+                                    value="privacy-modal" title="Privacy" style="font-size: .9em">Privacy
+                            </button>
+                            |
+                            <a href="https://github.com/flowgig/flowgig" title="Source code" target="_blank">
+                                Source code</a>
+                            |
+                            <a href="https://github.com/orgs/flowgig/people" title="Developers" target="_blank">
+                                Developers</a>
                         </small>
                     </p>
                 </div>
