@@ -50,8 +50,8 @@
                                         {{ method_field('DELETE') }}
                                         <div class="row">
                                             <div class="input-group col-sm-12">
-                                                <input id="bandname" type="text" name="bandname" required/>
-                                                <label for="bandname">Enter band name to confirm</label>
+                                                <input id="bandname-{{ $band->id }}" type="text" name="bandname" required/>
+                                                <label for="bandname-{{ $band->id }}">Enter band name to confirm</label>
                                             </div>
                                             <div class="clearfix"></div>
                                         </div>
