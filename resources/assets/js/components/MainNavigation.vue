@@ -11,7 +11,8 @@
         data () {
             return {
                 htmlContent: "",
-                header: {}
+                header: {},
+                gravatarImageSrc: 'https://www.gravatar.com/avatar/' + this.currentUser.gravatarId + '?s=190&d=robohash'
             }
         },
         created: function () {
@@ -94,14 +95,16 @@
                     })
                 });
 
+
                 header.primaryNavigationRight.listItems.push(listItemBand);
                 header.sidebar.sidebarNavigation.listItems = bandNavigation;
             }
 
             if (this.currentUser !== undefined) {
+                let profileImageElement = `<div class="main-navigation-profile-image"><img src="${this.gravatarImageSrc}"/></div>`;
                 let listItemUser = {
                     name: '',//this.currentUser.name,
-                    iconClass: "fa fa-user",
+                    iconElement: profileImageElement,
                     responsive: {
                         showIcon: true,
                         showText: false
@@ -135,5 +138,20 @@
     }
 </script>
 
-
+<style>
+    .main-navigation-profile-image{
+        display: inline-block;
+        background: azure;
+        border-radius: 50%;
+        border-bottom: 0;
+        padding: 0px;
+        margin: 6px 0;
+        overflow: hidden;
+        height: 44px;
+        width: 44px;
+    }
+    .main-navigation-profile-image img{
+        height: 44px;
+    }
+</style>
 

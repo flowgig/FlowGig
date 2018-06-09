@@ -152,7 +152,7 @@
         </main-navigation>
 
     @else
-        <main-navigation v-bind:current-user='{name: "{{ Auth::user()->name }}", email: "{{ Auth::user()->email }}"}'></main-navigation>
+        <main-navigation v-bind:current-user='{name: "{{ Auth::user()->name }}", email: "{{ Auth::user()->email }}", gravatarId: "{{ md5(strtolower(trim(Auth::user()->email))) }}"}'></main-navigation>
     @endif
     @yield('tabs')
     <main id="mainContent">

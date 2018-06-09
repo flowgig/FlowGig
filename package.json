@@ -20,6 +20,6 @@
     "vue-template-compiler": "2.5.5"
   },
   "dependencies": {
-    "quark-gui": "^0.7.34"
+    "quark-gui": "^0.8.1"
   }
 }

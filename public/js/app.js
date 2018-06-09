@@ -128,21 +128,13 @@ module.exports = function normalizeComponent (
 /* 30 */,
 /* 31 */,
 /* 32 */,
-/* 33 */,
-/* 34 */,
-/* 35 */,
-/* 36 */,
-/* 37 */,
-/* 38 */,
-/* 39 */,
-/* 40 */,
-/* 41 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var Component = __webpack_require__(1)(
   /* script */
-  __webpack_require__(158),
+  __webpack_require__(133),
   /* template */
   null,
   /* styles */
@@ -175,19 +167,19 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 42 */
+/* 34 */
 /***/ (function(module, exports) {
 
 module.exports = [{"name":"C","value":"C"},{"name":"D","value":"D"},{"name":"E","value":"E"},{"name":"F","value":"F"},{"name":"G","value":"G"},{"name":"A","value":"A"},{"name":"B","value":"B"},{"name":"Cm","value":"Cm"},{"name":"Dm","value":"Dm"},{"name":"Em","value":"Em"},{"name":"Fm","value":"Fm"},{"name":"Gm","value":"Gm"},{"name":"Am","value":"Am"},{"name":"Bm","value":"Bm"},{"name":"C♯","value":"C♯"},{"name":"D♯","value":"D♯"},{"name":"F♯","value":"F♯"},{"name":"G♯","value":"G♯"},{"name":"A♯","value":"A♯"},{"name":"C♯m","value":"C♯m"},{"name":"D♯m","value":"D♯m"},{"name":"F♯m","value":"F♯m"},{"name":"G♯m","value":"G♯m"},{"name":"A♯m","value":"A♯m"},{"name":"D♭","value":"D♭"},{"name":"E♭","value":"E♭"},{"name":"G♭","value":"G♭"},{"name":"A♭","value":"A♭"},{"name":"B♭♯","value":"B♭"},{"name":"D♭m","value":"D♭m"},{"name":"E♭m","value":"E♭m"},{"name":"G♭m","value":"G♭m"},{"name":"A♭m","value":"A♭m"},{"name":"B♭m","value":"B♭m"}]
 
 /***/ }),
-/* 43 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var Component = __webpack_require__(1)(
   /* script */
-  __webpack_require__(203),
+  __webpack_require__(178),
   /* template */
   null,
   /* styles */
@@ -220,21 +212,21 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 44 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(45);
-module.exports = __webpack_require__(259);
+__webpack_require__(37);
+module.exports = __webpack_require__(234);
 
 
 /***/ }),
-/* 45 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _vue = __webpack_require__(14);
+var _vue = __webpack_require__(12);
 
 var _vue2 = _interopRequireDefault(_vue);
 
@@ -259,7 +251,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  */
 
 // require('./bootstrap');
-window.axios = __webpack_require__(35);
+window.axios = __webpack_require__(6);
 
 window.axios.defaults.headers.common = {
   'X-CSRF-TOKEN': window.Laravel.csrfToken,
@@ -273,36 +265,36 @@ window.axios.defaults.headers.common = {
  */
 
 /* Single */
-_vue2.default.component('Gig', __webpack_require__(155));
-_vue2.default.component('SetlistSong', __webpack_require__(41));
-_vue2.default.component('Song', __webpack_require__(160));
-_vue2.default.component('Invitation', __webpack_require__(163));
+_vue2.default.component('Gig', __webpack_require__(130));
+_vue2.default.component('SetlistSong', __webpack_require__(33));
+_vue2.default.component('Song', __webpack_require__(135));
+_vue2.default.component('Invitation', __webpack_require__(138));
 
 /* Lists */
-_vue2.default.component('BandMembers', __webpack_require__(166));
-_vue2.default.component('BandNavigation', __webpack_require__(169));
-_vue2.default.component('Bands', __webpack_require__(172));
-_vue2.default.component('Gigs', __webpack_require__(178));
-_vue2.default.component('Invitations', __webpack_require__(184));
-_vue2.default.component('Repertoire', __webpack_require__(191));
-_vue2.default.component('Setlist', __webpack_require__(197));
-_vue2.default.component('Setlists', __webpack_require__(205));
-_vue2.default.component('Songs', __webpack_require__(211));
+_vue2.default.component('BandMembers', __webpack_require__(141));
+_vue2.default.component('BandNavigation', __webpack_require__(144));
+_vue2.default.component('Bands', __webpack_require__(147));
+_vue2.default.component('Gigs', __webpack_require__(153));
+_vue2.default.component('Invitations', __webpack_require__(159));
+_vue2.default.component('Repertoire', __webpack_require__(166));
+_vue2.default.component('Setlist', __webpack_require__(172));
+_vue2.default.component('Setlists', __webpack_require__(180));
+_vue2.default.component('Songs', __webpack_require__(186));
 
 /* Grid items */
-_vue2.default.component('BandCard', __webpack_require__(217));
+_vue2.default.component('BandCard', __webpack_require__(192));
 
 /* Modals */
-_vue2.default.component('CreateSetlist', __webpack_require__(219));
-_vue2.default.component('AddSetlistSong', __webpack_require__(222));
-_vue2.default.component('EditSetlistSong', __webpack_require__(43));
+_vue2.default.component('CreateSetlist', __webpack_require__(194));
+_vue2.default.component('AddSetlistSong', __webpack_require__(197));
+_vue2.default.component('EditSetlistSong', __webpack_require__(35));
 
-_vue2.default.component('Breadcrumbs', __webpack_require__(225));
-_vue2.default.component('CustomButton', __webpack_require__(228));
-_vue2.default.component('CustomButtonRow', __webpack_require__(231));
-_vue2.default.component('MainFooter', __webpack_require__(234));
-_vue2.default.component('MainNavigation', __webpack_require__(238));
-_vue2.default.component('WelcomeScreen', __webpack_require__(242));
+_vue2.default.component('Breadcrumbs', __webpack_require__(200));
+_vue2.default.component('CustomButton', __webpack_require__(203));
+_vue2.default.component('CustomButtonRow', __webpack_require__(206));
+_vue2.default.component('MainFooter', __webpack_require__(209));
+_vue2.default.component('MainNavigation', __webpack_require__(213));
+_vue2.default.component('WelcomeScreen', __webpack_require__(217));
 
 var app = new _vue2.default({
   el: '#app'
@@ -311,6 +303,14 @@ var app = new _vue2.default({
 quark.Init.default();
 
 /***/ }),
+/* 38 */,
+/* 39 */,
+/* 40 */,
+/* 41 */,
+/* 42 */,
+/* 43 */,
+/* 44 */,
+/* 45 */,
 /* 46 */,
 /* 47 */,
 /* 48 */,
@@ -395,38 +395,13 @@ quark.Init.default();
 /* 127 */,
 /* 128 */,
 /* 129 */,
-/* 130 */,
-/* 131 */,
-/* 132 */,
-/* 133 */,
-/* 134 */,
-/* 135 */,
-/* 136 */,
-/* 137 */,
-/* 138 */,
-/* 139 */,
-/* 140 */,
-/* 141 */,
-/* 142 */,
-/* 143 */,
-/* 144 */,
-/* 145 */,
-/* 146 */,
-/* 147 */,
-/* 148 */,
-/* 149 */,
-/* 150 */,
-/* 151 */,
-/* 152 */,
-/* 153 */,
-/* 154 */,
-/* 155 */
+/* 130 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var Component = __webpack_require__(1)(
   /* script */
-  __webpack_require__(156),
+  __webpack_require__(131),
   /* template */
   null,
   /* styles */
@@ -459,7 +434,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 156 */
+/* 131 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -473,7 +448,7 @@ var _quarkGui = __webpack_require__(0);
 
 var quark = _interopRequireWildcard(_quarkGui);
 
-var _GigTemplate = __webpack_require__(157);
+var _GigTemplate = __webpack_require__(132);
 
 var _GigTemplate2 = _interopRequireDefault(_GigTemplate);
 
@@ -495,7 +470,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 157 */
+/* 132 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -632,7 +607,7 @@ var template = "\n<form method=\"POST\" v-bind:action=\"url\">\n    <input v-if=
 exports.default = template;
 
 /***/ }),
-/* 158 */
+/* 133 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -646,7 +621,7 @@ var _quarkGui = __webpack_require__(0);
 
 var quark = _interopRequireWildcard(_quarkGui);
 
-var _SetlistSongTemplate = __webpack_require__(159);
+var _SetlistSongTemplate = __webpack_require__(134);
 
 var _SetlistSongTemplate2 = _interopRequireDefault(_SetlistSongTemplate);
 
@@ -830,7 +805,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 159 */
+/* 134 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -863,7 +838,7 @@ var formElements = {
         label: "Key",
         searchable: true,
         placeholder: "E.g. F, Am, or C#",
-        options: __webpack_require__(42),
+        options: __webpack_require__(34),
         attributes: ["v-model='data.values.key'"],
         vueBindings: {
             id: '"key-" + data.values.number_in_list'
@@ -951,13 +926,13 @@ var template = "\n<!--<form method=\"POST\" v-bind:action=\"formData.postUrl\"> 
 exports.default = template;
 
 /***/ }),
-/* 160 */
+/* 135 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var Component = __webpack_require__(1)(
   /* script */
-  __webpack_require__(161),
+  __webpack_require__(136),
   /* template */
   null,
   /* styles */
@@ -990,7 +965,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 161 */
+/* 136 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1004,7 +979,7 @@ var _quarkGui = __webpack_require__(0);
 
 var quark = _interopRequireWildcard(_quarkGui);
 
-var _SongTemplate = __webpack_require__(162);
+var _SongTemplate = __webpack_require__(137);
 
 var _SongTemplate2 = _interopRequireDefault(_SongTemplate);
 
@@ -1026,7 +1001,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 162 */
+/* 137 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1091,7 +1066,7 @@ var formElements = {
         label: "Key",
         searchable: true,
         placeholder: "E.g. F, Am, or C#",
-        options: __webpack_require__(42),
+        options: __webpack_require__(34),
         attributes: ["v-model='data.values.key'"]
     },
     bpm: {
@@ -1186,13 +1161,13 @@ var template = "\n<form method=\"POST\" v-bind:action=\"url\">\n    <input v-if=
 exports.default = template;
 
 /***/ }),
-/* 163 */
+/* 138 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var Component = __webpack_require__(1)(
   /* script */
-  __webpack_require__(164),
+  __webpack_require__(139),
   /* template */
   null,
   /* styles */
@@ -1225,7 +1200,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 164 */
+/* 139 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1239,7 +1214,7 @@ var _quarkGui = __webpack_require__(0);
 
 var quark = _interopRequireWildcard(_quarkGui);
 
-var _InvitationTemplate = __webpack_require__(165);
+var _InvitationTemplate = __webpack_require__(140);
 
 var _InvitationTemplate2 = _interopRequireDefault(_InvitationTemplate);
 
@@ -1295,7 +1270,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 165 */
+/* 140 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1409,15 +1384,15 @@ var template = "\n<form method=\"POST\" v-bind:action=\"formData.postUrl\">\n   
 exports.default = template;
 
 /***/ }),
-/* 166 */
+/* 141 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var Component = __webpack_require__(1)(
   /* script */
-  __webpack_require__(167),
+  __webpack_require__(142),
   /* template */
-  __webpack_require__(168),
+  __webpack_require__(143),
   /* styles */
   null,
   /* scopeId */
@@ -1449,7 +1424,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 167 */
+/* 142 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1521,7 +1496,7 @@ exports.default = {
 //
 
 /***/ }),
-/* 168 */
+/* 143 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -1540,13 +1515,13 @@ if (false) {
 }
 
 /***/ }),
-/* 169 */
+/* 144 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var Component = __webpack_require__(1)(
   /* script */
-  __webpack_require__(170),
+  __webpack_require__(145),
   /* template */
   null,
   /* styles */
@@ -1579,7 +1554,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 170 */
+/* 145 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1593,7 +1568,7 @@ var _quarkGui = __webpack_require__(0);
 
 var quark = _interopRequireWildcard(_quarkGui);
 
-var _BandNavigationTemplate = __webpack_require__(171);
+var _BandNavigationTemplate = __webpack_require__(146);
 
 var _BandNavigationTemplate2 = _interopRequireDefault(_BandNavigationTemplate);
 
@@ -1617,7 +1592,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 171 */
+/* 146 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1673,13 +1648,13 @@ var template = '\n     <div>\n        ' + listItemElements.songs + '\n        ' 
 exports.default = template;
 
 /***/ }),
-/* 172 */
+/* 147 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var Component = __webpack_require__(1)(
   /* script */
-  __webpack_require__(173),
+  __webpack_require__(148),
   /* template */
   null,
   /* styles */
@@ -1712,7 +1687,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 173 */
+/* 148 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1726,11 +1701,11 @@ var _quarkGui = __webpack_require__(0);
 
 var quark = _interopRequireWildcard(_quarkGui);
 
-var _Band = __webpack_require__(174);
+var _Band = __webpack_require__(149);
 
 var _Band2 = _interopRequireDefault(_Band);
 
-var _BandsTemplate = __webpack_require__(177);
+var _BandsTemplate = __webpack_require__(152);
 
 var _BandsTemplate2 = _interopRequireDefault(_BandsTemplate);
 
@@ -1748,13 +1723,13 @@ exports.default = {
 };
 
 /***/ }),
-/* 174 */
+/* 149 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var Component = __webpack_require__(1)(
   /* script */
-  __webpack_require__(175),
+  __webpack_require__(150),
   /* template */
   null,
   /* styles */
@@ -1787,7 +1762,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 175 */
+/* 150 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1801,7 +1776,7 @@ var _quarkGui = __webpack_require__(0);
 
 var quark = _interopRequireWildcard(_quarkGui);
 
-var _BandTemplate = __webpack_require__(176);
+var _BandTemplate = __webpack_require__(151);
 
 var _BandTemplate2 = _interopRequireDefault(_BandTemplate);
 
@@ -1829,7 +1804,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 176 */
+/* 151 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1890,7 +1865,7 @@ var template = '' + listItem;
 exports.default = template;
 
 /***/ }),
-/* 177 */
+/* 152 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1904,13 +1879,13 @@ var template = "\n     <div>\n        <band v-for=\"band in listItems\" v-bind:l
 exports.default = template;
 
 /***/ }),
-/* 178 */
+/* 153 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var Component = __webpack_require__(1)(
   /* script */
-  __webpack_require__(179),
+  __webpack_require__(154),
   /* template */
   null,
   /* styles */
@@ -1943,7 +1918,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 179 */
+/* 154 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1957,11 +1932,11 @@ var _quarkGui = __webpack_require__(0);
 
 var quark = _interopRequireWildcard(_quarkGui);
 
-var _Gig = __webpack_require__(180);
+var _Gig = __webpack_require__(155);
 
 var _Gig2 = _interopRequireDefault(_Gig);
 
-var _GigsTemplate = __webpack_require__(183);
+var _GigsTemplate = __webpack_require__(158);
 
 var _GigsTemplate2 = _interopRequireDefault(_GigsTemplate);
 
@@ -1979,13 +1954,13 @@ exports.default = {
 };
 
 /***/ }),
-/* 180 */
+/* 155 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var Component = __webpack_require__(1)(
   /* script */
-  __webpack_require__(181),
+  __webpack_require__(156),
   /* template */
   null,
   /* styles */
@@ -2018,7 +1993,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 181 */
+/* 156 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2032,7 +2007,7 @@ var _quarkGui = __webpack_require__(0);
 
 var quark = _interopRequireWildcard(_quarkGui);
 
-var _GigTemplate = __webpack_require__(182);
+var _GigTemplate = __webpack_require__(157);
 
 var _GigTemplate2 = _interopRequireDefault(_GigTemplate);
 
@@ -2080,7 +2055,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 182 */
+/* 157 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2143,7 +2118,7 @@ var template = '' + listItem;
 exports.default = template;
 
 /***/ }),
-/* 183 */
+/* 158 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2157,13 +2132,13 @@ var template = "\n     <div>\n        <gig v-for=\"gig in listItems\" v-bind:lis
 exports.default = template;
 
 /***/ }),
-/* 184 */
+/* 159 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var Component = __webpack_require__(1)(
   /* script */
-  __webpack_require__(185),
+  __webpack_require__(160),
   /* template */
   null,
   /* styles */
@@ -2196,7 +2171,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 185 */
+/* 160 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2210,11 +2185,11 @@ var _quarkGui = __webpack_require__(0);
 
 var quark = _interopRequireWildcard(_quarkGui);
 
-var _Invitation = __webpack_require__(186);
+var _Invitation = __webpack_require__(161);
 
 var _Invitation2 = _interopRequireDefault(_Invitation);
 
-var _InvitationsTemplate = __webpack_require__(190);
+var _InvitationsTemplate = __webpack_require__(165);
 
 var _InvitationsTemplate2 = _interopRequireDefault(_InvitationsTemplate);
 
@@ -2232,17 +2207,17 @@ exports.default = {
 };
 
 /***/ }),
-/* 186 */
+/* 161 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(187)
+  __webpack_require__(162)
 }
 var Component = __webpack_require__(1)(
   /* script */
-  __webpack_require__(188),
+  __webpack_require__(163),
   /* template */
   null,
   /* styles */
@@ -2275,13 +2250,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 187 */
+/* 162 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 188 */
+/* 163 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2295,7 +2270,7 @@ var _quarkGui = __webpack_require__(0);
 
 var quark = _interopRequireWildcard(_quarkGui);
 
-var _InvitationTemplate = __webpack_require__(189);
+var _InvitationTemplate = __webpack_require__(164);
 
 var _InvitationTemplate2 = _interopRequireDefault(_InvitationTemplate);
 
@@ -2342,7 +2317,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 189 */
+/* 164 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2406,7 +2381,7 @@ var template = '\n    <div v-if="listItem.status == \'pending\'" class="list-ite
 exports.default = template;
 
 /***/ }),
-/* 190 */
+/* 165 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2420,13 +2395,13 @@ var template = "\n     <div>\n        <invitation v-for=\"invitation in listItem
 exports.default = template;
 
 /***/ }),
-/* 191 */
+/* 166 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var Component = __webpack_require__(1)(
   /* script */
-  __webpack_require__(192),
+  __webpack_require__(167),
   /* template */
   null,
   /* styles */
@@ -2459,7 +2434,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 192 */
+/* 167 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2473,11 +2448,11 @@ var _quarkGui = __webpack_require__(0);
 
 var quark = _interopRequireWildcard(_quarkGui);
 
-var _RepertoireSong = __webpack_require__(193);
+var _RepertoireSong = __webpack_require__(168);
 
 var _RepertoireSong2 = _interopRequireDefault(_RepertoireSong);
 
-var _RepertoireTemplate = __webpack_require__(196);
+var _RepertoireTemplate = __webpack_require__(171);
 
 var _RepertoireTemplate2 = _interopRequireDefault(_RepertoireTemplate);
 
@@ -2495,13 +2470,13 @@ exports.default = {
 };
 
 /***/ }),
-/* 193 */
+/* 168 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var Component = __webpack_require__(1)(
   /* script */
-  __webpack_require__(194),
+  __webpack_require__(169),
   /* template */
   null,
   /* styles */
@@ -2534,7 +2509,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 194 */
+/* 169 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2548,7 +2523,7 @@ var _quarkGui = __webpack_require__(0);
 
 var quark = _interopRequireWildcard(_quarkGui);
 
-var _RepertoireSongTemplate = __webpack_require__(195);
+var _RepertoireSongTemplate = __webpack_require__(170);
 
 var _RepertoireSongTemplate2 = _interopRequireDefault(_RepertoireSongTemplate);
 
@@ -2580,7 +2555,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 195 */
+/* 170 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2638,7 +2613,7 @@ var template = '' + listItem;
 exports.default = template;
 
 /***/ }),
-/* 196 */
+/* 171 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2652,13 +2627,13 @@ var template = "\n     <div>\n        <repertoire-song v-for=\"song in listItems
 exports.default = template;
 
 /***/ }),
-/* 197 */
+/* 172 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var Component = __webpack_require__(1)(
   /* script */
-  __webpack_require__(198),
+  __webpack_require__(173),
   /* template */
   null,
   /* styles */
@@ -2691,7 +2666,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 198 */
+/* 173 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2705,11 +2680,11 @@ var _quarkGui = __webpack_require__(0);
 
 var quark = _interopRequireWildcard(_quarkGui);
 
-var _SetlistTemplate = __webpack_require__(199);
+var _SetlistTemplate = __webpack_require__(174);
 
 var _SetlistTemplate2 = _interopRequireDefault(_SetlistTemplate);
 
-var _SetlistSong = __webpack_require__(200);
+var _SetlistSong = __webpack_require__(175);
 
 var _SetlistSong2 = _interopRequireDefault(_SetlistSong);
 
@@ -2717,7 +2692,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-var dragula = __webpack_require__(11);
+var dragula = __webpack_require__(10);
 
 exports.default = {
     name: 'Setlist',
@@ -2795,7 +2770,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 199 */
+/* 174 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2809,13 +2784,13 @@ var template = "\n        <div>\n            <div id=\"setlist-songs-list\">\n  
 exports.default = template;
 
 /***/ }),
-/* 200 */
+/* 175 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var Component = __webpack_require__(1)(
   /* script */
-  __webpack_require__(201),
+  __webpack_require__(176),
   /* template */
   null,
   /* styles */
@@ -2848,7 +2823,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 201 */
+/* 176 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2862,11 +2837,11 @@ var _quarkGui = __webpack_require__(0);
 
 var quark = _interopRequireWildcard(_quarkGui);
 
-var _SetlistSongTemplate = __webpack_require__(202);
+var _SetlistSongTemplate = __webpack_require__(177);
 
 var _SetlistSongTemplate2 = _interopRequireDefault(_SetlistSongTemplate);
 
-var _EditSetlistSong = __webpack_require__(43);
+var _EditSetlistSong = __webpack_require__(35);
 
 var _EditSetlistSong2 = _interopRequireDefault(_EditSetlistSong);
 
@@ -2897,7 +2872,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 202 */
+/* 177 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2940,7 +2915,7 @@ var template = "" + listItem;
 exports.default = template;
 
 /***/ }),
-/* 203 */
+/* 178 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2954,11 +2929,11 @@ var _quarkGui = __webpack_require__(0);
 
 var quark = _interopRequireWildcard(_quarkGui);
 
-var _EditSetlistSongTemplate = __webpack_require__(204);
+var _EditSetlistSongTemplate = __webpack_require__(179);
 
 var _EditSetlistSongTemplate2 = _interopRequireDefault(_EditSetlistSongTemplate);
 
-var _SetlistSong = __webpack_require__(41);
+var _SetlistSong = __webpack_require__(33);
 
 var _SetlistSong2 = _interopRequireDefault(_SetlistSong);
 
@@ -2992,7 +2967,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 204 */
+/* 179 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3040,13 +3015,13 @@ var template = '<div style="display: inline-block">' + modalElement + '</div>';
 exports.default = template;
 
 /***/ }),
-/* 205 */
+/* 180 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var Component = __webpack_require__(1)(
   /* script */
-  __webpack_require__(206),
+  __webpack_require__(181),
   /* template */
   null,
   /* styles */
@@ -3079,7 +3054,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 206 */
+/* 181 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3093,11 +3068,11 @@ var _quarkGui = __webpack_require__(0);
 
 var quark = _interopRequireWildcard(_quarkGui);
 
-var _Setlist = __webpack_require__(207);
+var _Setlist = __webpack_require__(182);
 
 var _Setlist2 = _interopRequireDefault(_Setlist);
 
-var _SetlistsTemplate = __webpack_require__(210);
+var _SetlistsTemplate = __webpack_require__(185);
 
 var _SetlistsTemplate2 = _interopRequireDefault(_SetlistsTemplate);
 
@@ -3115,13 +3090,13 @@ exports.default = {
 };
 
 /***/ }),
-/* 207 */
+/* 182 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var Component = __webpack_require__(1)(
   /* script */
-  __webpack_require__(208),
+  __webpack_require__(183),
   /* template */
   null,
   /* styles */
@@ -3154,7 +3129,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 208 */
+/* 183 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3168,7 +3143,7 @@ var _quarkGui = __webpack_require__(0);
 
 var quark = _interopRequireWildcard(_quarkGui);
 
-var _SetlistTemplate = __webpack_require__(209);
+var _SetlistTemplate = __webpack_require__(184);
 
 var _SetlistTemplate2 = _interopRequireDefault(_SetlistTemplate);
 
@@ -3199,7 +3174,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 209 */
+/* 184 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3260,7 +3235,7 @@ var template = '' + listItem;
 exports.default = template;
 
 /***/ }),
-/* 210 */
+/* 185 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3274,13 +3249,13 @@ var template = "\n     <div v-if=\"Array.isArray(listItems)\">\n        <setlist
 exports.default = template;
 
 /***/ }),
-/* 211 */
+/* 186 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var Component = __webpack_require__(1)(
   /* script */
-  __webpack_require__(212),
+  __webpack_require__(187),
   /* template */
   null,
   /* styles */
@@ -3313,7 +3288,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 212 */
+/* 187 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3327,11 +3302,11 @@ var _quarkGui = __webpack_require__(0);
 
 var quark = _interopRequireWildcard(_quarkGui);
 
-var _Song = __webpack_require__(213);
+var _Song = __webpack_require__(188);
 
 var _Song2 = _interopRequireDefault(_Song);
 
-var _SongsTemplate = __webpack_require__(216);
+var _SongsTemplate = __webpack_require__(191);
 
 var _SongsTemplate2 = _interopRequireDefault(_SongsTemplate);
 
@@ -3349,13 +3324,13 @@ exports.default = {
 };
 
 /***/ }),
-/* 213 */
+/* 188 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var Component = __webpack_require__(1)(
   /* script */
-  __webpack_require__(214),
+  __webpack_require__(189),
   /* template */
   null,
   /* styles */
@@ -3388,7 +3363,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 214 */
+/* 189 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3402,7 +3377,7 @@ var _quarkGui = __webpack_require__(0);
 
 var quark = _interopRequireWildcard(_quarkGui);
 
-var _SongTemplate = __webpack_require__(215);
+var _SongTemplate = __webpack_require__(190);
 
 var _SongTemplate2 = _interopRequireDefault(_SongTemplate);
 
@@ -3434,7 +3409,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 215 */
+/* 190 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3496,7 +3471,7 @@ var template = '' + listItem;
 exports.default = template;
 
 /***/ }),
-/* 216 */
+/* 191 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3510,13 +3485,13 @@ var template = "\n     <div>\n        <song v-for=\"song in listItems\" v-bind:l
 exports.default = template;
 
 /***/ }),
-/* 217 */
+/* 192 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var Component = __webpack_require__(1)(
   /* script */
-  __webpack_require__(218),
+  __webpack_require__(193),
   /* template */
   null,
   /* styles */
@@ -3549,7 +3524,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 218 */
+/* 193 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3621,13 +3596,13 @@ exports.default = {
 };
 
 /***/ }),
-/* 219 */
+/* 194 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var Component = __webpack_require__(1)(
   /* script */
-  __webpack_require__(220),
+  __webpack_require__(195),
   /* template */
   null,
   /* styles */
@@ -3660,7 +3635,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 220 */
+/* 195 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3674,7 +3649,7 @@ var _quarkGui = __webpack_require__(0);
 
 var quark = _interopRequireWildcard(_quarkGui);
 
-var _CreateSetlistTemplate = __webpack_require__(221);
+var _CreateSetlistTemplate = __webpack_require__(196);
 
 var _CreateSetlistTemplate2 = _interopRequireDefault(_CreateSetlistTemplate);
 
@@ -3728,7 +3703,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 221 */
+/* 196 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3813,13 +3788,13 @@ var template = "\n<div>\n<form method=\"POST\" v-bind:action=\"formData.postUrl\
 exports.default = template;
 
 /***/ }),
-/* 222 */
+/* 197 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var Component = __webpack_require__(1)(
   /* script */
-  __webpack_require__(223),
+  __webpack_require__(198),
   /* template */
   null,
   /* styles */
@@ -3852,7 +3827,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 223 */
+/* 198 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3866,7 +3841,7 @@ var _quarkGui = __webpack_require__(0);
 
 var quark = _interopRequireWildcard(_quarkGui);
 
-var _AddSetlistSongTemplate = __webpack_require__(224);
+var _AddSetlistSongTemplate = __webpack_require__(199);
 
 var _AddSetlistSongTemplate2 = _interopRequireDefault(_AddSetlistSongTemplate);
 
@@ -3907,7 +3882,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 224 */
+/* 199 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3965,15 +3940,15 @@ var template = "\n<div>\n<input v-if=\"method !== 'GET'\" type=\"hidden\" name=\
 exports.default = template;
 
 /***/ }),
-/* 225 */
+/* 200 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var Component = __webpack_require__(1)(
   /* script */
-  __webpack_require__(226),
+  __webpack_require__(201),
   /* template */
-  __webpack_require__(227),
+  __webpack_require__(202),
   /* styles */
   null,
   /* scopeId */
@@ -4005,7 +3980,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 226 */
+/* 201 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4085,7 +4060,7 @@ exports.default = {
 //
 
 /***/ }),
-/* 227 */
+/* 202 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -4104,15 +4079,15 @@ if (false) {
 }
 
 /***/ }),
-/* 228 */
+/* 203 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var Component = __webpack_require__(1)(
   /* script */
-  __webpack_require__(229),
+  __webpack_require__(204),
   /* template */
-  __webpack_require__(230),
+  __webpack_require__(205),
   /* styles */
   null,
   /* scopeId */
@@ -4144,7 +4119,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 229 */
+/* 204 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4178,7 +4153,7 @@ exports.default = {
 //
 
 /***/ }),
-/* 230 */
+/* 205 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -4197,15 +4172,15 @@ if (false) {
 }
 
 /***/ }),
-/* 231 */
+/* 206 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var Component = __webpack_require__(1)(
   /* script */
-  __webpack_require__(232),
+  __webpack_require__(207),
   /* template */
-  __webpack_require__(233),
+  __webpack_require__(208),
   /* styles */
   null,
   /* scopeId */
@@ -4237,7 +4212,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 232 */
+/* 207 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4271,7 +4246,7 @@ exports.default = {
 //
 
 /***/ }),
-/* 233 */
+/* 208 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -4290,15 +4265,15 @@ if (false) {
 }
 
 /***/ }),
-/* 234 */
+/* 209 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var Component = __webpack_require__(1)(
   /* script */
-  __webpack_require__(235),
+  __webpack_require__(210),
   /* template */
-  __webpack_require__(237),
+  __webpack_require__(212),
   /* styles */
   null,
   /* scopeId */
@@ -4330,7 +4305,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 235 */
+/* 210 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4360,7 +4335,7 @@ exports.default = {
             var footerElement = quark.Organisms.Global.Footer.getModule({
                 logo: {
                     image: {
-                        src: __webpack_require__(236),
+                        src: __webpack_require__(211),
                         alt: 'quarkGUI logo'
                     },
                     url: '/'
@@ -4376,13 +4351,13 @@ exports.default = {
 //
 
 /***/ }),
-/* 236 */
+/* 211 */
 /***/ (function(module, exports) {
 
 module.exports = "/fonts/flowgig-logo-gray.svg?413772836746db575069063b35a2d033";
 
 /***/ }),
-/* 237 */
+/* 212 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -4401,17 +4376,21 @@ if (false) {
 }
 
 /***/ }),
-/* 238 */
+/* 213 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(262)
+}
 var Component = __webpack_require__(1)(
   /* script */
-  __webpack_require__(239),
+  __webpack_require__(214),
   /* template */
-  __webpack_require__(241),
+  __webpack_require__(216),
   /* styles */
-  null,
+  injectStyle,
   /* scopeId */
   null,
   /* moduleIdentifier (server only) */
@@ -4441,7 +4420,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 239 */
+/* 214 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4463,7 +4442,8 @@ exports.default = {
     data: function data() {
         return {
             htmlContent: "",
-            header: {}
+            header: {},
+            gravatarImageSrc: 'https://www.gravatar.com/avatar/' + this.currentUser.gravatarId + '?s=190&d=robohash'
         };
     },
 
@@ -4475,7 +4455,7 @@ exports.default = {
             theme: 'dark',
             logo: {
                 image: {
-                    src: __webpack_require__(240),
+                    src: __webpack_require__(215),
                     alt: 'FlowGig logo'
                 },
                 url: "/dashboard"
@@ -4548,9 +4528,10 @@ exports.default = {
         }
 
         if (this.currentUser !== undefined) {
+            var profileImageElement = '<div class="main-navigation-profile-image"><img src="' + this.gravatarImageSrc + '"/></div>';
             var listItemUser = {
                 name: '', //this.currentUser.name,
-                iconClass: "fa fa-user",
+                iconElement: profileImageElement,
                 responsive: {
                     showIcon: true,
                     showText: false
@@ -4583,13 +4564,13 @@ exports.default = {
 //
 
 /***/ }),
-/* 240 */
+/* 215 */
 /***/ (function(module, exports) {
 
 module.exports = "/fonts/flowgig-beta-logo-white.svg?59e89767169b8b9e25aacaddc2115866";
 
 /***/ }),
-/* 241 */
+/* 216 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -4608,19 +4589,19 @@ if (false) {
 }
 
 /***/ }),
-/* 242 */
+/* 217 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(243)
+  __webpack_require__(218)
 }
 var Component = __webpack_require__(1)(
   /* script */
-  __webpack_require__(244),
+  __webpack_require__(219),
   /* template */
-  __webpack_require__(258),
+  __webpack_require__(233),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -4652,13 +4633,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 243 */
+/* 218 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 244 */
+/* 219 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4668,15 +4649,15 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _LoginForm = __webpack_require__(245);
+var _LoginForm = __webpack_require__(220);
 
 var _LoginForm2 = _interopRequireDefault(_LoginForm);
 
-var _RegisterForm = __webpack_require__(249);
+var _RegisterForm = __webpack_require__(224);
 
 var _RegisterForm2 = _interopRequireDefault(_RegisterForm);
 
-var _Welcome = __webpack_require__(253);
+var _Welcome = __webpack_require__(228);
 
 var _Welcome2 = _interopRequireDefault(_Welcome);
 
@@ -4719,7 +4700,7 @@ exports.default = {
     data: function data() {
         return {
             logo: quark.Atoms.Media.Image.getModule({
-                src: __webpack_require__(257),
+                src: __webpack_require__(232),
                 alt: "FlowGig logo"
             })
         };
@@ -4727,19 +4708,19 @@ exports.default = {
 };
 
 /***/ }),
-/* 245 */
+/* 220 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(246)
+  __webpack_require__(221)
 }
 var Component = __webpack_require__(1)(
   /* script */
-  __webpack_require__(247),
+  __webpack_require__(222),
   /* template */
-  __webpack_require__(248),
+  __webpack_require__(223),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -4771,13 +4752,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 246 */
+/* 221 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 247 */
+/* 222 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4853,7 +4834,7 @@ exports.default = {
 //
 
 /***/ }),
-/* 248 */
+/* 223 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -4916,19 +4897,19 @@ if (false) {
 }
 
 /***/ }),
-/* 249 */
+/* 224 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(250)
+  __webpack_require__(225)
 }
 var Component = __webpack_require__(1)(
   /* script */
-  __webpack_require__(251),
+  __webpack_require__(226),
   /* template */
-  __webpack_require__(252),
+  __webpack_require__(227),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -4960,13 +4941,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 250 */
+/* 225 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 251 */
+/* 226 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5057,7 +5038,7 @@ exports.default = {
 //
 
 /***/ }),
-/* 252 */
+/* 227 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -5126,19 +5107,19 @@ if (false) {
 }
 
 /***/ }),
-/* 253 */
+/* 228 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(254)
+  __webpack_require__(229)
 }
 var Component = __webpack_require__(1)(
   /* script */
-  __webpack_require__(255),
+  __webpack_require__(230),
   /* template */
-  __webpack_require__(256),
+  __webpack_require__(231),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -5170,13 +5151,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 254 */
+/* 229 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 255 */
+/* 230 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5205,7 +5186,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 256 */
+/* 231 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -5238,13 +5219,13 @@ if (false) {
 }
 
 /***/ }),
-/* 257 */
+/* 232 */
 /***/ (function(module, exports) {
 
 module.exports = "/fonts/flowgig-logo-white.svg?c459988ca87c3c370f8dbc3b416cf9fb";
 
 /***/ }),
-/* 258 */
+/* 233 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -5270,10 +5251,43 @@ if (false) {
 }
 
 /***/ }),
-/* 259 */
+/* 234 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 235 */,
+/* 236 */,
+/* 237 */,
+/* 238 */,
+/* 239 */,
+/* 240 */,
+/* 241 */,
+/* 242 */,
+/* 243 */,
+/* 244 */,
+/* 245 */,
+/* 246 */,
+/* 247 */,
+/* 248 */,
+/* 249 */,
+/* 250 */,
+/* 251 */,
+/* 252 */,
+/* 253 */,
+/* 254 */,
+/* 255 */,
+/* 256 */,
+/* 257 */,
+/* 258 */,
+/* 259 */,
+/* 260 */,
+/* 261 */,
+/* 262 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ })
-],[44]);
+],[36]);

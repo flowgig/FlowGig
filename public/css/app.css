@@ -300,3 +300,18 @@ button[disabled][data-v-e38bb6b6]:hover {
 .list-item:last-child {
     border-bottom: none;
 }
+
+.main-navigation-profile-image{
+    display: inline-block;
+    background: azure;
+    border-radius: 50%;
+    border-bottom: 0;
+    padding: 0px;
+    margin: 6px 0;
+    overflow: hidden;
+    height: 44px;
+    width: 44px;
+}
+.main-navigation-profile-image img{
+    height: 44px;
+}
