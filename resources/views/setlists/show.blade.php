@@ -61,13 +61,20 @@
                     @foreach($setlist->setlistSongs->sortBy('number_in_list') as $setlistSong)
                     <li>
                         <span class="list-item-content single-line">
-                            <a href="{{ route('songs.show', $setlistSong->song) }}">{{ $setlistSong->song->title }}</a>
+                            <span>{{ $setlistSong->song->title }}</span>
                             @if($setlistSong->key)
                                 <span style="margin-left: 10px; font-size: .8em">{{ $setlistSong->key }}</span>
                             @endif
                             @if($setlistSong->comment)
                                 <i style="margin: 0 5px 0 10px; font-size: .8em">{{ $setlistSong->comment }}</i>
                             @endif
+                        </span>
+                        <span class="list-item-buttons">
+                            <a class="button button-icon button-flat button-default tooltip"
+                               title="Show {{ $setlistSong->song->title }} in repertoire"
+                               href="{{ route('songs.show', $setlistSong->song) }}">
+                                <i class="fa fa-list" aria-hidden="true"></i>
+                            </a>
                         </span>
                     </li>
                     @endforeach
