@@ -70,6 +70,13 @@
                             @endif
                         </span>
                         <span class="list-item-buttons">
+                            @if(count($setlistSong->song->links) > 0)
+                                <button class="toggle-elements button button-icon button-flat button-default tooltip"
+                                        title="{{ $setlistSong->song->title }} links"
+                                        value="song-links-modal-{{ $setlistSong->id }}">
+                                    <span class="fa fa-link"></span>
+                                </button>
+                            @endif
                             <a class="button button-icon button-flat button-default tooltip"
                                title="Show {{ $setlistSong->song->title }} in repertoire"
                                href="{{ route('songs.show', $setlistSong->song) }}">
@@ -77,6 +84,28 @@
                             </a>
                         </span>
                     </li>
+                        <div class="modal song-links-modal-{{ $setlistSong->id }}">
+                            <div class="modal-container">
+                                <div class="modal-header">
+                                    Links - {{ $setlistSong->song->title }}:
+                                    <button class="modal-close toggle-elements"
+                                            value="song-links-modal-{{ $setlistSong->id }}">
+                                    </button>
+                                </div>
+                                <div class="modal-content">
+                                    <ul class="list">
+                                        @foreach($setlistSong->song->links as $link)
+                                            <li>
+                                                <span class="list-item-content single-line">
+                                                    <a class="tooltip" href="{{ $link->url }}" target="_blank"
+                                                       title="{{ $link->url }}">{{ $link->text ?? $link->url }}</a>
+                                                </span>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                     @endforeach
                 </ul>
                 </div>
