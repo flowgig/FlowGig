@@ -47,7 +47,8 @@
                 @endif
             </div>
             <div class="input-group">
-                <button type="button" class="button button-flat button-default toggle-elements" value="privacy-modal">
+                <button type="button" class="button button-flat button-default toggle-elements" value="privacy-modal"
+                        onclick="_paq.push(['trackEvent', 'Privacy info', 'display', 'Privacy info - Register form'])">
                     Privacy
                 </button>
                 <button type="submit" class="button button-flat button-primary float-right">Register</button>

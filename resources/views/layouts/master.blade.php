@@ -158,7 +158,8 @@
                                 Release notes</a>
                             |
                             <button class="toggle-elements button button-icon button-flat button-default tooltip"
-                                    value="privacy-modal" title="Privacy" style="font-size: .9em">Privacy
+                                    value="privacy-modal" title="Privacy" style="font-size: .9em"
+                                    onclick="_paq.push(['trackEvent', 'Privacy info', 'display', 'Privacy info - Footer'])">Privacy
                             </button>
                             |
                             <a href="https://github.com/flowgig/flowgig" title="Source code" target="_blank">
