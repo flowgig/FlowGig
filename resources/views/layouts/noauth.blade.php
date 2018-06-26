@@ -12,7 +12,11 @@
         (function() {
             var u="//analytics.flowgig.com/";
             _paq.push(['setTrackerUrl', u+'piwik.php']);
-            _paq.push(['setSiteId', '1']);
+            @if(env('APP_ENV') == 'production')
+                _paq.push(['setSiteId', '1']);
+            @elseif(env('APP_ENV') == 'development')
+                _paq.push(['setSiteId', '2']);
+            @endif
             var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
             g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
         })();
