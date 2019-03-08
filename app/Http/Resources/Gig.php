@@ -15,7 +15,7 @@ class Gig extends Resource
     public function toArray($request)
     {
         return [
-            'date' => $this->date->toDateTimeString(),
+            'date' => $this->date->format("Y-m-d\TH:i:s"), // DateTimeLocalString
             'venue' => $this->venue,
             'location' => $this->location,
             'event' => $this->event,
