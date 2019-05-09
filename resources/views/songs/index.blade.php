@@ -50,7 +50,7 @@
                                     {{ csrf_field() }}
                                     {{ method_field('DELETE') }}
                                     <button type="submit"
-                                            onclick="return confirm('This deletes the song {{ $song->title }}')"
+                                            onclick="return confirm('This deletes the song {{ addslashes($song->title) }}')"
                                             class="button button-icon button-flat button-default tooltip"
                                             title="Delete {{$song->title}}">
                                          <span class="fa fa-trash"></span>

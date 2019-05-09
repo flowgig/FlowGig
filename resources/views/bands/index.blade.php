@@ -56,7 +56,7 @@
                                             <div class="clearfix"></div>
                                         </div>
                                         <button type="submit"
-                                                onclick="return confirm('This deletes the band {{ $band->name }}')"
+                                                onclick="return confirm('This deletes the band {{ addslashes($band->name) }}')"
                                                 class="button button-flat button-warning float-right tooltip"
                                                 title="Delete {{ $band->name }}">Delete band
                                         </button>

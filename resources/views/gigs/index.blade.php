@@ -54,7 +54,7 @@
                                     {{ csrf_field() }}
                                     {{ method_field('DELETE') }}
                                     <button type="submit"
-                                            onclick="return confirm('This deletes the gig at {{ $gig->date() }}')"
+                                            onclick="return confirm('This deletes the gig at {{ addslashes($gig->date()) }}')"
                                             class="button button-icon button-flat button-default tooltip"
                                             title="Delete the gig">
                                          <span class="fa fa-trash"></span>

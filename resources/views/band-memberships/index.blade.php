@@ -46,7 +46,7 @@
                                     {{ csrf_field() }}
                                     {{ method_field('DELETE') }}
                                     <button type="submit"
-                                            onclick="return validateDelete('{{ $membership->user->id }}', '{{ $membership->user->name }}')"
+                                            onclick="return validateDelete('{{ $membership->user->id }}', '{{ addslashes($membership->user->name) }}', '{{ addslashes($band->name) }}')"
                                             class="button button-icon button-flat button-default tooltip"
                                             title="Remove {{ $membership->user->name }}">
                                          <span class="fa fa-trash"></span>
@@ -74,7 +74,7 @@
                                         @if($invitation->isPending())
                                             <form action="{{ route('band-invitations.set-expired', $invitation) }}" method="POST">
                                             {{ csrf_field() }} {{ method_field('PUT') }}
-                                                <button onclick="return validateSetInvitationExpired('{{ $invitation->inviteeName() }}')"
+                                                <button onclick="return validateSetInvitationExpired('{{ addslashes($invitation->inviteeName()) }}')"
                                                         style="font-size: 10pt; line-height: 14pt; height:22px"
                                                         class="button button-icon button-flat button-default tooltip"
                                                         title="Set invitation expired">Set expired
@@ -103,13 +103,13 @@
 @endsection
 @section('scripts')
     <script>
-        function validateDelete(userId, userName) {
+        function validateDelete(userId, userName, bandName) {
             if ({{ $band->memberships->count() }} == 1) {
                 alert('You are the last member and cannot be removed.\n(You\'ll have to delete the band)');
                 return false;
             }
             else if (userId == {{ Auth::user()->id }}) {
-                return confirm('This completely removes your access to the band {{ $band->name }}')
+                return confirm('This completely removes your access to the band ' + bandName)
             }
             return confirm('This removes ' + userName)
         }

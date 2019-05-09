@@ -90,7 +90,7 @@
                                             {{ csrf_field() }}
                                             {{ method_field('DELETE') }}
                                             <button type="submit"
-                                                    onclick="return confirm('This deletes the link {{ $link->text }}')"
+                                                    onclick="return confirm('This deletes the link {{ addslashes($link->text) }}')"
                                                     class="button button-small button-icon button-flat button-default tooltip"
                                                     title="Delete link {{ $link->text }}">
                                                  <span class="fa fa-trash"></span>
