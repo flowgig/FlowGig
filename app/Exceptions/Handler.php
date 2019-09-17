@@ -4,7 +4,6 @@ namespace App\Exceptions;
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
-use Jrean\UserVerification\Exceptions\UserNotVerifiedException;
 
 class Handler extends ExceptionHandler
 {
@@ -30,8 +29,6 @@ class Handler extends ExceptionHandler
     /**
      * Report or log an exception.
      *
-     * This is a great spot to send exceptions to Sentry, Bugsnag, etc.
-     *
      * @param  \Exception  $exception
      * @return void
      */
@@ -49,26 +46,6 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
-        if ($exception instanceof UserNotVerifiedException) {
-            return $this->unverified($request, $exception);
-        }
-
         return parent::render($request, $exception);
-    }
-
-    /**
-     * Convert an verification exception into an unverified response.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @param UserNotVerifiedException $exception
-     * @return \Illuminate\Http\Response
-     */
-    protected function unverified($request, UserNotVerifiedException $exception)
-    {
-        if ($request->expectsJson()) {
-            return response()->json(['error' => 'User not verified.'], 401);
-        }
-
-        return redirect()->route('email-verification.info');
     }
 }

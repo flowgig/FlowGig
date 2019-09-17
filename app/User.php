@@ -4,13 +4,12 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Support\Collection;
-use Jrean\UserVerification\Traits\UserVerification;
 
 class User extends Authenticatable
 {
     use Notifiable;
-    use UserVerification;
 
     /**
      * The attributes that are mass assignable.
@@ -30,6 +29,18 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+    ];
+
+    /**
+     * Get all of the user's bands.
+     */
     public function bands()
     {
         return $this->belongsToMany('App\Band', 'band_memberships')->whereNull('band_memberships.deleted_at');
@@ -48,7 +59,6 @@ class User extends Authenticatable
 
         return $gigs;
     }
-
 
     /**
      * Get all of the user's invitations.
