@@ -1,0 +1,22 @@
+{
+  "name": "flowgig",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Jørgen Tellnes <jorgen@tellnes.nu>",
+    "Benjamin Dehli <superelg@gmail.com>"
+  ],
+  "license": "GPL-3.0",
+  "homepage": "https://github.com/flowgig/flowgig",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "simple-gui-template": "^0.2.7"
+  }
+}
