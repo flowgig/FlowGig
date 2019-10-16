@@ -6,10 +6,12 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Support\Collection;
+use Jrean\UserVerification\Traits\UserVerification;
 
 class User extends Authenticatable
 {
     use Notifiable;
+    use UserVerification;
 
     /**
      * The attributes that are mass assignable.
