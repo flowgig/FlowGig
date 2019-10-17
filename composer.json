@@ -14,6 +14,7 @@
         "doctrine/dbal": "^2.6",
         "fideloper/proxy": "^4.0",
         "guzzlehttp/guzzle": "^6.3",
+        "jrean/laravel-user-verification": "^8.0",
         "laravel/framework": "^6.0",
         "laravel/tinker": "^1.0",
         "mews/captcha": "^3.0",
